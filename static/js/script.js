@@ -91,9 +91,8 @@
         let userCounts = 13;
         $.ajax({
             url: 'https://www.mydrdozy.com/miracle/user-count',
-            // url: 'http://localhost:8080/miracle/user-count',
             type: 'GET',
-            async : false,
+            async: false,
             contentType: 'application/json; charset=UTF-8',
             dataType: "text",
 

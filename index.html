@@ -13,7 +13,7 @@
 
     <title>미라클나잇, 4시간 30분 :: 기적의 수면</title>
 
-    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="stylesheet" href="static/css/style.css">
     <link rel="stylesheet" type="text/css"
           href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -90,8 +90,8 @@
         <h2 class="app-title animate slide delay-1">4시간 30분 <br> 기적의 수면을 지금 시작하세요! </h2>
 
         <div class="icon-container">
-            <img src="../static/images/icon.png"></div>
-        <img src="../static/images/screen.png">
+            <img src="static/images/icon.png"></div>
+        <img src="static/images/screen.png">
     </div>
 </section>
 
@@ -110,14 +110,14 @@
 
     <div class="sec3-container">
         <div class="sec3-small" data-aos="fade-in" data-aos-duration="500">
-            <img src="../static/images/science.png">
+            <img src="static/images/science.png">
             <h4>과학적인 수면 사이클</h4>
             <h5>1시간 30분마다 반복되는 수면 사이클 <br>
                 3번째 사이클 렘수면에서 개운하게 일어나보세요</h5>
         </div>
 
         <div class="sec3-small" data-aos="fade-in" data-aos-duration="500">
-            <img src="../static/images/effect.png">
+            <img src="static/images/effect.png">
             <h4>검증된 수면 효과</h4>
             <h5>연세대학교 응용뇌인지과학 연구소 검증 <br>
                 효과 검증된 최적의 수면 유도 소리를 들어보세요</h5>
@@ -132,11 +132,11 @@
     <div class="sec4-img-container">
         <h4 class="countdown" id="countdown">00:00:00:00</h4>
         <h5 class="date">일 시 분 초</h5>
-        <img src="../static/images/rotaor.png">
+        <img src="static/images/rotaor.png">
     </div>
 
     <div class="sec4-container-sec">
-        <h4 class="sec4-info"><img src="../static/images/ios.svg"> iOS 앱 출시 예정</h4>
+        <h4 class="sec4-info"><img src="static/images/ios.svg"> iOS 앱 출시 예정</h4>
         <form>
             <input class="phonenum" type="number" placeholder="전화번호를 입력해주세요" id="phoneNum">
             <input type="submit" class="submitbtn" value="사전예약 하기" onclick="sendEmail()"></form>
@@ -157,7 +157,7 @@
     </div>
 
     <div class="sec5-info">
-        <img src="../static/images/logo.svg">
+        <img src="static/images/logo.svg">
         <a>서울특별시 서대문구 연세로2나길 61, 207호</a>
         <a>miraclenight@munice.com</a>
         <a href="www.miraclenight.app">www.miraclenight.app</a>
@@ -165,10 +165,10 @@
 
     <div class="sec5-info-t">
         <a href="https://munice.notion.site/Help-Support-078ffeaee94640299666e85b21aa3e92"><img
-                src="../static/images/notion.svg"></a>
-        <a href="https://www.instagram.com/miraclenight_official/?hl=en"><img src="../static/images/insta.svg"></a>
-        <a href=""><img src="../static/images/linked.svg"></a>
-        <a href="https://pf.kakao.com/_pxohDb"><img src="../static/images/kakao.svg"></a>
+                src="static/images/notion.svg"></a>
+        <a href="https://www.instagram.com/miraclenight_official/?hl=en"><img src="static/images/insta.svg"></a>
+        <a href=""><img src="static/images/linked.svg"></a>
+        <a href="https://pf.kakao.com/_pxohDb"><img src="static/images/kakao.svg"></a>
     </div>
 
     <div class="sec5-info-x">
@@ -177,29 +177,25 @@
 
 </section>
 <script>
-window.onload = function (){
-    $.ajax({
-        url: 'https://www.mydrdozy.com/miracle/user-count',
-        // url: 'http://localhost:8080/miracle/user-count',
-        type: 'GET',
-        async : true,
-        contentType: 'application/json; charset=UTF-8',
-        dataType: "text",
+    window.onload = function (){
+        $.ajax({
+            url: 'https://www.mydrdozy.com/miracle/user-count',
+            type: 'GET',
+            async : true,
+            contentType: 'application/json; charset=UTF-8',
+            dataType: "text",
 
-        success: function (data, jqXHR) {
-            console.log("success index1");
-            userCounts = JSON.parse(data).data.count;
-            document.getElementById("userCounts").innerText = userCounts
-        },
-        error: function (jqXHR, error) {
-            console.log("fail")
-            alert(error)
-        },
-        complete: function (jqXHR) {
-            console.log("complete")
-        }
-    })
-}
+            success: function (data, jqXHR) {
+                console.log("success");
+                userCounts = JSON.parse(data).data.count;
+                document.getElementById("userCounts").innerText = userCounts
+            },
+            error: function (jqXHR, error) {
+                console.log("fail1")
+                alert(error)
+            }
+        })
+    }
 </script>
 <script>
     function sendEmail() {
@@ -229,16 +225,13 @@ window.onload = function (){
             dataType: "text",
 
             success: function (data, jqXHR) {
-                console.log("success index2");
-                window.location.replace("success.html");
+                window.location.href = "success.html";
+                alert("사전예약 신청 완료!")
             },
             error: function (jqXHR, error) {
-                console.log("error index2");
-                alert(error)
-            },
-            complete: function (jqXHR) {
-                console.log("complete index2");
+                alert("error!!")
             }
+
         })
 
     }
@@ -247,8 +240,8 @@ window.onload = function (){
 <script>
     AOS.init();
 </script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
-<script src="../static/js/jquery.min.js"></script>
-<script src="../static/js/script.js"></script>
+<script src="/cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
+<script src="static/js/jquery.min.js"></script>
+<script src="static/js/script.js"></script>
 
 </body>
