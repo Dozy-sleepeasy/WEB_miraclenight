@@ -59,7 +59,7 @@
             if (start === end) {
                 return;
             }
-            const duration = 3000;
+            const duration = 1000;
             const range = end - start;
             let current = start;
             const increment = end > start ? 1 : -1;
