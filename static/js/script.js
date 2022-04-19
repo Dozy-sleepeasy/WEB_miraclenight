@@ -1,5 +1,6 @@
 (function ($) {
     "use strict";
+    console.log("start script.js")
 
     /* Preloader */
     $(window).on('load', function () {
@@ -97,14 +98,19 @@
             dataType: "text",
 
             success: function (data, jqXHR) {
+                console.log("success get user counts");
                 userCounts = JSON.parse(data).data.count;
+                console.log("user counts = " + userCounts);
             },
             error: function (jqXHR, error) {
                 console.log("fail")
             }
         })
 
+        console.log(userCounts);
+
         animateValue(document.getElementById('c'), 0, userCounts);
+        document.getElementById("userCounts2").innerText = userCounts;
 
 
     })

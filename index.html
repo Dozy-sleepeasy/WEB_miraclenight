@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta name=“naver-site-verification” content=“1ad68542c27f5f48d6886d89b3463a9119b8abd0" />
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
@@ -139,7 +140,7 @@
         <h4 class="sec4-info"><img src="static/images/ios.svg"> iOS 앱 출시 예정</h4>
         <form>
             <input class="phonenum" type="number" placeholder="전화번호를 입력해주세요" id="phoneNum">
-            <input type="submit" class="submitbtn" value="사전예약 하기" onclick="sendEmail()"></form>
+            <input type="submit" class="submitbtn" value="사전예약 하기" onclick="sendEmail(); return false;"></form>
         <h5 class="sec4-num">지금 예약하면
             <span style="color:#4876EE" id="userCounts">
             </span>
@@ -226,10 +227,9 @@
 
             success: function (data, jqXHR) {
                 window.location.href = "success.html";
-                alert("사전예약 신청 완료!")
             },
             error: function (jqXHR, error) {
-                alert("error!!")
+                alert(error)
             }
 
         })
@@ -240,7 +240,7 @@
 <script>
     AOS.init();
 </script>
-<script src="/cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
 <script src="static/js/jquery.min.js"></script>
 <script src="static/js/script.js"></script>
 

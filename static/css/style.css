@@ -511,9 +511,9 @@ h1,h2,h3,h4,h5,h6 {
     height: 300px;
     border-radius: 50%;
     box-shadow: 0px 0px 5px 2px #6E83BF;
-    animation: blur 2s ease 0s infinite;
-    -webkit-animation: blur 2s ease 0s infinite;
-    -moz-animation: blur 2s ease 0s infinite;
+    animation: blur 2s ease 0s;
+    -webkit-animation: blur 2s ease 0s;
+    -moz-animation: blur 2s ease 0s;
 }
 
 .app-container {
