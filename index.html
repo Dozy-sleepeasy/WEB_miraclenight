@@ -210,6 +210,12 @@
             alert('핸드폰 번호를 입력해주세요')
             return;
         }
+        else if (phoneNum.length != 11) {
+            alert('정보를 정확하게 입력해주세요. 예)010-0000-0000')
+            return;
+        }
+        
+        
 
         let url2 = window.location.href;
         console.log(url2);
