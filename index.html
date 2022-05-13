@@ -37,23 +37,33 @@
         gtag('config', 'G-944GM82Y3R');
     </script>
 
-<!-- Meta Pixel Code -->
-<script>
-  !function(f,b,e,v,n,t,s)
-  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-  n.queue=[];t=b.createElement(e);t.async=!0;
-  t.src=v;s=b.getElementsByTagName(e)[0];
-  s.parentNode.insertBefore(t,s)}(window, document,'script',
-  'https://connect.facebook.net/en_US/fbevents.js');
-  fbq('init', '355289483076658');
-  fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-  src="https://www.facebook.com/tr?id=355289483076658&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
+    <!-- Meta Pixel Code -->
+    <script>
+        !function (f, b, e, v, n, t, s) {
+            if (f.fbq) return;
+            n = f.fbq = function () {
+                n.callMethod ?
+                    n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+            };
+            if (!f._fbq) f._fbq = n;
+            n.push = n;
+            n.loaded = !0;
+            n.version = '2.0';
+            n.queue = [];
+            t = b.createElement(e);
+            t.async = !0;
+            t.src = v;
+            s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s)
+        }(window, document, 'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '355289483076658');
+        fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+                   src="https://www.facebook.com/tr?id=355289483076658&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
 
 
     <noscript><img height="1" width="1" style="display:none"
@@ -164,7 +174,8 @@
     </div>
 
     <div class="sec5-info-t">
-        <a href="https://munice.notion.site/Help-Support-078ffeaee94640299666e85b21aa3e92"><img src="static/images/notion.svg"></a>
+        <a href="https://munice.notion.site/Help-Support-078ffeaee94640299666e85b21aa3e92"><img
+                src="static/images/notion.svg"></a>
         <a href="https://www.instagram.com/miraclenight_official/?hl=en"><img src="static/images/insta.svg"></a>
         <a href="https://www.linkedin.com/company/munice-inc"><img src="static/images/linked.svg"></a>
         <a href="https://pf.kakao.com/_pxohDb"><img src="static/images/kakao.svg"></a>
@@ -176,11 +187,11 @@
 
 </section>
 <script>
-    window.onload = function (){
+    window.onload = function () {
         $.ajax({
             url: 'https://www.mydrdozy.com/miracle/user-count',
             type: 'GET',
-            async : true,
+            async: true,
             contentType: 'application/json; charset=UTF-8',
             dataType: "text",
 
@@ -205,13 +216,11 @@
         if (phoneNum === '') {
             alert('핸드폰 번호를 입력해주세요')
             return;
-        }
-        else if (phoneNum.length != 11) {
+        } else if (phoneNum.length != 11) {
             alert('정보를 정확하게 입력해주세요. 예)010-0000-0000')
             return;
         }
-        
-        
+
 
         let url2 = window.location.href;
         console.log(url2);
