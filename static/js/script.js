@@ -1,20 +1,18 @@
-(function ($) {
+(function($) {
     "use strict";
-    console.log("start script.js")
 
     /* Preloader */
-    $(window).on('load', function () {
+    $(window).on('load', function() {
         var preloaderFadeOutTime = 300;
-
         function hidePreloader() {
             var preloader = $('.spinner-wrapper');
-            setTimeout(function () {
+            setTimeout(function() {
                 preloader.fadeOut(preloaderFadeOutTime);
             }, 300);
         }
-
         hidePreloader();
 
+        "use strict"
 
         function countDown() {
 
@@ -22,7 +20,7 @@
             var countDownDate = new Date("Apr 28, 2022 00:00:00").getTime();
 
             // Update the count down every 1 second
-            var x = setInterval(function () {
+            var x = setInterval(function() {
 
                 // Get today's date and time
                 var now = new Date().getTime();
@@ -52,23 +50,21 @@
                 }
             }, 1000);
         }
-
         countDown()
 
         function animateValue(el, start, end) {
             if (start === end) {
                 return;
             }
-            const duration = 1000;
+            const duration = 3000;
             const range = end - start;
             let current = start;
             const increment = end > start ? 1 : -1;
             const stepTime = Math.abs(Math.floor(duration / range));
             const timer = setInterval(() => {
                 current += increment;
-                if (el === null) {
-                    return;
-                } else {
+                if (el === null) {   return;    }
+                else{
                     el.innerHTML = current;
                     if (current == end) {
                         clearInterval(timer);
@@ -77,6 +73,7 @@
 
             }, stepTime)
         }
+
 
 
         let called = false
@@ -89,28 +86,9 @@
             }
         })
 
-        let userCounts = 13;
-        $.ajax({
-            url: 'https://www.mydrdozy.com/miracle/user-count',
-            type: 'GET',
-            async: false,
-            contentType: 'application/json; charset=UTF-8',
-            dataType: "text",
-
-            success: function (data, jqXHR) {
-                console.log("success get user counts");
-                userCounts = JSON.parse(data).data.count;
-                console.log("user counts = " + userCounts);
-            },
-            error: function (jqXHR, error) {
-                console.log("fail")
-            }
-        })
-
-        console.log(userCounts);
-
-        animateValue(document.getElementById('c'), 0, userCounts);
-        document.getElementById("userCounts2").innerText = userCounts;
+        animateValue(document.getElementById('c'), 0, 3590);
+        animateValue(document.getElementById('d'), 0, 903);
+        animateValue(document.getElementById('e'), 0, 1941);
 
 
     })
