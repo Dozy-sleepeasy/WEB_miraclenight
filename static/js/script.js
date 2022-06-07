@@ -38,16 +38,6 @@
                 hours = ("0" + hours).slice(-2);
                 minutes = ("0" + minutes).slice(-2);
                 seconds = ("0" + seconds).slice(-2);
-
-                // Output the result in an element with id="demo"
-                document.getElementById("countdown").innerHTML = days + " : " + hours + " : "
-                    + minutes + " : " + seconds;
-
-                // If the count down is over, write some text
-                if (distance < 0) {
-                    clearInterval(x);
-                    document.getElementById("countdown").innerHTML = "사전예약 종료";
-                }
             }, 1000);
         }
         countDown()
