@@ -1002,6 +1002,7 @@ h1,h2,h3,h4,h5,h6 {
   overflow-x: hidden;
   transition: 0.7s;
   opacity: 0;
+    max-width: 425px;
 }
 
 .overlay-content {
@@ -1050,14 +1051,15 @@ h1,h2,h3,h4,h5,h6 {
   font-size: 16px;
   background: rgba(255, 255, 255, 0.15);
  border-radius: 12px;
-    padding: 22px 8px;
-    width: 306px;
+    width: 90%;
+    padding: 20px 0px;
     position: absolute;
     display: flex;
     align-items: center;
     justify-content: center;
-    bottom: 32px;
-    left: 26px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    bottom: 28px;
 }
 
 @media screen and (max-height: 450px) {
