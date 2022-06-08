@@ -41,12 +41,14 @@
             }, 1000);
         }
         countDown()
+        
+
 
         function animateValue(el, start, end) {
             if (start === end) {
                 return;
             }
-            const duration = 3000;
+            const duration = 2000;
             const range = end - start;
             let current = start;
             const increment = end > start ? 1 : -1;

@@ -23,7 +23,7 @@
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-944GM82Y3R"></script>
-    <script>
+    <script> 
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
@@ -63,7 +63,18 @@
     </div>
 </div>
 <!-- end of preloader -->
+    
+<!-- Event -->
 
+    
+<div id="myNav" class="overlaying">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <div class="overlay-content">
+    <a href="javascript:void(0)" class="downloadbtn" onclick="closeNav()">앱 다운로드 하기</a>
+    <img src="static/images/event_popup.png">
+  </div>
+</div>
+<!-- end of event -->    
 
 <section class="top">
     <h1 class="subtitle">24시간이 모자란 당신을 위해 </h1>
@@ -196,6 +207,7 @@
     </div>
 
 </section>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.6/lottie.min.js"></script>
 <script>const flavoursContainer = document.getElementById('flavoursContainer');
 const flavoursScrollWidth = flavoursContainer.scrollWidth;
 
@@ -207,42 +219,22 @@ window.addEventListener('load', () => {
     }, 10);
 });
 </script>
+
 <script>
-    function sendEmail() {
-        console.log("in");
-
-        const phoneNum = document.getElementById('phoneNum').value;
-
-        if(phoneNum === ''){
-            alert('핸드폰 번호를 입력해주세요')
-            return;
-        }
-
-        let url = window.location.href;
-        let form = {
-            "phoneNum" : phoneNum,
-            "url": url,
-        }
-
-        $.ajax({
-            url: '',
-            type: 'POST',
-            contentType: 'application/json; charset=UTF-8',
-            data: JSON.stringify(form),
-            dataType:"text",
-
-            success:function(data, jqXHR) {
-                window.location.replace("success.html");
-            },
-            error:function(jqXHR,error) {alert(error)},
-            complete:function(jqXHR) { }
-        })
-
+    setTimeout(function(){
+        openNav();
+    }, 1700);
+    
+    function openNav() {
+      document.getElementById("myNav").style.opacity = "1";
     }
-</script>
-<script>
+
+    function closeNav() {
+      document.getElementById("myNav").style.opacity = "0";
+    }
+    
     const counters = document.querySelectorAll('.value');
-    const speed = 900;
+    const speed = 1000;
 
     counters.forEach( counter => {
         const animate = () => {
