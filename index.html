@@ -209,14 +209,18 @@ window.addEventListener('load', () => {
         console.log("in");
 
         let url_value = window.location.href;
+        console.log(url_value);
+        let form = {
+            "url": url_value,
+            "phoneType": "IOS"
+        }
 
         $.ajax({
-            url: '',
+            url: 'https://www.mydrdozy.com/miracle/button-click',
             type: 'POST',
             contentType: 'application/json; charset=UTF-8',
-            data: {
-                url : 'url_value'
-            },
+            async: false,
+            data: JSON.stringify(form),
             dataType: "text",
 
             error: function (jqXHR, error) {
@@ -224,7 +228,9 @@ window.addEventListener('load', () => {
             },
             complete: function (jqXHR) {
             }
+
         })
+
 
     }
     
