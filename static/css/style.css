@@ -433,18 +433,14 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 .submitbtn {
-    margin: 0 auto;
-    margin-top: 48px;
-    width: 170px;
-    padding: 16px;
-    background: #4876EE;
-    border-radius: 88px;
     outline: none;
     outline-style: none;
     border-style: none;
     color: white;
     font-size: 16px;
-    font-weight: 500;
+    font-weight: 550;
+    background: none;
+    color: #000;
 }
 
 .section-5 {

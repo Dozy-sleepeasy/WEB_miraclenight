@@ -68,9 +68,12 @@
     <h1 class="subtitle">24시간이 모자란 당신을 위해 </h1>
     <h1 class="title animate flip" ><span class="point">4시간 30분</span><br>
         고농축 숙면</h1>
-    <div class="cta-btns">
-        <a class="btn-new" href="https://apple.co/3vvdNos"><img src="static/images/apple.png" alt="apple" class="cta-size">App Store</a>
-<!--        <a class="btn-new" href="https://bit.ly/3Q44bZX"><img src="static/images/google.png" alt="google" class="cta-size">Google Play</a>--> </div>
+        <div class="cta-btns">
+        <a class="btn-new" href="https://apple.co/3vvdNos"><img src="static/images/apple.png" alt="apple" class="cta-size"><input type="submit" class="submitbtn" value="App Store" onclick="AppStore()"></a>
+        <form>
+        </form>
+<!--        <a class="btn-new" href="https://bit.ly/3Q44bZX"><img src="static/images/google.png" alt="google" class="cta-size">Google Play</a> -->
+    </div>
 </section>
 
 <section class="app-screen">
@@ -85,17 +88,17 @@
 
 <section class="section-2">
     <h2 class="sec2-title" data-aos="fade-up" data-aos-duration="1000">🔥불티나게 팔리는🔥 <br> 갓생 IT템 </h2>
-    <h3 class="sec2-subtitle2">런칭 1달차 / 2022년 5월 기준</h3>
+    <h3 class="sec2-subtitle2">런칭 3달차 / 2022년 7월 기준</h3>
     <div class="sec2-img-container-2">
-        <div class="sec2-num"><span class="numbe-text">누적 수면 시간</span><h4 class="numbe" id="c">3590</h4></div>
-        <div class="sec2-num num-sec"><span class="numbe-text">누적 수면 횟수</span><h4 class="numbe" id="d">903</h4></div>
-        <div class="sec2-num num-thi"><span class="numbe-text">함께하는 갓생러</span><h4 class="numbe" id="e">1900</h4></div>
+        <div class="sec2-num"><span class="numbe-text">누적 수면 시간</span><h4 class="numbe" id="c">37840</h4></div>
+        <div class="sec2-num num-sec"><span class="numbe-text">누적 수면 횟수</span><h4 class="numbe" id="d">9284</h4></div>
+        <div class="sec2-num num-thi"><span class="numbe-text">함께하는 갓생러</span><h4 class="numbe" id="e">6752</h4></div>
         <img src="static/images/chart_back.png">
     </div>
 </section>
 
 <section class="section-2">
-    <h2 class="sec2-title" data-aos="fade-up" data-aos-duration="1000">사용자 후기 <br> 앱스토어 평점 ⭐4.9 </h2>
+    <h2 class="sec2-title" data-aos="fade-up" data-aos-duration="1000">사용자 후기 <br> 앱스토어 평점 ⭐4.8 </h2>
     <div class="sec2-container" id="flavoursContainer">
         <img src="static/images/1.png">
         <img src="static/images/2.png">
@@ -150,24 +153,12 @@
 <section class="section-4" id="section-4">
     <h2 class="sec4-title" data-aos="zoom-in" data-aos-duration="1000">지금 다운로드하고 <br> <span style="color:#9AB1FF">가장 먼저 <br> 새벽을 바꿔보세요</span></h2>
     <div class="cta-btns">
-        <a class="btn-new" href="https://apple.co/3vvdNos"><img src="static/images/apple.png" alt="apple" class="cta-size">App Store</a>
+        <a class="btn-new" href="https://apple.co/3vvdNos"><img src="static/images/apple.png" alt="apple" class="cta-size"><input type="submit" class="submitbtn" value="App Store" onclick="AppStore()"></a>
+        <form>
+        </form>
 <!--        <a class="btn-new" href="https://bit.ly/3Q44bZX"><img src="static/images/google.png" alt="google" class="cta-size">Google Play</a> -->
     </div>
-    <!--
-            <div class="sec4-img-container">
-                <h4 class="countdown" id="countdown">00:00:00:00</h4>
-                <h5 class="date">일 시 분 초</h5>
-                <img src="rotaor.png">
-            </div>
 
-            <div class="sec4-container-sec">
-                <h4 class="sec4-info"><img src="ios.svg"> iOS 앱 출시 예정</h4>
-                <form>
-                <input class="phonenum" type="number" placeholder="전화번호를 입력해주세요" id="phoneNum">
-                <input type="submit" class="submitbtn" value="사전예약 하기" onclick="sendEmail()"></form>
-                <h5 class="sec4-num">지금 예약하면 <span style="color:#4876EE">1,242</span>등!</h5>
-            </div>
-           -->
 </section>
 
 <section class="section-5">
@@ -210,17 +201,26 @@ window.addEventListener('load', () => {
 </script>
 
 <script>
-//    setTimeout(function(){
-//        openNav();
-//    }, 1700);
-//    
-//    function openNav() {
-//      document.getElementById("myNav").style.opacity = "1";
-//    }
-//
-//    function closeNav() {
-//      document.getElementById("myNav").style.opacity = "0";
-//    }
+    function AppStore() {
+        console.log("in");
+
+        let url = window.location.href;
+
+        $.ajax({
+            url: '',
+            type: 'POST',
+            contentType: 'application/json; charset=UTF-8',
+            data: JSON.stringify(form),
+            dataType: "text",
+
+            error: function (jqXHR, error) {
+                alert(error)
+            },
+            complete: function (jqXHR) {
+            }
+        })
+
+    }
     
     const counters = document.querySelectorAll('.value');
     const speed = 1000;
