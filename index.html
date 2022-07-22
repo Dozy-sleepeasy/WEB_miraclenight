@@ -69,9 +69,11 @@
     <h1 class="title animate flip" ><span class="point">4시간 30분</span><br>
         고농축 숙면</h1>
        
-        <div class="cta-btns"> <form>
-        <a class="btn-new" href="https://apple.co/3vvdNos"><img src="static/images/apple.png" alt="apple" class="cta-size"><input type="submit" class="submitbtn" value="App Store" onclick="AppStore()"></a>
-        </form>
+        <div class="cta-btns"> 
+        <a class="btn-new" href="https://apple.co/3vvdNos" onclick="AppStore()">
+            <img src="static/images/apple.png" alt="apple" class="cta-size">
+            App Store
+        </a>
 <!--        <a class="btn-new" href="https://bit.ly/3Q44bZX"><img src="static/images/google.png" alt="google" class="cta-size">Google Play</a> -->
     </div>
 </section>
@@ -153,9 +155,11 @@
 <section class="section-4" id="section-4">
     <h2 class="sec4-title" data-aos="zoom-in" data-aos-duration="1000">지금 다운로드하고 <br> <span style="color:#9AB1FF">가장 먼저 <br> 새벽을 바꿔보세요</span></h2>
     <div class="cta-btns">
-        <form>
-        <a class="btn-new" href="https://apple.co/3vvdNos"><img src="static/images/apple.png" alt="apple" class="cta-size"><input type="submit" class="submitbtn" value="App Store" onclick="AppStore()"></a>
-        </form>
+        
+        <a class="btn-new" href="https://apple.co/3vvdNos" onclick="AppStore()">
+            <img src="static/images/apple.png" alt="apple" class="cta-size">
+            App Store
+        </a>
 <!--        <a class="btn-new" href="https://bit.ly/3Q44bZX"><img src="static/images/google.png" alt="google" class="cta-size">Google Play</a> -->
     </div>
 
@@ -204,13 +208,15 @@ window.addEventListener('load', () => {
     function AppStore() {
         console.log("in");
 
-        let url = window.location.href;
+        let url_value = window.location.href;
 
         $.ajax({
             url: '',
             type: 'POST',
             contentType: 'application/json; charset=UTF-8',
-            data: JSON.stringify(form),
+            data: {
+                url : 'url_value'
+            },
             dataType: "text",
 
             error: function (jqXHR, error) {
