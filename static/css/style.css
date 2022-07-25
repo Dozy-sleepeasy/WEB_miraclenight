@@ -44,6 +44,17 @@ h1,h2,h3,h4,h5,h6 {
     margin-top: 104px;
 }
 
+.top-3 {
+    width: 90%;
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 84px;
+}
+
+.top-4 img{
+    width: 100%;
+}
+
 .top-2 {
     text-align: center;
     margin-top: 100px;
@@ -64,6 +75,14 @@ h1,h2,h3,h4,h5,h6 {
     color: #666666;
 }
 
+.top-3 .subtitle {
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 146%;
+    color: #666666;
+    text-align: left;
+}
+
 .top .title {
     font-size: 47px;
     font-weight: 700;
@@ -80,6 +99,16 @@ h1,h2,h3,h4,h5,h6 {
     color: #fff;
     letter-spacing: -0.01em;
     margin-bottom: 14px;
+}
+
+.top-3 .title {
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 100%;
+    color: #fff;
+    letter-spacing: -0.01em;
+    margin-top: 10px;
+    text-align: left;
 }
 
 .top .btn {
@@ -1065,4 +1094,127 @@ h1,h2,h3,h4,h5,h6 {
   top: 15px;
   right: 35px;
   }
+}
+
+
+
+.magazine-sec {
+    margin: 0 auto;
+    margin-top: 60px;
+    width: 90%;
+    text-decoration: none;
+    margin-bottom: 60px;
+}
+
+.magazine-sec a {
+    text-decoration: none;
+}
+
+.magazine-sec h6{
+    font-family: 'Pretendard';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 100%;
+    letter-spacing: -0.02em;
+    color: #666;
+}
+
+.magazine-sec h7{
+    font-family: 'Pretendard';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 100%;
+    letter-spacing: -0.02em;
+    color: #666;
+}
+
+.magazine-sec h2{
+    font-family: 'Pretendard';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 26px;
+    line-height: 150%;
+    text-align: center;
+    letter-spacing: -0.02em;
+    color: #E6E6E6;
+}
+
+.magazine-sec h4{
+    font-family: 'Pretendard';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 100%;
+    letter-spacing: -0.02em;
+    color: #E6E6E6;
+    margin-top: 15px;
+    }
+
+.magazine-sec h5{
+    font-family: 'Pretendard';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 140%;
+    letter-spacing: -0.02em;
+    margin-top: 15px;
+    color: #B2B2B2;
+    margin-bottom: 15px
+}
+
+.magazine-sec .magazine-context h5 {
+    font-family: 'Pretendard';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 160%;
+    letter-spacing: -0.02em;
+    color: #B2B2B2;
+}
+
+.magazine-sec .magazine-context h4 {
+    font-family: 'Pretendard';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 160%;
+    letter-spacing: -0.02em;
+    color: #E6E6E6;
+}
+
+.magazine-img-container {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.magazine-img-container img {
+    border-radius: 10px;
+    width:100%;
+}
+
+.mgaz-footer {
+    margin-top: 120px;
+}
+
+.mag-logo {
+    width: 60px;
+}
+
+.mag-logo img {
+    width: 100%;
+}
+
+.mag-header {
+    padding: 20px 20px;
+    background: #1A1A1A;
+}
+
+.magazine-top {
+    text-align: center;
+}
+
+.magazine-context {
+    margin-top: 60px;
 }
