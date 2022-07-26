@@ -79,7 +79,7 @@
     
     <div class="magazine-context" style="text-align: center;margin-top: 70px;">
         <h3>매주 수면 팁을 받아보세요! 👻</h3>
-        <input type="text" class="phonenum" placeholder="이메일 주소" id="phonenum"><br>
+        <input type="text" class="phonenum" placeholder="이메일 주소" id="email"><br>
         <input type="submit" class="submitbtn" value="뉴스레터 받기" onclick="emailList()">
     </div>
     
@@ -129,15 +129,17 @@ window.addEventListener('load', () => {
     function emailList() {
         console.log("in");
         
-        let email = document.getElementById('phonenum').value
+        let email = document.getElementById('email').value
+        let url_value = window.location.href;
         console.log(email);
         
         let form = {
+            "url": url_value,
             "email": email,
         }
 
         $.ajax({
-            url: 'https://www.mydrdozy.com/miracle/button-click',
+            url: 'https://www.mydrdozy.com/miracle/magazine-user',
             type: 'POST',
             contentType: 'application/json; charset=UTF-8',
             async: false,
