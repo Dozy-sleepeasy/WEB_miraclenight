@@ -1131,6 +1131,16 @@ h1,h2,h3,h4,h5,h6 {
     color: #666;
 }
 
+.magazine-sec .reference h7{
+    font-family: 'Pretendard';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 11px;
+    line-height: 100%;
+    letter-spacing: -0.02em;
+    color: #666;
+}
+
 .magazine-top h7{
     font-family: 'Pretendard';
     font-style: normal;
@@ -1310,4 +1320,35 @@ h1,h2,h3,h4,h5,h6 {
 
 .mag-next {
     margin-top: 70px;
+}
+
+.inside {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.highlight {
+    color: #e6e6e6;
+    font-size: 20px;
+    border-left: 2px solid #e6e6e6;
+    padding-left: 10px;
+}
+
+.highlight-b {
+    color: #e6e6e6;
+    text-decoration: underline;
+}
+
+.reference {
+    margin-top: 70px;
+}
+
+.text-reference {
+    font-family: 'Pretendard';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 11px;
+    line-height: 100%;
+    letter-spacing: -0.02em;
+    color: #666;
 }
