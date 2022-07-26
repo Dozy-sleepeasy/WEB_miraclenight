@@ -469,8 +469,14 @@ h1,h2,h3,h4,h5,h6 {
     color: white;
     font-size: 16px;
     font-weight: 550;
-    background: none;
+    background: #E5E5E5;
     color: #000;
+    height: 48px;
+    padding: 10px 20px;
+    width: 280px;
+    border-radius: 200px;
+    background: #fff;
+    margin-top: 20px;
 }
 
 .section-5 {
@@ -1135,9 +1141,9 @@ h1,h2,h3,h4,h5,h6 {
     font-family: 'Pretendard';
     font-style: normal;
     font-weight: 400;
-    font-size: 11px;
-    line-height: 100%;
-    letter-spacing: -0.02em;
+    font-size: 10px;
+    line-height: 0px;
+    letter-spacing: -0.05em;
     color: #666;
 }
 
@@ -1215,7 +1221,7 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 .mgaz-footer {
-    margin-top: 120px;
+    margin-top: 100px;
 }
 
 .mag-logo {
@@ -1244,6 +1250,11 @@ h1,h2,h3,h4,h5,h6 {
 
 .magazine-context {
     margin-top: 55px;
+}
+
+.magazine-context h3{
+    font-weight: 500;
+    color: white;
 }
 
 .magaz-container {
@@ -1337,10 +1348,11 @@ h1,h2,h3,h4,h5,h6 {
 .highlight-b {
     color: #e6e6e6;
     text-decoration: underline;
+    text-underline-position : under;
 }
 
 .reference {
-    margin-top: 70px;
+    margin-top: 60px;
 }
 
 .text-reference {

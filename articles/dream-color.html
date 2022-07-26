@@ -70,12 +70,17 @@
     
     <div class="magazine-context inside reference">
     <h7>
-      Reference <br>
-      1) Bentley, M. (1915). The study of dreams. American Journal of Psychology, 26, 196–210.
-      2) Middleton, W. C. (1942). The frequency with which a group of unselected college students experience colored dreaming and colored hearing. The Journal of General Psychology, 27, 221–229.
-      3) Herman, J., Roffwarg, H., & Tauber, E. S. (1968). Color and other perceptual qualities of REM and NREM sleep. Psychophysiology, 5, 223–229.
+      1) Bentley, M. (1915). The study of dreams. American Journal of Psychology, 26, 196–210. <br>
+      2) Middleton, W. C. (1942). The frequency with which a group of unselected college students experience colored dreaming and colored hearing. The Journal of General Psychology, 27, 221–229. <br>
+      3) Herman, J., Roffwarg, H., & Tauber, E. S. (1968). Color and other perceptual qualities of REM and NREM sleep. Psychophysiology, 5, 223–229. <br>
       4) Murzyn, Eva. “Do We Only Dream in Colour? A Comparison of Reported Dream Colour in Younger and Older Adults with Different Experiences of Black and White Media.” Consciousness and Cognition, vol. 17, no. 4, 2008, pp. 1228–1237., https://doi.org/10.1016/j.concog.2008.09.002.    
     </h7>
+    </div>
+    
+    <div class="magazine-context" style="text-align: center;margin-top: 70px;">
+        <h3>매주 수면 팁을 받아보세요! 👻</h3>
+        <input type="text" class="phonenum" placeholder="이메일 주소" id="phonenum"><br>
+        <input type="submit" class="submitbtn" value="뉴스레터 받기" onclick="emailList()">
     </div>
     
 </section>
@@ -119,6 +124,38 @@ window.addEventListener('load', () => {
         }
     }, 10);
 });
+</script>
+<script>
+    function emailList() {
+        console.log("in");
+        
+        let email = document.getElementById('phonenum').value
+        console.log(email);
+        
+        let form = {
+            "email": email,
+        }
+
+        $.ajax({
+            url: 'https://www.mydrdozy.com/miracle/button-click',
+            type: 'POST',
+            contentType: 'application/json; charset=UTF-8',
+            async: false,
+            data: JSON.stringify(form),
+            dataType: "text",
+
+            error: function (jqXHR, error) {
+                alert(error)
+            },
+            complete: function (jqXHR) {
+                alert("제출되었습니다!")
+            }
+
+        })
+
+
+    }
+    
 </script>
 
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
