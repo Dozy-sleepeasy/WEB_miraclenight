@@ -1338,6 +1338,12 @@ h1,h2,h3,h4,h5,h6 {
     margin: 0 auto;
 }
 
+
+.inside img {
+    width: 100%;
+    padding: 20px 0px;
+}
+
 .highlight {
     color: #e6e6e6;
     font-size: 20px;
@@ -1363,4 +1369,14 @@ h1,h2,h3,h4,h5,h6 {
     line-height: 100%;
     letter-spacing: -0.02em;
     color: #666;
+}
+
+.highlight-main {
+    color: #e6e6e6;
+    font-size: 22px;
+    text-align: left;
+}
+
+.high-color {
+    color: #4876EE;
 }
