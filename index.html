@@ -74,7 +74,10 @@
             <img src="static/images/apple.png" alt="apple" class="cta-size">
             App Store
         </a>
-<!--        <a class="btn-new" href="https://bit.ly/3Q44bZX"><img src="static/images/google.png" alt="google" class="cta-size">Google Play</a> -->
+        <a class="btn-new" href="https://bit.ly/3Q44bZX" onclick="PlayStore()">
+            <img src="static/images/google.png" alt="google" class="cta-size">
+            Google Play
+        </a>
     </div>
 </section>
 
@@ -160,7 +163,10 @@
             <img src="static/images/apple.png" alt="apple" class="cta-size">
             App Store
         </a>
-<!--        <a class="btn-new" href="https://bit.ly/3Q44bZX"><img src="static/images/google.png" alt="google" class="cta-size">Google Play</a> -->
+        <a class="btn-new" href="https://bit.ly/3Q44bZX" onclick="PlayStore()">
+            <img src="static/images/google.png" alt="google" class="cta-size">
+            Google Play
+        </a>
     </div>
 
 </section>
@@ -207,13 +213,44 @@ window.addEventListener('load', () => {
 
 <script>
     function AppStore() {
-        console.log("in");
+        console.log("ios in");
 
         let url_value = window.location.href;
         console.log(url_value);
+        
         let form = {
             "url": url_value,
             "phoneType": "IOS"
+        }
+
+        $.ajax({
+            url: 'https://www.mydrdozy.com/miracle/button-click',
+            type: 'POST',
+            contentType: 'application/json; charset=UTF-8',
+            async: false,
+            data: JSON.stringify(form),
+            dataType: "text",
+
+            error: function (jqXHR, error) {
+                alert(error)
+            },
+            complete: function (jqXHR) {
+            }
+
+        })
+
+
+    }
+    
+    function PlayStore() {
+        console.log("google in");
+
+        let url_value = window.location.href;
+        console.log(url_value);
+        
+        let form = {
+            "url": url_value,
+            "phoneType": "Google"
         }
 
         $.ajax({
