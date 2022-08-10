@@ -1475,6 +1475,8 @@ h1,h2,h3,h4,h5,h6 {
   font-weight: 600;
   text-decoration: none;
   transition-duration: .25s;
+  font-family: "Pretendard";
+  font-weight: 500;
 }
 .menu__item:hover {
 }
@@ -1500,4 +1502,9 @@ h1,h2,h3,h4,h5,h6 {
     top: 30px;
     margin-left: 0px;
     z-index: 9999;
+}
+
+.newbg {
+    filter: blur(5px);
+    -webkit-filter: blur(5px);
 }
