@@ -1500,8 +1500,14 @@ h1,h2,h3,h4,h5,h6 {
 .hamburger-menu {
     position: absolute;
     top: 30px;
-    margin-left: 0px;
+    margin-left: 13px;
     z-index: 9999;
+}
+
+@media only screen and (min-width: 500px) {
+  .hamburger-menu {
+    top: 30px;
+}
 }
 
 .newbg {
