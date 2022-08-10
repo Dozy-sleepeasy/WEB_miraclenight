@@ -1428,8 +1428,8 @@ h1,h2,h3,h4,h5,h6 {
 }
 .menu__btn {
   position: fixed;
-  width: 24px;
-  height: 24px;
+  width: 30px;
+  height: 30px;
   cursor: pointer;
   z-index: 999;
 }
@@ -1438,7 +1438,7 @@ h1,h2,h3,h4,h5,h6 {
 .menu__btn > span::after {
   display: block;
   position: absolute;
-  width: 16px;
+  width: 20px;
   height: 1.5px;
   border-radius: 50px;
   background-color: #fff;
@@ -1446,11 +1446,11 @@ h1,h2,h3,h4,h5,h6 {
 }
 .menu__btn > span::before {
   content: '';
-  top: -6px;
+  top: -7px;
 }
 .menu__btn > span::after {
   content: '';
-  top: 6px;
+  top: 7px;
 }
 .menu__box {
   display: block;
@@ -1460,7 +1460,7 @@ h1,h2,h3,h4,h5,h6 {
   width: 260px;
   height: 100%;
   margin: 0;
-  padding: 120px 0;
+  padding: 100px 0;
   list-style: none;
   background: #0F0F0F;
   border-right: 1px solid rgba(255, 255, 255, 0.15);
@@ -1486,18 +1486,18 @@ h1,h2,h3,h4,h5,h6 {
 
 .app-download {
     font-family: 'Pretendard';
-font-style: normal;
-font-weight: 600;
-font-size: 15px;
-line-height: 160%;
-display: flex;
-align-items: center;
-color: #CCCCCC;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 160%;
+    display: flex;
+    align-items: center;
+    color: #CCCCCC;
 }
 
 .hamburger-menu {
     position: absolute;
-    top: 46px;
-    margin-left: 12px;
+    top: 30px;
+    margin-left: 0px;
     z-index: 9999;
 }
