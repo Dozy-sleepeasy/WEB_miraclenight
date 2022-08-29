@@ -1927,6 +1927,13 @@ h1,h2,h3,h4,h5,h6 {
   padding: 0px;
 }
 
+#collapse12.hide {
+  height: 0;
+  opacity: 0;
+  overflow: hidden;
+  padding: 0px;
+}
+
 div.input-button input {
   background: none;
   background: url(/static/images/btn_arrow_down.svg) no-repeat;
