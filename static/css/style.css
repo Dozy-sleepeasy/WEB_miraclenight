@@ -1949,3 +1949,28 @@ div.input-button input {
 .faq-last {
     border-bottom: 2px solid #1A1A1A;
 }
+
+.notice-new {
+    font-size: 12px;
+    background: #4876EE;
+    padding: 2px 6px;
+    border-radius: 15px;
+    color: white;
+    justify-content: center;
+    align-content: center;
+    margin-left: 5px;
+}
+
+.faq-medium {
+    width: 95%;
+    background: #252525;
+    padding: 15px 15px;
+    font-size: 13px;
+    font-family: "Pretendard";
+    font-weight: 500;
+    color: white;
+    margin: 10px 0px 20px 0px;
+    border-radius: 12px;
+}
+
+
