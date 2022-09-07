@@ -48,7 +48,7 @@
             if (start === end) {
                 return;
             }
-            const duration = 2000;
+            const duration = 500;
             const range = end - start;
             let current = start;
             const increment = end > start ? 1 : -1;
@@ -78,9 +78,9 @@
             }
         })
 
-        animateValue(document.getElementById('c'), 0, 3590);
-        animateValue(document.getElementById('d'), 0, 903);
-        animateValue(document.getElementById('e'), 0, 1941);
+        animateValue(document.getElementById('c'), 0, 82204);
+        animateValue(document.getElementById('d'), 0, 20551);
+        animateValue(document.getElementById('e'), 0, 9021);
 
 
     })
