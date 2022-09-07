@@ -1841,7 +1841,7 @@ h1,h2,h3,h4,h5,h6 {
 
 .faq-small {
     display: flex;
-    width: 100%;
+    width: 95%;
     border-top: 2px solid #1A1A1A;
     padding: 15px 7px;
     justify-content: space-between;
@@ -1850,7 +1850,7 @@ h1,h2,h3,h4,h5,h6 {
 
 .collapse {
   background: #1A1A1A;
-  width: 90.5%;
+  width: 86%;
   margin: 0 auto;
   transition: all 0.5s;
   font-size: 15px;
@@ -1969,7 +1969,7 @@ div.input-button input {
 }
 
 .faq-medium {
-    width: 95%;
+    width: 90%;
     background: #252525;
     padding: 15px 15px;
     font-size: 13px;
