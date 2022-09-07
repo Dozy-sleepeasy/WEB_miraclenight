@@ -1981,3 +1981,76 @@ div.input-button input {
 }
 
 
+
+.subtitle-sub {
+    color: #e6e6e6;
+    font-family: "Pretendard";
+    font-weight: 500;
+    text-align: left;
+    font-size: 16px;
+    margin-top: 27px;
+}
+
+.event-apply {
+    width: 85%;
+    margin: 0 auto;
+    margin-top: 70px;
+}
+
+.event-info2 {
+    width: 90%;
+    background: #252525;
+    border-radius: 6px;
+    padding: 10px 20px;
+    margin: 30px 0px 0px 0px;
+}
+
+.event-info2 p {
+    color: #ccc;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.event-input {
+    width: 100%;
+    display: contents;
+}
+
+.event-input h4 {
+    color: white;
+    font-family: "Pretendard";
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.event-input input[type=text] {
+    width: 90%;
+    border: 1px solid #333;
+    border-radius: 12px;
+    padding: 18px 20px;
+    background: #0F0F0F;
+    color: white;
+    font-size: 16px;
+    font-family: "Pretendard";
+    font-weight: 400;
+    margin: 20px 0px 10px 0px;
+}
+.event-apply input[type=submit] {
+    padding: 20px 80px;
+    border-radius: 2000px;
+    background: #4876EE;
+    color: white;
+    font-weight: 600;
+    font-size: 16px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    margin-top: 62px;
+}
+
+.event-submit {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
