@@ -282,7 +282,7 @@ window.addEventListener('load', () => {
         
         let form = {
             "url": url_value,
-            "phoneType": "Google"
+            "phoneType": "ANDROID"
         }
 
         $.ajax({
@@ -294,7 +294,7 @@ window.addEventListener('load', () => {
             dataType: "text",
 
             error: function (jqXHR, error) {
-                alert("플레이스토어로 이동합니다.")
+                alert(error)
             },
             complete: function (jqXHR) {
             }
