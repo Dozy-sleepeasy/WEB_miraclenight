@@ -1471,7 +1471,7 @@ h1,h2,h3,h4,h5,h6 {
 
 .highlight-main {
     color: #e6e6e6;
-    font-size: 22px;
+    font-size: 20px;
     text-align: left;
 }
 
@@ -2098,4 +2098,13 @@ div.input-button input {
     margin: 0 auto;
     width: 100%;
     text-decoration: none;
+}
+
+.big-img {
+    width: 100%;
+}
+
+.big-maga-text {
+    width: 100%;
+    margin-right: 0px;
 }
