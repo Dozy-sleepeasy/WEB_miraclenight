@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="건조한 방 안에서 오래 자게 되면 불면증이 생길 확률이 높아집니다. 그렇다면 건조함을 해결하기 위한 방법에는 무엇이 있을까요?">
+    <meta name="description" content="">
     <meta name="author" content="Munice">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="미라클나잇">
@@ -70,162 +70,10 @@
       1) Soonjae, Joo, and Shin Chol. “Sleep-Disordered Breathing and Metabolic Dysfunction.” Sleep Medicine and Psychophysiology, 2005, pp. 17–22. 
     </h7>
     </div>
-    
-    <div class="magazine-context" style="text-align: center;margin-top: 70px;">
-        <h3>지금 미라클나잇에서 <br> 기적의 수면을 체험보세요 👻</h3>
-        <div class="cta-btns-2"> 
-        <a class="btn-new" href="https://apple.co/3vvdNos" onclick="AppStore()">
-            <img src="/static/images/apple.png" alt="apple" class="cta-size">
-            App Store
-        </a>
-        <a class="btn-new" href="https://bit.ly/3Q44bZX" onclick="PlayStore()">
-            <img src="/static/images/google.png" alt="google" class="cta-size">
-            Google Play
-        </a>
-        </div>
-<!--
-        <input type="text" class="phonenum" placeholder="이메일 주소" id="email"><br>
-        <input type="submit" class="submitbtn" value="뉴스레터 받기" onclick="emailList()">
--->
-    </div>
+
     
 </section>
-    
-
-<section class="section-5 mgaz-footer">
-    <div class="sec5-info">
-        <h4 class="sec5-info-text">정보</h4>
-        <a href="/article.html">수면연구소</a>
-        <a href="https://munice.notion.site/77e2632c3ca845909c3266dca06878bd">이용정보</a>
-        <a href="https://munice.notion.site/567a5501b4464032b2cac693bccaaa15">개인정보 처리방침</a>
-    </div>
-
-    <div class="sec5-info">
-        <img src="/static/images/logo.svg">
-        <a>서울특별시 서대문구 연세로2나길 61, 207호</a>
-        <a>miraclenight@munice.com</a>
-        <a href="/index.html">www.miraclenight.app</a>
-    </div>
-
-    <div class="sec5-info-t">
-        <a href="https://munice.notion.site/Help-Support-078ffeaee94640299666e85b21aa3e92"><img src="/static/images/notion.svg"></a>
-        <a href="https://www.instagram.com/miraclenight_official/?hl=en"><img src="/static/images/insta.svg"></a>
-        <a href=""><img src="/static/images/linked.svg"></a>
-        <a href="https://pf.kakao.com/_pxohDb"><img src="/static/images/kakao.svg"></a>
-    </div>
-
-    <div class="sec5-info-x">
-        <h5 class="sec5-info-xx">© MUNICE Corporation</h5>
-    </div>
-
-</section>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.6/lottie.min.js"></script>
-<script>const flavoursContainer = document.getElementById('flavoursContainer');
-const flavoursScrollWidth = flavoursContainer.scrollWidth;
-
-window.addEventListener('load', () => {
-    self.setInterval(() => {
-        if (flavoursContainer.scrollLeft !== flavoursScrollWidth) {
-            flavoursContainer.scrollTo(flavoursContainer.scrollLeft + 1, 0);
-        }
-    }, 10);
-});
-</script>
-    
-<script>
-        function AppStore() {
-        console.log("ios in");
-
-        let url_value = window.location.href;
-        console.log(url_value);
-        
-        let form = {
-            "url": url_value,
-            "phoneType": "IOS"
-        }
-
-        $.ajax({
-            url: 'https://www.mydrdozy.com/miracle/button-click',
-            type: 'POST',
-            contentType: 'application/json; charset=UTF-8',
-            async: false,
-            data: JSON.stringify(form),
-            dataType: "text",
-
-            error: function (jqXHR, error) {
-                alert(error)
-            },
-            complete: function (jqXHR) {
-            }
-
-        })
-    }
-    
-    function PlayStore() {
-        console.log("google in");
-
-        let url_value = window.location.href;
-        console.log(url_value);
-        
-        let form = {
-            "url": url_value,
-            "phoneType": "Google"
-        }
-
-        $.ajax({
-            url: 'https://www.mydrdozy.com/miracle/button-click',
-            type: 'POST',
-            contentType: 'application/json; charset=UTF-8',
-            async: false,
-            data: JSON.stringify(form),
-            dataType: "text",
-
-            error: function (jqXHR, error) {
-                alert("플레이스토어로 이동합니다.")
-            },
-            complete: function (jqXHR) {
-            }
-
-        })
-
-
-    }
-</script>
-    
-<script>
-    function emailList() {
-        console.log("in");
-        
-        let email = document.getElementById('email').value
-        let url_value = window.location.href;
-        console.log(email);
-        
-        let form = {
-            "url": url_value,
-            "email": email,
-        }
-
-        $.ajax({
-            url: 'https://www.mydrdozy.com/miracle/magazine-user',
-            type: 'POST',
-            contentType: 'application/json; charset=UTF-8',
-            async: false,
-            data: JSON.stringify(form),
-            dataType: "text",
-
-            error: function (jqXHR, error) {
-                alert(error)
-            },
-            complete: function (jqXHR) {
-                alert("제출되었습니다!")
-            }
-
-        })
-
-
-    }
-    
-</script>
+ 
 
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 <script>
