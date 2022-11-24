@@ -76,8 +76,6 @@
     
 </section>
     
-
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.6/lottie.min.js"></script>
 <script>const flavoursContainer = document.getElementById('flavoursContainer');
 const flavoursScrollWidth = flavoursContainer.scrollWidth;
@@ -91,100 +89,6 @@ window.addEventListener('load', () => {
 });
 </script>
     
-<script>
-        function AppStore() {
-        console.log("ios in");
-
-        let url_value = window.location.href;
-        console.log(url_value);
-        
-        let form = {
-            "url": url_value,
-            "phoneType": "IOS"
-        }
-
-        $.ajax({
-            url: 'https://www.mydrdozy.com/miracle/button-click',
-            type: 'POST',
-            contentType: 'application/json; charset=UTF-8',
-            async: false,
-            data: JSON.stringify(form),
-            dataType: "text",
-
-            error: function (jqXHR, error) {
-                alert(error)
-            },
-            complete: function (jqXHR) {
-            }
-
-        })
-    }
-    
-    function PlayStore() {
-        console.log("google in");
-
-        let url_value = window.location.href;
-        console.log(url_value);
-        
-        let form = {
-            "url": url_value,
-            "phoneType": "Google"
-        }
-
-        $.ajax({
-            url: 'https://www.mydrdozy.com/miracle/button-click',
-            type: 'POST',
-            contentType: 'application/json; charset=UTF-8',
-            async: false,
-            data: JSON.stringify(form),
-            dataType: "text",
-
-            error: function (jqXHR, error) {
-                alert("플레이스토어로 이동합니다.")
-            },
-            complete: function (jqXHR) {
-            }
-
-        })
-
-
-    }
-</script>
-    
-<script>
-    function emailList() {
-        console.log("in");
-        
-        let email = document.getElementById('email').value
-        let url_value = window.location.href;
-        console.log(email);
-        
-        let form = {
-            "url": url_value,
-            "email": email,
-        }
-
-        $.ajax({
-            url: 'https://www.mydrdozy.com/miracle/magazine-user',
-            type: 'POST',
-            contentType: 'application/json; charset=UTF-8',
-            async: false,
-            data: JSON.stringify(form),
-            dataType: "text",
-
-            error: function (jqXHR, error) {
-                alert(error)
-            },
-            complete: function (jqXHR) {
-                alert("제출되었습니다!")
-            }
-
-        })
-
-
-    }
-    
-</script>
 
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 <script>
