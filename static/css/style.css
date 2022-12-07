@@ -1933,6 +1933,12 @@ h1,h2,h3,h4,h5,h6 {
   overflow: hidden;
   padding: 0px;
 }
+#collapse19.hide {
+  height: 0;
+  opacity: 0;
+  overflow: hidden;
+  padding: 0px;
+}
 #collapse10.hide {
   height: 0;
   opacity: 0;
