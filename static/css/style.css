@@ -89,11 +89,11 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 .top .subtitle {
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 600;
     line-height: 146%;
     color: #666666;
-    padding-bottom: 24px;
+    padding-bottom: 20px;
 }
 
 .top-2 .subtitle {
@@ -112,12 +112,12 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 .top .title {
-    font-size: 47px;
+    font-size: 38px;
     font-weight: 700;
-    line-height: 136%;
-    color: #666666;
+    line-height: 48px;
+    color: #fff;
     letter-spacing: -0.01em;
-    padding-bottom: 58px;
+    padding-bottom: 48px;
     z-index: 5;
 }
 
@@ -241,7 +241,8 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 .top .point {
-    color: white;
+    background: linear-gradient(180deg, #85A1F1 40%, rgba(133, 161, 241, 0) 110%);
+     -webkit-background-clip: text;   -webkit-text-fill-color: transparent;
 }
 
 .app-screen {
@@ -254,7 +255,14 @@ h1,h2,h3,h4,h5,h6 {
 
 
 .img-container img {
-    width: 80%;
+    width: auto;
+    height: 560px;
+    position: absolute;
+}
+
+.img-container-back img {
+    width: 100%;
+    height: auto;
 }
 
 .chag img {
@@ -265,7 +273,7 @@ h1,h2,h3,h4,h5,h6 {
 
 
 .sec2-img-container {
-    width: 80%;
+    width: 70%;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -333,12 +341,12 @@ h1,h2,h3,h4,h5,h6 {
 
 .section-2 {
     text-align: center;
-    margin-top: 180px;
+    margin-top: 170px;
 }
 
 .section-3 {
     text-align: center;
-    margin-top: 180px;
+    margin-top: 170px;
 }
 
 .section-4 {
@@ -358,7 +366,7 @@ h1,h2,h3,h4,h5,h6 {
 
 .section-4 .sec4-title {
     font-weight: 700;
-    font-size: 24px;
+    font-size: 26px;
     line-height: 140%;
     letter-spacing: -1%;
     color: white;
@@ -367,7 +375,7 @@ h1,h2,h3,h4,h5,h6 {
 
 .section-3 .sec3-title {
     font-weight: 700;
-    font-size: 32px;
+    font-size: 30px;
     line-height: 130%;
     letter-spacing: -1%;
     color: white;
@@ -376,9 +384,13 @@ h1,h2,h3,h4,h5,h6 {
 .section-2 .sec2-subtitle {
     font-weight: 400;
     font-size: 16px;
-    line-height: 180%;
-    color: #808080;
-    margin-top: 20px;
+    line-height: 160%;
+    color: #666666;
+    margin-top: 24px;
+}
+
+.section-2 .sec2-subtitle a{
+    color: #85A1F1;
 }
 
 .section-2 .sec2-subtitle2 {
@@ -1570,7 +1582,7 @@ h1,h2,h3,h4,h5,h6 {
 .hamburger-menu {
     position: absolute;
     top: 30px;
-    margin-left: 13px;
+    margin-left: 18px;
     z-index: 9999;
 }
 
@@ -1711,6 +1723,13 @@ h1,h2,h3,h4,h5,h6 {
     width: 100%;
     margin-top: 30px;
 }
+
+.sec2-back img {
+    width: 100%;
+    margin-top: -10px;
+}
+
+
 
 .line {
     width: 100%;
@@ -2134,4 +2153,19 @@ div.input-button input {
 .big-maga-text {
     width: 100%;
     margin-right: 0px;
+}
+
+.img-container-back {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    margin: 0px auto;
+    padding-top: 60px;
+    padding-bottom: 200px;
+}
+
+.sec2-back {
+  
 }

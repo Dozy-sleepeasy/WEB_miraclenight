@@ -7,9 +7,9 @@
     <meta name="author" content="Munice">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="미라클나잇">
-    <meta property="og:title" content="미라클나잇">
+    <meta property="og:title" content="좋은 낮잠은 어떻게 자나요? [미라클나잇 수면연구소]">
     <meta property="og:description" content="좋은 낮잠은 피로도를 줄이고 각성도를 높이며 기분을 좋아지게 합니다. 그렇다면 좋은 낮잠을 자기 위해서는 어떻게 해야할지 알아봅시다.">
-    <meta property="og:url" content="www.miraclenight.app">
+    <meta property="og:url" content="www.miraclenight.app/articles/nap.html">
 
     <title>좋은 낮잠은 어떻게 자나요? [미라클나잇 수면연구소]</title>
 
@@ -46,7 +46,7 @@
         
     <h7 style="color:#e6e6e6e6;">2022.08.25 | by Ciara</h7>
     </div>
-    <img src="/static/images/thumbnail_6.png">
+    <img src="/static/images/thumbnail_6.png" alt="blanket">
 </section>
 
 <section class="magazine-sec">
@@ -88,16 +88,12 @@
             Google Play
         </a>
         </div>
-<!--
-        <input type="text" class="phonenum" placeholder="이메일 주소" id="email"><br>
-        <input type="submit" class="submitbtn" value="뉴스레터 받기" onclick="emailList()">
--->
     </div>
     
 </section>
     
 
-<section class="section-5 mgaz-footer">
+<footer class="section-5">
     <div class="sec5-info">
         <h4 class="sec5-info-text">정보</h4>
         <a href="/article.html">수면연구소</a>
@@ -107,13 +103,12 @@
 
     <div class="sec5-info">
         <img src="/static/images/logo.svg">
-        <a>서울특별시 서대문구 연세로2나길 61, 207호</a>
+        <a>서울특별시 강남구 역삼로172 마루360 10층</a>
         <a>miraclenight@munice.com</a>
-        <a href="/index.html">www.miraclenight.app</a>
+        <a href="www.miraclenight.app">www.miraclenight.app</a>
     </div>
 
     <div class="sec5-info-t">
-        <a href="https://munice.notion.site/Help-Support-078ffeaee94640299666e85b21aa3e92"><img src="/static/images/notion.svg"></a>
         <a href="https://www.instagram.com/miraclenight_official/?hl=en"><img src="/static/images/insta.svg"></a>
         <a href=""><img src="/static/images/linked.svg"></a>
         <a href="https://pf.kakao.com/_pxohDb"><img src="/static/images/kakao.svg"></a>
@@ -122,8 +117,9 @@
     <div class="sec5-info-x">
         <h5 class="sec5-info-xx">© MUNICE Corporation</h5>
     </div>
-
-</section>
+    
+</footer>
+    
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.6/lottie.min.js"></script>
 <script>const flavoursContainer = document.getElementById('flavoursContainer');
 const flavoursScrollWidth = flavoursContainer.scrollWidth;
@@ -196,41 +192,7 @@ window.addEventListener('load', () => {
 
     }
 </script>
-    
-<script>
-    function emailList() {
-        console.log("in");
-        
-        let email = document.getElementById('email').value
-        let url_value = window.location.href;
-        console.log(email);
-        
-        let form = {
-            "url": url_value,
-            "email": email,
-        }
 
-        $.ajax({
-            url: 'https://www.mydrdozy.com/miracle/magazine-user',
-            type: 'POST',
-            contentType: 'application/json; charset=UTF-8',
-            async: false,
-            data: JSON.stringify(form),
-            dataType: "text",
-
-            error: function (jqXHR, error) {
-                alert(error)
-            },
-            complete: function (jqXHR) {
-                alert("제출되었습니다!")
-            }
-
-        })
-
-
-    }
-    
-</script>
 
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 <script>
