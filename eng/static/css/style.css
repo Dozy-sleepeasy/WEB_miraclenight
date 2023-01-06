@@ -121,6 +121,7 @@ h1,h2,h3,h4,h5,h6 {
     z-index: 5;
 }
 
+
 .top-2 .title {
     font-size: 30px;
     font-weight: 700;
@@ -244,6 +245,8 @@ h1,h2,h3,h4,h5,h6 {
     background: linear-gradient(180deg, #85A1F1 40%, rgba(133, 161, 241, 0) 110%);
      -webkit-background-clip: text;   -webkit-text-fill-color: transparent;
 }
+
+
 
 .app-screen {
     margin-top: 70px;
