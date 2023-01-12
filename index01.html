@@ -3,16 +3,16 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="요즘 MZ들이 쓰는 수면 앱! 미라클나잇. 갓생을 위한 첫 걸음, 미라클나잇입니다. 이제는 갓생을 위해 미라클모닝이 아닌 미라클나잇!">
+    <meta name="description" content="잠이 안올때 미라클나잇을 사용해보세요! 고효율 숙면을 통해 수면의 질을 높이고 불면증의 고민을 줄여보세요. 전문적인 수면관리를 통해 최고의 수면을 경험해보세요!">
     <meta name="author" content="Munice">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="미라클나잇">
     <meta property="og:title" content="미라클나잇">
-    <meta property="og:description" content="요즘 MZ들이 쓰는 수면 앱! 미라클나잇. 갓생을 위한 첫 걸음, 미라클나잇입니다. 이제는 갓생을 위해 미라클모닝이 아닌 미라클나잇!">
+    <meta property="og:description" content="잠이 안올때 미라클나잇을 사용해보세요! 고효율 숙면을 통해 수면의 질을 높이고 불면증의 고민을 줄여보세요. 전문적인 수면관리를 통해 최고의 수면을 경험해보세요!">
     <meta property="og:url" content="www.miraclenight.app">
     <meta property="og:image" content="static/images/miraclenight.jpg">
 
-    <title>미라클나잇, 요즘 MZ들의 수면 앱</title>
+    <title>미라클나잇, 스르륵 잠드는 기적의 수면</title>
 
     <link rel="stylesheet" href="static/css/style.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
@@ -37,7 +37,7 @@
 
 </head>
     
-<body data-spy="scroll">
+<body data-spy="scroll" onload="javascript:getMobileOperatingSystem()">
 <!-- Preloader -->
 <div class="spinner-wrapper">
     <div class="spinner">
@@ -75,16 +75,27 @@
     </div>
   </div>
 
+
 </ul>
 </nav>
 </header>
 <!-- end of header -->
+
+<div class="cta-btns-new"> 
+<a class="btn-new-cta" href="https://apple.co/3vvdNos" onclick="AppStore()" name="appleCTA">
+    앱 다운로드
+</a>
+<a class="btn-new-cta-2" href="https://bit.ly/3Q44bZX" onclick="PlayStore()" name="androidCTA">
+    앱 다운로드
+</a>
+</div>
     
 <div class="total">
 <section class="top">
-    <h2 class="subtitle">수면시간이 부족한 당신을 위해 <br> 적게 자도 피곤하지 않게 해드릴게요!</h2>
-    <h1 class="title01 animate flip" >요즘 MZ들의 수면 앱<br><span class="point2">미라클나잇</span></h1>
+    <h2 class="subtitle">특허 받은 수면 유도 소리로</h2>
+    <h1 class="title animate flip" >4시간 자도<br>7시간을 잔 것 처럼<br> <span style="color:#85A1F1">미라클나잇</span></h1>
        
+<!--
         <div class="cta-btns"> 
         <a class="btn-new" href="https://apple.co/3vvdNos" onclick="AppStore()">
             <img src="static/images/apple.png" alt="apple" class="cta-size">
@@ -95,6 +106,9 @@
             Google Play
         </a>
         </div>
+-->
+
+    
 </section>
 
 <section class="app-screen">
@@ -190,9 +204,9 @@
 -webkit-background-clip: text;
 -webkit-text-fill-color: transparent;
 background-clip: text;
-text-fill-color: transparent;">스르륵 잠에 들어보세요</span></h2>
+text-fill-color: transparent;">최상의 수면 효과를 누려보세요</span></h2>
+<!--
     <div class="cta-btns">
-        
         <a class="btn-new" href="https://apple.co/3vvdNos" onclick="AppStore()">
             <img src="static/images/apple.png" alt="apple" class="cta-size">
             App Store
@@ -202,6 +216,7 @@ text-fill-color: transparent;">스르륵 잠에 들어보세요</span></h2>
             Google Play
         </a>
     </div>
+-->
 
 </section>
 
@@ -246,9 +261,39 @@ window.addEventListener('load', () => {
     
     
 });
+
 </script>
+
     
 <script>
+    function getMobileOperatingSystem() {
+
+    var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+    var appleCTA = document.getElementsByName('appleCTA');
+    var androidCTA = document.getElementsByName('androidCTA');
+        
+    console.log(androidCTA);
+
+    // Windows Phone must come first because its UA also contains "Android"
+    if (/windows phone/i.test(userAgent)) {
+        console.log("Windows Phone");
+        androidCTA[0].style.display = 'flex';
+    }
+
+    if (/android/i.test(userAgent)) {
+        console.log("Android");
+        androidCTA[0].style.display = 'flex';
+    }
+
+    // iOS detection from: http://stackoverflow.com/a/9039885/177710
+    if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+        console.log("iOS");
+        appleCTA[0].style.display = 'flex';
+    }
+
+    return "unknown";
+}
+
     
     function AppStore() {
         console.log("ios in");

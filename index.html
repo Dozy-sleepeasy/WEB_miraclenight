@@ -37,7 +37,7 @@
 
 </head>
     
-<body data-spy="scroll">
+<body data-spy="scroll" onload="javascript:getMobileOperatingSystem()">
 <!-- Preloader -->
 <div class="spinner-wrapper">
     <div class="spinner">
@@ -75,16 +75,27 @@
     </div>
   </div>
 
+
 </ul>
 </nav>
 </header>
 <!-- end of header -->
+
+<div class="cta-btns-new"> 
+<a class="btn-new-cta" href="https://apple.co/3vvdNos" onclick="AppStore()" name="appleCTA">
+    앱 다운로드
+</a>
+<a class="btn-new-cta-2" href="https://bit.ly/3Q44bZX" onclick="PlayStore()" name="androidCTA">
+    앱 다운로드
+</a>
+</div>
     
 <div class="total">
 <section class="top">
     <h2 class="subtitle">10분만에 잠에 드는 수면앱</h2>
     <h1 class="title animate flip" >미라클나잇<br><span class="point">스르륵</span> 잠에 드ㄹ다...</h1>
        
+<!--
         <div class="cta-btns"> 
         <a class="btn-new" href="https://apple.co/3vvdNos" onclick="AppStore()">
             <img src="static/images/apple.png" alt="apple" class="cta-size">
@@ -95,6 +106,9 @@
             Google Play
         </a>
         </div>
+-->
+
+    
 </section>
 
 <section class="app-screen">
@@ -191,8 +205,8 @@
 -webkit-text-fill-color: transparent;
 background-clip: text;
 text-fill-color: transparent;">스르륵 잠에 들어보세요</span></h2>
+<!--
     <div class="cta-btns">
-        
         <a class="btn-new" href="https://apple.co/3vvdNos" onclick="AppStore()">
             <img src="static/images/apple.png" alt="apple" class="cta-size">
             App Store
@@ -202,6 +216,7 @@ text-fill-color: transparent;">스르륵 잠에 들어보세요</span></h2>
             Google Play
         </a>
     </div>
+-->
 
 </section>
 
@@ -246,9 +261,39 @@ window.addEventListener('load', () => {
     
     
 });
+
 </script>
+
     
 <script>
+    function getMobileOperatingSystem() {
+
+    var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+    var appleCTA = document.getElementsByName('appleCTA');
+    var androidCTA = document.getElementsByName('androidCTA');
+        
+    console.log(androidCTA);
+
+    // Windows Phone must come first because its UA also contains "Android"
+    if (/windows phone/i.test(userAgent)) {
+        console.log("Windows Phone");
+        androidCTA[0].style.display = 'flex';
+    }
+
+    if (/android/i.test(userAgent)) {
+        console.log("Android");
+        androidCTA[0].style.display = 'flex';
+    }
+
+    // iOS detection from: http://stackoverflow.com/a/9039885/177710
+    if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+        console.log("iOS");
+        appleCTA[0].style.display = 'flex';
+    }
+
+    return "unknown";
+}
+
     
     function AppStore() {
         console.log("ios in");
