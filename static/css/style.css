@@ -1014,6 +1014,7 @@ a.btn-new-cta-2 {
     align-items: center;
     width: 163px;
     margin: 0 auto;
+    display: none;
 }
 
 .cta-btns-2 {

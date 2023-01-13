@@ -95,7 +95,6 @@
     <h2 class="subtitle">10분만에 잠에 드는 수면앱</h2>
     <h1 class="title animate flip" >미라클나잇<br><span class="point">스르륵</span> 잠에 드ㄹ다...</h1>
        
-<!--
         <div class="cta-btns"> 
         <a class="btn-new" href="https://apple.co/3vvdNos" onclick="AppStore()">
             <img src="static/images/apple.png" alt="apple" class="cta-size">
@@ -106,7 +105,6 @@
             Google Play
         </a>
         </div>
--->
 
     
 </section>
@@ -271,8 +269,7 @@ window.addEventListener('load', () => {
     var userAgent = navigator.userAgent || navigator.vendor || window.opera;
     var appleCTA = document.getElementsByName('appleCTA');
     var androidCTA = document.getElementsByName('androidCTA');
-        
-    console.log(androidCTA);
+
 
     // Windows Phone must come first because its UA also contains "Android"
     if (/windows phone/i.test(userAgent)) {
@@ -343,7 +340,7 @@ window.addEventListener('load', () => {
             dataType: "text",
 
             error: function (jqXHR, error) {
-                alert(error)
+
             },
             complete: function (jqXHR) {
             }
