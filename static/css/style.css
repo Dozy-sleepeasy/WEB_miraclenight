@@ -1691,7 +1691,7 @@ a.btn-new-cta-2 {
 .manual-sec-center h3{
     margin-top: 70px;
     font-family: "GmarketSansMedium";
-    font-weight: 300;
+    font-weight: 100;
     font-size: 18px;
     line-height:20px;
     color: #779CFF;
@@ -1754,7 +1754,7 @@ a.btn-new-cta-2 {
     font-family: "Pretendard";
     font-weight: normal;
     font-size: 14px;
-    line-height:160%;
+    line-height:180%;
     color: #B2B2B2;
     letter-spacing: -0.02em;
     margin: 0 auto;
@@ -1807,6 +1807,11 @@ a.btn-new-cta-2 {
 .manual {
     width: 83%;
     margin: 0 auto;
+    display: none;
+}
+
+.manual.current {
+    display: inherit;
 }
 
 .manual h4{
@@ -1841,7 +1846,7 @@ a.btn-new-cta-2 {
 
 .tip p {
     padding: 5px 24px 17px 24px;
-    font-size: 14px;
+    font-size: 12px;
     font-family: "Pretendard";
     margin:0 auto;
     line-height: 18px;
@@ -2237,6 +2242,37 @@ div.input-button input {
     padding-bottom: 200px;
 }
 
-.sec2-back {
-  
+
+ul.tabs{
+  margin: 60px 0px 40px 0px;
+  padding: 0px;
+  list-style: none;
 }
+ul.tabs li{
+  background: none;
+  color: #747474;
+  display: inline-block;
+  padding: 10px 19px;
+  cursor: pointer;
+    font-family: 'Pretendard';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 170%;
+}
+
+ul.tabs li.current{
+  color: #779CFF;
+  border-bottom: 2px solid #4876EE;
+}
+
+.tab-content{
+  display: none;
+  background: #ededed;
+  padding: 15px;
+}
+
+.tab-content.current{
+  display: inherit;
+}
+
