@@ -21,6 +21,13 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'NanumSquareNeo-Variable';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/NanumSquareNeo-Variable.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
 
 
 html {
@@ -1690,8 +1697,8 @@ a.btn-new-cta-2 {
 
 .manual-sec-center h3{
     margin-top: 70px;
-    font-family: "GmarketSansMedium";
-    font-weight: 100;
+    font-family: "NanumSquareNeo-Variable";
+    font-weight: 400;
     font-size: 18px;
     line-height:20px;
     color: #779CFF;
@@ -1730,7 +1737,7 @@ a.btn-new-cta-2 {
 
 .manual-sec-center h5{
     margin-top: 70px;
-    font-family: "GmarketSansBold";
+    font-family: "NanumSquareNeo-Variable";
     font-weight: 200;
     font-size: 18px;
     line-height:30px;
@@ -1741,7 +1748,7 @@ a.btn-new-cta-2 {
 }
 
 .manual-sec-center h6{
-    font-family: "GmarketSansMedium";
+    font-family: "NanumSquareNeo-Variable";
     font-weight: 200;
     font-size: 18px;
     line-height:28.8px;
@@ -1877,9 +1884,8 @@ a.btn-new-cta-2 {
 }
 
 .top-5-text h1 {
-    font-family: 'GmarketSansBold';
-    font-style: normal;
-    font-weight: 500;
+    font-family: 'NanumSquareNeo-Variable';
+    font-weight: 600;
     font-size: 40px;
     line-height: 130%;
     text-align: center;
@@ -1892,7 +1898,7 @@ a.btn-new-cta-2 {
 }
 
 .top-5-text h3 {
-    font-family: 'GmarketSansLight';
+    font-family: 'NanumSquareNeo-Variable';
     font-style: normal;
     font-weight: 300;
     font-size: 14px;
@@ -1918,9 +1924,8 @@ a.btn-new-cta-2 {
 }
 
 .top-5-text h2 {
-    font-family: 'GmarketSansMedium';
-    font-style: normal;
-    font-weight: 400;
+    font-family: 'NanumSquareNeo-Variable';
+    font-weight: 500;
     font-size: 40px;
     line-height: 120%;
     text-align: center;
