@@ -3,17 +3,18 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="잠이 안올때 미라클나잇을 사용해보세요! 고효율 숙면을 통해 수면의 질을 높이고 불면증의 고민을 줄여보세요. 전문적인 수면관리를 통해 최고의 수면을 경험해보세요!">
+    <meta name="description" content="Try Miracle Night when you can't sleep! Improve your sleep quality and reduce insomnia suffering with high-efficiency sleep. Experience your best sleep with professional sleep management!">
     <meta name="author" content="Munice">
     <meta property="og:type" content="website">
-    <meta property="og:site_name" content="미라클나잇">
-    <meta property="og:title" content="미라클나잇">
-    <meta property="og:description" content="잠이 안올때 미라클나잇을 사용해보세요! 고효율 숙면을 통해 수면의 질을 높이고 불면증의 고민을 줄여보세요. 전문적인 수면관리를 통해 최고의 수면을 경험해보세요!">
-    <meta property="og:url" content="www.miraclenight.app">
+    <meta property="og:site_name" content="Miracle Night">
+    <meta property="og:title" content="Miracle Night">
+    <meta property="og:description" content="Try Miracle Night when you can't sleep! Improve your sleep quality and reduce insomnia suffering with high-efficiency sleep. Experience your best sleep with professional sleep management!">
+    <meta property="og:url" content="www.miraclenight.app/eng/index.html">
+    <meta property="og:image" content="static/images/miraclenight.jpg">
 
-    <title>미라클나잇, 스르륵 잠드는 기적의 수면</title>
+    <title>Miracle Night Falling Asleep Zzz</title>
 
-    <link rel="stylesheet" href="static/css/style.css">
+    <link rel="stylesheet" href="../static/css/style.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,22 +22,54 @@
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
 
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-944GM82Y3R"></script>
-    <script> 
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-
-        gtag('config', 'G-944GM82Y3R');
-    </script>
+    <!-- Google Tag Manager --> <!-- -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-W5H5VV8');</script>
+    <!-- End Google Tag Manager -->
+    <script src="https://www.googleoptimize.com/optimize.js?id=OPT-PMX4J7P"></script>
 
     <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js" type="text/javascript"></script>
     <link rel="shortcut icon" type="image/x-icon" href="/static/images/small_icon.png">
 
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1563531534121976');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1563531534121976&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
+      <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-DMRG9L99LE"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-DMRG9L99LE');
+    </script>
+    
 </head>
     
-<body data-spy="scroll">
+<body data-spy="scroll" onload="javascript:getMobileOperatingSystem()">
+    
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W5H5VV8"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+    
 <!-- Preloader -->
 <div class="spinner-wrapper">
     <div class="spinner">
@@ -56,49 +89,62 @@
 </label>
 
 <ul class="menu__box">
-  <li><a class="menu__item" href="index.html">홈</a></li>
-  <li><a class="menu__item" href="article.html">수면 아티클</a></li>
-  <li><a class="menu__item" href="review.html">블로그 후기</a></li>
+  <li><a class="menu__item" href="/eng/index.html">Home</a></li>
+  <li><a class="menu__item" href="/eng/article.html">Sleep Article</a></li>
 
   <div class="download-box">
-   <span class="app-download">APP 다운로드하기</span>
+   <span class="app-download">Download App</span>
    <div class="cta-btns-2"> 
-    <a class="btn-new" href="https://apple.co/3vvdNos" onclick="AppStore()">
+    <a class="btn-new" href="https://apps.apple.com/app/id1619362440" onclick="AppStore()">
         <img src="static/images/apple.png" alt="apple" class="cta-size">
         App Store
     </a>
-    <a class="btn-new" href="https://bit.ly/3Q44bZX" onclick="PlayStore()">
+    <a class="btn-new" href="https://play.google.com/store/apps/details?id=com.munice.miraclenight_android
+" onclick="PlayStore()">
         <img src="static/images/google.png" alt="google" class="cta-size">
         Google Play
     </a>
     </div>
   </div>
 
+
 </ul>
 </nav>
 </header>
 <!-- end of header -->
+
+<div class="cta-btns-new"> 
+<a class="btn-new-cta" href="https://apps.apple.com/app/id1619362440" onclick="AppStore()" name="appleCTA">
+    Download App
+</a>
+<a class="btn-new-cta-2" href="https://play.google.com/store/apps/details?id=com.munice.miraclenight_android" onclick="PlayStore()" name="androidCTA">
+    Download App
+</a>
+</div>
     
 <div class="total">
 <section class="top">
-    <h2 class="subtitle">10분만에 잠에 드는 수면앱</h2>
-    <h1 class="title animate flip" >미라클나잇<br><span class="point">스르륵</span> 잠에 드ㄹ다...</h1>
+    <h2 class="subtitle">Fall asleep in just 10 minutes</h2>
+    <h1 class="title animate flip" >Miracle Night<br>
+    Fall Asleep <span class="point">Fast</span> </h1>
        
         <div class="cta-btns"> 
-        <a class="btn-new" href="https://apple.co/3vvdNos" onclick="AppStore()">
+        <a class="btn-new" href="https://apps.apple.com/app/id1619362440" onclick="AppStore()">
             <img src="static/images/apple.png" alt="apple" class="cta-size">
             App Store
         </a>
-        <a class="btn-new" href="https://bit.ly/3Q44bZX" onclick="PlayStore()">
+        <a class="btn-new" href="https://play.google.com/store/apps/details?id=com.munice.miraclenight_android" onclick="PlayStore()">
             <img src="static/images/google.png" alt="google" class="cta-size">
             Google Play
         </a>
         </div>
+
+    
 </section>
 
 <section class="app-screen">
     <div class="img-container">
-        <img src="static/images/screen_3.png">
+        <img src="static/images/screen_5.png">
     </div>
     <div class="img-container-back">
         <img src="static/images/soundwave.gif">
@@ -106,18 +152,18 @@
 </section>
 
 <section class="section-2" style="margin-top: 230px;">
-    <h2 class="sec2-title" data-aos="fade-up" data-aos-duration="1000">2만명의 새벽을<br> 책임지는 🔥핫템🔥 </h2>
-    <h3 class="sec2-subtitle">누적 수면 시간 190,000시간 돌파!</h3>
+    <h2 class="sec2-title" data-aos="fade-up" data-aos-duration="1000">The popular app that’s responsible for putting 40,000 users to sleep </h2>
+    <h3 class="sec2-subtitle">Over 190,000 hours of cumulative sleep time!</h3>
     <div class="sec2-container" id="flavoursContainer">
-        <img src="static/images/testimonial_a.png" alt="누워서 눈 감아도 항상 20~30분은 뒤척였는데 이젠 누워서 가만히 있으면 잠들어요!!">
-        <img src="static/images/testimonial_b.png" alt="너무 신기해요! 소리 듣자마자 엥, 이게 무슨 소리지? 하고 있었는데 눈 뜨니 아침이었어요..">
-        <img src="static/images/testimonial_c.png" alt="매일 자도 잔 것 같지 않았는데 어젠 오랜만에 꿈도 안 꾸고 푹 잠 겁나 신기하다... 이게 되네">
-        <img src="static/images/testimonial_a.png" alt="누워서 눈 감아도 항상 20~30분은 뒤척였는데 이젠 누워서 가만히 있으면 잠들어요!!">
-        <img src="static/images/testimonial_b.png" alt="너무 신기해요! 소리 듣자마자 엥, 이게 무슨 소리지? 하고 있었는데 눈 뜨니 아침이었어요..">
-        <img src="static/images/testimonial_c.png" alt="매일 자도 잔 것 같지 않았는데 어젠 오랜만에 꿈도 안 꾸고 푹 잠 겁나 신기하다... 이게 되네">
-        <img src="static/images/testimonial_a.png" alt="누워서 눈 감아도 항상 20~30분은 뒤척였는데 이젠 누워서 가만히 있으면 잠들어요!!">
-        <img src="static/images/testimonial_b.png" alt="너무 신기해요! 소리 듣자마자 엥, 이게 무슨 소리지? 하고 있었는데 눈 뜨니 아침이었어요..">
-        <img src="static/images/testimonial_c.png" alt="매일 자도 잔 것 같지 않았는데 어젠 오랜만에 꿈도 안 꾸고 푹 잠 겁나 신기하다... 이게 되네">
+        <img src="static/images/testimonial_a_eng.png" alt="I never feel like I sleep properly, but yesterday I slept like a baby without any dreams. This is amazing… How does this even work?">
+        <img src="static/images/testimonial_b_eng.png" alt="This app is really cool! As soon as I heard the sounds, I was like, “What is this?” The next thing I knew, I opened my eyes and it was morning…">
+        <img src="static/images/testimonial_c_eng.png" alt="I always tossed and turned for 20-30 minutes before falling asleep, but now I can fall asleep right away!!">
+        <img src="static/images/testimonial_a_eng.png" alt="I never feel like I sleep properly, but yesterday I slept like a baby without any dreams. This is amazing… How does this even work?">
+        <img src="static/images/testimonial_b_eng.png" alt="This app is really cool! As soon as I heard the sounds, I was like, “What is this?” The next thing I knew, I opened my eyes and it was morning…">
+        <img src="static/images/testimonial_c_eng.png" alt="I always tossed and turned for 20-30 minutes before falling asleep, but now I can fall asleep right away!!">
+        <img src="static/images/testimonial_a_eng.png" alt="I never feel like I sleep properly, but yesterday I slept like a baby without any dreams. This is amazing… How does this even work?">
+        <img src="static/images/testimonial_b_eng.png" alt="This app is really cool! As soon as I heard the sounds, I was like, “What is this?” The next thing I knew, I opened my eyes and it was morning…">
+        <img src="static/images/testimonial_c_eng.png" alt="I always tossed and turned for 20-30 minutes before falling asleep, but now I can fall asleep right away!!">
     </div>
     <div class="sec2-back">
         <img src="static/images/sec2-back.png">
@@ -126,40 +172,37 @@
 
 
 <section class="section-2">
-    <h2 class="sec2-title" data-aos="fade-up" data-aos-duration="1000">소리 하나로 <br> 새벽을 바꾸다 </h2>
-    <h3 class="sec2-subtitle">뇌과학 기반의 수면유도 소리가 재생됩니다 <br>
-    <a href="articles/mb-science.html" target="_blank">모노럴 비트 더 알아보기</a>
+    <h2 class="sec2-title" data-aos="fade-up" data-aos-duration="1000">Changing your night <br> with one sound </h2>
+    <h3 class="sec2-subtitle">Miracle Night plays sleep-inducing sounds <br>backed by brain science <br>
+    <a href="/eng/articles/mb-science.html" target="_blank">Learn more on Monaural Beats</a>
     </h3>
     <div class="sec2-img-container">
         <img src="static/images/soundwave.gif" alt="soundwave">
     </div>
     <div class="sec2-img-com">
-        <img src="static/images/company.png" alt="partners"></div>
+        <img src="static/images/sec2-back_eng.png" alt="partners"></div>
 </section>
 
 <section class="section-3">
-    <h2 class="sec3-title" data-aos="fade-up" data-aos-duration="1000">미라클나잇이 제공하는<br> 3가지 수면 효과 </h2>
+    <h2 class="sec3-title" data-aos="fade-up" data-aos-duration="1000">3 sleep benefits <br> to expect </h2>
 
     <div class="sec3-container">
         <div class="sec3-small" data-aos="fade-in" data-aos-duration="700">
-            <img src="static/images/effect_a.png" alt="빠르게 잠에 들어요">
-            <h4>빠르게 잠에 들어요</h4>
-            <h5>미라클나잇 사용 시 개시 후 10분 내에<br>
-                델타파가 우세파동으로 올라옵니다.</h5>
+            <img src="static/images/effect_a.png" alt="Fall asleep faster">
+            <h4>Fall asleep faster</h4>
+            <h5>10 minutes after turning on Miracle Night’s monaural beats, the delta waves in the brain (the deep sleep brain waves) become dominant.</h5>
         </div>
 
         <div class="sec3-small" data-aos="fade-in" data-aos-duration="700">
-            <img src="static/images/effect_b.png" alt="깊은 수면을 오래해요">
-            <h4>깊은 수면을 오래해요 </h4>
-            <h5>미라클나잇 사용 시 S2, S3(깊은 수면 단계)의 <br>
-                비율이 28~32% 상승합니다. </h5>
+            <img src="static/images/effect_b.png" alt="Stay in deep sleep for longer">
+            <h4>Stay in deep sleep for longer </h4>
+            <h5>Listening to Miracle Night’s monaural beats increases deep sleep stages 2 and 3 up to 56%. </h5>
         </div>
 
         <div class="sec3-small" data-aos="fade-in" data-aos-duration="700">
-            <img src="static/images/effect_c.png" alt="개운하게 일어나요">
-            <h4>개운하게 일어나요 </h4>
-            <h5>미라클나잇 사용 시 아침에 겪는<br>
-                수면 관성(Sleep Inertia) 시간이 줄어듭니다.</h5>
+            <img src="static/images/effect_c.png" alt="Wake up feeling refreshed">
+            <h4>Wake up feeling refreshed </h4>
+            <h5>Listening to Miracle Night’s monaural beats decreases sleep inertia in the morning.</h5>
         </div>
 
 
@@ -167,31 +210,31 @@
 </section>
     
 <section class="section-2">
-    <h2 class="sec2-title" data-aos="fade-up" data-aos-duration="1000">오늘 내 상태에 맞는 <br> 모노럴 비트 찾기</h2>
-    <h3 class="sec2-subtitle">오늘 수면에 영향을 미치는 일상을 체크하면 <br>나에게 가장 잘 맞는 모노럴 비트 믹스를 찾아줘요! 
+    <h2 class="sec2-title" data-aos="fade-up" data-aos-duration="1000">Find the perfect mix based on your <br>condition today</h2>
+    <h3 class="sec2-subtitle">Miracle Night finds the right mix of monaural beats for you based on your mood, what you did before bed, and other factors that affect your sleep.
     </h3>
     <div class="sec2-img-container" data-aos="fade-in" data-aos-duration="700">
-        <img src="static/images/function_a.png" alt="오늘 내 상태에 맞는 모노럴 비트 찾기">
+        <img src="static/images/function_a_eng.png" alt="Find the perfect mix of monaural beats based on your condition today">
     </div>
 </section>
     
 <section class="section-2">
-    <h2 class="sec2-title" data-aos="fade-up" data-aos-duration="1000">내 환경에 맞는 <br> 모노럴 비트 볼륨 찾기</h2>
-    <h3 class="sec2-subtitle">주변 환경 소음 추적을 통해 <br> 나의 환경에 딱 맞는 모노럴 비트 볼륨을 찾아줘요!
+    <h2 class="sec2-title" data-aos="fade-up" data-aos-duration="1000">Find the right volume for your sleeping environment</h2>
+    <h3 class="sec2-subtitle">Miracle Night finds the right volume to play monaural beats after analyzing the noises of your surroundings.
     </h3>
     <div class="sec2-img-container" data-aos="fade-in" data-aos-duration="700">
-        <img src="static/images/function_b.png" alt="내 환경에 맞는 모노럴 비트 볼륨 찾기">
+        <img src="static/images/function_b_eng.png" alt="Find the right volume to play monaural beats for your sleeping environment">
     </div>
 </section>
 
 <section class="section-4" id="section-4">
-    <h2 class="sec4-title" data-aos="zoom-in" data-aos-duration="1000">지금 다운로드하고 <br> <span style="background: linear-gradient(90deg, #94B1FF 0%, rgba(148, 177, 255, 0) 120.35%);
+    <h2 class="sec4-title" data-aos="zoom-in" data-aos-duration="1000">Download now and<br> <span style="background: linear-gradient(90deg, #94B1FF 0%, rgba(148, 177, 255, 0) 120.35%);
 -webkit-background-clip: text;
 -webkit-text-fill-color: transparent;
 background-clip: text;
-text-fill-color: transparent;">스르륵 잠에 들어보세요</span></h2>
+text-fill-color: transparent;"> get a good night’s sleep</span></h2>
+<!--
     <div class="cta-btns">
-        
         <a class="btn-new" href="https://apple.co/3vvdNos" onclick="AppStore()">
             <img src="static/images/apple.png" alt="apple" class="cta-size">
             App Store
@@ -201,6 +244,7 @@ text-fill-color: transparent;">스르륵 잠에 들어보세요</span></h2>
             Google Play
         </a>
     </div>
+-->
 
 </section>
 
@@ -222,7 +266,6 @@ text-fill-color: transparent;">스르륵 잠에 들어보세요</span></h2>
     <div class="sec5-info-t">
         <a href="https://www.instagram.com/miraclenight_official/?hl=en"><img src="static/images/insta.svg"></a>
         <a href=""><img src="static/images/linked.svg"></a>
-        <a href="https://pf.kakao.com/_pxohDb"><img src="static/images/kakao.svg"></a>
     </div>
 
     <div class="sec5-info-x">
@@ -245,9 +288,38 @@ window.addEventListener('load', () => {
     
     
 });
+
 </script>
+
     
 <script>
+    function getMobileOperatingSystem() {
+
+    var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+    var appleCTA = document.getElementsByName('appleCTA');
+    var androidCTA = document.getElementsByName('androidCTA');
+
+
+    // Windows Phone must come first because its UA also contains "Android"
+    if (/windows phone/i.test(userAgent)) {
+        console.log("Windows Phone");
+        androidCTA[0].style.display = 'flex';
+    }
+
+    if (/android/i.test(userAgent)) {
+        console.log("Android");
+        androidCTA[0].style.display = 'flex';
+    }
+
+    // iOS detection from: http://stackoverflow.com/a/9039885/177710
+    if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+        console.log("iOS");
+        appleCTA[0].style.display = 'flex';
+    }
+
+    return "unknown";
+}
+
     
     function AppStore() {
         console.log("ios in");
@@ -297,7 +369,7 @@ window.addEventListener('load', () => {
             dataType: "text",
 
             error: function (jqXHR, error) {
-                alert(error)
+
             },
             complete: function (jqXHR) {
             }
