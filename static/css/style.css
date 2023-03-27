@@ -302,11 +302,12 @@ a.btn-new-cta-2 {
 }
 
 .app-screen {
-    margin-top: 20px;
+    margin-top: -145px;
+    margin-bottom: 200px;
 }
 
 .app-screen-2 {
-    margin-top: 43px;
+    margin-top: 0px;
 }
 
 
@@ -397,7 +398,7 @@ a.btn-new-cta-2 {
 
 .section-2 {
     text-align: center;
-    margin-top: 170px;
+    margin-top: 100px;
     width: 90%;
     margin-right:  auto;
     margin-left:  auto;
@@ -425,11 +426,10 @@ a.btn-new-cta-2 {
 
 .section-4 .sec4-title {
     font-weight: 700;
-    font-size: 24px;
-    line-height: 140%;
-    letter-spacing: -1%;
+    font-size: 40px;
+    line-height: 55.6px;
+    letter-spacing: -4%;
     color: white;
-    margin-bottom: 60px;
 }
 
 .section-3 .sec3-title {
@@ -1172,7 +1172,7 @@ a.btn-new-cta-2 {
     width: 100%;
     overflow-x: scroll;
     white-space: nowrap;
-    margin-top: 100px;
+    margin-top: 60px;
 }
 
 .sec2-container img{
@@ -2292,5 +2292,47 @@ ul.tabs li.current{
 
 .tab-content.current{
   display: inherit;
+}
+
+.top-top {
+    text-align: left;
+    margin-top: 115px;
+    width: 80%;
+    margin-right:  auto;
+    margin-left:  auto;
+}
+
+.top-top-title {
+    font-family: 'Pretendard';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 170%;
+    color: #85A1F1;
+    margin-top: 33px;
+}
+
+.top-top-subtitle {
+    font-family: 'Pretendard';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 26.4px;
+    color: #B2B2B2;
+    margin-top: 12px;
+}
+
+.top-top p{
+    font-family: 'Pretendard';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 18px;
+    color: #B2B2B2;
+    opacity: 0.3;
+}
+
+.sec2-back {
+    margin-top: 110px;
 }
 
