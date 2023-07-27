@@ -1,0 +1,228 @@
+/*
+Description:
+    Contains all the styles for the winning wheel page.
+    
+Verison History:
+    2012-01-28, Douglas McKechie
+    - Created based off earlier version.
+    
+    2015-09-26, Douglas McKechie
+    - Minor updates for the 2.0 winwheel example.
+*/
+
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+
+
+body
+{
+    font-family: arial;
+    background-color: #0F0F0F;
+    color: white;
+    background-image: url(./ellipse.png);
+    background-repeat: no-repeat;
+    background-size: 1000px 1000px;
+    background-position: right 0px top 0px;
+    font-family: "Pretendard", sans-serif;
+    font-size: 1rem;
+    letter-spacing: 1px;
+}
+
+h1 {
+    font-size: 60px;
+    padding-bottom: 30px;
+}
+h2 {
+    padding-top: 100px;
+    margin-bottom: 20px;
+    font-size: 30px;
+}
+
+
+.star {
+    height: 100px;
+    z-index: -1;
+    position: fixed;
+}
+
+.star img {
+    width: 100%;
+}
+
+/* Sets the background image for the wheel */
+td.the_wheel
+{
+    background-image: url(./wheel.png);
+    background-position: center;
+    background-repeat: none;
+    background-size: 100% auto;
+}
+
+/* Do some css reset on selected elements */
+h1, p
+{
+    margin: 0;
+}
+
+div.power_controls
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+div.html5_logo
+{
+    margin-left:70px;
+}
+
+/* Styles for the power selection controls */
+table.power
+{
+    background-color: #cccccc;
+    cursor: pointer;
+    border:1px solid #333333;
+}
+
+table.power th
+{
+    background-color: white;
+    cursor: default;
+}
+
+td.pw1
+{
+    background-color: #6fe8f0;
+}
+
+td.pw2
+{
+    background-color: #86ef6f;
+}
+
+td.pw3
+{
+    background-color: #ef6f6f;
+}
+
+/* Style applied to the spin button once a power has been selected */
+.clickable
+{
+    cursor: pointer;
+}
+
+/* Other misc styles */
+.margin_bottom
+{
+    margin-bottom: 5px;
+}
+
+button#spin_button {
+    width: 364px;
+    height: 88px;
+    left: 1120px;
+    top: 1698px;
+
+    background: #4876EE;
+    border-radius: 25px;
+    text-decoration: none;
+    outline: none;
+    border:none;
+    
+    color: white;
+    font-size: 24px;
+    font-weight: normal;
+    font-family: "Pretendard", sans-serif;
+    letter-spacing: 1px;
+    cursor: pointer;
+}
+
+a {
+    color: #303030;
+    border:none;
+    outline: none;
+    font-size: 14px;
+    padding-top: 10px;
+}
+
+.miraclenight {
+    position: absolute;
+    width: 100px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin-top: 410px;
+}
+
+.miraclenight img{
+    width: 100%;
+}
+
+.popup h3 {
+    font-size: 60px;
+    padding-top: 10px;
+    margin-bottom: 20px;
+}
+
+.popup p {
+    font-size: 30px;
+}
+#popup-p {
+    padding-top: 30px;
+}
+
+.lottie {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+}
+#lottie-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    width: 1000px;
+    height: auto;
+}
+
+.whole {
+    background: rgba(0, 0, 0, 0.7);
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out;
+}
+
+
+.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.show2 {
+  opacity: 1;
+  visibility: visible;
+}
+
+
+.popup{
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 700px;
+    height: 700px;
+    background-color: #1A1A1A;
+
+    border-radius: 40px;
+    box-shadow: 0px 30px 30px #000000;
+    text-align: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out;
+    z-index: 1002;
+}
+
+

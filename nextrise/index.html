@@ -1,0 +1,195 @@
+<html>
+    <head>
+        <title>미라클나잇 행운의 룰렛</title>
+        
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+
+        <link rel="stylesheet" href="r-main.css" type="text/css" />
+    </head>
+    <body>
+        <div class="popup" id="popup">
+            <div id="lottie-container"></div>
+            <h3>축하합니다!🎉</h3>
+            <img id="popup-img" src="shirts.png">
+            <p id="popup-p"> 당첨!</p>
+        </div>
+        
+        <div class="whole" id="whole"></div>
+        <div class="star"><img src="star.png"></div>
+        
+        <div align="center" class="center">
+            <h2>미라클나잇</h2>
+            <h1>행운의 룰렛</h1>
+            <br />
+            
+            <table cellpadding="0" cellspacing="0" border="0">
+                <div class="miraclenight"><img src="miraclenight.png"></div>
+                <tr>
+                    <td width="700" height="800" class="the_wheel" align="center" valign="center">
+                        <canvas id="canvas" width="700" height="818" >
+                            <p style="{color: white}" align="center">Sorry, your browser doesn't support canvas. Please try another.</p>
+                        </canvas>
+                    </td>
+                </tr>
+            </table>
+                <div class="power_controls">
+                    <button id="spin_button" onClick="startSpin();">돌리기</button>
+                    <a href="#" onClick="resetWheel(); return false;">처음으로</a>
+                </div>
+        </div>
+        
+                <script type="text/javascript" src="Winwheel.js"></script>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
+        <script src="lf20_nxsyeqbd.json"></script>
+        <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script> 
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.5.9/lottie.min.js"></script>
+        
+        <script>
+
+            
+            // Create new wheel object specifying the parameters at creation time.
+            let theWheel = new Winwheel({
+                'numSegments'  : 10,     // Specify number of segments.
+                'outerRadius'  : 308,   // Set outer radius so wheel fits inside the background.
+                'textFontSize' : 30,    // Set font size as desired.
+                'segments'     :        // Define segments including colour and text.
+                [
+                    { 'fillStyle': '#000000', 'text': '휴족시간' },
+                    { 'fillStyle': '#1A1A1A', 'text': '펜'},
+                    { 'fillStyle': '#3D3D3D', 'text': '디퓨저백'},
+                    { 'fillStyle': '#000000', 'text': '휴족시간'},
+                    { 'fillStyle': '#1A1A1A', 'text': '펜' },
+                    { 'fillStyle': '#3D3D3D', 'text': '디퓨저백' },
+                    { 'fillStyle': '#000000', 'text': '휴족시간'},
+                    { 'fillStyle': '#1A1A1A', 'text': '펜'}, 
+                    { 'fillStyle': '#000000', 'text': '안대'},
+                    { 'fillStyle': '#3D3D3D', 'text': '펜'}
+                ],
+                'animation' :           // Specify the animation to use.
+                {
+                    'type'     : 'spinToStop',
+                    'duration' : 5,     // Duration in seconds.
+                    'spins'    : 8,     // Number of complete spins.
+                    'callbackFinished' : alertPrize
+                }
+            });
+
+            // Vars used by the code in this page to do power controls.
+            let wheelPower    = 0;
+            let wheelSpinning = false;
+
+            // -------------------------------------------------------
+            // Click handler for spin button.
+            // -------------------------------------------------------
+            function startSpin()
+            {
+                // Ensure that spinning can't be clicked again while already running.
+                if (wheelSpinning == false) {
+                    // Based on the power level selected adjust the number of spins for the wheel, the more times is has
+                    // to rotate with the duration of the animation the quicker the wheel spins.
+                    theWheel.animation.spins = 8;
+
+                    // Disable the spin button so can't click again while wheel is spinning.
+                    document.getElementById('spin_button').src = "spin_off.png";
+                    document.getElementById('spin_button').className = "";
+
+                    // Begin the spin animation by calling startAnimation on the wheel object.
+                    theWheel.startAnimation();
+
+                    // Set to true so that power can't be changed and spin button re-enabled during
+                    // the current animation. The user will have to reset before spinning again.
+                    wheelSpinning = true;
+                    console.log("spinning");
+                }
+            }
+
+            // -------------------------------------------------------
+            // Function for reset button.
+            // -------------------------------------------------------
+            function resetWheel()
+            {
+                theWheel.stopAnimation(false);  // Stop the animation, false as param so does not call callback function.
+                theWheel.rotationAngle = 0;     // Re-set the wheel angle to 0 degrees.
+                theWheel.draw();                // Call draw to render changes to the wheel.
+
+                wheelSpinning = false;          // Reset to false to power buttons and spin can be clicked again.
+            }
+
+            // -------------------------------------------------------
+            // Called when the spin animation has finished by the callback feature of the wheel because I specified callback in the parameters
+            // note the indicated segment is passed in as a parmeter as 99% of the time you will want to know this to inform the user of their prize.
+            // -------------------------------------------------------
+
+            function alertPrize(indicatedSegment)
+            {
+                // Do basic alert of the segment text. You would probably want to do something more interesting with this information. indicatedSegment.text
+                console.log(indicatedSegment.text);
+                
+                // Get a reference to the <p> element with the ID "popup-p"
+                var paragraph = document.getElementById('popup-p');
+
+                // Change the text content
+                paragraph.textContent = indicatedSegment.text+' 당첨!';
+
+                var imageElement = document.querySelector('#popup-img');
+
+                
+                if (indicatedSegment.text === '티셔츠') {
+                      imageElement.src = 'tshirts.png';
+                    } else if (indicatedSegment.text === '펜') {
+                      imageElement.src = 'pen.png';
+                    } 
+                    else if (indicatedSegment.text === '디퓨저백') {
+                      imageElement.src = 'diffuser.png';
+                    } 
+                    else if (indicatedSegment.text === '안대') {
+                      imageElement.src = 'eyemask.png';
+                    } 
+                    else if (indicatedSegment.text === '휴족시간') {
+                      imageElement.src = 'hujok.png';
+                    } 
+                
+                
+                var animationContainer = document.getElementById('lottie-container');
+
+                  // Load the Lottie animation
+                  var animation = bodymovin.loadAnimation({
+                    container: animationContainer,
+                    renderer: 'svg',
+                    loop: false,
+                    autoplay: false,
+                    path: 'https://lottie.host/0165bb7e-8279-4def-a4f5-49fef32aed50/vHs4CiWkaY.json'
+                  });
+                
+                  // Play the animation
+                  animation.play();
+
+                
+                var popup = document.getElementById('popup');
+                var layer = document.getElementById('whole');
+                
+                popup.style.visibility = 'visible';
+                popup.style.opacity = '1';
+                layer.style.visibility = 'visible';
+                layer.style.opacity = '1';
+
+                // Add a click event listener to the document
+                document.addEventListener('click', function(event) {
+                  // Check if the clicked element is inside the popup
+                  var isClickedInsidePopup = popup.contains(event.target);
+
+                  // If the clicked element is not inside the popup, hide the popup
+                  if (!isClickedInsidePopup) {
+                    popup.style.visibility = 'hidden';
+                    layer.style.visibility = 'hidden';
+                  }
+                });
+                
+
+            }
+        
+        </script>
+    </body>
+</html>
