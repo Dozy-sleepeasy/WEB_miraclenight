@@ -33,6 +33,10 @@
     </div>
 </div>
 <!-- end of preloader -->
+
+<div class="to-top">
+    <button class="to-top-button" id="backToTopBtn"><img src="/static/images/btn_arrow_up.png"></button>
+</div>
       
     
 <section class="top-4">
@@ -43,8 +47,7 @@
     <h7><span class="maga-cate2">수면 FACT</span></h7>
     
     <div class="maga-top-title"><h2 style="color:#fff;line-height: 36.4px;">좋은 잠을 위한<br> 수면 자세는? </h2></div>
-        
-    <h7 style="color:#e6e6e6e6;">by Lucas</h7>
+
     </div>
     <img src="/static/images/thumbnail_15.png">
 </section>
@@ -94,6 +97,23 @@ window.addEventListener('load', () => {
         }
     }, 10);
 });
+</script>
+    
+<script>
+    // Wait for the DOM content to be fully loaded
+    document.addEventListener("DOMContentLoaded", function () {
+        // Get the button element by its ID
+        const backToTopBtn = document.getElementById("backToTopBtn");
+
+        // Add a click event listener to the button
+        backToTopBtn.addEventListener("click", function () {
+            // Scroll to the top of the page
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth" // Optional: adds smooth scrolling effect
+            });
+        });
+    });
 </script>
 
 

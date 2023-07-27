@@ -33,6 +33,9 @@
     </div>
 </div>
 <!-- end of preloader -->
+<div class="to-top">
+    <button class="to-top-button" id="backToTopBtn"><img src="/static/images/btn_arrow_up.png"></button>
+</div>
       
     
 <section class="top-4">
@@ -44,7 +47,6 @@
     
     <div class="maga-top-title"><h2 style="color:#fff;line-height: 36.4px;">The truth about melatonin, <br> the sleep hormone </h2></div>
         
-    <h7 style="color:#e6e6e6e6;">by Ciara</h7>
     </div>
     <img src="/static/images/thumbnail_18.png">
 </section>
@@ -78,6 +80,23 @@
     </div>
     
 </section>
+    
+<script>
+    // Wait for the DOM content to be fully loaded
+    document.addEventListener("DOMContentLoaded", function () {
+        // Get the button element by its ID
+        const backToTopBtn = document.getElementById("backToTopBtn");
+
+        // Add a click event listener to the button
+        backToTopBtn.addEventListener("click", function () {
+            // Scroll to the top of the page
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth" // Optional: adds smooth scrolling effect
+            });
+        });
+    });
+</script>
  
  
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.6/lottie.min.js"></script>
