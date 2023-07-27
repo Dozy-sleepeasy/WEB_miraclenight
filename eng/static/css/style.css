@@ -1315,7 +1315,8 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 .magazine-img-container {
-    width: 25%;
+    width: 100px;
+    height: 100px;
 }
 
 .magazine-img-container img {
