@@ -1,0 +1,70 @@
+body {
+  text-align: center;
+}
+
+h1 {
+  margin-top: 50px;
+}
+
+#roulette-wheel {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  border: 2px solid black;
+  margin: 50px auto;
+  position: relative;
+  overflow: hidden;
+}
+
+.segment {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform-origin: 50% 100%;
+}
+
+.segment:nth-child(1) {
+  background: linear-gradient(45deg, #FFCC00 50%, transparent 50%);
+  transform: rotate(0deg);
+}
+
+.segment:nth-child(2) {
+  background: linear-gradient(45deg, #FF6666 50%, transparent 50%);
+  transform: rotate(72deg);
+}
+
+.segment:nth-child(3) {
+  background: linear-gradient(45deg, #99CCFF 50%, transparent 50%);
+  transform: rotate(144deg);
+}
+
+.segment:nth-child(4) {
+  background: linear-gradient(45deg, #66FF99 50%, transparent 50%);
+  transform: rotate(216deg);
+}
+
+.segment:nth-child(5) {
+  background: linear-gradient(45deg, #FF99CC 50%, transparent 50%);
+  transform: rotate(288deg);
+}
+
+#spin-button {
+  margin-bottom: 50px;
+}
+
+#result-popup {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  border: 2px solid black;
+}
+
+#result-popup button {
+  margin-top: 10px;
+}
