@@ -34,24 +34,46 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js" type="text/javascript"></script>
     <link rel="shortcut icon" type="image/x-icon" href="/static/images/small_icon.png">
-
+    
+    <!-- Meta Domain Verification -->
+    <meta name="facebook-domain-verification" content="dlc4hd3a8yuxjj8cljisocl415q1fc" />
+    
     <!-- Meta Pixel Code -->
     <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '1563531534121976');
-    fbq('track', 'PageView');
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '1382949405769742');
+      fbq('track', 'PageView');
     </script>
     <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=1563531534121976&ev=PageView&noscript=1"
+      src="https://www.facebook.com/tr?id=1382949405769742&ev=PageView&noscript=1"
     /></noscript>
-    <!-- End Meta Pixel Code -->
+<!-- End Meta Pixel Code -->
+    
+<!-- Meta Pixel Code -->
+<script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '1259881371396401');
+  fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=1259881371396401&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+
       <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-DMRG9L99LE"></script>
     <script>
@@ -115,10 +137,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- end of header -->
 
 <div class="cta-btns-new"> 
-<a class="btn-new-cta" href="https://apple.co/3vvdNos" onclick="AppStore()" name="appleCTA">
+<a class="btn-new-cta" href="https://apple.co/3vvdNos" onclick="AppStore()" name="appleCTA" id="ViewContent">
     앱 다운로드
 </a>
-<a class="btn-new-cta-2" href="https://bit.ly/3Q44bZX" onclick="PlayStore()" name="androidCTA">
+<a class="btn-new-cta-2" href="https://bit.ly/3Q44bZX" onclick="PlayStore()" name="androidCTA" id="ViewContent">
     앱 다운로드
 </a>
 </div>
@@ -221,6 +243,7 @@ text-fill-color: transparent;">최상의 수면 효과를 <br> 누려보세요</
     
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.6/lottie.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 <script>const flavoursContainer = document.getElementById('flavoursContainer');
 const flavoursScrollWidth = flavoursContainer.scrollWidth;
 
@@ -235,6 +258,15 @@ window.addEventListener('load', () => {
 });
 
 </script>
+<!--
+    
+<script type="text/javascript">
+  $('#ViewContent').click(function() {
+    console.log("ViewContent");
+    fbq('track', 'ViewContent');
+  });
+</script>
+-->
 
     
 <script>
@@ -268,6 +300,7 @@ window.addEventListener('load', () => {
     
     function AppStore() {
         console.log("ios in");
+        fbq('track', 'ViewContent');
 
         let url_value = window.location.href;
         console.log(url_value);
@@ -296,6 +329,7 @@ window.addEventListener('load', () => {
     
     function PlayStore() {
         console.log("google in");
+        fbq('track', 'ViewContent');
 
         let url_value = window.location.href;
         console.log(url_value);
