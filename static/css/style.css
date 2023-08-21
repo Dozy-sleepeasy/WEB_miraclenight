@@ -1457,6 +1457,15 @@ a.btn-new-cta-2 {
     margin-right: 8px;
 }
 
+.mag-cate2 {
+    padding: 2px 5px;
+    font-size: 11px;
+    color: white;
+    background-color: #4876EE;
+    border-radius: 3px;
+    margin-right: 8px;
+}
+
 .rect-div {
     background: rgba(15, 15, 15, 0.3);
     backdrop-filter: blur(5px);
