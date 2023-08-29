@@ -90,6 +90,17 @@ h1,h2,h3,h4,h5,h6 {
     height: 240px;
 }
 
+.miracle-2-img img#top-bunny{
+    position: absolute;
+    height: 160px;
+    position: absolute; top: 53.2%; left: 50%; transform: translate(-50%, -100%);
+}
+
+.miracle-2 img{
+    width: 70%;
+    margin-left: 30px;
+}
+
 .top-2 {
     text-align: center;
     margin-top: 100px;
@@ -214,6 +225,58 @@ h1,h2,h3,h4,h5,h6 {
     display: none;
 }
 
+.miracle-btn-new-cta {
+    background: ;
+    margin: 0 auto;
+    width: 212px;
+    height: 58px;
+    align-items: center;
+    justify-content: center;
+    display: none;
+    border-radius: 30.306px;
+    border: 1.347px solid #FFF;
+}
+
+.miracle2-btn-new-cta {
+    margin: 0 auto;
+    width: 286px;
+    height: 58px;
+    align-items: center;
+    justify-content: center;
+    display: none;
+    border-radius: 30.306px;
+    background: #4876EE;
+    color: #FFF;
+text-align: center;
+font-feature-settings: 'clig' off, 'liga' off;
+font-family: Pretendard;
+font-size: 20px;
+font-style: normal;
+font-weight: 600;
+line-height: 140%; /* 28px */
+text-transform: uppercase;
+}
+
+.miracle2-btn-new-cta-2 {
+    margin: 0 auto;
+    width: 286px;
+    height: 58px;
+    align-items: center;
+    justify-content: center;
+    display: none;
+    border-radius: 30.306px;
+    background: #4876EE;
+    color: #FFF;
+text-align: center;
+font-feature-settings: 'clig' off, 'liga' off;
+font-family: Pretendard;
+font-size: 20px;
+font-style: normal;
+font-weight: 600;
+line-height: 140%; /* 28px */
+text-transform: uppercase;
+}
+
 .btn-new-cta-2 {
     background: #4876EE;
     border-radius: 12px;
@@ -225,13 +288,56 @@ h1,h2,h3,h4,h5,h6 {
     display: none;
 }
 
+.miracle-btn-new-cta-2 {
+    background: ;
+    margin: 0 auto;
+    width: 212px;
+    height: 58px;
+    align-items: center;
+    justify-content: center;
+    display: none;
+    border-radius: 30.306px;
+    border: 1.347px solid #FFF;
+}
+
 a.btn-new-cta {
-    color: white;
+    color: #FFF;
+    text-align: center;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: Pretendard;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 140%; /* 28px */
+    text-transform: uppercase;
     text-decoration: none;
 }
 
 a.btn-new-cta-2 {
     color: white;
+    text-decoration: none;
+}
+
+a.miracle2-btn-new-cta {
+    color: white;
+    text-decoration: none;
+}
+
+a.miracle2-btn-new-cta-2 {
+    color: white;
+    text-decoration: none;
+}
+
+a.miracle-btn-new-cta-2 {
+    color: #FFF;
+    text-align: center;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: Pretendard;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 140%; /* 28px */
+    text-transform: uppercase;
     text-decoration: none;
 }
 
@@ -1041,6 +1147,8 @@ a.btn-new-cta-2 {
     left: 0;
     right: 0;
 }
+
+
 
 .cta-btns a {
     text-decoration: none;
@@ -2305,12 +2413,30 @@ ul.tabs li.current{
   display: inherit;
 }
 
+
+.miracle-1 {
+    width: 80%;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 0px;
+}
+
+.miracle-1 img{
+    width: 80px;
+}
+
+
 .top-top {
     text-align: left;
     margin-top: 115px;
     width: 80%;
-    margin-right:  auto;
-    margin-left:  auto;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.miracle-top {
+    margin-top: 0px;
+    padding-top: 35px;
 }
 
 .top-top-title {
@@ -2323,6 +2449,18 @@ ul.tabs li.current{
     margin-top: 33px;
 }
 
+.miracle-title {
+    color: #66FFF6;
+    font-family: Pretendard;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 135%; /* 27px */
+    letter-spacing: -0.2px;
+    text-transform: uppercase;
+    margin-top: 35px;
+}
+
 .top-top-subtitle {
     font-family: 'Pretendard';
     font-style: normal;
@@ -2331,6 +2469,17 @@ ul.tabs li.current{
     line-height: 26.4px;
     color: #B2B2B2;
     margin-top: 12px;
+}
+
+.miracle-subtitle {
+    color: #FFF;
+    font-family: Pretendard;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%; /* 27px */
+    letter-spacing: -0.18px;
+    margin-top: 8px;
 }
 
 .top-top p{
@@ -2410,4 +2559,350 @@ ul.tabs li.current{
 
 .hided {
     display: none;
+}
+}
+
+@keyframes heartbeat {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+
+.miracle {
+    text-align: left;
+    margin-top: 115px;
+    width: 80%;
+    margin-right:  auto;
+    margin-left:  auto;
+}
+
+.miracle-2 h2{
+    color: #FFF;
+    font-family: Pretendard;
+    font-size: 26px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 160%;
+}
+
+.miracle-2 h1{
+    color: #FFF;
+    font-family: Pretendard;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 100%; /* 36px */
+    margin-top: 18px;
+}
+
+
+.miracle-2 {
+    text-align: left;
+    margin-top: 120px;
+    width: 85%;
+    margin-right: auto;
+    margin-left: auto;
+    padding-bottom: 125px;
+}
+
+.miracle-3 {
+    text-align: left;
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    background: #4876EE;
+    margin-top: -10px;
+    padding-bottom: 16px;
+}
+
+.miracle-9 {
+    text-align: left;
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    background: #4876EE;
+    background-color: #141822;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+        align-items: center;
+    padding-top: 76px;
+    padding-bottom: 40px;
+} 
+
+.miracle-9 img {
+    width: 40%;
+    padding-top: 40px;
+    padding-bottom: 10px;
+}
+
+.miracle-9 h2{
+    border-radius: 30px;
+    border: 1px solid #4876EE;
+    background: rgba(72, 118, 238, 0.20);
+    color: #FFF;
+    text-align: center;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: Pretendard;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 28px; /* 155.556% */
+    padding: 5px;
+    width: 200px;
+}
+
+.miracle-4 {
+    text-align: left;
+    width: 100%;
+    height: 340px;
+    padding-bottom: 16px;
+    background-image: url("/static/images/miraclemind/background_image.png");
+    background-size: cover;
+    background-position: center;
+    text-align: left;
+}
+
+.miracle-7 {
+    text-align: left;
+    padding-top: 70px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.miracle-7 img{
+    width: auto;
+    height: 300px;
+    position: absolute;
+    z-index: 1000;
+}
+
+.miracle-7 h3 {
+    color: #FFF;
+    font-family: Pretendard;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 160%; /* 33.6px */
+    width: 80%;
+    margin-right: auto;
+    margin-left: auto;
+    margin-left: 
+}
+
+.miracle-4 h3 {
+    width: 80%;
+    margin-right: auto;
+    margin-left: auto;
+    padding-top: 50px;
+    color: #FFF;
+    font-family: Pretendard;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 140%;
+}
+
+.miracle-4 h2 {
+     width: 80%;
+    margin-right: auto;
+    margin-left: auto;
+    color: #FFF;
+    font-family: Pretendard;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 160%; /* 43.2px */
+}
+
+.miracle-3 h2 {
+    width: 80%;
+    margin-right: auto;
+    margin-left: auto;
+    padding-top: 76px;
+    color: #FFF;
+    font-family: Pretendard;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 160%; /* 33.6px */
+}
+
+.miracle-2 p {
+    color: #649CFF;
+    font-family: Pretendard;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 135%; /* 21.6px */
+    margin-top: 20px;
+}
+
+.miracle-3 p {
+    width: 80%;
+    margin-right: auto;
+    margin-left: auto;
+    padding-top: 20px;
+    color: #FFF;
+    font-family: Pretendard;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 140%; /* 25.2px */
+    letter-spacing: -0.18px;
+}
+
+.miracle-5 p{
+    color: #FFF;
+    text-align: center;
+    font-family: Pretendard;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 200;
+    line-height: 120%; /* 16.8px */
+}
+
+.miracle-2-img {
+    margin-top: 64px;
+}
+
+.miracle-3-img {
+    text-align: left;
+    width: 90%;
+    margin-right: auto;
+    margin-left: auto;
+    background: #4876EE;
+    margin-top: -20px;
+}
+
+.miracle-3-img img{
+    width: 100%;
+}
+
+.miracle-5 {
+    text-align: left;
+    margin-top: 80px;
+    width: 80%;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+    padding-bottom: 80px;
+}
+
+.miracle-5 img {
+    width: 80%;
+}
+
+.miracle-5-button {
+    color: #FFF;
+    text-align: center;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: Pretendard;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 140%; /* 28px */
+    text-transform: uppercase;
+    text-decoration: none;
+    width: 100%;
+}
+
+.miracle-6 {
+    text-align: left;
+    width: 100%;
+    height: 900px;
+    padding-bottom: 50px;
+    background-image: url("/static/images/miraclemind/background_color.png");
+    background-size: cover;
+    background-position: center;
+    text-align: left;
+}
+
+
+
+.miracle-8 {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    margin-top: 0px;
+    margin-bottom: 100px;
+}
+
+.miracle-8 img{
+    width: 20%;
+}
+
+.miracle-8 p{
+    color: #FFF;
+    text-align: center;
+    font-family: Pretendard;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 200;
+    line-height: 160%; /* 21.6px */
+    margin-top: 28.5px;
+    margin-bottom: 12px;
+}
+
+.miracle-8 h2{
+    color: #FFF;
+    text-align: center;
+    font-family: Pretendard;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 140%; /* 43.2px */
+    margin-bottom: 32px;
+}
+
+.miracle-5-button-div {
+    width: 330px;
+    height: 58px;
+    flex-shrink: 0;
+    border-radius: 30.306px;
+    background: #4876EE;
+    color: #FFF;
+    text-align: center;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: Pretendard;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 140%; /* 28px */
+    text-transform: uppercase;
+    text-decoration: none;
+    outline: none;
+    border: none;
+    display: flex;
+    justify-content: space-around;
+    align-content: flex-start;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+
+.miracle-total {
+    text-align: left;
+    width: 100%;
+    height: 150px;;
+    padding-bottom: 16px;
+    background-image: url("/static/images/miraclemind/Group.png");
+    background-size: cover;
+    background-position: center;
+    text-align: left;
+    margin-top: 0px;
+    padding-top: 52px;
+}
+
+.miracle-total- {
+    padding-top: 52px;
+}
+
+#heartbeat {
+    animation: heartbeat 1s infinite;
+    transform-origin: center;
 }
