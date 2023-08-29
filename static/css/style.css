@@ -90,10 +90,28 @@ h1,h2,h3,h4,h5,h6 {
     height: 240px;
 }
 
+.miracle-2-img img {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 400px;
+    transform: translateX(-50%);
+}
+
 .miracle-2-img img#top-bunny{
+    
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    transform: translateX(-50%);
+    width: 100px;
+    margin-bottom: 10px;
+/*
     position: absolute;
     height: 160px;
-    position: absolute; top: 53.2%; left: 50%; transform: translate(-50%, -100%);
+    position: absolute; bottom: -1%; left: 50%; transform: translate(-50%, -100%);
+*/
 }
 
 .miracle-2 img{
@@ -319,6 +337,11 @@ a.btn-new-cta-2 {
 }
 
 a.miracle2-btn-new-cta {
+    color: white;
+    text-decoration: none;
+}
+
+a.miracle-cta-btns-new {
     color: white;
     text-decoration: none;
 }
@@ -2606,7 +2629,7 @@ ul.tabs li.current{
     width: 85%;
     margin-right: auto;
     margin-left: auto;
-    padding-bottom: 125px;
+    padding-bottom: 0px;
 }
 
 .miracle-3 {
@@ -2768,6 +2791,9 @@ ul.tabs li.current{
 
 .miracle-2-img {
     margin-top: 64px;
+    position: relative;
+    display: inline-block;
+    text-align: center;
 }
 
 .miracle-3-img {
@@ -2795,6 +2821,7 @@ ul.tabs li.current{
 
 .miracle-5 img {
     width: 80%;
+    margin-right: 20px;
 }
 
 .miracle-5-button {
@@ -2861,7 +2888,7 @@ ul.tabs li.current{
 }
 
 .miracle-5-button-div {
-    width: 330px;
+    width: 100%;
     height: 58px;
     flex-shrink: 0;
     border-radius: 30.306px;
@@ -2905,4 +2932,11 @@ ul.tabs li.current{
 #heartbeat {
     animation: heartbeat 1s infinite;
     transform-origin: center;
+}
+
+.miracle-2-img-bigger {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 200px;
 }

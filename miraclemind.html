@@ -82,10 +82,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <p>2023.8.26~9.22</p>
     
 </section>
-    
+<div class="miracle-2-img-bigger">
 <div class="miracle-2-img">
     <img id="top-bunny" src="/static/images/miraclemind/top_bunny.png">
     <img src="/static/images/miraclemind/top_graphic.png">
+    </div>
 </div>
 
 <section class="miracle-3">
@@ -122,7 +123,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <section class="miracle-5">
         <img src="/static/images/miraclemind/present_vector.png">
         <div class="miracle-5-button-div">
-        <a class="miracle-5-button" href="" onclick="Gift()">
+        <a class="miracle-5-button" href="/miraclemind_success.html" onclick="Gift()">
             선물 확인하기
         </a></div>
         <p>미라클나잇이 전하는 마음, 오늘 꼭 편하게 주무세요!</p>
@@ -294,9 +295,10 @@ window.addEventListener('load', () => {
             dataType: "text",
 
             error: function (jqXHR, error) {
-                alert(error)
+                alert('데이터 전송 실패')
             },
             complete: function (jqXHR) {
+                alert(['데이터 전송 성공'])
             }
 
         })
