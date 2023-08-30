@@ -265,18 +265,18 @@ window.addEventListener('load', () => {
         // Windows Phone must come first because its UA also contains "Android"
         if (/windows phone/i.test(userAgent)) {
             console.log("Windows Phone");
-            agent = 'ANDROID';
+            agent = "ANDROID";
         }
 
         if (/android/i.test(userAgent)) {
             console.log("Android");
-            agent = 'ANDROID';
+            agent = "ANDROID";
         }
 
         // iOS detection from: http://stackoverflow.com/a/9039885/177710
         if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
             console.log("iOS");
-            agent = 'IOS';
+            agent = "IOS";
         }
         
         console.log(agent)
@@ -298,7 +298,6 @@ window.addEventListener('load', () => {
                 alert('데이터 전송 실패')
             },
             complete: function (jqXHR) {
-                alert(['데이터 전송 성공'])
             }
 
         })
