@@ -2929,11 +2929,6 @@ ul.tabs li.current{
     padding-top: 52px;
 }
 
-#heartbeat {
-    animation: heartbeat 1s infinite;
-    transform-origin: center;
-}
-
 .miracle-2-img-bigger {
     display: flex;
     justify-content: center;

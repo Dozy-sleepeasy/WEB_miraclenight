@@ -79,7 +79,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <h2 style="font-size: 22px;text-align: center;">미라클나잇이 한달간 전하는 마음</h2>
     <h1 style="text-align: center;">구독 할인 쿠폰</h1>
     <p style="text-align: center;padding-top: 50px;">2023.8.26~9.22</p>
-    <a href="#" onclick="copyTextFromImage(event)" ><img id="heartbeat" src="/static/images/miraclemind/coupon.png"></a>
+    <a href="#" onclick="copyTextFromImage(event)" ><img src="/static/images/miraclemind/coupon.png"></a>
 </section>
 
 <section class="miracle-9">
@@ -172,10 +172,10 @@ window.addEventListener('load', () => {
     navigator.clipboard.writeText(tempText)
         .then(function() {
             // Provide some visual feedback to the user
-            alert('쿠폰코드가 복사되었습니다!');
+            alert('쿠폰 코드가 복사되었습니다!');
         })
         .catch(function(error) {
-            console.error('Error copying text:', error);
+            console.error('쿠폰 코드를 복사할 수 없습니다.');
         });
 }
 
@@ -260,7 +260,6 @@ window.addEventListener('load', () => {
     
     function AppStore() {
         console.log("ios in");
-        fbq('track', 'ViewContent');
 
         let url_value = window.location.href;
         console.log(url_value);
@@ -289,7 +288,6 @@ window.addEventListener('load', () => {
     
     function PlayStore() {
         console.log("google in");
-        fbq('track', 'ViewContent');
 
         let url_value = window.location.href;
         console.log(url_value);
