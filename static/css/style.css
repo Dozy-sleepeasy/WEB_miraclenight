@@ -2088,6 +2088,16 @@ a.miracle-btn-new-cta-2 {
     text-align: left;
 }
 
+.noti-sec {
+    width: 83%;
+    margin: 0 auto;
+    text-align: left;
+    margin-bottom: 30px;
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column-reverse; /* Reverse the order of elements */
+}
+
 .faq-small {
     display: flex;
     width: 95%;
@@ -2622,6 +2632,41 @@ ul.tabs li.current{
     margin-top: 18px;
 }
 
+.top-notification{
+    width: 100%;
+    height: 78px;
+    background: #0F0F0F;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    padding-bottom: 20px;
+    position: fixed;
+    top: 0;
+}
+
+.top-notification h1{
+    color: var(--FFFFFF, #FFF);
+    font-family: Pretendard;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 140%; /* 22.4px */
+    letter-spacing: 0.16px;
+    
+}
+
+.miracle-2 h1{
+    color: #FFF;
+    font-family: Pretendard;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 100%; /* 36px */
+    margin-top: 18px;
+}
+
 
 .miracle-2 {
     text-align: left;
@@ -2934,4 +2979,69 @@ ul.tabs li.current{
     justify-content: center;
     align-items: center;
     margin-top: 200px;
+}
+
+.noti {
+    border-radius: 12px;
+    background: var(--g9, #1A1A1A);
+    padding: 17px;
+    margin-top: 12px;
+}
+
+.noti-first-line {
+    display: flex;
+    justify-content: space-between;
+}
+
+.noti-date{
+    color: var(--g5, #808080);
+text-align: right;
+font-family: Pretendard;
+font-size: 13px;
+font-style: normal;
+font-weight: 400;
+line-height: 140%; /* 18.2px */
+}
+
+
+.noti-label {
+    color: var(--Primary, #4876EE);
+    font-family: Pretendard;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 140%; /* 18.2px */
+    letter-spacing: -0.13px;
+    margin-bottom: 6px;
+}
+
+.noti h6 {
+    color: #FFF;
+    font-family: Pretendard;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 140%; /* 22.4px */
+    margin-bottom: 6px;
+}
+
+.noti p {
+    color: var(--g2, #CCC);
+    font-family: Pretendard;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 140%; /* 21px */
+    margin: 0;
+}
+
+.latest {
+    border-radius: 12px;
+    border: 2px solid #4876EE;
+    background: var(--g9, #1A1A1A);
+}
+
+.noti img {
+    margin-top: 20px;
+    width: 218px;
 }
