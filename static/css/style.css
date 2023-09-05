@@ -3045,3 +3045,15 @@ line-height: 140%; /* 18.2px */
     margin-top: 20px;
     width: 218px;
 }
+
+.noti-sec-new {
+    color: var(--Primary, #4876EE);
+    font-family: Pretendard;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 140%; /* 18.2px */
+    letter-spacing: -0.13px;
+    text-align: right;
+    margin-top: 4px;
+}
