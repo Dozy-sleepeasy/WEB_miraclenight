@@ -250,7 +250,7 @@ h1,h2,h3,h4,h5,h6 {
     height: 58px;
     align-items: center;
     justify-content: center;
-    display: flex;
+    display: none;
     background: none;
     outline:none;
     text-transform: uppercase;
