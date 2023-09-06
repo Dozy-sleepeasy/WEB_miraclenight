@@ -250,9 +250,26 @@ h1,h2,h3,h4,h5,h6 {
     height: 58px;
     align-items: center;
     justify-content: center;
-    display: none;
+    display: flex;
+    background: none;
+    outline:none;
+    text-transform: uppercase;
+    text-decoration: none;
+    box-shadow: none;
+    text-shadow: none;
+    border: none;
     border-radius: 30.306px;
     border: 1.347px solid #FFF;
+     color: #FFF;
+    text-align: center;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: Pretendard;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 140%; /* 28px */
+    text-transform: uppercase;
+    text-decoration: none;
 }
 
 .miracle2-btn-new-cta {
@@ -273,6 +290,7 @@ font-style: normal;
 font-weight: 600;
 line-height: 140%; /* 28px */
 text-transform: uppercase;
+    border:none;
 }
 
 .miracle2-btn-new-cta-2 {
@@ -281,7 +299,7 @@ text-transform: uppercase;
     height: 58px;
     align-items: center;
     justify-content: center;
-    display: none;
+    display: flex;
     border-radius: 30.306px;
     background: #4876EE;
     color: #FFF;
@@ -293,6 +311,7 @@ font-style: normal;
 font-weight: 600;
 line-height: 140%; /* 28px */
 text-transform: uppercase;
+    border:none;
 }
 
 .btn-new-cta-2 {
@@ -313,9 +332,27 @@ text-transform: uppercase;
     height: 58px;
     align-items: center;
     justify-content: center;
-    display: none;
+    display: flex;
+    background: none;
+    outline:none;
+    text-transform: uppercase;
+    text-decoration: none;
+    box-shadow: none;
+    text-shadow: none;
+    border: none;
     border-radius: 30.306px;
     border: 1.347px solid #FFF;
+     color: #FFF;
+    text-align: center;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: Pretendard;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 140%; /* 28px */
+    text-transform: uppercase;
+    text-decoration: none;
+    
 }
 
 a.btn-new-cta {
@@ -935,9 +972,7 @@ a.miracle-btn-new-cta-2 {
     margin-top: 37px;
 }
 
-.event a {
 
-}
 
 .event-info {
     font-size: 13px;
@@ -2878,9 +2913,14 @@ ul.tabs li.current{
     font-style: normal;
     font-weight: 600;
     line-height: 140%; /* 28px */
+    width: 100%;
+    background: none;
+    outline:none;
     text-transform: uppercase;
     text-decoration: none;
-    width: 100%;
+    box-shadow: none;
+    text-shadow: none;
+    border: none;
 }
 
 .miracle-6 {
