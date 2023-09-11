@@ -102,11 +102,10 @@ h1,h2,h3,h4,h5,h6 {
     
     position: absolute;
     bottom: 0;
-    left: 0;
+    right: 0;
     z-index: 1;
-    transform: translateX(-50%);
+    transform: translateX(200%);
     width: 100px;
-    margin-bottom: 10px;
 /*
     position: absolute;
     height: 160px;
@@ -2873,7 +2872,8 @@ ul.tabs li.current{
     margin-top: 64px;
     position: relative;
     display: inline-block;
-    text-align: center;
+    text-align: left;
+    margin-top: 90px;
 }
 
 .miracle-3-img {
@@ -3016,9 +3016,8 @@ ul.tabs li.current{
 
 .miracle-2-img-bigger {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 200px;
+    margin: 0 auto;
+    width: 85%;
 }
 
 .noti {
@@ -3096,4 +3095,13 @@ line-height: 140%; /* 18.2px */
     letter-spacing: -0.13px;
     text-align: right;
     margin-top: 4px;
+}
+
+.miracle-2-img-p {
+    color: #649CFF;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-bottom: 60px;
 }
