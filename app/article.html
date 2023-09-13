@@ -58,6 +58,7 @@ amplitude.init('f3bc9acb6c74f2d3974a61002e05712d');
     <div class="magazine-sec-big fact hot">
     <div class="magazine-sec-next">
     <a href="/app/articles/nightmare.html" onclick="logEventAndNavigate(event, 'ArticlePage_Click', {title: '악몽은 왜 꾸는 것일까요?'})">
+
     <h4>악몽은 왜 꾸는 것일까요? <span class="mag-cate2">🔥주간 인기🔥</span></h4>
     <div class="maga-flex">  
     <div class="magazine-text-container">
@@ -609,9 +610,12 @@ amplitude.init('f3bc9acb6c74f2d3974a61002e05712d');
 
             // Log the event using Amplitude
             amplitude.track(eventName, eventProperties);
-
+        
+            var href = event.currentTarget.href;
+            
+            alert(href);
             // Navigate to the URL
-            window.location.href = "/app/articles/mb-science-4.html";
+            window.location.href = href;
           }
         
 </script>
