@@ -21,6 +21,14 @@
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <link rel="shortcut icon" type="image/x-icon" href="/static/images/small_icon.png">
     <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js" type="text/javascript"></script>
+    
+    <script src="https://cdn.amplitude.com/libs/amplitude-5.14.0-min.gz.js"></script>
+    <!-- 이벤트 전송 코드 -->
+    <script type="text/javascript">
+    !function(){"use strict";!function(e,t){var n=e.amplitude||{_q:[],_iq:{}};if(n.invoked)e.console&&console.error&&console.error("Amplitude snippet has been loaded.");else{var r=function(e,t){e.prototype[t]=function(){return this._q.push({name:t,args:Array.prototype.slice.call(arguments,0)}),this}},s=function(e,t,n){return function(r){e._q.push({name:t,args:Array.prototype.slice.call(n,0),resolve:r})}},o=function(e,t,n){e[t]=function(){if(n)return{promise:new Promise(s(e,t,Array.prototype.slice.call(arguments)))}}},i=function(e){for(var t=0;t<m.length;t++)o(e,m[t],!1);for(var n=0;n<g.length;n++)o(e,g[n],!0)};n.invoked=!0;var u=t.createElement("script");u.type="text/javascript",u.integrity="sha384-x0ik2D45ZDEEEpYpEuDpmj05fY91P7EOZkgdKmq4dKL/ZAVcufJ+nULFtGn0HIZE",u.crossOrigin="anonymous",u.async=!0,u.src="https://cdn.amplitude.com/libs/analytics-browser-2.0.0-min.js.gz",u.onload=function(){e.amplitude.runQueuedFunctions||console.log("[Amplitude] Error: could not load SDK")};var a=t.getElementsByTagName("script")[0];a.parentNode.insertBefore(u,a);for(var c=function(){return this._q=[],this},p=["add","append","clearAll","prepend","set","setOnce","unset","preInsert","postInsert","remove","getUserProperties"],l=0;l<p.length;l++)r(c,p[l]);n.Identify=c;for(var d=function(){return this._q=[],this},f=["getEventProperties","setProductId","setQuantity","setPrice","setRevenue","setRevenueType","setEventProperties"],v=0;v<f.length;v++)r(d,f[v]);n.Revenue=d;var m=["getDeviceId","setDeviceId","getSessionId","setSessionId","getUserId","setUserId","setOptOut","setTransport","reset","extendSession"],g=["init","add","remove","track","logEvent","identify","groupIdentify","setGroup","revenue","flush"];i(n),n.createInstance=function(e){return n._iq[e]={_q:[]},i(n._iq[e]),n._iq[e]},e.amplitude=n}}(window,document)}();
+
+    amplitude.init('f3bc9acb6c74f2d3974a61002e05712d');
+    </script>
 
     <style>
         .hiding{display: none;}
@@ -46,9 +54,9 @@
      </div>
     </div>
     
-    <div class="magazine-sec-big fact hot">
+    <div class="magazine-sec-big fact">
     <div class="magazine-sec-next">
-    <a href="/app/articles/nightmare.html">
+    <a href="/app/articles/nightmare.html" onClick="clickHandler(event)">
     <h4>악몽은 왜 꾸는 것일까요? <span class="mag-cate2">🔥주간 인기🔥</span></h4>
     <div class="maga-flex">  
     <div class="magazine-text-container">
@@ -66,7 +74,7 @@
     
     <div class="magazine-sec-big fact">
     <div class="magazine-sec-next">
-    <a href="/app/articles/rem.html">
+    <a href="/app/articles/rem.html"  onClick="clickHandler(event)">
     <h4> 렘수면(REM) vs. 비렘수면 <span class="mag-cate2">NEW</span></h4>
     <div class="maga-flex">  
     <div class="magazine-text-container">
@@ -83,7 +91,7 @@
     
     <div class="magazine-sec-big tips">
     <div class="magazine-sec-next">
-    <a href="/app/articles/diet.html">
+    <a href="/app/articles/diet.html"  onClick="clickHandler(event)">
     <h4>잠만 잤는데도 4Kg 빠진다는 수면 다이어트 </h4>
     <div class="maga-flex">  
     <div class="magazine-text-container">
@@ -101,7 +109,7 @@
     
     <div class="magazine-sec-big fact">
     <div class="magazine-sec-next">
-    <a href="/app/articles/sweating.html">
+    <a href="/app/articles/sweating.html"  onClick="clickHandler(event)">
     <h4>자면서 땀이 흠뻑 난다면</h4>
     <div class="maga-flex">  
     <div class="magazine-text-container">
@@ -118,7 +126,7 @@
     
     <div class="magazine-sec-big tips">
     <div class="magazine-sec-next">
-    <a href="/app/articles/sleep-positions-2.html">
+    <a href="/app/articles/sleep-positions-2.html"  onClick="clickHandler(event)">
     <h4>수면 자세 점검하기</h4>
     <div class="maga-flex">  
     <div class="magazine-text-container">
@@ -135,7 +143,7 @@
     
     <div class="magazine-sec-big fact">
     <div class="magazine-sec-next">
-    <a href="/app/articles/sleepdeprivation.html">
+    <a href="/app/articles/sleepdeprivation.html"  onClick="clickHandler(event)">
     <h4>수면 부족, 어떻게 나아질 수 있을까?</h4>
     <div class="maga-flex">  
     <div class="magazine-text-container">
@@ -152,7 +160,7 @@
     
     <div class="magazine-sec-big tips">
     <div class="magazine-sec-next">
-    <a href="/app/articles/jellyfish.html">
+    <a href="/app/articles/jellyfish.html"  onClick="clickHandler(event)">
     <h4>전쟁 통에 2분 만에 잠들었다는 해파리 수면법</h4>
     <div class="maga-flex">  
     <div class="magazine-text-container">
@@ -169,7 +177,7 @@
     
     <div class="magazine-sec-big tips">
     <div class="magazine-sec-next">
-    <a href="/app/articles/food.html">
+    <a href="/app/articles/food.html"  onClick="clickHandler(event)">
     <h4>숙면에 좋은 음식을 알아보자</h4>
     <div class="maga-flex">  
     <div class="magazine-text-container">
@@ -186,7 +194,7 @@
     
     <div class="magazine-sec-big fact">
     <div class="magazine-sec-next">
-    <a href="/app/articles/insomnia.html">
+    <a href="/app/articles/insomnia.html"  onClick="clickHandler(event)">
     <h4>혼자서 해보는 불면증 테스트</h4>
     <div class="maga-flex">  
     <div class="magazine-text-container">
@@ -203,7 +211,7 @@
     
     <div class="magazine-sec-big tips">
     <div class="magazine-sec-next">
-    <a href="/app/articles/circadian.html">
+    <a href="/app/articles/circadian.html"  onClick="clickHandler(event)">
     <h4>좋은 생체리듬 만드는 방법</h4>
     <div class="maga-flex">  
     <div class="magazine-text-container">
@@ -221,7 +229,7 @@
     
     <div class="magazine-sec-big fact">
     <div class="magazine-sec-next">
-    <a href="/app/articles/sleep-positions.html">
+    <a href="/app/articles/sleep-positions.html"  onClick="clickHandler(event)">
     <h4>좋은 잠을 위한 수면 자세는?</h4>
     <div class="maga-flex">  
     <div class="magazine-text-container">
@@ -238,7 +246,7 @@
     
     <div class="magazine-sec-big fact">
     <div class="magazine-sec-next">
-    <a href="/app/articles/sleeptalking.html">
+    <a href="/app/articles/sleeptalking.html"  onClick="clickHandler(event)">
     <h4>렘수면 행동 장애, 심한 잠꼬대가 있다면</h4>
     <div class="maga-flex">  
     <div class="magazine-text-container">
@@ -255,7 +263,7 @@
     
     <div class="magazine-sec-big tips">
     <div class="magazine-sec-next">
-    <a href="/app/articles/snore.html">
+    <a href="/app/articles/snore.html"  onClick="clickHandler(event)">
     <h4>코골이는 이렇게 관리해 보세요!</h4>
     <div class="maga-flex">  
     <div class="magazine-text-container">
@@ -272,7 +280,7 @@
     
     <div class="magazine-sec-big fact">
     <div class="magazine-sec-next">
-    <a href="/app/articles/dream.html">
+    <a href="/app/articles/dream.html"  onClick="clickHandler(event)">
     <h4>꿈이란 무엇일까?</h4>
     <div class="maga-flex">  
     <div class="magazine-text-container">
@@ -290,7 +298,7 @@
     
     <div class="magazine-sec-big tips">
     <div class="magazine-sec-next">
-    <a href="/app/articles/oversleep.html">
+    <a href="/app/articles/oversleep.html"  onClick="clickHandler(event)">
     <h4>수면 과다, 계속해서 쏟아지는 잠이 고민이라면</h4>
     <div class="maga-flex">  
     <div class="magazine-text-container">
@@ -307,7 +315,7 @@
     
     <div class="magazine-sec-big tips">
     <div class="magazine-sec-next">
-    <a href="/app/articles/heavyblanket.html">
+    <a href="/app/articles/heavyblanket.html"  onClick="clickHandler(event)">
     <h4>무거운 이불을 덮고 자면..?</h4>
     <div class="maga-flex">  
     <div class="magazine-text-container">
@@ -323,7 +331,7 @@
     </div>
     <div class="magazine-sec-big fact">
     <div class="magazine-sec-next">
-    <a href="/app/articles/memory.html">
+    <a href="/app/articles/memory.html"  onClick="clickHandler(event)">
     <h4>기억력 높이는데 xxx이 효과적이다?</h4>
     <div class="maga-flex">  
     <div class="magazine-text-container">
@@ -339,7 +347,7 @@
     </div>
     <div class="magazine-sec-big fact">
     <div class="magazine-sec-next">
-    <a href="/app/articles/melatonin.html">
+    <a href="/app/articles/melatonin.html"  onClick="clickHandler(event)">
     <h4>수면 호르몬, 멜라토닌의 진실</h4>
     <div class="maga-flex">  
     <div class="magazine-text-container">
@@ -355,7 +363,7 @@
     </div>
     <div class="magazine-sec-big tips">
     <div class="magazine-sec-next">
-    <a href="/app/articles/exercise.html">
+    <a href="/app/articles/exercise.html"  onClick="clickHandler(event)">
     <h4>이렇게 운동하면 수면에 좋아요!</h4>
     <div class="maga-flex">  
     <div class="magazine-text-container">
@@ -371,7 +379,7 @@
     </div>
     <div class="magazine-sec-big tips">
     <div class="magazine-sec-next">
-    <a href="/app/articles/dryness.html">
+    <a href="/app/articles/dryness.html"  onClick="clickHandler(event)">
     <h4>건조해도 꿀잠 자는 법</h4>
     <div class="maga-flex">  
     <div class="magazine-text-container">
@@ -388,7 +396,7 @@
 
     <div class="magazine-sec-big fact">
     <div class="magazine-sec-next">
-    <a href="/app/articles/depression.html">
+    <a href="/app/articles/depression.html"  onClick="clickHandler(event)">
     <h4>우울한 사람에게 좋은 잠이란?</h4>
     <div class="maga-flex">  
     <div class="magazine-text-container">
@@ -404,7 +412,7 @@
     </div>
     <div class="magazine-sec-big mb">
     <div class="magazine-sec-next">
-    <a href="/app/articles/mb-science-6.html">
+    <a href="/app/articles/mb-science-6.html"  onClick="clickHandler(event)">
     <h4>모노럴비트와 ASMR</h4>
     <div class="maga-flex">  
     <div class="magazine-text-container">
@@ -421,7 +429,7 @@
 
     <div class="magazine-sec-big mb">
     <div class="magazine-sec-next">
-    <a href="/app/articles/mb-science-5.html">
+    <a href="/app/articles/mb-science-5.html"  onClick="clickHandler(event)">
     <h4>모노럴비트가 주는 불안감 해소</h4>
     <div class="maga-flex">  
     <div class="magazine-text-container">
@@ -437,7 +445,7 @@
     </div>
     <div class="magazine-sec-big tips">
     <div class="magazine-sec-next">
-    <a href="/app/articles/curtain.html">
+    <a href="/app/articles/curtain.html"  onClick="clickHandler(event)">
     <h4>암막커튼, 정말 좋은가요?</h4>
     <div class="maga-flex">  
     <div class="magazine-text-container">
@@ -453,7 +461,7 @@
     </div>
     <div class="magazine-sec-big mb">
     <div class="magazine-sec-next">
-    <a href="/app/articles/mb-science-4.html">
+    <a href="/app/articles/mb-science-4.html"  onClick="clickHandler(event)">
     <h4>모노럴비트가 주는 안정감</h4>
     <div class="maga-flex">  
     <div class="magazine-text-container">
@@ -469,7 +477,7 @@
     </div>
     <div class="magazine-sec-big tips">
     <div class="magazine-sec-next">
-    <a href="/app/articles/nap.html">
+    <a href="/app/articles/nap.html"  onClick="clickHandler(event)">
     <h4>좋은 낮잠은 어떻게 자나요?</h4>
     <div class="maga-flex">  
     <div class="magazine-text-container">
@@ -485,7 +493,7 @@
     </div>
     <div class="magazine-sec-big mb">
     <div class="magazine-sec-next">
-    <a href="/app/articles/mb-science-3.html">
+    <a href="/app/articles/mb-science-3.html"  onClick="clickHandler(event)">
     <h4>뇌파 동조와 수면의 질 상승 효과</h4>
     <div class="maga-flex">
     <div class="magazine-text-container">
@@ -501,7 +509,7 @@
     </div>
     <div class="magazine-sec-big mb">
     <div class="magazine-sec-next">
-    <a href="/app/articles/mb-science-2.html">
+    <a href="/app/articles/mb-science-2.html"  onClick="clickHandler(event)">
     <h4>뇌파 동조가 깊은 수면을 높이는 원리</h4>
     <div class="maga-flex">  
     <div class="magazine-text-container">
@@ -517,7 +525,7 @@
     </div>
     <div class="magazine-sec-big tips">
     <div class="magazine-sec-next">
-    <a href="/app/articles/coffee.html">
+    <a href="/app/articles/coffee.html"  onClick="clickHandler(event)">
     <h4>커피 마시고 푹 자는 비법</h4>
     <div class="maga-flex">  
     <div class="magazine-text-container">
@@ -533,7 +541,7 @@
     </div>
     <div class="magazine-sec-big mb">
     <div class="magazine-sec-next">
-    <a href="/app/articles/mb-science.html">
+    <a href="/app/articles/mb-science.html"  onClick="clickHandler(event)">
     <h4>모노럴비트 수면유도 기술의 뇌과학적 해석</h4>
     <div class="maga-flex">  
     <div class="magazine-text-container">
@@ -549,7 +557,7 @@
     </div>
     <div class="magazine-sec-big tips">
     <div class="magazine-sec-next">
-    <a href="/app/articles/pillow-recom.html">
+    <a href="/app/articles/pillow-recom.html"  onClick="clickHandler(event)">
     <h4>나에게 맞는 베개 찾기</h4>
     <div class="maga-flex">  
     <div class="magazine-text-container">
@@ -566,7 +574,7 @@
     
     <div class="magazine-sec-big fact">
     <div class="magazine-sec-next">
-    <a href="/app/articles/dream-color.html">
+    <a href="/app/articles/dream-color.html"  onClick="clickHandler(event)">
     <h4>당신의 꿈은 어떤 색깔인가요?</h4>
     <div class="maga-flex">  
     <div class="magazine-text-container">
@@ -586,6 +594,33 @@
 
 
 </div>
+    
+
+
+<script>
+    
+    function clickHandler(event) {
+        event.preventDefault(); // Prevent the default behavior of the anchor tag
+        var href = event.target.getAttribute('href'); // Get the href attribute value
+        var truncatedHref = href.substring(14); // Define truncatedHref here
+                
+        console.log(truncatedHref);
+        
+        var title = truncatedHref; // Use the href value as the title or modify it as needed
+        var eventProperties = {
+            "title": title
+        };
+        
+        const eventName = "Article_Button_Web";
+        amplitude.getInstance().logEvent(eventName, eventProperties);
+        
+        
+        
+        // Redirect to the new URL
+        window.location.href = href;
+    }
+    
+</script>
     
     
 <script type="text/javascript">
