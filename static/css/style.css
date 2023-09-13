@@ -1523,7 +1523,7 @@ a.miracle-btn-new-cta-2 {
     font-style: normal;
     font-weight: 500;
     font-size: 17px;
-    line-height: 160%;
+    line-height: 170%;
     letter-spacing: -0.02em;
     color: #B2B2B2;
 }
@@ -1709,6 +1709,8 @@ a.miracle-btn-new-cta-2 {
 
 .reference {
     margin-top: 60px;
+    line-height: 80%;
+    opacity: 0.5;
 }
 
 .text-reference {
@@ -3104,4 +3106,26 @@ line-height: 140%; /* 18.2px */
     font-weight: 400;
     line-height: normal;
     margin-bottom: 60px;
+}
+
+.hot {
+    background-color: #4876EE;
+}
+
+.hot .magazine-sec-next h4{
+    color: white;
+}
+
+.hot .magazine-sec-next .maga-flex .magazine-text-container h5{
+    color: white;
+}
+
+.hot .mag-cate {
+    background: none;
+    color: white;
+    border: 1px solid white;
+}
+
+.hot .mag-cate2 {
+    color: white;
 }
