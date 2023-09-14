@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="미라클나잇 쿨쿨이와 함께하는 꿀잠 수면 유형 검사 게임!">
+    <meta name="author" content="Munice">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="미라클나잇">
+    <meta property="og:title" content="미라클나잇">
+    <meta property="og:description" content="미라클나잇 쿨쿨이와 함께하는 꿀잠 수면 유형 검사 게임!">
+    <meta property="og:url" content="www.miraclenight.app">
+    <meta property="og:image" content="/static/images/SleepBTI.jpg">
+
+    <title>미라클나잇 쿨쿨이와 함께하는 꿀잠 수면 유형 검사 게임!</title>
+
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+    
+<body>
+    <section class="section-1">
+        <img src="static/image/top_layer.png">
+        
+        <div class="section-1-subtitle">
+            <img src="static/image/top_rectangle.png">
+            <h2>나의 수면 유형은?</h2>
+        </div>
+        
+        <h1 class="section-1-title">꿀잠 수면 <br> 유형 테스트</h1>
+        <img style="width: 80%;" src="static/image/top_zzzi.png"> 
+        
+        <div class="section-1-text">
+            <h3>지금까지 <span id="api-response">n</span>명이 참여했어요!</h3>
+            <img src="static/image/top_line.png">
+        </div>
+        
+        <div class="section-1-button">
+            <img src="static/image/button_vector.png"> 
+            테스트 시작하기
+            <img src="static/image/button_vector.png"> 
+        </div>
+    </section>
+    
+    <section class="section-2">
+    <div class="section-2-left">
+      <h4>팔로우하면 <br> <span style="color:#F8B16A">평생 꿀잠 예약</span></h4>
+      <button class="section-2-button">
+        <img src="static/image/instagram_icon.svg"> 인스타그램 바로가기
+      </button>
+    </div>
+    <div class="section-2-right">
+      <img src="static/image/section-2_zzzi.png">
+  </div>
+</section>
+    
+<script>
+        // Select the element where you want to display the API response
+        const apiResponseElement = document.getElementById('api-response');
+
+        // URL of the API endpoint
+        const apiUrl = 'https://api.miraclenight-server.com/survey';
+
+        // Make a GET request to the API
+        fetch(apiUrl)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                // Display the API response as JSON
+                apiResponseElement.textContent = JSON.stringify(data, null, 2);
+            })
+            .catch(error => {
+                console.error('There was a problem with the fetch operation:', error);
+                apiResponseElement.textContent = 'Error: ' + error.message;
+            });
+    </script>
+</body>
+
+<script src="https://code.jquery.com/jquery-3.4.0.min.js"></script>
+<script src="/static/js/getNumber.js"></script>
+    
+<script>
+    window.onload = function() {
+        getNumber();
+    };
+</script>
+    
+</html>
