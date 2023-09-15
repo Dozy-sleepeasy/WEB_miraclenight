@@ -10,82 +10,110 @@
     <meta property="og:title" content="미라클나잇">
     <meta property="og:description" content="미라클나잇 쿨쿨이와 함께하는 꿀잠 수면 유형 검사 게임!">
     <meta property="og:url" content="www.miraclenight.app">
-    <meta property="og:image" content="/static/images/SleepBTI.jpg">
+    <meta property="og:image" content="static/images/SleepBTI.jpg">
 
     <title>미라클나잇 쿨쿨이와 함께하는 꿀잠 수면 유형 검사 게임!</title>
 
-    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="static/css/style.css">
 </head>
     
 <body>
+    <div id="beforeGame">
     <section class="section-1">
         <img src="static/image/top_layer.png">
-        
         <div class="section-1-subtitle">
             <img src="static/image/top_rectangle.png">
             <h2>나의 수면 유형은?</h2>
         </div>
-        
         <h1 class="section-1-title">꿀잠 수면 <br> 유형 테스트</h1>
         <img style="width: 80%;" src="static/image/top_zzzi.png"> 
-        
         <div class="section-1-text">
-            <h3>지금까지 <span id="api-response">n</span>명이 참여했어요!</h3>
+            <h3>지금까지 <span id="number">n</span>명이 참여했어요!</h3>
             <img src="static/image/top_line.png">
         </div>
-        
-        <div class="section-1-button">
+        <button onclick="startGame()" class="section-1-button">
             <img src="static/image/button_vector.png"> 
             테스트 시작하기
             <img src="static/image/button_vector.png"> 
-        </div>
+        </button>
     </section>
     
     <section class="section-2">
     <div class="section-2-left">
       <h4>팔로우하면 <br> <span style="color:#F8B16A">평생 꿀잠 예약</span></h4>
-      <button class="section-2-button">
+      <a href="https://www.instagram.com/miraclenight_official/" target="_blank" class="section-2-button">
         <img src="static/image/instagram_icon.svg"> 인스타그램 바로가기
-      </button>
+      </a>
     </div>
     <div class="section-2-right">
       <img src="static/image/section-2_zzzi.png">
-  </div>
-</section>
+    </div>
+    </section>
+    </div>
+    
+    <div id="gameScreen">
+        <div id="gameIcons">
+            <button class="sound" id="sound"><img id="soundimg" src=""></button>
+        </div>
+            
+        <div id="gameImg">
+            <div class="point-img" id="point-img">
+                <img id="game-img">
+            </div>
+        </div>
+            
+        
+        <div id="gameText">
+            <p class="game-text">text</p>
+        </div>    
+            
+        <div id="gameBtns">
+            <button class="game-button-1">첫 번째</button><br>
+            <button class="game-button-1">두 번째</button><br>
+        </div>
+    </div>
+    
+    <div id="loading"></div>
+    
+    <audio id="audio" src="" loop></audio>
+    <audio id="sdeffect" src=""></audio>
+    
+    
+</body>
+    
+<script src="/static/js/mbti.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.0.min.js"></script>
     
 <script>
-        // Select the element where you want to display the API response
-        const apiResponseElement = document.getElementById('api-response');
-
-        // URL of the API endpoint
-        const apiUrl = 'https://api.miraclenight-server.com/survey';
-
-        // Make a GET request to the API
-        fetch(apiUrl)
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                return response.json();
-            })
-            .then(data => {
-                // Display the API response as JSON
-                apiResponseElement.textContent = JSON.stringify(data, null, 2);
-            })
-            .catch(error => {
-                console.error('There was a problem with the fetch operation:', error);
-                apiResponseElement.textContent = 'Error: ' + error.message;
-            });
+    function startGame() {
+     document.getElementById("gameScreen").style.display = "block";
+     document.getElementById("beforeGame").style.display = "none";
+    document.getElementById("startGame").style.display = "none";
+    var audio = document.getElementById("audio");
+    audio.play();
+    audio.volume=0.5;
+    }
+    
     </script>
-</body>
-
-<script src="https://code.jquery.com/jquery-3.4.0.min.js"></script>
-<script src="/static/js/getNumber.js"></script>
     
 <script>
     window.onload = function() {
-        getNumber();
-    };
+        
+        $.ajax({
+            url: 'https://api.miraclenight-server.com/survey',
+            type: 'GET',
+            headers: { 'X-Client': 'munice' },
+            dataType: 'json',
+        }).then((data, textStatus, jqXHR) => {
+            console.log(data);
+            // $('#api-response').html(JSON.stringify(data, null, 2));
+        }).catch(error => {
+            console.error('An error occurred:', error);
+        });
+
+    }
+    
+    
 </script>
     
 </html>
