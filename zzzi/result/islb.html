@@ -10,73 +10,128 @@
     <meta property="og:title" content="미라클나잇">
     <meta property="og:description" content="미라클나잇 쿨쿨이와 함께하는 꿀잠 수면 유형 검사 게임!">
     <meta property="og:url" content="www.miraclenight.app">
-    <meta property="og:image" content="static/images/SleepBTI.jpg">
+    <meta property="og:image" content="/zzzi/static/image/SleepBTI.jpg">
 
     <title>미라클나잇 쿨쿨이와 함께하는 꿀잠 수면 유형 검사 게임!</title>
 
-    <link rel="stylesheet" href="static/css/style.css">
+    <link rel="stylesheet" href="/zzzi/static/css/style.css">
 </head>
     
 <body>
-    <div id="beforeGame">
-    <section class="section-1">
-        <img src="static/image/top_layer.png">
-        <div class="section-1-subtitle">
-            <img src="static/image/top_rectangle.png">
-            <h2>나의 수면 유형은?</h2>
-        </div>
-        <h1 class="section-1-title">꿀잠 수면 <br> 유형 테스트</h1>
-        <img style="width: 80%;" src="static/image/top_zzzi.png"> 
-        <div class="section-1-text">
-            <h3>지금까지 <span id="number">n</span>명이 참여했어요!</h3>
-            <img src="static/image/top_line.png">
-        </div>
-        <button onclick="startGame()" class="section-1-button">
-            <img src="static/image/button_vector.png"> 
-            테스트 시작하기
-            <img src="static/image/button_vector.png"> 
-        </button>
-    </section>
-    
-    <section class="section-2">
-    <div class="section-2-left">
-      <h4>팔로우하면 <br> <span style="color:#F8B16A">평생 꿀잠 예약</span></h4>
-      <a href="https://www.instagram.com/miraclenight_official/" target="_blank" class="section-2-button">
-        <img src="static/image/instagram_icon.svg"> 인스타그램 바로가기
-      </a>
-    </div>
-    <div class="section-2-right">
-      <img src="static/image/section-2_zzzi.png">
-    </div>
-    </section>
-    </div>
-    
-    <div id="gameScreen">
-        <div id="gameIcons">
-            <button class="sound" id="sound"><img id="soundimg" src=""></button>
-        </div>
-            
-        <div id="gameImg">
-            <div class="point-img" id="point-img">
-                <img id="game-img">
+    <!-- 유형 설명 -->
+    <div class="section-3">
+        <div class="section-3-top">
+            <img src="/zzzi/static/image/top_layer_2.png">
+            <div class="image-container">
+              <img src="/zzzi/static/image/top_rectangle_2.png">
+              <div class="text-overlay">나의 수면 유형은?</div>
             </div>
         </div>
-            
         
-        <div id="gameText">
-            <p class="game-text">text</p>
-        </div>    
-            
-        <div id="gameBtns">
-            <button class="game-button-1">첫 번째</button><br>
-            <button class="game-button-1">두 번째</button><br>
+        <div class="section-3-middle">
+            <h2>잠에 좋다는 건 정말 다 해봤어요</h2>
+            <h1>양만 세는 양치기 소년형</h1>
+            <p>전체 테스트 참여자 중 n%가 같은 유형입니다.</p>
+            <div class="section-3-m-img"><img src="/zzzi/static/image/aslb.png"></div>
         </div>
+        
+        <div class="section-3-mbti">
+            <img src="/zzzi/static/image/top_line_2.png">
+                <p>당신의 수면 MBTI는</p>
+                <div class="mbti-img">
+                    <img src="/zzzi/static/image/a.png">
+                    <img src="/zzzi/static/image/s.png">
+                    <img src="/zzzi/static/image/l.png">
+                    <img src="/zzzi/static/image/g.png">
+                </div>
+            <img src="/zzzi/static/image/top_line_2.png">
+                <a id="toggleLink" href="#">↘ 자세히 보기 ↙</a>
+                <div class="mbti-detail">
+                
+                <!-- 수면 시간 -->
+                <div class="mbti-layer"> 
+                    <div class="mbti-layer-1 unselected">
+                        <img src="/zzzi/static/image/aa.png">
+                        <p>Adequate<br>충분함</p>
+                    </div>
+                    <div class="mbti-layer-2">
+                        <p>수면 시간</p>
+                        <div class="prog"><div class="progs" id="sleeptime"></div></div>
+                    </div>
+                    <div class="mbti-layer-1 ">
+                        <img src="/zzzi/static/image/ii.png">
+                        <p>Inadequate<br>불충분함</p>
+                    </div>
+                </div>
+                    
+                <svg id="line_svg" xmlns="http://www.w3.org/2000/svg" width="328" height="2" viewBox="0 0 328 2" fill="none">
+                  <path opacity="0.2" d="M1 1H327" stroke="#ABCDFF" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="2 2"/>
+                </svg>
+                    
+                <!-- 잠에 드는 정도 -->
+                <div class="mbti-layer"> 
+                    <div class="mbti-layer-1 unselected">
+                        <img src="/zzzi/static/image/aa.png">
+                        <p>Fast<br>빨리 잠듦</p>
+                    </div>
+                    <div class="mbti-layer-2">
+                        <p>수면 개시</p>
+                        <div class="prog"><div class="progs" id="sleeptime"></div></div>
+                    </div>
+                    <div class="mbti-layer-1 ">
+                        <img src="/zzzi/static/image/ii.png">
+                        <p>Slow<br>늦게 잠듦</p>
+                    </div>
+                </div>
+                
+                <svg id="line_svg" xmlns="http://www.w3.org/2000/svg" width="328" height="2" viewBox="0 0 328 2" fill="none">
+                  <path opacity="0.2" d="M1 1H327" stroke="#ABCDFF" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="2 2"/>
+                </svg>
+                    
+                <!-- 깊은 수면 -->
+                <div class="mbti-layer"> 
+                    <div class="mbti-layer-1 unselected">
+                        <img src="/zzzi/static/image/aa.png">
+                        <p>Deep<br>깊게 잠</p>
+                    </div>
+                    <div class="mbti-layer-2">
+                        <p>깊은 수면</p>
+                        <div class="prog"><div class="progs" id="sleeptime"></div></div>
+                    </div>
+                    <div class="mbti-layer-1 ">
+                        <img src="/zzzi/static/image/ii.png">
+                        <p>Light<br>옅게 잠</p>
+                    </div>
+                </div>
+                
+                <svg id="line_svg" xmlns="http://www.w3.org/2000/svg" width="328" height="2" viewBox="0 0 328 2" fill="none">
+                  <path opacity="0.2" d="M1 1H327" stroke="#ABCDFF" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="2 2"/>
+                </svg>
+                    
+                <!-- 수면 습관 -->
+                <div class="mbti-layer"> 
+                    <div class="mbti-layer-1 unselected">
+                        <img src="/zzzi/static/image/aa.png">
+                        <p>Good<br>좋음</p>
+                    </div>
+                    <div class="mbti-layer-2">
+                        <p>수면 습관</p>
+                        <div class="prog"><div class="progs" id="sleeptime"></div></div>
+                    </div>
+                    <div class="mbti-layer-1 ">
+                        <img src="/zzzi/static/image/ii.png">
+                        <p>Bad<br>나쁨</p>
+                    </div>
+                </div>
+                </div>
+        </div>
+    
     </div>
     
-    <div id="loading"></div>
     
-    <audio id="audio" src="" loop></audio>
-    <audio id="sdeffect" src=""></audio>
+    <div class="section-4"></div>
+    <div class="section-5"></div>
+    <div class="section-6"></div>
     
     
 </body>
@@ -85,35 +140,23 @@
 <script src="https://code.jquery.com/jquery-3.4.0.min.js"></script>
     
 <script>
-    function startGame() {
-     document.getElementById("gameScreen").style.display = "block";
-     document.getElementById("beforeGame").style.display = "none";
-    document.getElementById("startGame").style.display = "none";
-    var audio = document.getElementById("audio");
-    audio.play();
-    audio.volume=0.5;
-    }
-    
-    </script>
-    
-<script>
-    window.onload = function() {
-        
-        $.ajax({
-            url: 'https://api.miraclenight-server.com/survey',
-            type: 'GET',
-            headers: { 'X-Client': 'munice' },
-            dataType: 'json',
-        }).then((data, textStatus, jqXHR) => {
-            console.log(data);
-            // $('#api-response').html(JSON.stringify(data, null, 2));
-        }).catch(error => {
-            console.error('An error occurred:', error);
-        });
+    const toggleLink = document.getElementById("toggleLink");
+    const mbtiDetail = document.querySelector(".mbti-detail");
 
-    }
-    
+    toggleLink.addEventListener("click", function (event) {
+      event.preventDefault(); // Prevent the default link behavior
+
+      // Toggle the visibility of the .mbti-detail element
+      if (mbtiDetail.style.display === "none" || mbtiDetail.style.display === "") {
+        mbtiDetail.style.display = "block";
+        toggleLink.textContent = "↗ 접어두기 ↖";
+      } else {
+        mbtiDetail.style.display = "none";
+        toggleLink.textContent = "↘ 자세히 보기 ↙";
+      }
+    });
     
 </script>
+
     
 </html>

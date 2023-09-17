@@ -70,7 +70,7 @@ const questions = [
     progressVector: '82%',
     img: '/zzzi/static/image/9.png',
     button1Text: '우와 상쾌해!<br>오늘은 나의 것! ><',
-    button2Text: '5분만 더.. 잘래..',
+    button2Text: '5분만 <br>더.. 잘래..',
   },
   {
     text: '그래서 어제 밤<br>얼마나 잤냐면...',
@@ -139,6 +139,8 @@ document.querySelectorAll('#game-button-2').forEach((button, index) => {
     updateQuestion();
   });
 });
+
+
 
 // Function to calculate results based on user responses
 function calculateAndSendData() {
@@ -251,10 +253,41 @@ if (time_ad >= time_inad) {
   // Send data to API
   // Implement the sendPostRequest function here
   // sendPostRequest(userResponses, mbti);
+    
+  // loading page animation
+  document.getElementById("gameScreen").style.display = "none";
+  document.getElementById("loading").style.display = "block";
+    
+  const loadingText = document.getElementById("loadingText");
+  const ellipsisSpans = loadingText.querySelectorAll(".ellipsis");
 
-  
-  // Redirect to the appropriate page
-  URLredirection(mbti, time_ad, latency_fast, deepness_deep, habits_good);
+  // Toggle the visibility of ellipsis spans one by one
+  ellipsisSpans.forEach((span, index) => {
+    setTimeout(() => {
+      span.style.display = "inline";
+    }, index * 500); // Adjust the delay as needed (e.g., 500 milliseconds)
+  });
+
+  // After all ellipsis are shown, hide them
+  setTimeout(() => {
+    ellipsisSpans.forEach((span) => {
+      span.style.display = "none";
+    });
+
+    // Show all ellipsis spans together after a brief delay
+    setTimeout(() => {
+      ellipsisSpans.forEach((span) => {
+        span.style.display = "inline";
+      });
+    }, 500); // Adjust the delay as needed (e.g., 500 milliseconds)
+  }, ellipsisSpans.length * 500 + 1000); // Adjust the delay based on the number of ellipsis spans
+    
+    
+   // Redirect to the appropriate page after a delay
+  setTimeout(() => {
+      console.log("in");
+    URLredirection(mbti, time_ad, latency_fast, deepness_deep, habits_good);
+  }, 3000); // 3000 milliseconds = 3 seconds
 }
 
 
@@ -338,3 +371,6 @@ function URLredirection(mbti, time_ad, latency_fast, deepness_deep, habits_good)
       break;
   }
 }
+
+
+

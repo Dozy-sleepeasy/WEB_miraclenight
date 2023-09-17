@@ -61,18 +61,15 @@
         <div id="progress-bar-background">
             <div id="progress-bar"></div>
         </div>
-            <button class="progress-button"><img id="progress-vector" src="static/image/progress_vector.svg"></button>
+            <button class="progress-button"><img id="progress-vector" src="static/image/progress_vector.png"></button>
         </div>
 
-            
         
         <div id="gameText">
-            <p id="game-text">퇴근하고 집에 도착하니<br>
-                            벌써 밤 10시!<br>
-                            나에게 10시란...</p>
+            <p id="game-text">퇴근하고 집에 도착하니<br>벌써 밤 10시!</p>
         </div>  
         
-                    
+  
         <div id="gameImg">
             <div>
                 <img id="game-img" src="static/image/1.png">
@@ -85,7 +82,17 @@
         </div>
     </div>
     
-    <div id="loading"></div>
+    <div id="loading">
+        
+        <div class="loading-middle">
+            <img id="middle-1" src="static/image/progress_vector.png">
+            <h4 id="loadingText">나의 수면 유형<br>분석 중<span class="ellipsis">.</span><span class="ellipsis">.</span><span class="ellipsis">.</span></h4>
+            <p>좋은 잠이었다... 여름이었다...</p>
+            <img id="middle-2" src="static/image/11.png">
+        
+        </div>
+        <div class="loading-bottom"><img src="static/image/bottom.png"></div>
+    </div>
     
     <audio id="audio" src="" loop></audio>
     <audio id="sdeffect" src=""></audio>
