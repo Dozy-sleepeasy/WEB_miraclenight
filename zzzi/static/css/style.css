@@ -314,7 +314,7 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 #gameText {
-    width: 68%;
+    width: 85%;
     margin: 0 auto;
     margin-top: 60px;
 }
@@ -345,6 +345,6 @@ font-size: 24px;
 font-style: normal;
 font-weight: 400;
 line-height: normal;
-    padding: 14px 76px;
+    padding: 14px 14px;
     margin-top: 12px;
 }
