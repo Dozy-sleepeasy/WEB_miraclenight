@@ -178,26 +178,26 @@ function calculateAndSendData() {
     
     // For latency_1
     if (i === 4) {
-      latency_slow += 25;
+      latency_slow += 20;
     } 
       
     // For latency_2
     if (i === 5) {
-      latency_slow += 25;
+      latency_slow += 20;
     }
       
     // For latency_3
     if (i === 6) {
-      latency_fast += 50;
+      latency_fast += 60;
     }
     
     // For deep_1 and deep_2
     if (i === 7) {
-      deepness_light += 45;
+      deepness_light += 60;
     } 
       
     if (i === 8) {
-      deepness_deep += 45;
+      deepness_deep += 40;
     } 
     
     // For sleeptime_2
@@ -371,6 +371,3 @@ function URLredirection(mbti, time_ad, latency_fast, deepness_deep, habits_good)
       break;
   }
 }
-
-
-

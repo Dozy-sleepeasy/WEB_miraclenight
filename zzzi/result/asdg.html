@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="/zzzi/static/css/style.css">
 </head>
     
-<body>
+<body style="background: #202228;" onload="percentages();">
     <!-- 유형 설명 -->
     <div class="section-3">
         <div class="section-3-top">
@@ -29,20 +29,21 @@
         </div>
         
         <div class="section-3-middle">
-            <h2>잠에 좋다는 건 정말 다 해봤어요</h2>
-            <h1>양만 세는 양치기 소년형</h1>
+            <h2>기다림의 미학 : 저는 잠을 기다려요</h2>
+            <h1>엄마 품속 아가형</h1>
             <p>전체 테스트 참여자 중 n%가 같은 유형입니다.</p>
-            <div class="section-3-m-img"><img src="/zzzi/static/image/aslb.png"></div>
+            <div class="section-3-m-img"><img src="/zzzi/static/image/aslg.png"></div>
         </div>
         
         <div class="section-3-mbti">
             <img src="/zzzi/static/image/top_line_2.png">
                 <p>당신의 수면 MBTI는</p>
                 <div class="mbti-img">
-                    <img src="/zzzi/static/image/a.png">
-                    <img src="/zzzi/static/image/s.png">
-                    <img src="/zzzi/static/image/l.png">
-                    <img src="/zzzi/static/image/g.png">
+                    <div class="mbti-img-center"><img src="/zzzi/static/image/a.png"><br>충분한<br>수면시간</div>
+                    <div class="mbti-img-center"><img src="/zzzi/static/image/s.png"><br>잠 드는<br>속도가 느림</div>
+                    <div class="mbti-img-center"><img src="/zzzi/static/image/d.png"><br>수면이<br>깊음</div>
+                    <div class="mbti-img-center"><img src="/zzzi/static/image/g.png"><br>좋은<br>수면 습관</div>
+                    
                 </div>
             <img src="/zzzi/static/image/top_line_2.png">
                 <a id="toggleLink" href="#">↘ 자세히 보기 ↙</a>
@@ -50,16 +51,16 @@
                 
                 <!-- 수면 시간 -->
                 <div class="mbti-layer"> 
-                    <div class="mbti-layer-1 unselected">
-                        <img src="/zzzi/static/image/aa.png">
+                    <div class="mbti-layer-1 ">
+                        <img src="/zzzi/static/image/a.png">
                         <p>Adequate<br>충분함</p>
                     </div>
                     <div class="mbti-layer-2">
                         <p>수면 시간</p>
-                        <div class="prog"><div class="progs" id="sleeptime"></div></div>
+                        <div class="prog"><div class="progs" style="float:left" id="sleeptime"></div></div>
                     </div>
-                    <div class="mbti-layer-1 ">
-                        <img src="/zzzi/static/image/ii.png">
+                    <div class="mbti-layer-1 unselected">
+                        <img src="/zzzi/static/image/i.png">
                         <p>Inadequate<br>불충분함</p>
                     </div>
                 </div>
@@ -71,15 +72,15 @@
                 <!-- 잠에 드는 정도 -->
                 <div class="mbti-layer"> 
                     <div class="mbti-layer-1 unselected">
-                        <img src="/zzzi/static/image/aa.png">
+                        <img src="/zzzi/static/image/f.png">
                         <p>Fast<br>빨리 잠듦</p>
                     </div>
                     <div class="mbti-layer-2">
                         <p>수면 개시</p>
-                        <div class="prog"><div class="progs" id="sleeptime"></div></div>
+                        <div class="prog"><div class="progs"  style="float:right" id="latency"></div></div>
                     </div>
                     <div class="mbti-layer-1 ">
-                        <img src="/zzzi/static/image/ii.png">
+                        <img src="/zzzi/static/image/s.png">
                         <p>Slow<br>늦게 잠듦</p>
                     </div>
                 </div>
@@ -90,16 +91,16 @@
                     
                 <!-- 깊은 수면 -->
                 <div class="mbti-layer"> 
-                    <div class="mbti-layer-1 unselected">
-                        <img src="/zzzi/static/image/aa.png">
+                    <div class="mbti-layer-1 ">
+                        <img src="/zzzi/static/image/d.png">
                         <p>Deep<br>깊게 잠</p>
                     </div>
                     <div class="mbti-layer-2">
                         <p>깊은 수면</p>
-                        <div class="prog"><div class="progs" id="sleeptime"></div></div>
+                        <div class="prog"><div class="progs" id="deep" style="float:left"></div></div>
                     </div>
-                    <div class="mbti-layer-1 ">
-                        <img src="/zzzi/static/image/ii.png">
+                    <div class="mbti-layer-1 unselected">
+                        <img src="/zzzi/static/image/l.png">
                         <p>Light<br>옅게 잠</p>
                     </div>
                 </div>
@@ -110,28 +111,169 @@
                     
                 <!-- 수면 습관 -->
                 <div class="mbti-layer"> 
-                    <div class="mbti-layer-1 unselected">
-                        <img src="/zzzi/static/image/aa.png">
+                    <div class="mbti-layer-1 ">
+                        <img src="/zzzi/static/image/g.png">
                         <p>Good<br>좋음</p>
                     </div>
                     <div class="mbti-layer-2">
                         <p>수면 습관</p>
-                        <div class="prog"><div class="progs" id="sleeptime"></div></div>
+                        <div class="prog"><div class="progs" id="habits" style="float:left"></div></div>
                     </div>
-                    <div class="mbti-layer-1 ">
-                        <img src="/zzzi/static/image/ii.png">
+                    <div class="mbti-layer-1 unselected">
+                        <img src="/zzzi/static/image/b.png">
                         <p>Bad<br>나쁨</p>
                     </div>
                 </div>
                 </div>
         </div>
+        
+        
+    
+    </div>
+    
+    <!-- 유형 상세 설명 -->
+    <div class="section-4">
+        <h2>자장자장, 당신은 엄마 품속 아가형</h2>
+        <img id="section-4-img" src="/zzzi/static/image/asdg_letters.png">
+        
+        <div class="section-4-quote">
+            <p>‘ 기다림의 미학 : 저는 잠을 기다려요 ’ <br>
+            잠에 들기까지 시간이 좀 걸리는 편이에요.</p>
+        </div>
+        
+        <div class="section-4-para">
+            <p>ASDG는 새벽에 감성이 조금은 촉촉해지는 사람이에요.전남친..st의 감성적인 글을 주변 사람들에게 보내고 있다거나 글귀를 읽고 나도 모르게 눈물 한 방울 흘리고 있을 거예요. 혹시 수련회나 수학여행에서 친한 친구들에게 방 늦게까지 장난을 걸고 제일 늦게 잠에 들었던 기억이 있으신가요? 모두가 잠든 후에 혼자만의 시간을 즐길 줄 아시는 분이에요. 미라클나잇이 낯선 곳에서도 쉽게 잠이 들 수 있도록 토닥토닥해 드릴게요~</p>
+            
+            <h5>감성수면러 ASDG가 <br> 좀 더 완벽해질 수 있는 방법은?</h5>
+            <p>한 번 자면 깊게 잠들고 좋은 습관도 유지하고 있습니다. 하지만 잠이 드는 데 오랜 시간이 걸려서 피곤할 때도 많을 것 같아요! 빠르게 잠이 들 수 있도록 적당한 운동을 해보는 것은 어떨까요? 몸이 지쳐 금방 잠이 들 거예요 ~ 미라클나잇이 응원할게요 :)</p>
+            
+            <h5>감성수면러 ASDG를 위한 수면 처방전</h5>
+            <p> • 잡생각을 정리하는 다이어리<br>
+                • 푹신한 매트리스<br>
+                • 미라클나잇 백색소음🎶  나른하고 고요한 모닥불<br></p>
+        </div>
+        
+        <div class="section-4-partners">
+            <div class="section-4-partners-1"><img src="/zzzi/static/image/asdg_good.png"></div>
+            <div class="section-4-partners-1"><img src="/zzzi/static/image/asdg_bad.png"></div>
+        </div>
+        
+        <div class="section-4-buttons">
+            <p>결과만 공유해도 꿀잠 선물이!? (아래 확인) </p>
+            <img id="section-4-img-2" src="/zzzi/static/image/top_line_3.png">
+            
+                        
+                        
+            <a id="share-button" class="section-4-button">
+            <img src="/zzzi/static/image/button_vector_2.png"> 
+            결과 공유하기
+            <img src="/zzzi/static/image/button_vector_2.png"> 
+            </a>
+
+            <a href="/zzzi/static/image/aflg_download.jpg" download="AFLG_수면유형검사.jpg"  title="AFLG_수면유형검사"  class="section-4-button">
+            <img src="/zzzi/static/image/button_vector_2.png"> 
+            유형 카드 다운로드
+            <img src="/zzzi/static/image/button_vector_2.png"> 
+            </a>
+
+            
+            <!-- <a href="#" class="section-4-button">
+            <img src="/zzzi/static/image/button_vector_2.png"> 
+            전체 유형 보기
+            <img src="/zzzi/static/image/button_vector_2.png"> 
+            </a> -->
+        </div>
     
     </div>
     
     
-    <div class="section-4"></div>
-    <div class="section-5"></div>
-    <div class="section-6"></div>
+    <section class="section-5">
+        <img class="section-5-zzzi" src="/zzzi/static/image/section-5-zzzzi.png">
+        <p class="section-5-p">쿨쿨이가</p>
+        <h2>꿀잠을<br>선물합니다!</h2>
+        <img class="section-5-zzzi-2" src="/zzzi/static/image/section-5-rectangle.png" class="image-below-text">
+        <img class="section-5-zzzi-3" src="/zzzi/static/image/section-5-line.png" class="image-below-text">
+        
+        <p class="section-5-p-2" >테스트 결과를 인스타그램 스토리에<br> 공유하면 “꿀잠 세트”를 드려요!</p>
+        
+        <div class="slider-container">
+        <div class="slider">
+            <img id="1" style="display:block;" src="/zzzi/static/image/gift_1.png" alt="Gift 1">
+            <img id="2" src="/zzzi/static/image/gift_2.png" alt="Gift 2">
+            <img id="3" src="/zzzi/static/image/gift_3.png" alt="Gift 3">
+        </div>
+        <div class="navigation-dots">
+            <span class="dot" onclick="changeImage(0)"></span>
+            <span class="dot" onclick="changeImage(1)"></span>
+            <span class="dot" onclick="changeImage(2)"></span>
+        </div>
+        </div>
+        
+        <div class="section-5-gifts">
+            <div class="image-container gifts-5">
+              <img src="/zzzi/static/image/bottom_rectangle.png">
+              <div class="text-overlay">꿀잠 세트 구성</div>
+            </div>
+            
+            <div class="section-5-gifts-text">
+                수면 안대 <span style="color:#F8B16A">+</span> 무릎 담요 <span style="color:#F8B16A">+</span> 텀블러 <span style="color:#F8B16A">+</span> 클립 펜 <span style="color:#F8B16A">+</span> 미라클나잇 버니 스티커
+            </div>
+            
+            <div class="image-container gifts-5 second-gift">
+              <img src="/zzzi/static/image/bottom_rectangle.png">
+              <div class="text-overlay">이벤트 참여 방법</div>
+            </div>
+            
+            <div class="section-5-gifts-text second-gift-2">
+                <span style="font-family: Cafe24Dangdanghae;font-size: 20px;font-weight: 400;color:#F8B16A">1. </span>이벤트 기간인 10/4 ~ 10/15 사이에 <br><br>
+                
+                <span style="font-family: Cafe24Dangdanghae;font-size: 20px;font-weight: 400;color:#F8B16A">2. </span> 미라클나잇 공식 계정 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a target="_blank" href="https://www.instagram.com/miraclenight_official/"  style="color:#F8B16A" >@miraclenight_official</a>을 팔로우하고 <br><br>
+                
+                <span style="font-family: Cafe24Dangdanghae;font-size: 20px;font-weight: 400;color:#F8B16A">3. </span> 테스트 결과를 인스타그램 스토리에 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;공유하면 이벤트 참여 끝!<br> 
+            </div>
+            
+            <div class="section-5-details">
+            <h3>이벤트 유의사항</h3>
+            <ul>
+            <li>
+             상기 이미지는 연출된 이미지이며, 실제와 다를 수 있습니다.</li>
+             <li>이벤트는 10/4 ~ 10/15 진행됩니다.</li>
+             <li>발송 안내는 인스타그램 계정으로 연락드립니다.</li>
+             <li>@miraclenight_official을 팔로우하고 태그해야 참여 완료됩니다.</li>
+             <li>기타 비정상적인 방법을 통해 금전적인 이득을 취하기 위해 이벤트에 참여한 것으로 판단되면, 회사는 해당 사용자에 대한 이벤트 지급을 거부 및 회수하거나 서비스 이용을 제한할 수 있습니다.</li>
+            <li>해당 이벤트는 회사의 사정에 따라 사전 고지 없이 변경 또는 중단될 수 있습니다.</li>
+            </ul>
+            </div>
+        </div>
+
+    </section>
+            
+    
+    <section class="section-6">
+    <div class="section-2 bottom-2">
+    <div class="section-2-left">
+      <h4>팔로우하면 <br> <span style="color:#F8B16A">평생 꿀잠 예약</span></h4>
+      <a href="https://www.instagram.com/miraclenight_official/" target="_blank" class="section-2-button">
+        <img src="/zzzi/static/image/instagram_icon.svg"> 인스타그램 바로가기
+      </a>
+    </div>
+    <div class="section-2-right">
+      <img src="/zzzi/static/image/section-2_zzzi.png">
+    </div>
+    </div>
+        
+    
+    <div class="footer">
+        <p>새벽을 바꾸는 기적의 수면</p>
+        <img class="footer-img" src="/zzzi/static/image/miraclenight.png">
+        <div class="footer-buttons"></div>
+        <a target="_blank" href="https://onelink.to/dcqnxu"><img class="logo-icon" src="/zzzi/static/image/apple.png"></a>
+        <a target="_blank" href="https://onelink.to/dcqnxu"><img class="logo-icon" src="/zzzi/static/image/google.png"></a> 
+        
+    </div>
+    
+    <img class="footer-btm-img" src="/zzzi/static/image/bottom_fixed.png">
+    </section>
     
     
 </body>
@@ -157,6 +299,77 @@
     });
     
 </script>
+    
+<script>
 
+    const slider = document.querySelector('.slider');
+    const dots = document.querySelectorAll('.dot');
+    const images = document.querySelectorAll('.slider img');
+
+
+    let currentIndex = 0;
+
+    function changeImage(index) {
+        dots[currentIndex].classList.remove('active');
+        dots[index].classList.add('active');
+        images.forEach((image, i) => {
+        if (i === index) {
+            image.style.display = 'block'; 
+        } else {
+            image.style.display = 'none'; 
+        }})
+
+        currentIndex = index;
+    };
+
+    // Initially, set the first dot as active
+    dots[currentIndex].classList.add('active');
+
+    // Auto slide to the next image every 3 seconds (adjust as needed)
+    setInterval(() => {
+        const nextIndex = (currentIndex + 1) % dots.length;
+        changeImage(nextIndex);
+    }, 3000);
+
+</script>
+
+<script type="text/javascript" charset="utf-8">
+  const shareButton = document.getElementById("share-button");
+    
+  shareButton.addEventListener('click', event => {
+      console.log("in");
+  if (navigator.share) {
+    navigator.share({
+      title: '미라클나잇 꿀잠 수면 유형 AFLG',
+      url: 'https://miraclenight.co.kr/zzzi/result/aflg.html'
+    }).then(() => {
+      
+    })
+    .catch(console.error);
+  } else {
+    // fallback
+  }
+});
+</script> 
+    
+<script language = "javascript"> 
+function percentages() {
+var temp = location.href.split("?"); 
+var data = temp[1].split(":"); 
+    console.log(data)
+    
+var sleeptime = document.getElementById("sleeptime");
+sleeptime.style.width = data[0]+"%";
+    
+console.log(data[0])
+var latency = document.getElementById("latency")
+latency.style.width = data[1]+"%";
+var deep = document.getElementById("deep")
+deep.style.width = data[2]+"%"; 
+var habits = document.getElementById("habits")
+habits.style.width = data[3]+"%";
+}  
+    
+</script>
     
 </html>
