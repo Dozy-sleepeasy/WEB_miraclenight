@@ -2,9 +2,9 @@ function getNumber() {
     async function fetchSurvey() {
     const url = 'https://survey.miraclenight-server.com/survey';
     const headers = new Headers({
-      'Content-Type': 'application/json',
-      'Access-Control-Request-Method': 'GET',
-      'Access-Control-Request-Headers': 'content-type',
+//      'Content-Type': 'application/json',
+//      'Access-Control-Request-Method': 'GET',
+//      'Access-Control-Request-Headers': 'content-type',
       'X-Survey-Name': 'sleep-mbti',
     });
 
@@ -15,27 +15,32 @@ function getNumber() {
     });
 
     if (response.ok) {
+      try {
         const statistics = await response.json();
+        console.log(statistics); // Log the response to inspect its structure
 
         let total = 0;
 
-          // Iterate through each object in the 'statistics' array
-          statistics.data.forEach(item => {
-            // Iterate through the keys in each object
-            for (const key in item) {
-              if (item.hasOwnProperty(key)) {
-                // Add the value to the total
-                total += item[key];
-              }
+        // Iterate through the keys of the 'statistics' object
+        for (const key in statistics) {
+          if (statistics.hasOwnProperty(key)) {
+            // Check if the value is a number before adding it to the total
+            const value = statistics[key];
+            if (typeof value === 'number') {
+              total += value;
             }
-          });
-        
+          }
+        }
+
         const userNumberElement = document.getElementById('number');
-        let number = total;
         userNumberElement.innerText = total;
+      } catch (error) {
+        console.error("Error parsing JSON:", error);
+      }
     } else {
-        throw new Error('Failed to fetch survey');
+      console.error("Response is not OK.");
     }
+
 }
 
     // Usage
@@ -61,31 +66,33 @@ function percentages(x) {
     deep.style.width = data[2]+"%"; 
     var habits = document.getElementById("habits")
     habits.style.width = data[3]+"%";
-
+    
     async function fetchSurvey() {
     const url = 'https://survey.miraclenight-server.com/survey';
     const headers = new Headers({
-    'Content-Type': 'application/json',
-      'Access-Control-Request-Method': 'GET',
-      'Access-Control-Request-Headers': 'content-type',
       'X-Survey-Name': 'sleep-mbti',
     });
 
     const response = await fetch(url, {
         method: 'GET',
-        mode: 'cors',
         headers: headers
     });
 
     if (response.ok) {
+      try {
         const statistics = await response.json();
-        console.log(statistics);
+        console.log(statistics); // Log the response to inspect its structure
+
         const userPercentageElement = document.getElementById('percentage');
         let percentage = statistics[x].data;
         userPercentageElement.innerText = percentage;
+      } catch (error) {
+        console.error("Error parsing JSON:", error);
+      }
     } else {
-        throw new Error('Failed to fetch survey');
+      console.error("Response is not OK.");
     }
+
 }
 
     // Usage
@@ -94,4 +101,5 @@ function percentages(x) {
     }).catch(error => {
         console.error('Error:', error);
     });
+    
 } 

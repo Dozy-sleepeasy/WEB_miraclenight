@@ -68,13 +68,12 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 p { margin: 0; }
-.section-1 {width: 100%; margin: 0 auto; text-align: center;  background-image: url('/sleepreport/static/background.png');background-position: center; background-size: cover;border-bottom: 1px solid #333333;
-}
-.section-2 {width: 85%; margin: 0 auto; text-align: center;}
+.section-1 {width: 100%; margin: 0 auto; text-align: center;  background-image: url('/sleepreport/static/background.png');background-position: center; background-size: cover;border-bottom: 1px solid #333333;}
+.section-2 {width: 85%; margin: 0 auto; text-align: center;margin-top: 70px; }
 .section-3 {width: 85%; margin: 0 auto; text-align: center;}
 .section-4 {width: 85%; margin: 0 auto; text-align: center;}
-.section-5 {width: 85%; margin: 0 auto; text-align: center;}
-.section-6 {width: 85%; margin: 0 auto; text-align: center;}
+.section-5 {width: 85%; margin: 0 auto; text-align: center;padding-bottom: 112px;}
+.section-6 {margin: 0 auto; background: #25272D;}
 
 .section-1-logo img {
     width: 70px;
@@ -160,4 +159,470 @@ p { margin: 0; }
     line-height: 150%; /* 25.5px */
     margin-bottom: 8px;
     margin-top: 16px;
+}
+
+h2 {
+    color: var(--g1, #E6E6E6);
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: Pretendard;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 150%; /* 24px */
+    text-align: left;
+}
+
+.section-2-box-1 {
+    width: 70%;
+    float: left;
+}
+
+.section-3-box-1 {
+    width: 70%;
+    float: left;
+}
+
+.section-3-box-2 {
+    width: 50%;
+    float: left;
+}
+.section-2-box-2 {
+    width: 50%;
+    float: left;
+}
+
+.section-2-box {
+    margin-top: 20px;
+    border-radius: 14px;
+    background: #25272D;
+    padding: 28px 20px;
+    display: flex;
+    text-align: left;
+    height: auto;
+}
+
+.section-3-box {
+    margin-top: 20px;
+    border-radius: 14px;
+    background: #25272D;
+    padding: 28px 20px;
+    text-align: left;
+    height: auto;
+}
+
+.section-2-box p{
+    color: #FFF;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: Pretendard;
+    font-size: 26px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 100%; /* 26px */
+    letter-spacing: 0.38px;
+    margin-top: 10px;
+}
+
+.section-3-box p{
+    color: #FFF;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: Pretendard;
+    font-size: 26px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 100%; /* 26px */
+    letter-spacing: 0.38px;
+    margin-top: 10px;
+}
+
+#section-2-box-span {
+    color: var(--g5, #808080);
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: Pretendard;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 140%; /* 14px */
+}
+
+#section-3-box-span {
+    color: var(--g5, #808080);
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: Pretendard;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 140%; /* 14px */
+}
+
+.section-2 h3 {
+    color: var(--g5, #808080);
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: Pretendard;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%; /* 24px */
+    margin-top: 36px;
+    text-align: left;
+    margin-bottom: 12px;
+}
+
+.section-3 h3 {
+    color: var(--g5, #808080);
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: Pretendard;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%; /* 24px */
+    margin-top: 36px;
+    text-align: left;
+    margin-bottom: 12px;
+}
+
+.section-2-graph {
+    display: flex;
+    position: relative;
+}
+
+.section-3-graph {
+    display: flex;
+    position: relative;
+}
+
+.y-axis {
+    width: 40px;
+    padding-right: 10px;
+    text-align: right;
+    margin-bottom: -8px;
+}
+
+.y-axis-3 {
+    width: 40px;
+    padding-right: 10px;
+    text-align: right;
+    margin-bottom: -8px;
+}
+
+.y-axis div {
+    margin-top: 18px;
+    color: var(--g5, #808080);
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: Pretendard;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%; /* 18px */
+    position: relative;
+}
+
+.y-axis-3 div {
+    margin-top: 0px;
+    color: var(--g5, #808080);
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: Pretendard;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%; /* 18px */
+    position: relative;
+    text-align: left;
+}
+
+.graph {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-grow: 1;
+    position: relative;
+    border: 1px solid #333333;
+}
+
+.graph-3 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-grow: 1;
+    position: relative;
+    border: 1px solid #333333;
+}
+
+.data-bar {
+    width: 16px;
+    border-radius: 8px 8px 0px 0px;
+    background: #649CFF;
+    margin-right: 25px;
+}
+
+.data-bar-3 {    
+    width: 16px;
+    border-radius: 8px;
+    background: #649CFF;
+    margin-right: 25px;
+}
+
+
+.x-axis {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 75%;
+    padding: 10px 0;
+    margin-bottom: 70px;
+    padding-right: 20px;
+    float: right;
+}
+
+
+.x-axis-3 {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 75%;
+    padding: 10px 0;
+    padding-right: 20px;
+    float: right;
+}
+
+.x-axis div {
+    text-align: center;
+    width: calc(14.2857% - 10px); /* 100% divided by 7 (days) minus margin */
+    color: var(--g5, #808080);
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: Pretendard;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%; /* 18px */
+}
+
+.x-axis-3 div {
+    text-align: center;
+    width: calc(14.2857% - 10px); /* 100% divided by 7 (days) minus margin */
+    color: var(--g5, #808080);
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: Pretendard;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%; /* 18px */
+}
+
+
+/* Add multiple lines below the charts */
+.graph::before {
+    content: "";
+    width: 100%;
+    height: 230px; /* Adjust the total height of lines */
+    background-image: repeating-linear-gradient(to bottom, var(--g8, #333), var(--g8, #333) 1px, transparent 1px, transparent 36px); /* Adjust the line height and spacing */
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    bottom: -14px; /* Adjust the spacing above the x-axis */
+    z-index: -99;
+}
+
+.graph-3::before {
+    content: "";
+    width: 100%;
+    height: 290px; /* Adjust the total height of lines */
+    background-image: repeating-linear-gradient(to bottom, var(--g8, #333), var(--g8, #333) 1px, transparent 1px, transparent 18.2px); /* Adjust the line height and spacing */
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    bottom: -16px; /* Adjust the spacing above the x-axis */
+    z-index: -99;
+}
+
+.divdier {
+    border-bottom: 1px solid #333333;
+    margin-top: 70px;
+    margin-bottom: 70px;
+}
+
+
+
+
+
+.section-3-text p {
+    color: var(--white, #FFF);
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: Pretendard;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%; /* 27px */
+    opacity: 0.8;
+}
+
+.section-3-text {
+    margin-top: 65px;
+    text-align: left;
+}
+
+
+
+.section-4-1 {
+    margin-top: 20px;
+    border-radius: 14px;
+    background: #25272D;
+    padding: 26px 0px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.section-4-1 span{
+    color: var(--g5, #808080);
+    text-align: center;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: Pretendard;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 100%; /* 14px */
+}
+
+.section-4-1 img {
+    width: 60px;
+    margin-top: 15px;
+    margin-bottom: 17px;
+}
+
+.section-4-1 h3 {
+    color: #FFF;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: Pretendard;
+    font-size: 26px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 100%; /* 26px */
+    letter-spacing: 0.38px;
+}
+
+.section-4 p {
+    color: var(--white, #FFF);
+font-feature-settings: 'clig' off, 'liga' off;
+font-family: Pretendard;
+font-size: 18px;
+font-style: normal;
+font-weight: 400;
+line-height: 150%; /* 27px */
+    opacity: 0.8;
+    text-align: left;
+    margin-top: 36px;
+}
+
+
+
+.section-5 img {
+    width: 90%;
+    margin-top: 40px;
+}
+
+.section-5 p {
+    color: var(--white, #FFF);
+font-feature-settings: 'clig' off, 'liga' off;
+font-family: Pretendard;
+font-size: 18px;
+font-style: normal;
+font-weight: 400;
+line-height: 150%; /* 27px */
+    opacity: 0.8;
+    text-align: left;
+}
+
+.rating {
+    color: #FFA449;
+    text-align: center;
+    font-family: Pretendard;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin-left: 28px;
+    padding-top: 34px;
+    text-align: left;
+}
+
+.section-6 h3 {
+    color: var(--white, #FFF);
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: Pretendard;
+    font-size: 26px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 150%; /* 39px */
+    margin-left: 28px;
+    padding-top: 12px;
+}
+
+.section-6-text {
+    color: var(--white, #FFF);
+font-feature-settings: 'clig' off, 'liga' off;
+font-family: Pretendard;
+font-size: 16px;
+font-style: normal;
+font-weight: 400;
+line-height: 140%; /* 22.4px */
+    margin-left: 28px;
+    padding-top: 12px;
+}
+
+.review {
+    border-radius: 100px;
+background: #FFA449;
+    
+    color: #1F2227;
+text-align: center;
+font-family: Pretendard;
+font-size: 18px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+}
+
+.section-6-review {
+    display: flex;
+    justify-content: space-between;
+}
+
+.section-6-review a {
+    text-decoration: none;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    padding: 0 26px;
+    margin-left: 28px;
+    margin-top: 20px;
+}
+
+.section-6-review img {
+    width: 134px;
+}
+
+.section-7 {
+    padding-top: 50px;
+    text-align: center;
+    padding-bottom: 74px;
+}
+
+.section-7 p {
+    color: #FFF;
+    font-family: Pretendard;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%; /* 15px */
+    opacity: 0.3;
+    padding-bottom: 8px;
+}
+
+.section-7 img{
+    width: 66px;
+    opacity: 0.5;
+    padding-bottom: 12px;
 }
