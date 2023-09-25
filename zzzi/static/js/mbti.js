@@ -96,7 +96,6 @@ function startGame() {
 
 // Function to update the HTML content with the current question
 function updateQuestion() {
-    console.log('updateQuestion in');
   if (currentIndex < questions.length) {
     const question = questions[currentIndex];
     // Update HTML elements with question data
@@ -119,7 +118,7 @@ function updateQuestion() {
 document.querySelectorAll('#game-button-1').forEach((button, index) => {
   button.addEventListener('click', () => {
     // Store the user's response as true (1) for the current question
-    userResponses[currentIndex] = 1;
+    userResponses[currentIndex] = true;
       console.log(userResponses[currentIndex]);
     // Move to the next question
     currentIndex++;
@@ -132,7 +131,7 @@ document.querySelectorAll('#game-button-1').forEach((button, index) => {
 document.querySelectorAll('#game-button-2').forEach((button, index) => {
   button.addEventListener('click', () => {
     // Store the user's response as false (0) for the current question
-    userResponses[currentIndex] = 0;
+    userResponses[currentIndex] = false;
       console.log(userResponses[currentIndex]);
     // Move to the next question
     currentIndex++;
@@ -141,6 +140,49 @@ document.querySelectorAll('#game-button-2').forEach((button, index) => {
   });
 });
 
+
+// Function to send data to the API
+function sendPostRequest(userResponses, mbti, sleep_time, latency_time, deepness, habits) {
+  const postData = {
+    sleeptime_1: userResponses[0],
+    habit_1: userResponses[1],
+    habit_2: userResponses[2],
+    habit_3: userResponses[3],
+    latency_1: userResponses[4],
+    latency_2: userResponses[5],
+    latency_3: userResponses[6],
+    deep_1: userResponses[7],
+    deep_2: userResponses[8],
+    sleeptime_2: userResponses[9],
+    mbti: mbti,
+    a: sleep_time,
+    b: latency_time,
+    c: deepness,
+    d: habits,
+  };
+
+  fetch('https://api.miraclenight-server.com/survey', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'X-Survey-Name': 'sleep-mbti',
+    },
+    body: JSON.stringify(postData),
+  })
+    .then((response) => {
+      if (response.ok) {
+        // Handle successful API response
+        console.log("response okay");
+      } else {
+        // Handle API error
+        console.log("API error");
+      }
+    })
+    .catch((error) => {
+      // Handle network error
+      console.log("network error");
+    });
+}
 
 
 // Function to calculate results based on user responses
@@ -162,7 +204,7 @@ function calculateAndSendData() {
     
 
   for (let i = 0; i < userResponses.length; i++) {
-      if (userResponses[i] == 1) {
+      if (userResponses[i] == true) {
           if (i === 0) {
             time_inad += 35;
           } 
@@ -196,7 +238,7 @@ function calculateAndSendData() {
         } 
       }
       
-      else if (userResponses[i] == 0) {
+      else if (userResponses[i] == false) {
           if (i === 0) {
             time_ad += 35;
           } 
@@ -276,7 +318,7 @@ if (time_ad >= time_inad) {
 
   // Send data to API
   // Implement the sendPostRequest function here
-  // sendPostRequest(userResponses, mbti);
+  sendPostRequest(userResponses, mbti, sleep_time, latency_time, deepness, habits);
     
   // loading page animation
   document.getElementById("gameScreen").style.display = "none";
@@ -312,34 +354,6 @@ if (time_ad >= time_inad) {
       console.log("in");
     URLredirection(mbti, time_ad, latency_fast, deepness_deep, habits_good);
   }, 3000); // 3000 milliseconds = 3 seconds
-}
-
-
-// Function to send data to the API
-function sendPostRequest(userResponses, mbti) {
-  const postData = {
-    responses: userResponses,
-    mbti: mbti,
-  };
-
-  fetch('YOUR_API_ENDPOINT', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(postData),
-  })
-    .then((response) => {
-      if (response.ok) {
-        // Handle successful API response
-        URLredirection();
-      } else {
-        // Handle API error
-      }
-    })
-    .catch((error) => {
-      // Handle network error
-    });
 }
 
 // Function to handle redirection based on MBTI

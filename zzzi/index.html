@@ -100,15 +100,42 @@
     
 </body>
 
-<script src="/zzzi/static/js/getNumber.js"></script>
+
+<script src="/zzzi/static/js/getData.js"></script>
 <script src="/zzzi/static/js/mbti.js"></script>
-<script src="https://code.jquery.com/jquery-3.4.0.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     
 <script>
-    window.onload = function() {
-        console.log("in");
-      getNumber();
+window.onload = function() {
+  async function fetchSurvey() {
+    const url = 'https://api.miraclenight-server.com/survey';
+    const headers = new Headers({
+        'X-Survey-Name': 'sleep-mbti'
+    });
+
+    const response = await fetch(url, {
+        method: 'GET',
+        headers: headers
+    });
+
+    if (response.ok) {
+        const data = await response.json();
+        return data;
+    } else {
+        throw new Error('Failed to fetch survey');
     }
+}
+
+    // Usage
+    fetchSurvey().then(data => {
+        console.log(data);
+    }).catch(error => {
+        console.error('Error:', error);
+    });
+};
+
+
+
 </script>
     
 <script>
