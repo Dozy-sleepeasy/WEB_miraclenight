@@ -21,9 +21,15 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js" type="text/javascript"></script>
     <link rel="shortcut icon" type="image/x-icon" href="/zzzi/static/image/favicon.ico">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.5.0-beta4/html2canvas.min.js"></script>
 
+        
+    <script src="/sleepreport/static/script.js"></script>
+    <script src="/sleepreport/static/processCSV.js"></script>
 </head>
-<body data-spy="scroll">
+<body data-spy="scroll" id="exportBody">
 <!-- Preloader -->
 <div class="spinner-wrapper">
     <div class="spinner">
@@ -34,12 +40,107 @@
 </div>
 <!-- end of preloader -->
     
+<button onclick="capture()">Capture and Export as Image</button>
+
+
+    
+<form id="csvUploadForm" enctype="multipart/form-data">
+    <label for="csvFile">Upload CSV File:</label>
+    <input type="file" id="csv-file-input" name="csvFile">
+    <button type="button" onclick="processCSV()">Upload</button>
+</form>
+
+
+<form id="sleepReportForm" style="color: white;">
+    <label for="uid">UID:</label>
+    <input type="text" id="uid" name="uid"><br><br>
+
+    <label for="username-input">Username:</label>
+    <input type="text" id="username-input" name="username"><br><br>
+
+    <label for="average-sleep-hours-input">Average Sleep Hours:</label>
+    <input type="number" id="average-sleep-hours-input" name="average_sleep_hours"><br><br>
+
+    <!-- Add input fields for other variables such as bedtimes, waketimes, etc. -->
+    <label for="average-bedtime-input">Average Bedtime:</label>
+    <input type="text" id="average-bedtime-input" name="average_bedtime"><br><br>
+
+    <label for="average-waketime-input">Average Waketime:</label>
+    <input type="text" id="average-waketime-input" name="average_waketime"><br><br>
+    
+    <label for="sleep-pattern-input">Sleep Pattern:</label>
+    <input type="number" id="sleep-pattern-input" name="sleep-pattern"><br><br>
+
+    <label for="emotion-input">Emotion:</label>
+    <select id="emotion-input" name="emotion">
+        <option value="stressed">Stress</option>
+        <option value="depressed">Depressed</option>
+        <!-- Add more options for other emotions -->
+    </select><br><br>
+
+    <label for="activity-input">Activity:</label>
+    <select id="activity-input" name="activity">
+        <option value="stretching">Stretching</option>
+        <option value="study">Study</option>
+        <option value="alcohol">Alcohol</option>
+        <!-- Add more options for other activities -->
+    </select><br><br>
+
+    <!-- Input fields for sleep hours and waketime for each day -->
+    <label for="mon-sleep-hours-input">Monday Sleep Hours:</label>
+    <input type="number" id="mon-sleep-hours-input" name="mon_sleep_hours"><br><br>
+
+    <label for="tue-sleep-hours-input">Tuesday Sleep Hours:</label>
+    <input type="number" id="tue-sleep-hours-input" name="tue_sleep_hours"><br><br>
+    
+    <label for="wed-sleep-hours-input">Wednesday Sleep Hours:</label>
+    <input type="number" id="wed-sleep-hours-input" name="wed_sleep_hours"><br><br>
+    
+    <label for="thu-sleep-hours-input">Thursday Sleep Hours:</label>
+    <input type="number" id="thu-sleep-hours-input" name="thu_sleep_hours"><br><br>
+    
+    <label for="fri-sleep-hours-input">Friday Sleep Hours:</label>
+    <input type="number" id="fri-sleep-hours-input" name="fri_sleep_hours"><br><br>
+
+    <label for="sat-sleep-hours-input">Saturday Sleep Hours:</label>
+    <input type="number" id="sat-sleep-hours-input" name="sat_sleep_hours"><br><br>
+    
+    <label for="sun-sleep-hours-input">Sunday Sleep Hours:</label>
+    <input type="number" id="sun-sleep-hours-input" name="sun_sleep_hours"><br><br>
+    
+    
+    <label for="mon-waketime-input">Monday Waketime:</label>
+    <input type="text" id="mon-waketime-input" name="mon_waketime"><br><br>
+
+    <label for="tue-waketime-input">Tuesday Waketime:</label>
+    <input type="text" id="tue-waketime-input" name="tue_waketime"><br><br>
+
+    <label for="wed-waketime-input">Wednesday Waketime:</label>
+    <input type="text" id="wed-waketime-input" name="wed_waketime"><br><br>
+
+    <label for="thu-waketime-input">Thursday Waketime:</label>
+    <input type="text" id="thu-waketime-input" name="thu_waketime"><br><br>
+
+    <label for="fri-waketime-input">Friday Waketime:</label>
+    <input type="text" id="fri-waketime-input" name="fri_waketime"><br><br>
+
+    <label for="sat-waketime-input">Saturday Waketime:</label>
+    <input type="text" id="sat-waketime-input" name="sat_waketime"><br><br>
+
+    <label for="sun-waketime-input">Sunday Waketime:</label>
+    <input type="text" id="sun-waketime-input" name="sun_waketime"><br><br>
+
+    <button type="button" onclick="updateReport()">Submit</button>
+</form>
+
+
+    
 <section class="section-1">
     <div class="section-1-logo"><img src="/sleepreport/static/logo.png"></div>
     <div class="section-1-text">
         <div class="section-1-text-left">
         <h1>금주의 <br> 꿀잠 리포트</h1>
-        <p id="dateRange">9월 4일 (월) ~ 9월 10일 (일)</p>
+        <p id="dateRange">9월 18일 (월) ~ 9월 24일 (일)</p>
         </div>
         <div class="section-1-text-right">
         <img src="/sleepreport/static/zzzi_1.png">
@@ -47,8 +148,8 @@
     </div>
     
     <div class="section-1-text-2">
-        <p id="text-2-1"> 레드릭님의 꿀잠 리포트에 오신 것을 환영합니다!</p>
-        <p id="text-2-2"> 꿀잠 리포트는 레드릭님의 수면 상태를 파악하고 수면을 개선하기 위해 어떤 변화를 줄 수 있을지 제안드립니다.</p>
+        <p id="text-2-1"> <span id="username">레드릭</span>님의 꿀잠 리포트에 오신 것을 환영합니다!</p>
+        <p id="text-2-2"> 꿀잠 리포트는 <span id="username2">레드릭</span>님의 수면 상태를 파악하고 수면을 개선하기 위해 어떤 변화를 줄 수 있을지 제안드립니다.</p>
     </div>
 </section>
     
@@ -57,10 +158,10 @@
     <div class="section-2-box">
         <div class="section-2-box-1">
             <span id="section-2-box-span">일 평균 수면 시간</span>
-            <p>5시간 52분</p></div>
+            <p id="average_sleep_hours">5시간 52분</p></div>
         <div class="section-2-box-2">
-            <span id="section-2-box-span">일 평균 수면 시간</span>
-            <p style="color:#649CFF;">GOOD</p></div>
+            <span id="section-2-box-span">수면 평가</span>
+            <p id="sleep_rate">GOOD</p></div>
     </div>
     
     <h3>일별 수면 시간</h3>
@@ -76,13 +177,13 @@
             <div>0hr</div>
         </div>
         <div class="graph">
-            <div class="data-bar" style="height: 100px;margin-left: 25px;"></div>
-            <div class="data-bar" style="height: 150px;"></div>
-            <div class="data-bar" style="height: 80px;"></div>
-            <div class="data-bar" style="height: 120px;"></div>
-            <div class="data-bar" style="height: 90px;"></div>
-            <div class="data-bar" style="height: 60px;"></div>
-            <div class="data-bar" style="height: 40px;"></div>
+            <div id="mon_sleep_hours" class="data-bar" style="margin-left: 25px;"></div>
+            <div id="tue_sleep_hours" class="data-bar" style=""></div>
+            <div id="wed_sleep_hours" class="data-bar" style=""></div>
+            <div id="thu_sleep_hours" class="data-bar" style=""></div>
+            <div id="fri_sleep_hours" class="data-bar" style=""></div>
+            <div id="sat_sleep_hours" class="data-bar" style=""></div>
+            <div id="sun_sleep_hours" class="data-bar" style=""></div>
         </div>
     </div>
     
@@ -95,6 +196,10 @@
         <div>토</div>
         <div>일</div>
     </div>
+    
+    <div class="section-3-text" style="padding-top: 30px;">
+    <p id="section-3-p">일반적으로 일상 생활을 잘 유지하기 위하여 하루 6~8시간 정도의 수면을 취하는 것이 좋습니다. 이보다 수면이 부족하게 되면 피로가 쏟아지면서 집중력이 떨어지고 운동 능력이 저하되기도 합니다. 또한, 수면시간을 줄일수록 비만이 생길 위험이 높아진다는 연구도 있습니다. </p>
+    </div>
 </section>
     
 <div class="divdier"></div>
@@ -105,50 +210,50 @@
         <div style="display: flex;">
         <div class="section-3-box-1">
             <span id="section-3-box-span">평균 취침 시간</span>
-            <p>오후 11:40</p></div>
+            <p id="average_bedtime">오후 11:40</p></div>
         <div class="section-3-box-2">
             <span id="section-3-box-span">수면 패턴 일정도</span>
-            <p>80%</p></div>
+            <p id="sleep_pattern">80%</p></div>
         </div>
         
         <div style="display: flex;margin-top:32px;">
         <div class="section-3-box-1">
             <span id="section-3-box-span">평균 기상 시간</span>
-            <p>오전 07:22</p></div>
+            <p id="average_waketime">오전 07:22</p></div>
         <div class="section-3-box-2">
             <span id="section-3-box-span">평가</span>
-            <p style="color:#FFA449;">BAD</p></div>
+            <p id="pattern_rate">GOOD</p></div>
         </div>
     </div>
     
      <h3>일일 수면 패턴</h3>
     <div class="section-3-graph">
         <div class="y-axis-3">
-            <div>21:00</div>
-            <div>22:00</div>
-            <div>23:00</div>
-            <div>24:00</div>
-            <div>01:00</div>
-            <div>02:00</div>
-            <div>03:00</div>
-            <div>04:00</div>
-            <div>05:00</div>
-            <div>06:00</div>
-            <div>07:00</div>
-            <div>08:00</div>
-            <div>09:00</div>
-            <div>10:00</div>
-            <div>11:00</div>
             <div>12:00</div>
+            <div>11:00</div>
+            <div>10:00</div>
+            <div>09:00</div>
+            <div>08:00</div>
+            <div>07:00</div>
+            <div>06:00</div>
+            <div>05:00</div>
+            <div>04:00</div>
+            <div>03:00</div>
+            <div>02:00</div>
+            <div>01:00</div>
+            <div>24:00</div>
+            <div>23:00</div>
+            <div>22:00</div>
+            <div>21:00</div>
         </div>
         <div class="graph-3">
-            <div class="data-bar-3" style="height: 100px;margin-left: 34px;margin-top: 56px;"></div>
-            <div class="data-bar-3" style="height: 150px;"></div>
-            <div class="data-bar-3" style="height: 80px;"></div>
-            <div class="data-bar-3" style="height: 120px;"></div>
-            <div class="data-bar-3" style="height: 90px;"></div>
-            <div class="data-bar-3" style="height: 60px;"></div>
-            <div class="data-bar-3" style="height: 40px;"></div>
+            <div id="mon_waketime" class="data-bar-3" style="margin-left: 34px;margin-top: 4px;"></div>
+            <div id="tue_waketime" class="data-bar-3" style=""></div>
+            <div id="wed_waketime" class="data-bar-3" style=""></div>
+            <div id="thu_waketime" class="data-bar-3" style=""></div>
+            <div id="fri_waketime" class="data-bar-3" style=""></div>
+            <div id="sat_waketime" class="data-bar-3" style=""></div>
+            <div id="sun_waketime" class="data-bar-3" style=""></div>
         
         </div>
     </div>
@@ -175,35 +280,35 @@
     <h2>일상</h2>
     <div class="section-4-1">
         <span>가장 많이 느낀 감정</span>
-        <img src="/sleepreport/static/icon/stress.png">
-        <h3 id="section-4-emotion">스트레스</h3>
+        <img id="emotion-img" src="/sleepreport/static/icon/stressed.png">
+        <h3 id="emotion-title">스트레스</h3>
     </div>
     
-    <p id="section-4-emotion-text">우리의 생체 리듬, 특히 생체 시계와 일관된 수면 패턴을 유지함으로써 최적화됩니다. 규칙적인 수면 스케줄은 생체 리듬을 조절하고 일상 생활을 조율하는 데 도움을 줍니다. 이는 수면을 자연스럽게 깊고 효과적으로 만들어 줍니다.</p>
+    <p id="emotion-text">우리의 생체 리듬, 특히 생체 시계와 일관된 수면 패턴을 유지함으로써 최적화됩니다. 규칙적인 수면 스케줄은 생체 리듬을 조절하고 일상 생활을 조율하는 데 도움을 줍니다. 이는 수면을 자연스럽게 깊고 효과적으로 만들어 줍니다.</p>
     
     <div class="section-4-1" style="margin-top: 56px;">
         <span>가장 자주한 활동</span>
-        <img src="/sleepreport/static/icon/coffee.png">
-        <h3 id="section-4-emotion">커피</h3>
+        <img id="activity-img" src="/sleepreport/static/icon/coffee.png">
+        <h3 id="activity-title">커피</h3>
     </div>
     
-    <p id="section-4-emotion-text">카페인은 수면 시작을 지연시킬 수 있습니다. 수면에 들기 전에 커피를 섭취하면 잠자리에 들기까지 더 많은 시간이 필요할 수 있습니다.</p>
+    <p id="activity-text">카페인은 수면 시작을 지연시킬 수 있습니다. 수면에 들기 전에 커피를 섭취하면 잠자리에 들기까지 더 많은 시간이 필요할 수 있습니다.</p>
     
 </section>
     
 <div class="divdier"></div>
     
 <section class="section-5">
-    <h2>레드릭님, 요즘 <br> 취침 시간이 너무 늦어요.</h2>
+    <h2><span id="username3">레드릭</span>님, 요즘 <br> <span id="advice">취침 시간이 너무 늦어요.</span></h2>
     <img src="/sleepreport/static/zzzi_2.png">
-    <p>과학적으로 잠에 들기 가장 좋은 시간은 10시입니다. 우리 몸의 자연적 일주기 리듬 때문인데, 일주기 리듬이란 몸이 해가 뜨고 지는 것을 따라 하는 현상을 뜻합니다. 보통 10시부터 2시 사이에 성장호르몬이 봄비 되는데 성장호르몬은 아이들에게만 필요한 게 아닙니다. 피부 대사를 활성화해 미인 호르몬이라는 별명도 있는 성장호르몬은 지방 분해를 도와 다이어트 효과도 주고 낮에 들어온 단기 기억을 장기 기억으로 저장시키기도 해서 공부 호르몬이라고도 불립니다. 취침 시간을 조금 앞당겨 보는 건 어떨까요?</p>
+    <p id="advice_text">과학적으로 잠에 들기 가장 좋은 시간은 10시입니다. 우리 몸의 자연적 일주기 리듬 때문인데, 일주기 리듬이란 몸이 해가 뜨고 지는 것을 따라 하는 현상을 뜻합니다. 보통 10시부터 2시 사이에 성장호르몬이 봄비 되는데 성장호르몬은 아이들에게만 필요한 게 아닙니다. 피부 대사를 활성화해 미인 호르몬이라는 별명도 있는 성장호르몬은 지방 분해를 도와 다이어트 효과도 주고 낮에 들어온 단기 기억을 장기 기억으로 저장시키기도 해서 공부 호르몬이라고도 불립니다. 취침 시간을 조금 앞당겨 보는 건 어떨까요?</p>
 </section>
     
 <section class="section-6">
     <p class="rating">★★★★★</p>
     <h3>미라클나잇 어떠신가요?<br>
         앱스토어 리뷰를 남겨주세요!</h3>
-    <p class="section-6-text">카톡 친구에서 인증하면 스타벅스 기프티콘을 보내드릴게요!</p>
+    <p class="section-6-text">카톡으로 인증하면 스타벅스 기프티콘을 보내드릴게요!</p>
     <div class="section-6-review">
     <a href="https://onelink.to/cbgnkb" class="review" target="_blank">리뷰 남기러 가기</a>
     <img src="/sleepreport/static/zzzi_3.png">
@@ -217,6 +322,27 @@
         <p> Munice Inc. All rights reserved.</p>
 </section>
     
-<script src="/sleepreport/static/script.js"></script>
+<script>
+
+// Your code that uses html2canvas
+function capture() {
+    html2canvas(document.body).then(function(canvas) {
+        // Convert the canvas to a blob
+        canvas.toBlob(function(blob) {
+            // Create a new File from the blob
+            var file = new File([blob], "captured_image.png", { type: "image/png" });
+
+            // Create a download link for the file
+            var a = document.createElement("a");
+            a.href = URL.createObjectURL(file);
+            a.download = "/sleepreport/static/result/example.png";
+
+            // Trigger a click event on the download link to initiate the download
+            a.click();
+        }, "image/png");
+    });
+}
+</script>
+
 
 </body>
