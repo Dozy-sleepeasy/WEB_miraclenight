@@ -1,8 +1,8 @@
 function getNumber() {
     async function fetchSurvey() {
-    const url = 'https://api.miraclenight-server.com/survey';
+    const url = 'https://survey.miraclenight-server.com/survey';
     const headers = new Headers({
-    'Content-Type': 'application/json',
+      'Content-Type': 'application/json',
       'Access-Control-Request-Method': 'GET',
       'Access-Control-Request-Headers': 'content-type',
       'X-Survey-Name': 'sleep-mbti',
@@ -63,7 +63,7 @@ function percentages(x) {
     habits.style.width = data[3]+"%";
 
     async function fetchSurvey() {
-    const url = 'https://api.miraclenight-server.com/survey';
+    const url = 'https://survey.miraclenight-server.com/survey';
     const headers = new Headers({
     'Content-Type': 'application/json',
       'Access-Control-Request-Method': 'GET',

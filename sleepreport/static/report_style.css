@@ -1,0 +1,163 @@
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+@import url('https://fonts.googleapis.com/css2?family=Michroma&display=swap');
+@font-face {
+    font-family: 'GmarketSansLight';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansLight.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'GmarketSansMedium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'GmarketSansBold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansBold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'NanumSquareNeo-Variable';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/NanumSquareNeo-Variable.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+
+
+
+html {
+    font-family: sans-serif;
+    line-height: 1.15;
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
+    display: block;
+}
+
+body {
+    margin: 0;
+    font-family: "Pretendard", sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.5;
+    color: #444;
+    text-align: left;
+    background-color: #202228;
+    max-width: 425px;
+    margin: 0 auto;
+    max-width: 425px;
+}
+
+h1,h2,h3,h4,h5,h6 {
+    margin: 0;
+}
+
+p { margin: 0; }
+.section-1 {width: 100%; margin: 0 auto; text-align: center;  background-image: url('/sleepreport/static/background.png');background-position: center; background-size: cover;border-bottom: 1px solid #333333;
+}
+.section-2 {width: 85%; margin: 0 auto; text-align: center;}
+.section-3 {width: 85%; margin: 0 auto; text-align: center;}
+.section-4 {width: 85%; margin: 0 auto; text-align: center;}
+.section-5 {width: 85%; margin: 0 auto; text-align: center;}
+.section-6 {width: 85%; margin: 0 auto; text-align: center;}
+
+.section-1-logo img {
+    width: 70px;
+}
+
+.section-1-logo {
+    width: 85%;
+    margin: 0 auto;
+    text-align: left;
+    margin-top: 80px;
+}
+
+.section-1-text {
+    width: 85%;
+    margin: 0 auto;
+    margin-top: 136px;
+    display: flex;
+}
+
+.section-1-text-left {
+    width: 70%;
+    float: left;
+    text-align: left;
+}
+
+.section-1-text-left h1 {
+    color: var(--white, #FFF);
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: Pretendard;
+    font-size: 44px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 135%; /* 59.4px */
+    letter-spacing: 0.38px;
+}
+
+.section-1-text-left p{
+    color: #649CFF;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: Pretendard;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 100%; /* 18px */
+    margin-top: 10px;
+}
+
+
+.section-1-text-right {
+    width: 30%;
+    float: left;
+    text-align: left;
+}
+
+.section-1-text-right img {
+    width: 100%;
+    padding-top: 46px;''
+}
+
+.section-1-text-2 {
+    width: 85%;
+    margin: 0 auto;
+    text-align: left;
+    padding-bottom: 72px;
+}
+
+.section-1-text-2 p#text-2-2 {
+    color: var(--white, #FFF);
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: Pretendard;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%; /* 27px */
+}
+.section-1-text-2 p#text-2-1 {
+    color: var(--white, #FFF);
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: Pretendard;
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 150%; /* 25.5px */
+    margin-bottom: 8px;
+    margin-top: 16px;
+}

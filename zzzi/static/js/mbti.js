@@ -161,7 +161,7 @@ function sendPostRequest(userResponses, mbti, sleep_time, latency_time, deepness
     d: habits,
   };
 
-  fetch('https://api.miraclenight-server.com/survey', {
+  fetch('https://survey.miraclenight-server.com/survey', {
     method: 'POST',
     mode: 'cors',
     headers: {
