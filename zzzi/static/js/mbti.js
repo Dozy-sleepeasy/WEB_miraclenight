@@ -163,24 +163,21 @@ function sendPostRequest(userResponses, mbti, sleep_time, latency_time, deepness
 
   fetch('https://api.miraclenight-server.com/survey', {
     method: 'POST',
+    mode: 'cors',
     headers: {
-      'Content-Type': 'application/json',
+       'Content-Type': 'application/json',
+      'Access-Control-Request-Method': 'GET',
+      'Access-Control-Request-Headers': 'content-type',
       'X-Survey-Name': 'sleep-mbti',
     },
     body: JSON.stringify(postData),
   })
     .then((response) => {
       if (response.ok) {
-        // Handle successful API response
-        console.log("response okay");
       } else {
-        // Handle API error
-        console.log("API error");
       }
     })
     .catch((error) => {
-      // Handle network error
-      console.log("network error");
     });
 }
 

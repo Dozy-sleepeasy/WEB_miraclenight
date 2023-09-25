@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="static/css/style.css">
 </head>
     
-<body>
+<body onload="getNumber();">
     <div id="beforeGame">
     <section class="section-1">
         <img src="static/image/top_layer.png">
@@ -105,38 +105,6 @@
 <script src="/zzzi/static/js/mbti.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     
-<script>
-window.onload = function() {
-  async function fetchSurvey() {
-    const url = 'https://api.miraclenight-server.com/survey';
-    const headers = new Headers({
-        'X-Survey-Name': 'sleep-mbti'
-    });
-
-    const response = await fetch(url, {
-        method: 'GET',
-        headers: headers
-    });
-
-    if (response.ok) {
-        const data = await response.json();
-        return data;
-    } else {
-        throw new Error('Failed to fetch survey');
-    }
-}
-
-    // Usage
-    fetchSurvey().then(data => {
-        console.log(data);
-    }).catch(error => {
-        console.error('Error:', error);
-    });
-};
-
-
-
-</script>
     
 <script>
 

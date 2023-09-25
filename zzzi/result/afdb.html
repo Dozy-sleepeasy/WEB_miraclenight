@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="/zzzi/static/css/style.css">
 </head>
     
-<body style="background: #202228;" onload="percentages();">
+<body style="background: #202228;" onload="percentages('afdb');">
     <!-- 유형 설명 -->
     <div class="section-3">
         <div class="section-3-top">
@@ -31,7 +31,7 @@
         <div class="section-3-middle">
             <h2>자신이 없다. 잠 못 잘 자신이... </h2>
             <h1>눕자마자 잠드는 불꽃 수면형</h1>
-            <p>전체 테스트 참여자 중 n%가 같은 유형입니다.</p>
+            <p>전체 테스트 참여자 중 <span id="percentage">n</span>%가 같은 유형입니다.</p>
             <div class="section-3-m-img"><img src="/zzzi/static/image/mbti/AFDB.png"></div>
         </div>
         
@@ -155,8 +155,8 @@
         </div>
         
         <div class="section-4-partners">
-            <div class="section-4-partners-1"><span class="section-4-partners-2">꿀잠 궁합</span><img src="/zzzi/static/image/partner/afdg.png"></div>
-            <div class="section-4-partners-1"><span class="section-4-partners-2">선잠 궁합</span><img src="/zzzi/static/image/partner/isdg.png"></div>
+            <div class="section-4-partners-1"><span class="section-4-partners-2">꿀잠 궁합</span><img src="/zzzi/static/image/partner/AFDG.png"></div>
+            <div class="section-4-partners-1"><span class="section-4-partners-2">선잠 궁합</span><img src="/zzzi/static/image/partner/ISDG.png"></div>
         </div>
         
         <div class="section-4-buttons">
@@ -279,7 +279,8 @@
     
 </body>
     
-<script src="/static/js/mbti.js"></script>
+<script src="/zzzi/static/js/mbti.js"></script>
+<script src="/zzzi/static/js/getData.js"></script>
 <script src="https://code.jquery.com/jquery-3.4.0.min.js"></script>
     
 <script>
@@ -307,30 +308,31 @@
     const dots = document.querySelectorAll('.dot');
     const images = document.querySelectorAll('.slider img');
 
-
-    let currentIndex = 0;
+    let currentIndexes = 0;
 
     function changeImage(index) {
-        dots[currentIndex].classList.remove('active');
-        dots[index].classList.add('active');
-        images.forEach((image, i) => {
+      dots[currentIndexes].classList.remove('active');
+      dots[index].classList.add('active');
+      images.forEach((image, i) => {
         if (i === index) {
-            image.style.display = 'block'; 
+          image.style.display = 'block';
         } else {
-            image.style.display = 'none'; 
-        }})
+          image.style.display = 'none';
+        }
+      });
 
-        currentIndex = index;
-    };
+      currentIndexes = index;
+    }
 
     // Initially, set the first dot as active
-    dots[currentIndex].classList.add('active');
+    dots[currentIndexes].classList.add('active');
 
     // Auto slide to the next image every 3 seconds (adjust as needed)
     setInterval(() => {
-        const nextIndex = (currentIndex + 1) % dots.length;
-        changeImage(nextIndex);
+      const nextIndex = (currentIndexes + 1) % dots.length;
+      changeImage(nextIndex);
     }, 3000);
+
 
 </script>
 
@@ -352,25 +354,5 @@
   }
 });
 </script> 
-    
-<script language = "javascript"> 
-    function percentages() {
-    var temp = location.href.split("?"); 
-    var data = temp[1].split(":"); 
-        console.log(data)
 
-    var sleeptime = document.getElementById("sleeptime");
-    sleeptime.style.width = data[0]+"%";
-
-    console.log(data[0])
-    var latency = document.getElementById("latency")
-    latency.style.width = data[1]+"%";
-    var deep = document.getElementById("deep")
-    deep.style.width = data[2]+"%"; 
-    var habits = document.getElementById("habits")
-    habits.style.width = data[3]+"%";
-    }  
-
-</script>
-    
 </html>

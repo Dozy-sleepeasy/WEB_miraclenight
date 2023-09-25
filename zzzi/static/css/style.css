@@ -697,7 +697,7 @@ swing {
     text-align: center;
     color: #ABCDFF;
     text-align: center;
-    font-family: Cafe24 Shiningstar;
+    font-family: Cafe24Shiningstar;
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
@@ -876,10 +876,10 @@ line-height: 110%; /* 35.2px */
 .section-5 h2 {
     color: #FFF;
     text-align: center;
-    font-family: Cafe24 Danjunghae;
+    font-family: Cafe24Danjunghae;
     font-size: 64px;
     font-style: normal;
-    font-weight: 400;
+    font-weight: 500;
     line-height: 125%; /* 80px */
     -webkit-text-stroke: 2px black;
     text-stroke: 2px black; 
