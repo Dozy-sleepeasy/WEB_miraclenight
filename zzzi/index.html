@@ -99,34 +99,17 @@
     
     
 </body>
-    
+
+<script src="/zzzi/static/js/getNumber.js"></script>
 <script src="/zzzi/static/js/mbti.js"></script>
 <script src="https://code.jquery.com/jquery-3.4.0.min.js"></script>
     
 <script>
-
-</script>
-  <!--  
-<script>
     window.onload = function() {
-        
-        $.ajax({
-            url: 'https://api.miraclenight-server.com/survey',
-            type: 'GET',
-            headers: { 
-                'X-Client': 'munice',
-                'X-Survey-Name': 'sleep-mbti',
-                },
-            dataType: 'json',
-        }).then((data, textStatus, jqXHR) => {
-            console.log(data);
-            // $('#api-response').html(JSON.stringify(data, null, 2));
-        }).catch(error => {
-            console.error('An error occurred:', error);
-        });
-
+        console.log("in");
+      getNumber();
     }
 </script>
--->
     
-</html>
+<script>
+

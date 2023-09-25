@@ -3,7 +3,7 @@ function getNumber(){
     $.ajax({
         url: 'https://api.miraclenight-server.com/survey',
         type: 'GET',
-        headers: 'X-Client': 'munice',
+        headers: {'X-Client': 'munice', 'X-Survey-Name': 'sleep-mbti'},
         dataType: "json"
     }).then((data, textStatus, jqXHR) => {
         console.log(data);

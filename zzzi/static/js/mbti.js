@@ -77,7 +77,7 @@ const questions = [
     progressWidth: '100%',
     progressVector: '92%',
     img: '/zzzi/static/image/10.png',
-    button1Text: '5~6시간 정도<br>잔 것 같아.',
+    button1Text: '6시간도 <br> 못 잔 것 같아.',
     button2Text: '7시간 이상<br>푹 잤다!',
   },
 ];
@@ -101,7 +101,6 @@ function updateQuestion() {
     const question = questions[currentIndex];
     // Update HTML elements with question data
     // document.getElementById('progress-bar').textContent = question.progressBar;
-    console.log(question.text);
     document.getElementById('page-index').textContent = currentIndex + 1;
     document.getElementById('progress-bar').style.width = question.progressWidth;
     document.querySelector('.progress-button').style.left = question.progressVector;
@@ -121,6 +120,7 @@ document.querySelectorAll('#game-button-1').forEach((button, index) => {
   button.addEventListener('click', () => {
     // Store the user's response as true (1) for the current question
     userResponses[currentIndex] = 1;
+      console.log(userResponses[currentIndex]);
     // Move to the next question
     currentIndex++;
     // Update the HTML content with the next question
@@ -133,6 +133,7 @@ document.querySelectorAll('#game-button-2').forEach((button, index) => {
   button.addEventListener('click', () => {
     // Store the user's response as false (0) for the current question
     userResponses[currentIndex] = 0;
+      console.log(userResponses[currentIndex]);
     // Move to the next question
     currentIndex++;
     // Update the HTML content with the next question
@@ -161,50 +162,73 @@ function calculateAndSendData() {
     
 
   for (let i = 0; i < userResponses.length; i++) {
-  if (userResponses[i] == 1) {
-      if (i === 0) {
-        time_inad += 35;
-      } 
+      if (userResponses[i] == 1) {
+          if (i === 0) {
+            time_inad += 35;
+          } 
+
+        if (i === 2) {
+          habits_bad += 30;
+        } 
+
+        if (i === 1 || i === 3) {
+          habits_good += 30;
+        } 
+
+        if (i === 4 || i === 5) {
+          latency_slow += 20;
+        } 
+
+        if (i === 6) {
+          latency_fast += 50;
+        }
+
+        if (i === 7) {
+          deepness_light += 70;
+        } 
+
+        if (i === 8) {
+          deepness_deep += 20;
+        } 
+
+        if (i === 9) {
+          time_inad += 50;
+        } 
+      }
       
-    // For habits_1, habits_2, and habits_3
-    if (i === 1 || i === 2) {
-      habits_bad += 30;
-    } 
-      
-    // For habits_3
-    if (i === 3) {
-      habits_good += 30;
-    } 
-    
-    // For latency_1
-    if (i === 4) {
-      latency_slow += 20;
-    } 
-      
-    // For latency_2
-    if (i === 5) {
-      latency_slow += 20;
-    }
-      
-    // For latency_3
-    if (i === 6) {
-      latency_fast += 60;
-    }
-    
-    // For deep_1 and deep_2
-    if (i === 7) {
-      deepness_light += 60;
-    } 
-      
-    if (i === 8) {
-      deepness_deep += 40;
-    } 
-    
-    // For sleeptime_2
-    if (i === 9) {
-      time_inad += 40;
-    } 
-  }
+      else if (userResponses[i] == 0) {
+          if (i === 0) {
+            time_ad += 35;
+          } 
+
+        if (i === 2) {
+          habits_good += 30;
+        } 
+
+        if (i === 1 || i === 3) {
+          habits_bad += 30;
+        } 
+
+        if (i === 4 || i === 5) {
+          latency_fast += 20;
+        } 
+
+        if (i === 6) {
+          latency_slow += 50;
+        }
+
+        if (i === 7) {
+          deepness_deep += 70;
+        } 
+
+        if (i === 8) {
+          deepness_light += 20;
+        } 
+
+        if (i === 9) {
+          time_ad += 50;
+        } 
+      }
 }
     
     console.log(time_ad);
