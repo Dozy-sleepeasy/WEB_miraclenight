@@ -15,10 +15,8 @@ function convertTimeTo12HourFormat(originalTime) {
         return period + ' ' + hours + ':' + minutes;
 }
 
+function URLredirection(data) {
 
-
-
-function updateReport() {
     // Get input values from the form
     const uid = document.getElementById('uid').value;
     const username = document.getElementById('username-input').value;
@@ -41,11 +39,80 @@ function updateReport() {
     const sat_waketime = document.getElementById('sat-waketime-input').value;
     const sun_waketime = document.getElementById('sun-waketime-input').value;
 
-    
     const sleep_pattern = parseFloat(document.getElementById('sleep-pattern-input').value);
     const emotion = document.getElementById('emotion-input').value;
     const activity = document.getElementById('activity-input').value;
+    const emotion_input = document.getElementById('emotion-input').value;
+    const activityInput = document.getElementById('activity-input').value;
+    
+    // Building a URL with JSON data
+    var jsonData = { 
+        uid: uid,
+        username: username,
+        average_sleep_hours: average_sleep_hours,
+        mon_sleep_hours: mon_sleep_hours,
+        tue_sleep_hours: tue_sleep_hours,
+        wed_sleep_hours: wed_sleep_hours,
+        thu_sleep_hours: thu_sleep_hours,
+        fri_sleep_hours: fri_sleep_hours,
+        sat_sleep_hours: sat_sleep_hours,
+        sun_sleep_hours: sun_sleep_hours,
+        average_bedtime: average_bedtime,
+        average_waketime: average_waketime,
+        mon_waketime: mon_waketime,
+        tue_waketime: tue_waketime,
+        wed_waketime: wed_waketime,
+        thu_waketime: thu_waketime,
+        fri_waketime: fri_waketime,
+        sat_waketime: sat_waketime,
+        sun_waketime: sun_waketime,
+        sleep_pattern: sleep_pattern,
+        emotion: emotion,
+        activity: activity,
+        emotion_input: emotion_input,
+        activityInput: activityInput,
+    };
+    
+    var url = '/sleepreport/report.html?data='+encodeURIComponent(JSON.stringify(jsonData));
+    window.location.href = url;
+}
 
+
+
+
+function updateReport() {    
+    // Get the URL query parameter
+    var queryParam = decodeURIComponent(location.href.split('=')[1]);
+
+    // Parse the JSON data
+    var jsonData = JSON.parse(queryParam);
+
+    // Accessing individual properties from jsonData
+    var uid = jsonData.uid; // Example: Accessing the 'uid' property
+    var username = jsonData.username; // Accessing the 'username' property
+    var average_sleep_hours = jsonData.average_sleep_hours; // Accessing the 'average_sleep_hours' property
+    var mon_sleep_hours = jsonData.mon_sleep_hours; // Accessing the 'mon_sleep_hours' property
+    var tue_sleep_hours = jsonData.tue_sleep_hours; // Accessing the 'tue_sleep_hours' property
+    var wed_sleep_hours = jsonData.wed_sleep_hours; // Accessing the 'wed_sleep_hours' property
+    var thu_sleep_hours = jsonData.thu_sleep_hours; // Accessing the 'thu_sleep_hours' property
+    var fri_sleep_hours = jsonData.fri_sleep_hours; // Accessing the 'fri_sleep_hours' property
+    var sat_sleep_hours = jsonData.sat_sleep_hours; // Accessing the 'sat_sleep_hours' property
+    var sun_sleep_hours = jsonData.sun_sleep_hours; // Accessing the 'sun_sleep_hours' property
+    var average_bedtime = jsonData.average_bedtime; // Accessing the 'average_bedtime' property
+    var average_waketime = jsonData.average_waketime; // Accessing the 'average_waketime' property
+    var mon_waketime = jsonData.mon_waketime; // Accessing the 'mon_waketime' property
+    var tue_waketime = jsonData.tue_waketime; // Accessing the 'tue_waketime' property
+    var wed_waketime = jsonData.wed_waketime; // Accessing the 'wed_waketime' property
+    var thu_waketime = jsonData.thu_waketime; // Accessing the 'thu_waketime' property
+    var fri_waketime = jsonData.fri_waketime; // Accessing the 'fri_waketime' property
+    var sat_waketime = jsonData.sat_waketime; // Accessing the 'sat_waketime' property
+    var sun_waketime = jsonData.sun_waketime; // Accessing the 'sun_waketime' property
+    var sleep_pattern = jsonData.sleep_pattern; // Accessing the 'sleep_pattern' property
+    var emotion = jsonData.emotion; // Accessing the 'emotion' property
+    var activity = jsonData.activity; // Accessing the 'activity' property
+    var emotion_input = jsonData.emotion_input; // Accessing the 'emotion_input' property
+    var activityInput = jsonData.activityInput; // Accessing the 'activityInput' property
+    
     // Update text elements
     document.getElementById('username').textContent = username;
     document.getElementById('username2').textContent = username;
@@ -88,7 +155,7 @@ function updateReport() {
 
     // Update #emotion-img and #emotion-text based on emotion input
     const emotionTitle = document.getElementById('emotion-title');
-    const emotion_input = document.getElementById('emotion-input').value;
+
     const emotionImg = document.getElementById('emotion-img');
     const emotionText = document.getElementById('emotion-text');
     switch (emotion_input) {
@@ -102,7 +169,7 @@ function updateReport() {
             emotionImg.src = '/sleepreport/static/icon/tired.png';
             emotionText.innerText = '만성피로에 영향을 주는 요인들은 다양하지만 그중 가장 중요한 요소는 바로 수면입니다. 우리의 몸은 우리가 자는 동안 기억을 저장하고 몸의 에너지 레벨을 조절해요. 좋은 잠을 자고 나면 우리는 보통 상쾌하게 기운을 차리게 되죠. 한 연구에서 평일과 주말에 같은 시간 잠에 든 청소년의 피로감이 적고 잠에 드는 게 더 쉬웠다는 결과가 나왔어요. 피곤함과 수면 부족은 악순환의 시작입니다. 좋은 잠을 위해 낮에 신체적 활동을 해보는 건 어떨까요? 당장 운동이 어렵다면 매일 10분씩 산책하시는 걸 추천드려요!';
             break;
-        case 'stressed':
+        case 'stress':
             emotionTitle.innerText = '스트레스'; // Use innerText here
             emotionImg.src = '/sleepreport/static/icon/stressed.png';
             emotionText.innerText = '일반적인 스트레스는 잠을 늘리는 경향이 나타난다고 합니다. 그리고 잠을 많이 자는 사람들이 그렇지 않은 사람들에 비해 단명하는 경향이 나타납니다. 잠을 자는 게 스트레스 해소에 도움이 될까 궁금하신가요? 최근 스위스 취리히 대학 연구진의 연구에 따르면 잠을 자는 게 정서적 충격을 줄이는데 도움이 될 수 있다고 합니다. 좋은 잠을 통해 스트레스를 줄이고 정서적 안정감을 함께 찾아봐요!';
@@ -144,7 +211,6 @@ function updateReport() {
 
     // Check if the elements exist before attempting to modify them
     if (activityTitle && activityImg && activityText) {
-        const activityInput = document.getElementById('activity-input').value;
 
         switch (activityInput) {
             case 'phone':
@@ -215,39 +281,34 @@ function updateReport() {
         }
     }
     
-    console.log(mon_sleep_hours);
-    // Calculate and update sleep hours bars and waketime margins
-    // Calculate and update sleep hours bars and waketime margins
     const daysOfWeek = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
-    for (const day of daysOfWeek) {
-        const sleepHoursInput = document.getElementById(`${day}-sleep-hours-input`);
-        const waketimeInput = document.getElementById(`${day}-waketime-input`);
 
-        if (sleepHoursInput && waketimeInput) {
-            const sleepHours = parseFloat(sleepHoursInput.value);
-            const waketime = waketimeInput.value;
-            console.log(sleepHours);
-            // Update sleep hours bars
+    for (const day of daysOfWeek) {
+        // Construct the variable names
+        const sleepHoursVarName = `${day}_sleep_hours`;
+        const waketimeVarName = `${day}_waketime`;
+
+        // Get the values from the variables
+        const sleepHours = parseFloat(eval(sleepHoursVarName));
+        const waketime = eval(waketimeVarName);
+
+        if (!isNaN(sleepHours)) {
             const sleepHoursDiv = document.getElementById(`${day}_sleep_hours`);
-            if (sleepHoursDiv && !isNaN(sleepHours)) {
+            if (sleepHoursDiv) {
                 sleepHoursDiv.style.height = `${sleepHours * 18}px`;
             }
-
-            // Update waketime margin
-            const waketimeDiv = document.getElementById(`${day}_waketime`);
-            console.log('in');
-            if (waketimeDiv) {
-                const hours = 12 - parseInt(waketime.split(':')[0]);
-                const marginValue = 18 * hours + 4; // Calculate margin based on hours
-                waketimeDiv.style.marginTop = `${marginValue}px`;
-                console.log(`${marginValue}px`);
-                waketimeDiv.style.height = `${sleepHours * 18}px`; // Calculate height based on sleep hours
-                console.log(`${sleepHours * 18}px`);
-            }
         }
-    }
+
+        // Update waketime margin and other elements as needed
+        const waketimeDiv = document.getElementById(`${day}_waketime`);
+        if (waketimeDiv) {
+            const hours = 12 - parseInt(waketime.split(':')[0]);
+            const marginValue = 18 * hours + 4; // Calculate margin based on hours
+            waketimeDiv.style.marginTop = `${marginValue}px`;
+            waketimeDiv.style.height = `${sleepHours * 18}px`; // Calculate height based on sleep hours
+        }
+        }
     
-    const activityInput_2 = document.getElementById('activity-input').value;
 
     function convertTimeTo24HourFormat(timeString) {
         // Ensure that the time is in "hh:mm:ss" format
@@ -263,30 +324,30 @@ function updateReport() {
     function generateAdvice(average_sleep_hours, average_bedtime, sleepPattern, activityInput_2) {
         // Convert average_bedtime to a Date object
         const bedtimeDate = convertTimeTo24HourFormat(average_bedtime);
-        console.log(sleepPattern);
 
         if (bedtimeDate && bedtimeDate > new Date(2023, 8, 25, 0, 0, 0) && bedtimeDate < new Date(2023, 8, 25, 7, 0, 0)) {
-            return ["취침 시간이 너무 늦어요.", "과학적으로 잠에 들기 가장 좋은 시간은 10시입니다. 우리 몸의 자연적 일주기 리듬 때문인데, 일주기 리듬이란 몸이 해가 뜨고 지는 것을 따라 하는 현상을 뜻합니다. 보통 10시부터 2시 사이에 성장호르몬이 봄비 되는데 성장호르몬은 아이들에게만 필요한 게 아닙니다. 피부 대사를 활성화해 미인 호르몬이라는 별명도 있는 성장호르몬은 지방 분해를 도와 다이어트 효과도 주고 낮에 들어온 단기 기억을 장기 기억으로 저장시키기도 해서 공부 호르몬이라고도 불립니다. <br><br> 취침 시간을 조금 앞당겨 보는 건 어떨까요?"];
+            return ["취침 시간이 너무 늦어요.", "과학적으로 잠에 들기 가장 좋은 시간은 10시입니다. 우리 몸의 자연적 일주기 리듬 때문인데, 일주기 리듬이란 몸이 해가 뜨고 지는 것을 따라 하는 현상을 뜻합니다. 보통 10시부터 2시 사이에 성장호르몬이 봄비 되는데 성장호르몬은 아이들에게만 필요한 게 아닙니다. 피부 대사를 활성화해 미인 호르몬이라는 별명도 있는 성장호르몬은 지방 분해를 도와 다이어트 효과도 주고 낮에 들어온 단기 기억을 장기 기억으로 저장시키기도 해서 공부 호르몬이라고도 불립니다.", "취침 시간을 조금 앞당겨 보는 건 어떨까요?"];
         } else if (sleepPattern < 40) {
-            return ["수면 패턴이 불규칙적이에요.", "규칙적인 수면 시간은 비만, 고혈압, 당뇨, 뇌졸중과 같은 질병을 예방할 수 있는 직접적 영향을 줍니다. 30분 이내로 꾸준히 잠들면 90분 이내로 잠드는 사람들 보다 심장 질환을 얻을 확률이 2배가량 줄었다고 해요. 1시간 차이가 생길 때마다 대사 증후군이 생길 확률은 27% 하락했어요. 취침 시간과 기상 시간을 정해서 규칙적인 수면패턴을 연습해보는 건 어떨까요?"];
+            return ["수면 패턴이 불규칙적이에요.", "규칙적인 수면 시간은 비만, 고혈압, 당뇨, 뇌졸중과 같은 질병을 예방할 수 있는 직접적 영향을 줍니다. 30분 이내로 꾸준히 잠들면 90분 이내로 잠드는 사람들 보다 심장 질환을 얻을 확률이 2배가량 줄었다고 해요. 1시간 차이가 생길 때마다 대사 증후군이 생길 확률은 27% 하락했어요.", "취침 시간과 기상 시간을 정해서 규칙적인 수면패턴을 연습해보는 건 어떨까요?"];
         } else if (average_sleep_hours < 6) {
-            return ["평균 수면 시간이 너무 짧아요.", "평균 수면 시간이 6시간 이하로 내려가면 짧은 수면으로 인해 질병이 생길 확률은 25% 정도 돼요. 그 외에도 극도의 피로도를 동반한 하품, 짜증, 피곤 등이 동반된다고 해요. 실제 수면 시간이 7시간 이하의 경우 기분이 부정적으로 영향받아 충동 행동, 불안감, 우울감 등이 더 높아질 수 있다고 하네요. 수면 시간을 1시간 더 늘려보는 건 어떨까요?"];
-        } else if (activityInput_2 === 'alcohol') {
-            return ["음주가 잦아요.", "술은 좋은 잠을 주는 것처럼 사람을 속이곤 합니다. 실제 술은 수면에 정말 나쁜 영향을 끼칩니다. 실제 술을 마시고 바로 자게 되면 몽유병, 수면 장애, 기억력 저하 등이 유발됩니다. 그 이유는 우리 몸에서 찾을 수 있는데, 수면 중 알코올이 분해되는 과정에서 각성을 일으켜 깊은 잠을 방해하기 때문입니다. 호흡중추 기능도 떨어뜨려 수면 무호흡증을 유발할 수도 있고, 많은 양의 술을 마셨다면 이뇨작용을 촉진해 탈수 증세까지 나타날 수 있습니다. 그러니 잦은 음주는 피해주세요!"];
-        } else if (activityInput_2 === 'latemeal') {
-            return ["야식을 너무 자주 드세요.", "야식을 먹게 되면 체내 호르몬 균형이 깨집니다. 수면 시간에는 숙면 호르몬이 분비되는 등 온몸이 컨디션 회복에 집중하지만 밤에 음식을 먹으면 음식 소화하기 위해 위장에 혈액이 쏠리면서 뇌와 근육 등 다른 부위의 정상적인 신진대사가 방해받습니다. 이로 인해 숙면 호르몬인 멜라토닌이 분비되지 않아 잠을 얕게 자게 되고, 누운 자세에서 위산 역류가 촉진되며 피로감이 누적됩니다. 야식을 피하고 취침하기 3~4전에 식사를 끝내는 게 어떨까요?"];
-        } else if (activityInput_2 === 'coffee') {
-            return ["커피를 너무 많이 마셔요.", "커피, 차, 탄산음료 등 카페인이 함유된 음료는 전 세계에서 가장 인기 있는 음료 중 하나입니다. 일부 사람들은 카페인으로 인한 에너지 충격을 이용해 주간 졸음을 극복하려는 유혹을 받기도 하지만, 이러한 방법은 지속 가능하지 않으며 장기적인 수면 부족을 유발할 수 있습니다. 이를 방지하려면 카페인 섭취량을 주시하고 카페인이 잠드는 데 방해가 될 수 있는 늦은 시간에는 카페인 섭취를 피하세요. 오늘은 오후 2시 이후로 커피를 마시지 않는 건 어떨까요?"];
+            return ["평균 수면 시간이 너무 짧아요.", "평균 수면 시간이 6시간 이하로 내려가면 짧은 수면으로 인해 질병이 생길 확률은 25% 정도 돼요. 그 외에도 극도의 피로도를 동반한 하품, 짜증, 피곤 등이 동반된다고 해요. 실제 수면 시간이 7시간 이하의 경우 기분이 부정적으로 영향받아 충동 행동, 불안감, 우울감 등이 더 높아질 수 있다고 하네요.", "수면 시간을 1시간 더 늘려보는 건 어떨까요?"];
+        } else if (activityInput === 'alcohol') {
+            return ["음주가 잦아요.", "술은 좋은 잠을 주는 것처럼 사람을 속이곤 합니다. 실제 술은 수면에 정말 나쁜 영향을 끼칩니다. 실제 술을 마시고 바로 자게 되면 몽유병, 수면 장애, 기억력 저하 등이 유발됩니다. 그 이유는 우리 몸에서 찾을 수 있는데, 수면 중 알코올이 분해되는 과정에서 각성을 일으켜 깊은 잠을 방해하기 때문입니다. 호흡중추 기능도 떨어뜨려 수면 무호흡증을 유발할 수도 있고, 많은 양의 술을 마셨다면 이뇨작용을 촉진해 탈수 증세까지 나타날 수 있습니다.", "그러니 잦은 음주는 피해주세요!"];
+        } else if (activityInput === 'latemeal') {
+            return ["야식을 너무 자주 드세요.", "야식을 먹게 되면 체내 호르몬 균형이 깨집니다. 수면 시간에는 숙면 호르몬이 분비되는 등 온몸이 컨디션 회복에 집중하지만 밤에 음식을 먹으면 음식 소화하기 위해 위장에 혈액이 쏠리면서 뇌와 근육 등 다른 부위의 정상적인 신진대사가 방해받습니다. 이로 인해 숙면 호르몬인 멜라토닌이 분비되지 않아 잠을 얕게 자게 되고, 누운 자세에서 위산 역류가 촉진되며 피로감이 누적됩니다.", "야식을 피하고 취침하기 3~4전에 식사를 끝내는 게 어떨까요?"];
+        } else if (activityInput === 'coffee') {
+            return ["커피를 너무 많이 마셔요.", "커피, 차, 탄산음료 등 카페인이 함유된 음료는 전 세계에서 가장 인기 있는 음료 중 하나입니다. 일부 사람들은 카페인으로 인한 에너지 충격을 이용해 주간 졸음을 극복하려는 유혹을 받기도 하지만, 이러한 방법은 지속 가능하지 않으며 장기적인 수면 부족을 유발할 수 있습니다. 이를 방지하려면 카페인 섭취량을 주시하고 카페인이 잠드는 데 방해가 될 수 있는 늦은 시간에는 카페인 섭취를 피하세요.", "오늘은 오후 2시 이후로 커피를 마시지 않는 건 어떨까요?"];
         } else {
-            return ["규칙적인 활동시간이 필요해요.", "누워 있거나 활동량이 감소할수록 낮잠을 잘 확률이 높고, 수면주기가 깨질 수 있어요. 사람은 16시간의 지속적 각성상태의 활동 시간이 유지된 뒤에야 비로소 8시간의 꿀잠을 터트릴 수 있습니다. 아침에 햇빛을 보는 것부터 시작해 하루 일과 동안에는 충분히 활동하는 것이 좋겠습니다. 혹시 암막 커튼을 사용하고 계시다면 주목해 주세요! 암막 커튼은 아침 햇빛을 받지 못하게 하기 때문에 추천하지 않아요."];
+            return ["규칙적인 활동시간이 필요해요.", "누워 있거나 활동량이 감소할수록 낮잠을 잘 확률이 높고, 수면주기가 깨질 수 있어요. 사람은 16시간의 지속적 각성상태의 활동 시간이 유지된 뒤에야 비로소 8시간의 꿀잠을 터트릴 수 있습니다. 아침에 햇빛을 보는 것부터 시작해 하루 일과 동안에는 충분히 활동하는 것이 좋겠습니다. 혹시 암막 커튼을 사용하고 계시다면 주목해 주세요!", "암막 커튼은 아침 햇빛을 충분히 받지 못하게 하기 때문에 추천하지 않아요."];
         }
     }
 
     // Generate advice
-    const advice = generateAdvice(average_sleep_hours, average_bedtime, sleep_pattern, activityInput_2);
+    const advice = generateAdvice(average_sleep_hours, average_bedtime, sleep_pattern, activityInput);
 
     // Set the advice text
     document.getElementById('advice').textContent = advice[0];
     document.getElementById('advice_text').textContent = advice[1];
+    document.getElementById('advice_text_2').textContent = advice[2];
 
 }

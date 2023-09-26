@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Munice">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="미라클나잇 수면연구소">
+    <meta property="og:title" content="미라클나잇 수면연구소">
+    <meta property="og:url" content="www.miraclenight.app">
+
+    <title>일주일 수면 리포트</title>
+
+    <link rel="stylesheet" href="/sleepreport/static/report_style.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Michroma&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js" type="text/javascript"></script>
+    <link rel="shortcut icon" type="image/x-icon" href="/zzzi/static/image/favicon.ico">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.5.0-beta4/html2canvas.min.js"></script>
+        
+    <script src="/sleepreport/static/script.js"></script>
+    <script src="/sleepreport/static/processCSV.js"></script>
+</head>
+<body data-spy="scroll" id="exportBody">
+<!-- Preloader -->
+<div class="spinner-wrapper">
+    <div class="spinner">
+        <div class="bounce1"></div>
+        <div class="bounce2"></div>
+        <div class="bounce3"></div>
+    </div>
+</div>
+<!-- end of preloader -->
+
+
+    
+<form id="csvUploadForm" enctype="multipart/form-data">
+    <label for="csvFile">Upload CSV File:</label>
+    <input type="file" id="csv-file-input" name="csvFile">
+    <button type="button" onclick="processCSV()">Upload</button>
+</form>
+
+
+<form id="sleepReportForm" style="color: white;">
+    <label for="uid">UID:</label>
+    <input type="text" id="uid" name="uid"><br><br>
+
+    <label for="username-input">Username:</label>
+    <input type="text" id="username-input" name="username"><br><br>
+
+    <label for="average-sleep-hours-input">Average Sleep Hours:</label>
+    <input type="number" id="average-sleep-hours-input" name="average_sleep_hours"><br><br>
+
+    <!-- Add input fields for other variables such as bedtimes, waketimes, etc. -->
+    <label for="average-bedtime-input">Average Bedtime:</label>
+    <input type="text" id="average-bedtime-input" name="average_bedtime"><br><br>
+
+    <label for="average-waketime-input">Average Waketime:</label>
+    <input type="text" id="average-waketime-input" name="average_waketime"><br><br>
+    
+    <label for="sleep-pattern-input">Sleep Pattern:</label>
+    <input type="number" id="sleep-pattern-input" name="sleep-pattern"><br><br>
+
+    <label for="emotion-input">Emotion:</label>
+    <select id="emotion-input" name="emotion">
+        <option value="stress">stress</option>
+        <option value="depressed">depressed</option>
+        <option value="relaxed">relaxed</option>
+        <option value="tired">tired</option>
+        <option value="anxious">anxious</option>
+        <option value="excited">excited</option>
+        <option value="sad">sad</option>
+    </select><br><br>
+
+    <label for="activity-input">Activity:</label>
+    <select id="activity-input" name="activity">
+        <option value="phone">phone</option>
+        <option value="nicotine">nicotine</option>
+        <option value="alcohol">alcohol</option>
+        <option value="late meal">late meal</option>
+        <option value="tv">tv</option>
+        <option value="coffee">coffee</option>
+        <option value="study">study</option>
+        <option value="shower">shower</option>
+        <option value="read">read</option>
+        <option value="workout">workout</option>
+        <option value="nap">nap</option>
+        <option value="stretching">stretching</option>
+    </select><br><br>
+
+    <!-- Input fields for sleep hours and waketime for each day -->
+    <label for="mon-sleep-hours-input">Monday Sleep Hours:</label>
+    <input type="number" id="mon-sleep-hours-input" name="mon_sleep_hours"><br><br>
+
+    <label for="tue-sleep-hours-input">Tuesday Sleep Hours:</label>
+    <input type="number" id="tue-sleep-hours-input" name="tue_sleep_hours"><br><br>
+    
+    <label for="wed-sleep-hours-input">Wednesday Sleep Hours:</label>
+    <input type="number" id="wed-sleep-hours-input" name="wed_sleep_hours"><br><br>
+    
+    <label for="thu-sleep-hours-input">Thursday Sleep Hours:</label>
+    <input type="number" id="thu-sleep-hours-input" name="thu_sleep_hours"><br><br>
+    
+    <label for="fri-sleep-hours-input">Friday Sleep Hours:</label>
+    <input type="number" id="fri-sleep-hours-input" name="fri_sleep_hours"><br><br>
+
+    <label for="sat-sleep-hours-input">Saturday Sleep Hours:</label>
+    <input type="number" id="sat-sleep-hours-input" name="sat_sleep_hours"><br><br>
+    
+    <label for="sun-sleep-hours-input">Sunday Sleep Hours:</label>
+    <input type="number" id="sun-sleep-hours-input" name="sun_sleep_hours"><br><br>
+    
+    
+    <label for="mon-waketime-input">Monday Waketime:</label>
+    <input type="text" id="mon-waketime-input" name="mon_waketime"><br><br>
+
+    <label for="tue-waketime-input">Tuesday Waketime:</label>
+    <input type="text" id="tue-waketime-input" name="tue_waketime"><br><br>
+
+    <label for="wed-waketime-input">Wednesday Waketime:</label>
+    <input type="text" id="wed-waketime-input" name="wed_waketime"><br><br>
+
+    <label for="thu-waketime-input">Thursday Waketime:</label>
+    <input type="text" id="thu-waketime-input" name="thu_waketime"><br><br>
+
+    <label for="fri-waketime-input">Friday Waketime:</label>
+    <input type="text" id="fri-waketime-input" name="fri_waketime"><br><br>
+
+    <label for="sat-waketime-input">Saturday Waketime:</label>
+    <input type="text" id="sat-waketime-input" name="sat_waketime"><br><br>
+
+    <label for="sun-waketime-input">Sunday Waketime:</label>
+    <input type="text" id="sun-waketime-input" name="sun_waketime"><br><br>
+
+    <button type="button" onclick="URLredirection()">Submit</button>
+</form>
+
+</body>

@@ -59,7 +59,6 @@ function percentages(x) {
 
     var sleeptime = document.getElementById("sleeptime");
     sleeptime.style.width = data[0]+"%";
-
     var latency = document.getElementById("latency")
     latency.style.width = data[1]+"%";
     var deep = document.getElementById("deep")

@@ -21,15 +21,16 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js" type="text/javascript"></script>
     <link rel="shortcut icon" type="image/x-icon" href="/zzzi/static/image/favicon.ico">
-    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.5.0-beta4/html2canvas.min.js"></script>
+    <script src="/sleepreport/static/jspdf.js"></script>
+    <script src="/sleepreport/static/html2canvas.js"></script>
 
-        
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.5/jspdf.min.js"></script>
+    
     <script src="/sleepreport/static/script.js"></script>
     <script src="/sleepreport/static/processCSV.js"></script>
 </head>
-<body data-spy="scroll" id="exportBody">
+<body data-spy="scroll" id="exportBody" onload="updateReport();">
 <!-- Preloader -->
 <div class="spinner-wrapper">
     <div class="spinner">
@@ -39,102 +40,7 @@
     </div>
 </div>
 <!-- end of preloader -->
-    
-<button onclick="capture()">Capture and Export as Image</button>
 
-
-    
-<form id="csvUploadForm" enctype="multipart/form-data">
-    <label for="csvFile">Upload CSV File:</label>
-    <input type="file" id="csv-file-input" name="csvFile">
-    <button type="button" onclick="processCSV()">Upload</button>
-</form>
-
-
-<form id="sleepReportForm" style="color: white;">
-    <label for="uid">UID:</label>
-    <input type="text" id="uid" name="uid"><br><br>
-
-    <label for="username-input">Username:</label>
-    <input type="text" id="username-input" name="username"><br><br>
-
-    <label for="average-sleep-hours-input">Average Sleep Hours:</label>
-    <input type="number" id="average-sleep-hours-input" name="average_sleep_hours"><br><br>
-
-    <!-- Add input fields for other variables such as bedtimes, waketimes, etc. -->
-    <label for="average-bedtime-input">Average Bedtime:</label>
-    <input type="text" id="average-bedtime-input" name="average_bedtime"><br><br>
-
-    <label for="average-waketime-input">Average Waketime:</label>
-    <input type="text" id="average-waketime-input" name="average_waketime"><br><br>
-    
-    <label for="sleep-pattern-input">Sleep Pattern:</label>
-    <input type="number" id="sleep-pattern-input" name="sleep-pattern"><br><br>
-
-    <label for="emotion-input">Emotion:</label>
-    <select id="emotion-input" name="emotion">
-        <option value="stressed">Stress</option>
-        <option value="depressed">Depressed</option>
-        <!-- Add more options for other emotions -->
-    </select><br><br>
-
-    <label for="activity-input">Activity:</label>
-    <select id="activity-input" name="activity">
-        <option value="stretching">Stretching</option>
-        <option value="study">Study</option>
-        <option value="alcohol">Alcohol</option>
-        <!-- Add more options for other activities -->
-    </select><br><br>
-
-    <!-- Input fields for sleep hours and waketime for each day -->
-    <label for="mon-sleep-hours-input">Monday Sleep Hours:</label>
-    <input type="number" id="mon-sleep-hours-input" name="mon_sleep_hours"><br><br>
-
-    <label for="tue-sleep-hours-input">Tuesday Sleep Hours:</label>
-    <input type="number" id="tue-sleep-hours-input" name="tue_sleep_hours"><br><br>
-    
-    <label for="wed-sleep-hours-input">Wednesday Sleep Hours:</label>
-    <input type="number" id="wed-sleep-hours-input" name="wed_sleep_hours"><br><br>
-    
-    <label for="thu-sleep-hours-input">Thursday Sleep Hours:</label>
-    <input type="number" id="thu-sleep-hours-input" name="thu_sleep_hours"><br><br>
-    
-    <label for="fri-sleep-hours-input">Friday Sleep Hours:</label>
-    <input type="number" id="fri-sleep-hours-input" name="fri_sleep_hours"><br><br>
-
-    <label for="sat-sleep-hours-input">Saturday Sleep Hours:</label>
-    <input type="number" id="sat-sleep-hours-input" name="sat_sleep_hours"><br><br>
-    
-    <label for="sun-sleep-hours-input">Sunday Sleep Hours:</label>
-    <input type="number" id="sun-sleep-hours-input" name="sun_sleep_hours"><br><br>
-    
-    
-    <label for="mon-waketime-input">Monday Waketime:</label>
-    <input type="text" id="mon-waketime-input" name="mon_waketime"><br><br>
-
-    <label for="tue-waketime-input">Tuesday Waketime:</label>
-    <input type="text" id="tue-waketime-input" name="tue_waketime"><br><br>
-
-    <label for="wed-waketime-input">Wednesday Waketime:</label>
-    <input type="text" id="wed-waketime-input" name="wed_waketime"><br><br>
-
-    <label for="thu-waketime-input">Thursday Waketime:</label>
-    <input type="text" id="thu-waketime-input" name="thu_waketime"><br><br>
-
-    <label for="fri-waketime-input">Friday Waketime:</label>
-    <input type="text" id="fri-waketime-input" name="fri_waketime"><br><br>
-
-    <label for="sat-waketime-input">Saturday Waketime:</label>
-    <input type="text" id="sat-waketime-input" name="sat_waketime"><br><br>
-
-    <label for="sun-waketime-input">Sunday Waketime:</label>
-    <input type="text" id="sun-waketime-input" name="sun_waketime"><br><br>
-
-    <button type="button" onclick="updateReport()">Submit</button>
-</form>
-
-
-    
 <section class="section-1">
     <div class="section-1-logo"><img src="/sleepreport/static/logo.png"></div>
     <div class="section-1-text">
@@ -301,7 +207,7 @@
 <section class="section-5">
     <h2><span id="username3">레드릭</span>님, 요즘 <br> <span id="advice">취침 시간이 너무 늦어요.</span></h2>
     <img src="/sleepreport/static/zzzi_2.png">
-    <p id="advice_text">과학적으로 잠에 들기 가장 좋은 시간은 10시입니다. 우리 몸의 자연적 일주기 리듬 때문인데, 일주기 리듬이란 몸이 해가 뜨고 지는 것을 따라 하는 현상을 뜻합니다. 보통 10시부터 2시 사이에 성장호르몬이 봄비 되는데 성장호르몬은 아이들에게만 필요한 게 아닙니다. 피부 대사를 활성화해 미인 호르몬이라는 별명도 있는 성장호르몬은 지방 분해를 도와 다이어트 효과도 주고 낮에 들어온 단기 기억을 장기 기억으로 저장시키기도 해서 공부 호르몬이라고도 불립니다. 취침 시간을 조금 앞당겨 보는 건 어떨까요?</p>
+    <p><span id="advice_text">과학적으로 잠에 들기 가장 좋은 시간은 10시입니다. 우리 몸의 자연적 일주기 리듬 때문인데, 일주기 리듬이란 몸이 해가 뜨고 지는 것을 따라 하는 현상을 뜻합니다. 보통 10시부터 2시 사이에 성장호르몬이 봄비 되는데 성장호르몬은 아이들에게만 필요한 게 아닙니다. 피부 대사를 활성화해 미인 호르몬이라는 별명도 있는 성장호르몬은 지방 분해를 도와 다이어트 효과도 주고 낮에 들어온 단기 기억을 장기 기억으로 저장시키기도 해서 공부 호르몬이라고도 불립니다. 취침 시간을 조금 앞당겨 보는 건 어떨까요?</span><br><br><span id="advice_text_2">ㅎㅎ</span></p>
 </section>
     
 <section class="section-6">
@@ -323,26 +229,26 @@
 </section>
     
 <script>
+window.onload = function(){
+  var pdf = new jsPDF();
+  var specialElementHandlers = {
+    '#editor': function (element, renderer) {
+        return true;
+    }
+  };
+  var $addr = $(this).closest('.res').find('.content');
+  var $temp = $('.content-template');
+  $temp.find('h3').text($addr.find('h3').text());
+  pdf.fromHTML($temp.html(), 15, 15, {
+        'width': 170,
+        'elementHandlers':specialElementHandlers
+	    }
+  );
+  pdf.save('/sleepreport/result/sample-file.pdf');
+});
 
-// Your code that uses html2canvas
-function capture() {
-    html2canvas(document.body).then(function(canvas) {
-        // Convert the canvas to a blob
-        canvas.toBlob(function(blob) {
-            // Create a new File from the blob
-            var file = new File([blob], "captured_image.png", { type: "image/png" });
-
-            // Create a download link for the file
-            var a = document.createElement("a");
-            a.href = URL.createObjectURL(file);
-            a.download = "/sleepreport/static/result/example.png";
-
-            // Trigger a click event on the download link to initiate the download
-            a.click();
-        }, "image/png");
-    });
-}
 </script>
 
-
 </body>
+    
+</html>   

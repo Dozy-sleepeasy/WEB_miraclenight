@@ -43,7 +43,6 @@ html {
     line-height: 1.15;
     -webkit-text-size-adjust: 100%;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    max-width: 425px;
 }
 
 article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
@@ -59,9 +58,9 @@ body {
     color: #444;
     text-align: left;
     background-color: #202228;
-    max-width: 425px;
+/*    max-width: 425px;*/
     margin: 0 auto;
-    max-width: 425px;
+/*    max-width: 425px;*/
 }
 
 h1,h2,h3,h4,h5,h6 {
@@ -626,4 +625,15 @@ line-height: normal;
     width: 66px;
     opacity: 0.5;
     padding-bottom: 12px;
+}
+
+#advice_text_2 {
+    color: var(--white, #FFF);
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: Pretendard;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 150%;
+    border-bottom: 1.5px solid white;
 }
