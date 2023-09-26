@@ -366,7 +366,7 @@ h2 {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    width: 75%;
+    width: 76%;
     padding: 10px 0;
     margin-bottom: 50px;
     padding-right: 20px;
@@ -380,7 +380,7 @@ h2 {
     align-items: flex-start;
     width: 75%;
     padding: 10px 0;
-    padding-right: 20px;
+    padding-right: 24px;
     float: right;
 }
 

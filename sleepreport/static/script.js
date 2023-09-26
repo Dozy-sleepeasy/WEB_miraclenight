@@ -47,7 +47,6 @@ function URLredirection(data) {
     
     // Building a URL with JSON data
     var jsonData = { 
-        uid: uid,
         username: username,
         average_sleep_hours: average_sleep_hours,
         mon_sleep_hours: mon_sleep_hours,
@@ -71,6 +70,7 @@ function URLredirection(data) {
         activity: activity,
         emotion_input: emotion_input,
         activityInput: activityInput,
+        uid: uid,
     };
     
     var url = '/sleepreport/report.html?data='+encodeURIComponent(JSON.stringify(jsonData));
@@ -169,7 +169,7 @@ function updateReport() {
             emotionImg.src = '/sleepreport/static/icon/tired.png';
             emotionText.innerText = '만성피로에 영향을 주는 요인들은 다양하지만 그중 가장 중요한 요소는 바로 수면입니다. 우리의 몸은 우리가 자는 동안 기억을 저장하고 몸의 에너지 레벨을 조절해요. 좋은 잠을 자고 나면 우리는 보통 상쾌하게 기운을 차리게 되죠. 한 연구에서 평일과 주말에 같은 시간 잠에 든 청소년의 피로감이 적고 잠에 드는 게 더 쉬웠다는 결과가 나왔어요. 피곤함과 수면 부족은 악순환의 시작입니다. 좋은 잠을 위해 낮에 신체적 활동을 해보는 건 어떨까요? 당장 운동이 어렵다면 매일 10분씩 산책하시는 걸 추천드려요!';
             break;
-        case 'stress':
+        case 'stressed':
             emotionTitle.innerText = '스트레스'; // Use innerText here
             emotionImg.src = '/sleepreport/static/icon/stressed.png';
             emotionText.innerText = '일반적인 스트레스는 잠을 늘리는 경향이 나타난다고 합니다. 그리고 잠을 많이 자는 사람들이 그렇지 않은 사람들에 비해 단명하는 경향이 나타납니다. 잠을 자는 게 스트레스 해소에 도움이 될까 궁금하신가요? 최근 스위스 취리히 대학 연구진의 연구에 따르면 잠을 자는 게 정서적 충격을 줄이는데 도움이 될 수 있다고 합니다. 좋은 잠을 통해 스트레스를 줄이고 정서적 안정감을 함께 찾아봐요!';
