@@ -130,28 +130,37 @@ function updateReport() {
 
     // Update #sleep_rate color and text
     const sleepRate = document.getElementById('sleep_rate');
+    const sleepRateText = document.getElementById('sleep_rate_text');
     if (average_sleep_hours > 7) {
         sleepRate.style.color = '#649CFF';
         sleepRate.textContent = 'GOOD';
+        sleepRateText.textContent = '아주 잘 하고 있어요!';
     } else if (average_sleep_hours >= 6) {
-        sleepRate.style.color = 'inherit'; // Reset color
-        sleepRate.textContent = ''; // Reset text
+        sleepRate.style.color = 'white'; // Reset color
+        sleepRate.textContent = 'OKAY'; // Reset text
+        sleepRateText.textContent = '조금만 더 관리가 필요해요!'; // Reset text
     } else {
         sleepRate.style.color = '#FFA449';
         sleepRate.textContent = 'BAD';
+        sleepRateText.textContent = '관리가 필요해요!';
     } 
     
     const sleepPattern = document.getElementById('pattern_rate');
+    const sleepPatternText = document.getElementById('pattern_rate_text');
     if (sleep_pattern > 80) {
         sleepPattern.style.color = '#649CFF';
         sleepPattern.textContent = 'GOOD';
-    } else if (sleep_pattern >= 60) {
-        sleepPattern.style.color = 'inherit'; // Reset color
-        sleepPattern.textContent = ''; // Reset text
+        sleepPatternText.textContent = '아주 잘 하고 있어요!';
+    } else if (sleep_pattern >= 60 && sleep_pattern <= 80) {
+        sleepPattern.style.color = 'white'; // Reset color
+        sleepPattern.textContent = 'OKAY'; // Reset text
+        sleepPatternText.textContent = '조금만 더 관리가 필요해요!'; // Reset text
     } else {
         sleepPattern.style.color = '#FFA449';
         sleepPattern.textContent = 'BAD';
+        sleepPatternText.textContent = '관리가 필요해요!';
     }
+
 
     // Update #emotion-img and #emotion-text based on emotion input
     const emotionTitle = document.getElementById('emotion-title');
@@ -182,7 +191,7 @@ function updateReport() {
         case 'excited':
             emotionTitle.innerText = '각성'; // Use innerText here
             emotionImg.src = '/sleepreport/static/icon/excited.png';
-            emotionText.innerText = '코르티솔이라는 각성 호르몬은 신체 교감 신경을 활성화시켜 몸을 긴장상태로 만들고 잠들기 어렵게 합니다. 머릿속을 ‘잠을 자야한다’는 생각으로 가득 채운 채 일찍부터 누워 있다고 잠이 오는 것은 아닙니다. 이런 강박감으로 스트레스를 받아 오히려 각성 호르몬인 코르티솔이 분비됩니다. 그래서 잠이 몰려와서 잠들 수 있을 때 잠자리에 드는 것이 바랍직합니다.';
+            emotionText.innerText = '코르티솔이라는 각성 호르몬은 신체 교감 신경을 활성화시켜 몸을 긴장상태로 만들고 잠들기 어렵게 합니다. 머릿속을 ‘잠을 자야한다’는 생각으로 가득 채운 채 일찍부터 누워 있다고 잠이 오는 것은 아닙니다. 이런 강박감으로 스트레스를 받아 오히려 각성 호르몬인 코르티솔이 분비됩니다. 그래서 잠이 몰려와서 잠들 수 있을 때 잠자리에 드는 것이 바람직합니다.';
             break;
         case 'depressed':
             emotionTitle.innerText = '우울'; // Use innerText here
@@ -281,34 +290,52 @@ function updateReport() {
         }
     }
     
-    const daysOfWeek = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
+const daysOfWeek = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
 
-    for (const day of daysOfWeek) {
-        // Construct the variable names
-        const sleepHoursVarName = `${day}_sleep_hours`;
-        const waketimeVarName = `${day}_waketime`;
+// Initialize a variable to store the previous day's data
+let prevDayData = {};
 
-        // Get the values from the variables
-        const sleepHours = parseFloat(eval(sleepHoursVarName));
-        const waketime = eval(waketimeVarName);
+for (let i = 0; i < daysOfWeek.length; i++) {
+    const currentDay = daysOfWeek[i];
+    const nextDay = daysOfWeek[(i + 1) % daysOfWeek.length]; // Wrap around to Monday on Sunday
 
-        if (!isNaN(sleepHours)) {
-            const sleepHoursDiv = document.getElementById(`${day}_sleep_hours`);
-            if (sleepHoursDiv) {
-                sleepHoursDiv.style.height = `${sleepHours * 18}px`;
-            }
+    // Construct variable names for current day's sleep hours and next day's wake time
+    const sleepHoursVarName = `${currentDay}_sleep_hours`;
+    const waketimeVarName = `${nextDay}_waketime`;
+
+    // Get the values from the variables with a default of 0 for sleep hours and '00:00' for waketime
+    let sleepHours = parseFloat(eval(sleepHoursVarName)) || 0;
+    const waketime = eval(waketimeVarName) || '00:00';
+
+    // Additional checks to set sleepHours to 0
+    if (isNaN(sleepHours) || (waketime >= '13:00' && waketime < '20:00') || waketime < '01:00' || sleepHours < 1) {
+        sleepHours = 0;
+    }
+
+    // Process sleep hours and waketime
+    if (sleepHours > 0) {
+        // Process sleep hours
+        const sleepHoursDiv = document.getElementById(`${currentDay}_sleep_hours`);
+        if (sleepHoursDiv) {
+            sleepHoursDiv.style.height = `${sleepHours * 18}px`;
         }
 
-        // Update waketime margin and other elements as needed
-        const waketimeDiv = document.getElementById(`${day}_waketime`);
+        // Process waketime
+        const hours = 12 - parseInt(waketime.split(':')[0]);
+        const marginValue = 18 * hours + 4; // Calculate margin based on hours
+        
+        // Manipulate the correct waketime element
+        const waketimeDiv = document.getElementById(`${currentDay}_waketime`);
         if (waketimeDiv) {
-            const hours = 12 - parseInt(waketime.split(':')[0]);
-            const marginValue = 18 * hours + 4; // Calculate margin based on hours
             waketimeDiv.style.marginTop = `${marginValue}px`;
             waketimeDiv.style.height = `${sleepHours * 18}px`; // Calculate height based on sleep hours
         }
-        }
-    
+    }
+
+    // Store the current day's data for the next iteration
+    prevDayData = { waketime };
+}
+
 
     function convertTimeTo24HourFormat(timeString) {
         // Ensure that the time is in "hh:mm:ss" format
@@ -326,7 +353,7 @@ function updateReport() {
         const bedtimeDate = convertTimeTo24HourFormat(average_bedtime);
 
         if (bedtimeDate && bedtimeDate > new Date(2023, 8, 25, 0, 0, 0) && bedtimeDate < new Date(2023, 8, 25, 7, 0, 0)) {
-            return ["취침 시간이 너무 늦어요.", "과학적으로 잠에 들기 가장 좋은 시간은 10시입니다. 우리 몸의 자연적 일주기 리듬 때문인데, 일주기 리듬이란 몸이 해가 뜨고 지는 것을 따라 하는 현상을 뜻합니다. 보통 10시부터 2시 사이에 성장호르몬이 봄비 되는데 성장호르몬은 아이들에게만 필요한 게 아닙니다. 피부 대사를 활성화해 미인 호르몬이라는 별명도 있는 성장호르몬은 지방 분해를 도와 다이어트 효과도 주고 낮에 들어온 단기 기억을 장기 기억으로 저장시키기도 해서 공부 호르몬이라고도 불립니다.", "취침 시간을 조금 앞당겨 보는 건 어떨까요?"];
+            return ["취침 시간이 너무 늦어요.", "과학적으로 잠에 들기 가장 좋은 시간은 10시입니다. 우리 몸의 자연적 일주기 리듬 때문인데, 일주기 리듬이란 몸이 해가 뜨고 지는 것을 따라 하는 현상을 뜻합니다. 보통 10시부터 2시 사이에 성장호르몬이 분비 되는데 성장호르몬은 아이들에게만 필요한 게 아닙니다. 피부 대사를 활성화해 미인 호르몬이라는 별명도 있는 성장호르몬은 지방 분해를 도와 다이어트 효과도 주고 낮에 들어온 단기 기억을 장기 기억으로 저장시키기도 해서 공부 호르몬이라고도 불립니다.", "취침 시간을 조금 앞당겨 보는 건 어떨까요?"];
         } else if (sleepPattern < 40) {
             return ["수면 패턴이 불규칙적이에요.", "규칙적인 수면 시간은 비만, 고혈압, 당뇨, 뇌졸중과 같은 질병을 예방할 수 있는 직접적 영향을 줍니다. 30분 이내로 꾸준히 잠들면 90분 이내로 잠드는 사람들 보다 심장 질환을 얻을 확률이 2배가량 줄었다고 해요. 1시간 차이가 생길 때마다 대사 증후군이 생길 확률은 27% 하락했어요.", "취침 시간과 기상 시간을 정해서 규칙적인 수면패턴을 연습해보는 건 어떨까요?"];
         } else if (average_sleep_hours < 6) {
@@ -338,7 +365,7 @@ function updateReport() {
         } else if (activityInput === 'coffee') {
             return ["커피를 너무 많이 마셔요.", "커피, 차, 탄산음료 등 카페인이 함유된 음료는 전 세계에서 가장 인기 있는 음료 중 하나입니다. 일부 사람들은 카페인으로 인한 에너지 충격을 이용해 주간 졸음을 극복하려는 유혹을 받기도 하지만, 이러한 방법은 지속 가능하지 않으며 장기적인 수면 부족을 유발할 수 있습니다. 이를 방지하려면 카페인 섭취량을 주시하고 카페인이 잠드는 데 방해가 될 수 있는 늦은 시간에는 카페인 섭취를 피하세요.", "오늘은 오후 2시 이후로 커피를 마시지 않는 건 어떨까요?"];
         } else {
-            return ["규칙적인 활동시간이 필요해요.", "누워 있거나 활동량이 감소할수록 낮잠을 잘 확률이 높고, 수면주기가 깨질 수 있어요. 사람은 16시간의 지속적 각성상태의 활동 시간이 유지된 뒤에야 비로소 8시간의 꿀잠을 터트릴 수 있습니다. 아침에 햇빛을 보는 것부터 시작해 하루 일과 동안에는 충분히 활동하는 것이 좋겠습니다. 혹시 암막 커튼을 사용하고 계시다면 주목해 주세요!", "암막 커튼은 아침 햇빛을 충분히 받지 못하게 하기 때문에 추천하지 않아요."];
+            return ["규칙적인 활동 시간이 필요해요.", "누워 있거나 활동량이 감소할수록 낮잠을 잘 확률이 높고, 수면주기가 깨질 수 있어요. 사람은 16시간의 지속적 각성상태의 활동 시간이 유지된 뒤에야 비로소 8시간의 꿀잠을 터트릴 수 있습니다. 아침에 햇빛을 보는 것부터 시작해 하루 일과 동안에는 충분히 활동하는 것이 좋겠습니다. 혹시 암막 커튼을 사용하고 계시다면 주목해 주세요!", "암막 커튼은 아침 햇빛을 충분히 받지 못하게 하기 때문에 추천하지 않아요."];
         }
     }
 
