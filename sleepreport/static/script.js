@@ -206,7 +206,7 @@ function updateReport() {
         case 'nervous':
             emotionTitle.innerText = '긴장'; // Use innerText here
             emotionImg.src = '/sleepreport/static/icon/nervous.png';
-            emotionText.innerText = '긴장성 두통이나 편두통이 불면증으로 이어지기도 합니다. 심리적으로 긴장이 될 때 근육이 같이 경직되고, 반대로 근육긴장이 오래되면 심리적 긴장감을 주기도 합니다. 마음의 긴장은 짧은 10분 명상으로, 몸의 긴장은 가벼운 스트레칭으로한 번 해소해보면 어떨까요? ';
+            emotionText.innerText = '긴장성 두통이나 편두통이 불면증으로 이어지기도 합니다. 심리적으로 긴장이 될 때 근육이 같이 경직되고, 반대로 근육긴장이 오래되면 심리적 긴장감을 주기도 합니다. 마음의 긴장은 짧은 10분 명상으로, 몸의 긴장은 가벼운 스트레칭으로 한 번 해소해보면 어떨까요? ';
             break;
         default:
             emotionTitle.innerText = '데이터 없음';
