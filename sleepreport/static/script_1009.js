@@ -125,6 +125,8 @@ function updateReport() {
     var activityInput = jsonData.activityInput; // Accessing the 'activityInput' property
     var daily_factors = jsonData.daily_factors; // Accessing the 'daily_factors' property
     
+    console.log(average_sleep_hour);
+    
     // Update text elements
     document.getElementById('username').textContent = username;
     document.getElementById('username3').textContent = username;
@@ -144,16 +146,16 @@ function updateReport() {
     const sleepRate = document.getElementById('sleep_rate');
     const sleepRateText = document.getElementById('sleep_rate_text');
     const sleepRateSum = document.getElementById('sleep_rate_sum');
-    if (average_sleep_hour > 7) {
+    if (average_sleep_hour >= 7) {
         sleepRate.style.color = '#649CFF';
         sleepRate.textContent = 'GOOD';
         sleepRateText.textContent = '아주 잘 하고 있어요!';
-        sleepRateSum.textContent = '좋은';
+        sleepRateSum.textContent = '충분한';
     } else if (average_sleep_hour >= 6) {
         sleepRate.style.color = 'white'; // Reset color
         sleepRate.textContent = 'OKAY'; // Reset text
         sleepRateText.textContent = '조금만 더 관리가 필요해요!'; 
-        sleepRateSum.textContent = '조금 부족한';
+        sleepRateSum.textContent = '적당한';
         // Reset text
     } else {
         sleepRate.style.color = '#FFA449';
@@ -307,6 +309,14 @@ function updateReport() {
         }
     }
     
+        console.log(daily_factors);
+
+
+        // Remove the leading and trailing brackets and split the string into an array
+        var daily_factorsArray = daily_factors.slice(1, -1).split(',').map(function(word) {
+            return word.trim().replace(/'/g, ''); // Trim whitespace and remove single quotes
+        });
+    
         var wordMapping = {
             "relaxed": "편안",
             "tired": "피곤",
@@ -330,105 +340,89 @@ function updateReport() {
             "stretching": "스트레칭"
         };
     
-        // Replace English words with Korean words
-       //  var daily_factors_korean = daily_factors.map(function(word) {
+       // Replace English words with Korean words
+        var daily_factors_korean = daily_factorsArray.map(function(word) {
             // If a mapping exists, use the Korean word; otherwise, keep the original word
-            // return wordMapping[word] || word;
-        // });
+            return wordMapping[word] || word;
+        });
     
-       var daily_factors_korean = ["스트레스", "스트레스", "스트레스", "샤워", "샤워", "낮잠", "독서", "독서", "핸드폰"];
+       console.log(daily_factors_korean);
 
-        // Define the desired size for the circular layout
-        var size = 280;
 
-        // Create an SVG container with the specified size
-        var svg = d3.select("#word-cloud")
-            .attr("width", size)
-            .attr("height", size);
+// Define the desired size for the circular layout
+var size = 280;
 
-        // Create a circular background
-        svg.append("circle")
-            .attr("class", "circle")
-            .attr("cx", size / 2)
-            .attr("cy", size / 2)
-            .attr("r", size / 2);
+// Create an SVG container with the specified size
+var svg = d3.select("#word-cloud")
+    .attr("width", size)
+    .attr("height", size);
 
-        // Count the frequency of each word
-        var wordCount = {};
-        daily_factors_korean.forEach(function(word) {
-            if (wordCount[word]) {
-                wordCount[word]++;
-            } else {
-                wordCount[word] = 1;
-            }
-        });
+// Create a circular background
+svg.append("circle")
+    .attr("class", "circle")
+    .attr("cx", size / 2)
+    .attr("cy", size / 2)
+    .attr("r", size / 2)
+    .style("fill", "#1F2535");
 
-        // Convert word frequency data to an array of objects with 'size' property
-        var data = Object.entries(wordCount).map(function([name, value]) {
-            return { text: name, size: value };
-        });
-
-        // Create a clipPath to keep words within the circle
-        svg.append("clipPath")
-            .attr("id", "circle-clip")
-            .append("circle")
-            .attr("cx", size / 2)
-            .attr("cy", size / 2)
-            .attr("r", size / 2)
-            .style("fill", "#1F2535");
-
-        // Create a function to generate the word cloud
-        function generateWordCloud(words) {
-            d3.layout.cloud()
-                .size([size, size])
-                .words(words)
-                .padding(5) // Adjust the padding to control spacing between words
-                .rotate(0) // Do not rotate words
-                .font("Pretendard") // Specify the font
-                .fontSize(function(d) { return d.size * 25; }) // Increase font size relative to canvas size
-                .on("end", draw) // Call the draw function when layout is complete
-                .start();
-        }
-
-        // Function to draw the word cloud
-        // Function to draw the word cloud
-    function draw(words) {
-        svg.append("g")
-            .attr("clip-path", "url(#circle-clip)") // Apply clipPath to keep words within the circle
-            .selectAll("text")
-            .data(words)
-            .enter().append("text")
-            .attr("class", "word")
-            .style("font-size", function(d) { return d.size + "px"; })
-            .style("fill", "#4876EE")
-            .attr("text-anchor", "middle") // Center-align text horizontally
-            .attr("x", function(d) {
-                var textWidth = this.getBBox().width;
-                var x = d.x + size / 2;
-                // Check if the text exceeds the circle's boundary
-                if (x - textWidth / 2 < 0) {
-                    x = textWidth / 2;
-                } else if (x + textWidth / 2 > size) {
-                    x = size - textWidth / 2;
-                }
-                return x;
-            })
-            .attr("y", function(d) {
-                var textHeight = this.getBBox().height;
-                var y = d.y + size / 2;
-                // Check if the text exceeds the circle's boundary
-                if (y - textHeight / 2 < 0) {
-                    y = textHeight / 2;
-                } else if (y + textHeight / 2 > size) {
-                    y = size - textHeight / 2;
-                }
-                return y;
-            })
-            .text(function(d) { return d.text; });
+// Count the frequency of each word
+var wordCount = {};
+daily_factors_korean.forEach(function(word) {
+    if (wordCount[word]) {
+        wordCount[word]++;
+    } else {
+        wordCount[word] = 1;
     }
+});
 
-        // Generate the word cloud
-        generateWordCloud(data);
+console.log(wordCount);
+
+// Convert word frequency data to an array of objects with 'size' property
+var data = Object.entries(wordCount).map(function([name, value]) {
+    return { text: name, size: value };
+});
+
+// Create a clipPath to keep words within the circle
+svg.append("clipPath")
+    .attr("id", "circle-clip")
+    .append("circle")
+    .attr("cx", size / 2)
+    .attr("cy", size / 2)
+    .attr("r", size / 2)
+    .style("fill", "#1F2535");
+
+// Create a function to generate the word cloud
+function generateWordCloud(words) {
+    d3.layout.cloud()
+        .size([size, size])
+        .words(words)
+        .padding(5) // Adjust the padding to control spacing between words
+        .rotate(0) // Do not rotate words
+        .font("Pretendard") // Specify the font
+        .fontSize(function(d) { return Math.min(d.size * 15, 40); }) // Limit font size
+        .on("end", draw) // Call the draw function when layout is complete
+        .start();
+}
+
+// Function to draw the word cloud
+function draw(words) {
+    svg.append("g")
+        .attr("clip-path", "url(#circle-clip)") // Apply clipPath to keep words within the circle
+        .selectAll("text")
+        .data(words)
+        .enter().append("text")
+        .attr("class", "word")
+        .style("font-size", function(d) { return d.size + "px"; })
+        .style("fill", "#4876EE")
+        .attr("text-anchor", "middle") // Center-align text horizontally
+        .attr("x", function(d) { return d.x + size / 2; })
+        .attr("y", function(d) { return d.y + size / 2; })
+        .text(function(d) { return d.text; });
+}
+
+// Generate the word cloud
+generateWordCloud(data);
+
     
     
 const daysOfWeek = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
@@ -532,7 +526,7 @@ for (let i = 0; i < daysOfWeek.length; i++) {
             return ["취침 시간이 너무 늦어요.", "과학적으로 잠에 들기 가장 좋은 시간은 11시입니다. 우리 몸의 자연적 일주기 리듬 때문인데, 일주기 리듬이란 몸이 해가 뜨고 지는 것을 따라 하는 현상을 뜻합니다. 보통 11시부터 2시 사이에 성장호르몬이 분비 되는데 성장호르몬은 아이들에게만 필요한 게 아닙니다. 피부 대사를 활성화해 미인 호르몬이라는 별명도 있는 성장호르몬은 지방 분해를 도와 다이어트 효과도 주고 낮에 들어온 단기 기억을 장기 기억으로 저장시키기도 해서 공부 호르몬이라고도 불립니다.", "취침 시간을 조금 앞당겨 보는 건 어떨까요?"];
         }
         else {
-            return ["스트레스 관리가 필요해요.", "명상과 깊은 호흡은 수면 전 마음을 진정시키는 효과적인 스트레스 관리 방법입니다. 자기 전 어두운 공간에서 편안한 자세로 누워 숨을 깊게 들이마시고, 생각을 판단하지 않고 흘러가게 두며 내면의 평화를 살펴봅니다. 또한 코를 통해 느리고 깊게 숨을 들이마시고, 복부가 팽창하도록 한 뒤 입을 통해 안정적으로 내쉬는 것을 반복하여 스트레스를 줄이고 수면 품질을 향상시키킬 수 있습니다.", "이번 주는 미라클나잇 명상과 함께 수면 접 호흡을 가다듬는 건 어떨까요?"];
+            return ["자기 전 생각이 많으신가요?", "명상과 깊은 호흡은 수면 전 마음을 진정시키는 효과적인 스트레스 관리 방법입니다. 자기 전 어두운 공간에서 편안한 자세로 누워 숨을 깊게 들이마시고, 생각을 판단하지 않고 흘러가게 두며 내면의 평화를 살펴봅니다. 또한 코를 통해 느리고 깊게 숨을 들이마시고, 복부가 팽창하도록 한 뒤 입을 통해 안정적으로 내쉬는 것을 반복하여 스트레스를 줄이고 수면 품질을 향상시키킬 수 있습니다.", "이번 주는 미라클나잇 명상과 함께 수면 전에 호흡을 가다듬는 건 어떨까요?"];
         }
     }
 
