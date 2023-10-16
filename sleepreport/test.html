@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Text Mining Visualization</title>
+    <!-- Include D3.js library from a CDN -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <!-- Include d3-cloud library -->
+    <script src="https://cdn.rawgit.com/jasondavies/d3-cloud/v1.2.5/build/d3.layout.cloud.js"></script>
+    <style>
+        /* Add CSS styles as needed */
+        body {
+            background-color: white;
+            margin: 0; /* Remove default margin for the body */
+        }
+        .circle {
+            fill: #333; /* Circle color */
+        }
+        .word {
+            fill: #0066cc; /* Color for the words */
+            text-anchor: middle; /* Center-align text horizontally */
+            dominant-baseline: central; /* Center-align text vertically */
+        }
+    </style>
+</head>
+<body>
+    <svg id="word-cloud" width="400" height="400"></svg>
+    <script>
+        // Sample data with words
+        var daily_factors = ["stressed", "stressed", "shower", "reading", "anxiety", "shower","stressed"];
+
+        // Define the desired size for the circular layout
+        var size = 800;
+
+        // Create an SVG container with the specified size
+        var svg = d3.select("#word-cloud")
+            .attr("width", size)
+            .attr("height", size);
+
+        // Create a circular background
+        svg.append("circle")
+            .attr("class", "circle")
+            .attr("cx", size / 2)
+            .attr("cy", size / 2)
+            .attr("r", size / 2);
+
+        // Count the frequency of each word
+        var wordCount = {};
+        daily_factors.forEach(function(word) {
+            if (wordCount[word]) {
+                wordCount[word]++;
+            } else {
+                wordCount[word] = 1;
+            }
+        });
+
+        // Convert word frequency data to an array of objects with 'size' property
+        var data = Object.entries(wordCount).map(function([name, value]) {
+            return { text: name, size: value };
+        });
+
+        // Create a clipPath to keep words within the circle
+        svg.append("clipPath")
+            .attr("id", "circle-clip")
+            .append("circle")
+            .attr("cx", size / 2)
+            .attr("cy", size / 2)
+            .attr("r", size / 2);
+
+        // Create a function to generate the word cloud
+        function generateWordCloud(words) {
+            d3.layout.cloud()
+                .size([size, size])
+                .words(words)
+                .padding(5) // Adjust the padding to control spacing between words
+                .rotate(0) // Do not rotate words
+                .font("Arial") // Specify the font
+                .fontSize(function(d) { return d.size * 50; }) // Increase font size relative to canvas size
+                .on("end", draw) // Call the draw function when layout is complete
+                .start();
+        }
+
+        // Function to draw the word cloud
+        function draw(words) {
+            svg.append("g")
+                .attr("clip-path", "url(#circle-clip)") // Apply clipPath to keep words within the circle
+                .selectAll("text")
+                .data(words)
+                .enter().append("text")
+                .attr("class", "word")
+                .style("font-size", function(d) { return d.size + "px"; })
+                .style("fill", "#0066cc")
+                .attr("x", function(d) { return d.x + size / 2; }) // Center-align text horizontally
+                .attr("y", function(d) { return d.y + size / 2; }) // Center-align text vertically
+                .text(function(d) { return d.text; });
+        }
+
+        // Generate the word cloud
+        generateWordCloud(data);
+    </script>
+</body>
+</html>
