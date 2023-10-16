@@ -1445,6 +1445,17 @@ a.miracle-btn-new-cta-2 {
     text-decoration: none;
 }
 
+.button-box-a{
+    color: white;
+    float: left;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 156%;
+    text-decoration: none;
+    padding-bottom: 40px;
+}
+
 .magazine-sec h6{
     font-family: 'Pretendard';
     font-style: normal;
@@ -1625,7 +1636,7 @@ a.miracle-btn-new-cta-2 {
 .mag-cate2 {
     padding: 2px 5px;
     font-size: 14px;
-    color: #4876EE;
+    color: #659CFF;
     border-radius: 3px;
     margin-right: 8px;
 }
@@ -2592,7 +2603,7 @@ ul.tabs li.current{
 
 .gallery-filter .filter-item.active{
   color: white;
-  background: #4876EE;
+  background: #659CFF;
 }
 
 .gallery-filter .filter-item{
@@ -3135,3 +3146,44 @@ line-height: 140%; /* 18.2px */
 
 
 
+
+.button-box {
+    background: url('/static/images/button_background.png');
+    display: flex;
+    width: 85%;
+    margin: 0 auto;
+    color: #FFF;
+    font-size: 28px;
+    font-style: thin;
+    font-weight: 300;
+    line-height: 135%; /* 37.8px */
+    align-items: center;
+    margin-top: 30px;
+    justify-content: space-between;
+    border-radius: 16px;
+    text-decoration: none;
+}
+
+.button-box-right {
+    float: right;
+    width: 30%;
+}
+
+.button-box-right img{
+    width: 100%;
+}
+
+.button-box-left {
+    float: left;
+    padding-left: 20px;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.button-box-left h4{
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 130%;
+}

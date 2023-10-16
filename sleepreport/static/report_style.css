@@ -68,7 +68,7 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 p { margin: 0; }
-.section-1 {width: 100%; margin: 0 auto; text-align: center;  background-image: url('/sleepreport/static/background.png');background-position: center; background-size: cover;border-bottom: 1px solid #333333;}
+.section-1 {width: 100%; margin: 0 auto; text-align: center;  background-image: url('/sleepreport/static/background.png');background-position: center; background-size: cover;}
 .section-2 {width: 85%; margin: 0 auto; text-align: center;margin-top: 70px; }
 .section-3 {width: 85%; margin: 0 auto; text-align: center;}
 .section-4 {width: 85%; margin: 0 auto; text-align: center;}
@@ -126,6 +126,17 @@ p { margin: 0; }
     width: 30%;
     float: left;
     text-align: left;
+}
+
+.section-1-text-right-2 {
+    width: 30%;
+    float: right;
+    text-align: left;
+}
+
+.section-1-text-right-2 img{
+    width: 90px;
+
 }
 
 .section-1-text-right img {
