@@ -123,6 +123,7 @@ function updateReport() {
     var activity = jsonData.activity; // Accessing the 'activity' property
     var emotion_input = jsonData.emotion_input; // Accessing the 'emotion_input' property
     var activityInput = jsonData.activityInput; // Accessing the 'activityInput' property
+    var daily_factors = jsonData.daily_factors; // Accessing the 'daily_factors' property
     
     // Update text elements
     document.getElementById('username').textContent = username;
@@ -187,42 +188,42 @@ function updateReport() {
         case 'relaxed':
             emotionTitle.innerText = '편안'; // Use innerText here
             emotionImg.src = '/sleepreport/static/icon/relaxed.png';
-            emotionText.innerText = '편안한 수면 상태는 몸과 마음이 균형을 이루고 자연스럽게 수면에 빠져들 수 있는 상태를 의미합니다. 이것은 정기적이고 깊은 수면 사이클을 유지하며, 생체 리듬을 조절하고 회복 기능을 활성화시키는 데 중요합니다. 편안한 수면은 신체와 정신적 건강에 긍정적인 영향을 미치며, 일상생활에서의 기능과 질적인 삶을 향상시킵니다. 이렇게 편안한 감정은 좋은 신호예요!';
+            emotionText.innerText = '명상과 깊은 숨 쉬기와 같은 이완 기술은 코르티솔과 같은 스트레스 호르몬을 감소시키고 혈압을 낮추며 이완을 촉진하는 데 도움이 됩니다. 이러한 연습은 수면에 들기에 유용한 차분한 정신 상태를 조성합니다. 규칙적인 이완 연습은 체내의 자연적인 수면-각성 주기를 개선하고 회복적인 수면을 촉진할 수 있습니다. 이렇게 편안한 감정은 좋은 신호예요!';
             break;
         case 'tired':
             emotionTitle.innerText = '피곤'; // Use innerText here
             emotionImg.src = '/sleepreport/static/icon/tired.png';
-            emotionText.innerText = '만성피로에 영향을 주는 요인들은 다양하지만 그중 가장 중요한 요소는 바로 수면입니다. 우리의 몸은 우리가 자는 동안 기억을 저장하고 몸의 에너지 레벨을 조절해요. 좋은 잠을 자고 나면 우리는 보통 상쾌하게 기운을 차리게 되죠. 한 연구에서 평일과 주말에 같은 시간 잠에 든 청소년의 피로감이 적고 잠에 드는 게 더 쉬웠다는 결과가 나왔어요. 피곤함과 수면 부족은 악순환의 시작입니다. 좋은 잠을 위해 낮에 신체적 활동을 해보는 건 어떨까요? 당장 운동이 어렵다면 매일 10분씩 산책하시는 걸 추천드려요!';
+            emotionText.innerText = '만성 피로는 수면에 부정적인 영향을 미칠 수 있습니다. 이를 해소하기 위해 짧은 낮잠 (20~30분)을 취하면 일시적인 피로를 덜 수 있습니다. 또한, 정기적인 신체 활동은 전반적인 에너지 수준과 수면의 질을 향상시킬 수 있습니다. 특히, 운동이 일찍 하루 중에 이루어질 경우 더욱 효과적입니다.';
             break;
         case 'stressed':
             emotionTitle.innerText = '스트레스'; // Use innerText here
             emotionImg.src = '/sleepreport/static/icon/stressed.png';
-            emotionText.innerText = '일반적인 스트레스는 잠을 늘리는 경향이 나타난다고 합니다. 그리고 잠을 많이 자는 사람들이 그렇지 않은 사람들에 비해 단명하는 경향이 나타납니다. 잠을 자는 게 스트레스 해소에 도움이 될까 궁금하신가요? 최근 스위스 취리히 대학 연구진의 연구에 따르면 잠을 자는 게 정서적 충격을 줄이는데 도움이 될 수 있다고 합니다. 좋은 잠을 통해 스트레스를 줄이고 정서적 안정감을 함께 찾아봐요!';
+            emotionText.innerText = '수면 전에 발생하는 스트레스는 수면에 불리할 수 있습니다. 명상, 점진적 근육 이완, 시각화와 같은 스트레스 감소 기술을 연습하면 스트레스 호르몬 수치를 낮출 수 있으며, 더 편안한 정신 상태를 조성하여 휴식에 적합한 밤 잠을 취할 수 있습니다.';
             break;
         case 'anxious':
             emotionTitle.innerText = '불안'; // Use innerText here
             emotionImg.src = '/sleepreport/static/icon/anxious.png';
-            emotionText.innerText = '불안감을 지나치게 느끼게 되면 불면증이 생기는 경우도 있습니다. 지나친 걱정과 불안으로 잠을 쉽게 이루지 못하거나, 잠을 이루더라도 깊게 잠들지 못해 다음날 일상 생활에 영향을 받게 됩니다. 캐나다 토론토대학 연구팀은 행동요법을 통한 불면증 치료를 병행했을 때, 환자의 87%가 우울증에서 벗어나고 불면증 증세가 완화되면서 곧바로 우울증과 불안증 증세도 약해진다고 발표하였습니다. 오늘부터 좋은 잠으로 불안을 이기고 더 활기찬 내일을 살아볼까요?';
+            emotionText.innerText = '불안은 수면 패턴을 방해할 수 있습니다. 불면증 관리에 효과적인 인지행동 치료 (CBT-I)는 불안 관련 수면 장애를 관리하는 데 효과적입니다. 규칙적인 수면 습관을 만들고 깊은 숨 쉬기나 시각화와 같은 이완 기술을 포함한 밤에 불안을 완화하면 수면의 질을 향상시킬 수 있습니다.';
             break;
         case 'excited':
             emotionTitle.innerText = '각성'; // Use innerText here
             emotionImg.src = '/sleepreport/static/icon/excited.png';
-            emotionText.innerText = '코르티솔이라는 각성 호르몬은 신체 교감 신경을 활성화시켜 몸을 긴장상태로 만들고 잠들기 어렵게 합니다. 머릿속을 ‘잠을 자야한다’는 생각으로 가득 채운 채 일찍부터 누워 있다고 잠이 오는 것은 아닙니다. 이런 강박감으로 스트레스를 받아 오히려 각성 호르몬인 코르티솔이 분비됩니다. 그래서 잠이 몰려와서 잠들 수 있을 때 잠자리에 드는 것이 바람직합니다.';
+            emotionText.innerText = '수면 전에 강한 각성 상태는 잠에 드는 데 시간이 더 걸릴 수 있습니다. 책을 읽는 등 진정 활동에 참여하면 각성 수준을 낮출 수 있으며, 스트레스 호르몬인 코르티솔의 분비를 줄일 수 있습니다. 자기전에 자극적인 활동을 피하면 코르티솔 분비를 억제하는 데 도움이 됩니다.';
             break;
         case 'depressed':
             emotionTitle.innerText = '우울'; // Use innerText here
             emotionImg.src = '/sleepreport/static/icon/depressed.png';
-            emotionText.innerText = '우울함과 수면은 끈끈한 상관관계를 보여주고 있어요. 낮은 수면의 질은 우울증을 낳을 수 있고 우울증은 수면의 질을 저하시킬 수 있어요. 이러한 복잡한 관계 때문에 어떤 것이 원인이 되는지는 닭과 알의 논의가 되곤 해요. 우울함을 느끼신다면 실제 수면에 부정적 영향을 끼칠 확률이 높아요. 우울함을 극복하는 방법 중 하나는 운동입니다! 바로 운동을 시작하시기 어려우시다면 하루 10분 걷기로 시작해 보시는 건 어떨까요?';
+            emotionText.innerText = '우울증은 수면 장애와 관련이 깊습니다. 낮에 규칙적인 신체 활동을 유지하면 기분과 수면의 질을 개선할 수 있습니다. 운동은 쾌활한 기분을 끌어올리는 엔도르핀을 분비시키기 때문입니다. 또한, 규칙적인 수면 습관을 유지하고 수면 환경을 최적화하면 우울증 증상을 완화하고 수면 질을 향상시킬 수 있습니다.';
             break;
         case 'sad':
             emotionTitle.innerText = '슬픔'; // Use innerText here
             emotionImg.src = '/sleepreport/static/icon/sad.png';
-            emotionText.innerText = '슬플 때 잠을 자면 부정적인 감정이 완화된다는 연구 결과가 나왔습니다.  잠자는 동안 시간이 흘러서 감정이 완화되는 것이 아니라 잠이 직접적으로 화나 슬픔의 감정을 희미하게 하는 효과가 있다는 분석입니다. 스위스 베른대 의생명연구학부와 이탈리아 기술 연구원 공동연구팀은 잠을 자는 동안 뇌가 긍정적인 감정과 부정적인 감정을 분류해 긍정적인 감정은 저장하고 부정적인 감정은 약화한다는 연구결과를 발표했습니다. 오늘부터 좋은 잠으로 슬픔을 가라앉히고 더 활기찬 내일을 살아볼까요?';
+            emotionText.innerText = '슬픔은 수면 질에 부정적인 영향을 미칠 수 있습니다. 점진적 근육 이완 또는 긍정적인 경험에 대한 일지 작성과 같은 이완 기술을 연습하면 슬픔을 관리하고 수면 질을 개선할 수 있습니다. 수면 전에 감정을 표현하면 감정적인 고통을 줄이고 휴식을 취할 수 있습니다.';
             break;
         case 'nervous':
             emotionTitle.innerText = '긴장'; // Use innerText here
             emotionImg.src = '/sleepreport/static/icon/nervous.png';
-            emotionText.innerText = '긴장성 두통이나 편두통이 불면증으로 이어지기도 합니다. 심리적으로 긴장이 될 때 근육이 같이 경직되고, 반대로 근육긴장이 오래되면 심리적 긴장감을 주기도 합니다. 마음의 긴장은 짧은 10분 명상으로, 몸의 긴장은 가벼운 스트레칭으로 한 번 해소해보면 어떨까요? ';
+            emotionText.innerText = '긴장 또는 긴장은 수면을 방해할 수 있습니다. 순한 스트레칭이나 요가와 같은 이완 운동을 실시하면 근육 긴장을 완화하고 수면 전에 안정된 상태를 조성할 수 있습니다. 또한, 수면을 위한 휴식적인 일정을 유지하면 불안 수준을 낮출 수 있으며 몸을 수면에 적합하게 준비할 수 있습니다.';
             break;
         default:
             emotionTitle.innerText = '데이터 없음';
@@ -241,62 +242,62 @@ function updateReport() {
             case 'phone':
                 activityTitle.textContent = '핸드폰';
                 activityImg.src = '/sleepreport/static/icon/phone.png';
-                activityText.textContent = '스마트폰에서 나오는 청색광(블루라이트)가 불면증을 유발할 수 있습니다. 밤에는 뇌에서 수면을 유도하는 호르몬 멜라토닌이 분비되는데, 스마트폰의 청색광을 오래 쐬면 멜라토닌의 생성과 분비가 감소하기 때문입니다. 취침 2시간 전부터 스마트폰의 전자기기 사용을 되도록 자제해야 하고 어쩔 수 없이 사용해야 한다면 스마트폰 청색광을 막아주는 어플이나 보호필름 등을 사용해 빛 노출을 최소화해야 합니다.';
+                activityText.textContent = '스마트폰 사용은 블루 라이트 노출로 인해 수면을 방해할 수 있습니다. 취침 1-2 시간 전에 스마트폰 사용을 중단하고, 침실에는 스마트폰을 가져가지 않도록 하세요. 대신, 수면 전에 안정적인 활동을 선택해 휴식을 취하세요.';
                 break;
             case 'nicotine':
                 activityTitle.textContent = '니코틴';
                 activityImg.src = '/sleepreport/static/icon/nicotine.png';
-                activityText.textContent = '흡연자는 비흡연자 대비 잠에 드는 시간이 다소 길다는 연구 결과가 있습니다. 니코틴은 중추 신경계를 자극하고 신체를 깨어 있게 유지하는 작용이 있습니다. 특히, 니코틴이 주로 들어있는 담배나 전자 담배를 흡연하면 니코틴의 자극 효과로 인해 수면에 들기 어려워질 수 있습니다. 또한 니코틴은 수면 중 깨어나거나 수면의 질을 저하시킬 수 있는 약간의 간섭을 일으킬 수 있습니다. 내일은 오늘보다 흡연의 빈도를 낮춰보는 건 어떨까요?';
+                activityText.textContent = '담배와 니코틴은 수면에 부정적인 영향을 미칠 수 있으며, 특히 밤에 담배를 피우면 수면에 어려움을 겪을 수 있습니다. 담배를 피우는 경우, 취침 2-3 시간 전에 담배를 피우지 않도록 노력하세요.';
                 break;
             case 'alcohol':
                 activityTitle.textContent = '알코올';
                 activityImg.src = '/sleepreport/static/icon/alcohol.png';
-                activityText.textContent = '알코올은 중추 신경계를 억제하는 효과가 있어, 초기에는 졸음을 유발하고 잠이 들기 쉽게 만들 수 있지만 알코올이 체내에서 대사되면, 신체가 깨어나고 수면의 깊은 단계로 진입하는 데 어려움을 겪을 수 있습니다. 또한 알코올은 렘 수면 (Rapid Eye Movement, REM) 단계를 감소시키며 수면 중에 깨어나는 빈도를 높일 수 있습니다. REM 수면은 꿈을 꾸고 정신적으로 휴식을 취하는 데 중요한 단계입니다.';
+                activityText.textContent = '알코올은 수면의 질을 저하시키고 깨어 있는 상태를 유지할 수 있습니다. 가능하면 수면 전 알코올을 섭취하지 않고, 마실 경우 적당한 양을 유지하세요.';
                 break;
             case 'late meal':
                 activityTitle.textContent = '야식';
                 activityImg.src = '/sleepreport/static/icon/latemeal.png';
-                activityText.textContent = '과도한 양의 음식을 먹거나 무거운 음식을 섭취하면 수면 중에 소화 과정이 수면의 품질을 저하시킬 수 있습니다. 이로 인해 자주 깨고 수면이 중단될 수 있습니다. 또한 수면 시간에 레퐁 (Reflux) 즉, 위산이 역류하는 현상이 발생할 수 있으며, 이는 향후 수면에서 불편함을 유발할 수 있습니다. 자기 전 야식은 피해주세요!';
+                activityText.textContent = '늦은 식사는 소화 과정을 방해하고 수면 중에 소화 불편을 초래할 수 있습니다. 수면 2-3 시간 전에 가벼운 식사를 하고, 자기 전에는 과식을 피하도록 노력하세요.';
                 break;
             case 'tv':
                 activityTitle.textContent = 'TV';
                 activityImg.src = '/sleepreport/static/icon/tv.png';
-                activityText.textContent = '티비에서 나오는 청색광(블루라이트)가 불면증을 유발합니다. 밤에는 뇌에서 수면을 유도하는 호르몬 멜라토닌이 분비되는데, 스마트폰의 청색광을 오래 쐬면 멜라토닌의 생성과 분비가 감소하기 때문입니다. 취침 2시간 전부터 티비와 같은 전자기기 사용을 되도록 자제해야 하고 어쩔 수 없이 사용해야 한다면 빛의 밝기를 줄이거나 보호필름 등을 사용해 빛 노출을 최소화해야 합니다.';
+                activityText.textContent = '텔레비전 시청은 블루 라이트를 방출하고 수면을 방해할 수 있습니다. 취침 1-2 시간 전에 텔레비전 시청을 중단하고, 대신 평온한 음악을 듣거나 책을 읽어 수면에 대비하세요.';
                 break;
             case 'coffee':
                 activityTitle.textContent = '커피';
                 activityImg.src = '/sleepreport/static/icon/coffee.png';
-                activityText.textContent = '커피에 든 카페인은 우리 몸을 각성시키게 합니다. 카페인은 중추신경자극제로 신경전달물인 글루타민산, 도파민 등을 활성 시키게 되는데, 심장박동을 향진시키고 뇌로 가는 혈관 역시 수축시킵니다. 이러한 현상 전반은 결국 잠을 들기 어렵게 만들거나 잠드는 시간을 길게 만들죠. 잠들기 최소 3시간 전에는 커피를 절 때 삼가시고 하루에 2잔 정도만 마시길 권유 드려요!';
+                activityText.textContent = '"커피나 카페인 함유 음료는 수면을 방해할 수 있으므로, 취침 6시간 전에는 커피를 섭취하지 않는 것이 좋습니다. 카페인의 자극 효과로 인해 수면에 들기 어려워지므로 대신 차나 따뜻한 꿀 물을 선택해보세요.';
                 break;
             case 'study':
                 activityTitle.textContent = '공부';
                 activityImg.src = '/sleepreport/static/icon/study.png';
-                activityText.textContent = '좋은 잠은 높은 시험 점수와 직결된다는 사실, 알고 계셨나요? 실제 미국에서 진행한 한 연구에서 잠이 시험 점수의 25%를 차지한다는 결과를 발표했어요. 이 연구에서는 놀라운 사실을 하나를 더 발견했는데, 여성이 남성보다 비교적 높은 수면의 질과 규칙성을 보였어요. 따라서 여성은 시험에서 더 좋은 성적을 낼 수 있는 장점을 갖고 있는 거나 다름이 없다고 해요. 또한 시험 직전에 깊은 수면을 취한 학생은 그렇지 못한 학생보다 평균 9점 정도 더 높았다고 해요. 좋은 잠으로 잃어버린 9점을 찾으세요!';
+                activityText.textContent = '수면 전 공부는 지양해야 합니다. 공부 중 뇌가 활발하게 활동하고, 스트레스가 높아지므로 수면에 불안을 초래할 수 있습니다. 대신, 공부 시간을 조정하여 충분한 휴식을 취하고 수면에 대한 긍정적인 기대를 가질 수 있도록 하세요.';
                 break;
             case 'shower':
                 activityTitle.textContent = '샤워';
                 activityImg.src = '/sleepreport/static/icon/shower.png';
-                activityText.textContent = '샤워는 몸의 온도를 조절하는 데 도움을 줄 수 있습니다. 따뜻한 샤워를 즐기면 몸의 온도가 상승하며, 이후 몸이 식으면 자연적으로 온도를 낮추려고 합니다. 이러한 온도 조절은 수면을 취할 때 몸이 편안한 상태로 들어가도록 도와줍니다. 자기 전 샤워는 너무 좋은 선택이에요!';
+                activityText.textContent = '따뜻한 샤워를 즐기면 몸의 온도가 상승하고, 이후 몸이 식으면 자연스럽게 수면 상태로 들어가기 쉽습니다. 샤워는 몸의 긴장을 완화하고 수면에 도움을 줄 수 있는 효과적인 방법 중 하나입니다. 자기 전 샤워는 너무 좋은 선택이에요!';
                 break;
             case 'read':
                 activityTitle.textContent = '독서';
                 activityImg.src = '/sleepreport/static/icon/read.png';
-                activityText.textContent = '독서는 긴장을 풀어주고 일상 생활의 스트레스를 감소시키는 데 도움을 줄 수 있습니다. 스트레스가 수면에 부정적인 영향을 미칠 수 있는데, 독서를 통해 스트레스를 해소하면 수면에 들기 쉬워질 수 있습니다. 자기 전 독서는 너무 좋은 선택이에요!';
+                activityText.textContent = '독서는 수면을 촉진할 수 있는 훌륭한 활동입니다. 그러나 밝은 조명 아래에서 긴 시간 동안 책을 읽는 대신, 부드러운 조명 아래에서 가볍게 읽는 것이 좋습니다. 흥미로운 책을 고르고 조용한 분위기에서 독서를 즐기세요. 이것은 마음을 진정시키고 수면에 대한 기대감을 높일 수 있습니다. 자기 전 독서는 너무 좋은 선택이에요!';
                 break;
             case 'workout':
                 activityTitle.textContent = '운동';
                 activityImg.src = '/sleepreport/static/icon/workout.png';
-                activityText.textContent = '취침 전 근육 운동을 하게 되면 성장호르몬과 아드레날린이 분비돼 혈중 지방산이 늘어납니다. 그러면 쉽게 잠들지 못하고 수면 직후에 나와야 하는 성장호르몬이 분비되지 않을 수도 있습니다. 유산소운동도 마찬가지입니다. 성장호르몬에 의한 비장 분해는 오래 지속되는 특징이 있기 때문에 슬로우 트레이닝을 포함한 모든 운동은 되도록이면 잠자기 6시간 전에 끝내는 게 좋답니다!';
+                activityText.textContent = '운동은 좋은 수면을 촉진할 수 있지만, 취침 2-3 시간 전에 완료해야 합니다. 긴장감을 풀기 위한 경량 운동이나 요가 세션을 시도해보세요. 과도한 신체 활동은 수면을 방해할 수 있으므로 조절된 운동을 권장합니다.';
                 break;
-            case 'workout':
+            case 'nap':
                 activityTitle.textContent = '낮잠';
                 activityImg.src = '/sleepreport/static/icon/workout.png';
-                activityText.textContent = '짧은 낮잠은 일시적인 피로를 해소하고 집중력을 회복하는 데 도움을 줄 수 있습니다. 또한 창의성을 증가시키고 스트레스를 감소시키는 데도 도움을 줄 수 있습니다. 하지만 너무 길거나 늦은 낮잠은 오히려 밤잠에 악영향을 미칠 수 있습니다. 그래서 나에게 딱 맞는 적절한 시간과 길이 만큼 낮잠을 자는 것이 중요합니다!';
+                activityText.textContent = '짧은 낮잠은 일시적인 피로를 해소하고 집중력을 향상시키는 데 도움을 줄 수 있습니다. 하지만 긴 낮잠이나 늦은 시간의 낮잠은 밤에 수면을 방해할 수 있으므로 20-30분의 짧은 낮잠을 택하세요.';
                 break;
             case 'stretching':
                 activityTitle.textContent = '스트레칭';
                 activityImg.src = '/sleepreport/static/icon/stretching.png';
-                activityText.textContent = '스트레칭은 근육을 이완시키고 긴장을 해소하는 데 도움을 줄 수 있습니다. 특히 일일 생활에서 긴장을 느끼거나 스트레스를 겪은 후에 스트레칭을 하면, 이를 풀어주고 몸을 편안하게 만들어 수면에 도움을 줄 수 있습니다. 자기 전 스트레칭은 너무 좋은 선택이에요!';
+                activityText.textContent = '자기 전에 스트레칭을 통해 근육 긴장을 완화하세요. 이를 통해 신체의 긴장을 해소하고 수면에 더 쉽게 빠져들 수 있습니다. 다리, 팔, 등과 같은 주요 근육군을 스트레칭하여 몸을 편안하게 만들어 보세요. 자기 전 스트레칭은 너무 좋은 선택이에요!';
                 break;
             default:
                 // Reset elements when no match is found
@@ -305,6 +306,130 @@ function updateReport() {
                 activityText.textContent = '충분한 데이터를 입력해 주시지 않았어요.';
         }
     }
+    
+        var wordMapping = {
+            "relaxed": "편안",
+            "tired": "피곤",
+            "stressed": "스트레스",
+            "anxious": "불안",
+            "excited": "각성",
+            "depressed": "우울",
+            "sad": "슬픔",
+            "nervous": "긴장",
+            "phone": "핸드폰",
+            "nicotine": "니코틴",
+            "alcohol": "알코올",
+            "late meal": "야식",
+            "tv": "TV",
+            "coffee": "커피",
+            "study": "공부",
+            "shower": "샤워",
+            "read": "독서",
+            "workout": "운동",
+            "nap": "낮잠",
+            "stretching": "스트레칭"
+        };
+    
+        // Replace English words with Korean words
+       //  var daily_factors_korean = daily_factors.map(function(word) {
+            // If a mapping exists, use the Korean word; otherwise, keep the original word
+            // return wordMapping[word] || word;
+        // });
+    
+       var daily_factors_korean = ["스트레스", "스트레스", "스트레스", "샤워", "샤워", "낮잠", "독서", "독서", "핸드폰"];
+
+        // Define the desired size for the circular layout
+        var size = 280;
+
+        // Create an SVG container with the specified size
+        var svg = d3.select("#word-cloud")
+            .attr("width", size)
+            .attr("height", size);
+
+        // Create a circular background
+        svg.append("circle")
+            .attr("class", "circle")
+            .attr("cx", size / 2)
+            .attr("cy", size / 2)
+            .attr("r", size / 2);
+
+        // Count the frequency of each word
+        var wordCount = {};
+        daily_factors_korean.forEach(function(word) {
+            if (wordCount[word]) {
+                wordCount[word]++;
+            } else {
+                wordCount[word] = 1;
+            }
+        });
+
+        // Convert word frequency data to an array of objects with 'size' property
+        var data = Object.entries(wordCount).map(function([name, value]) {
+            return { text: name, size: value };
+        });
+
+        // Create a clipPath to keep words within the circle
+        svg.append("clipPath")
+            .attr("id", "circle-clip")
+            .append("circle")
+            .attr("cx", size / 2)
+            .attr("cy", size / 2)
+            .attr("r", size / 2)
+            .style("fill", "#1F2535");
+
+        // Create a function to generate the word cloud
+        function generateWordCloud(words) {
+            d3.layout.cloud()
+                .size([size, size])
+                .words(words)
+                .padding(5) // Adjust the padding to control spacing between words
+                .rotate(0) // Do not rotate words
+                .font("Pretendard") // Specify the font
+                .fontSize(function(d) { return d.size * 25; }) // Increase font size relative to canvas size
+                .on("end", draw) // Call the draw function when layout is complete
+                .start();
+        }
+
+        // Function to draw the word cloud
+        // Function to draw the word cloud
+    function draw(words) {
+        svg.append("g")
+            .attr("clip-path", "url(#circle-clip)") // Apply clipPath to keep words within the circle
+            .selectAll("text")
+            .data(words)
+            .enter().append("text")
+            .attr("class", "word")
+            .style("font-size", function(d) { return d.size + "px"; })
+            .style("fill", "#4876EE")
+            .attr("text-anchor", "middle") // Center-align text horizontally
+            .attr("x", function(d) {
+                var textWidth = this.getBBox().width;
+                var x = d.x + size / 2;
+                // Check if the text exceeds the circle's boundary
+                if (x - textWidth / 2 < 0) {
+                    x = textWidth / 2;
+                } else if (x + textWidth / 2 > size) {
+                    x = size - textWidth / 2;
+                }
+                return x;
+            })
+            .attr("y", function(d) {
+                var textHeight = this.getBBox().height;
+                var y = d.y + size / 2;
+                // Check if the text exceeds the circle's boundary
+                if (y - textHeight / 2 < 0) {
+                    y = textHeight / 2;
+                } else if (y + textHeight / 2 > size) {
+                    y = size - textHeight / 2;
+                }
+                return y;
+            })
+            .text(function(d) { return d.text; });
+    }
+
+        // Generate the word cloud
+        generateWordCloud(data);
+    
     
 const daysOfWeek = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
 
@@ -401,13 +526,13 @@ for (let i = 0; i < daysOfWeek.length; i++) {
         }         else if (sleepPattern < 50) {
             return ["수면 패턴이 불규칙적이에요.", "규칙적인 수면 시간은 비만, 고혈압, 당뇨, 뇌졸중과 같은 질병을 예방할 수 있는 직접적 영향을 줍니다. 30분 이내로 꾸준히 잠들면 90분 이내로 잠드는 사람들 보다 심장 질환을 얻을 확률이 2배가량 줄었다고 해요. 1시간 차이가 생길 때마다 대사 증후군이 생길 확률은 27% 하락했어요.", "취침 시간과 기상 시간을 정해서 규칙적인 수면패턴을 연습해보는 건 어떨까요?"];
         } else if (average_sleep_hours < 6) {
-            return ["평균 수면 시간이 너무 짧아요.", "평균 수면 시간이 6시간 이하로 내려가면 짧은 수면으로 인해 질병이 생길 확률은 25% 정도 돼요. 그 외에도 극도의 피로도를 동반한 하품, 짜증, 피곤 등이 동반된다고 해요. 실제 수면 시간이 7시간 이하의 경우 기분이 부정적으로 영향받아 충동 행동, 불안감, 우울감 등이 더 높아질 수 있다고 하네요.", "수면 시간을 1시간 더 늘려보는 건 어떨까요?"];
+            return ["평균 수면 시간이 너무 짧아요.", "수면 시간은 우리 건강과 행복에 큰 영향을 미치는 중요한 요소 중 하나입니다. 충분한 수면은 몸과 정신을 회복시키며, 더 나은 생활을 즐길 수 있게 도와줍니다. 더불어, 충분한 수면을 유지하면 기억력과 집중력이 향상되고, 스트레스 관리가 쉬워지며 더 긍정적인 마음을 가질 수 있습니다. 일상 생활에서 충분한 수면을 확보하려면 꾸준한 수면 패턴과 개인에 맞는 최적의 수면 시간을 찾아봐야 합니다.", "수면 시간을 1시간 더 늘려보는 건 어떨까요?"];
         }
         else if (bedtimeDate && bedtimeDate >= new Date(2023, 8, 25, 23, 0, 0) && bedtimeDate < new Date(2023, 8, 25, 0, 0, 0)) {
             return ["취침 시간이 너무 늦어요.", "과학적으로 잠에 들기 가장 좋은 시간은 11시입니다. 우리 몸의 자연적 일주기 리듬 때문인데, 일주기 리듬이란 몸이 해가 뜨고 지는 것을 따라 하는 현상을 뜻합니다. 보통 11시부터 2시 사이에 성장호르몬이 분비 되는데 성장호르몬은 아이들에게만 필요한 게 아닙니다. 피부 대사를 활성화해 미인 호르몬이라는 별명도 있는 성장호르몬은 지방 분해를 도와 다이어트 효과도 주고 낮에 들어온 단기 기억을 장기 기억으로 저장시키기도 해서 공부 호르몬이라고도 불립니다.", "취침 시간을 조금 앞당겨 보는 건 어떨까요?"];
         }
         else {
-            return ["규칙적인 활동 시간이 필요해요.", "누워 있거나 활동량이 감소할수록 낮잠을 잘 확률이 높고, 수면주기가 깨질 수 있어요. 사람은 16시간의 지속적 각성상태의 활동 시간이 유지된 뒤에야 비로소 8시간의 꿀잠을 터트릴 수 있습니다. 아침에 햇빛을 보는 것부터 시작해 하루 일과 동안에는 충분히 활동하는 것이 좋겠습니다. 혹시 암막 커튼을 사용하고 계시다면 주목해 주세요!", "암막 커튼은 아침 햇빛을 충분히 받지 못하게 하기 때문에 추천하지 않아요."];
+            return ["스트레스 관리가 필요해요.", "명상과 깊은 호흡은 수면 전 마음을 진정시키는 효과적인 스트레스 관리 방법입니다. 자기 전 어두운 공간에서 편안한 자세로 누워 숨을 깊게 들이마시고, 생각을 판단하지 않고 흘러가게 두며 내면의 평화를 살펴봅니다. 또한 코를 통해 느리고 깊게 숨을 들이마시고, 복부가 팽창하도록 한 뒤 입을 통해 안정적으로 내쉬는 것을 반복하여 스트레스를 줄이고 수면 품질을 향상시키킬 수 있습니다.", "이번 주는 미라클나잇 명상과 함께 수면 접 호흡을 가다듬는 건 어떨까요?"];
         }
     }
 
