@@ -4,7 +4,7 @@ const questions = [
     text: '퇴근하고 집에 도착하니<br>벌써 밤 10시!<br>나에게 10시란...',
     progressWidth: '10%',
     progressVector: '2%',
-    img: '/zzzi/static/image/1.png',
+    img: '/static/image/1.png',
     button1Text: '넷플릭스 시작!<br>드라마 정주행 간다.',
     button2Text: '곧 잘 시간이니까<br>꿀잠을 준비한다.',
   },
@@ -12,7 +12,7 @@ const questions = [
     text: '좀 출출한데?<br>야식이 땡기는데...',
     progressWidth: '20%',
     progressVector: '12%',
-    img: '/zzzi/static/image/2.png',
+    img: '/static/image/2.png',
     button1Text: '살 찌니까<br>야식은 패스!',
     button2Text: '배민으로 직행!<br>치킨을 시킨다.',
   },
@@ -20,15 +20,15 @@ const questions = [
     text: '침대로 다이빙하기 전에<br>샤워할까?',
     progressWidth: '30%',
     progressVector: '22%',
-    img: '/zzzi/static/image/3.png',
-    button1Text: '내일 아침에 또 씻기 귀찮,,,<br>일단 눕자자',
+    img: '/static/image/3.png',
+    button1Text: '내일 아침에 또 씻기 귀찮,,,<br>일단 눕자',
     button2Text: '하루 동안 쌓인<br>먼지를 털어내자',
   },
   {
     text: '침대에 눕고 나서<br>핸드폰을 잡은 후...',
     progressWidth: '40%',
     progressVector: '32%',
-    img: '/zzzi/static/image/4.png',
+    img: '/static/image/4.png',
     button1Text: '알람만 맞추고<br>핸드폰 끄자',
     button2Text: '자, 이제부터<br>핸드폰 세계로 빠져보자...',
   },
@@ -36,31 +36,31 @@ const questions = [
     text: '앗, 창가에서<br>빛이 들어오네',
     progressWidth: '50%',
     progressVector: '42%',
-    img: '/zzzi/static/image/5.png',
+    img: '/static/image/5.png',
     button1Text: '암막 커튼으로<br>완벽 차단해야지',
-    button2Text: '빛이 있었어?<br>신경 X ',
+    button2Text: '빛이 들어와도<br>꿀잠 잘 수 있어',
   },
   {
-    text: '시계 초침소리가<br>들려온다.',
+    text: '시계 초침 소리가<br>들려온다.',
     progressWidth: '60%',
     progressVector: '52%',
-    img: '/zzzi/static/image/6.png',
-    button1Text: '참다 참다<br>노이즈캔슬링 이어폰을 꺼낸다',
-    button2Text: '초침소리와 함께<br>최면에 빠진다... 즐기는 자.',
+    img: '/static/image/6.png',
+    button1Text: '너무 거슬린다...<br>시계 끌까?',
+    button2Text: '잠에 빠져든다...<br>(시계가 있는지도 몰랐어..)',
   },
   {
     text: '잘 준비 끝!<br>취침의 문턱에서 나는',
     progressWidth: '70%',
     progressVector: '62%',
-    img: '/zzzi/static/image/7.png',
+    img: '/static/image/7.png',
     button1Text: '나른나른<br>잠이 쏟아진다',
-    button2Text: '말똥말똥<br>전혀 잠이 오지 않아',
+    button2Text: '말똥말똥해! 생각의 기차가<br>달리기 시작!',
   },
   {
     text: '언제 잠에 들었지?<br>자던 중...',
     progressWidth: '80%',
     progressVector: '72%',
-    img: '/zzzi/static/image/8.png',
+    img: '/static/image/8.png',
     button1Text: '중간에 <br>꼭 한 번 일어난다',
     button2Text: '딥슬립<br>그 잡채',
   },
@@ -68,7 +68,7 @@ const questions = [
     text: '알람이 울린다!<br>아침의 나는',
     progressWidth: '90%',
     progressVector: '82%',
-    img: '/zzzi/static/image/9.png',
+    img: '/static/image/9.png',
     button1Text: '우와 상쾌해!<br>오늘은 나의 것! ><',
     button2Text: '5분만 <br>더.. 잘래..',
   },
@@ -76,7 +76,7 @@ const questions = [
     text: '그래서 어제 밤<br>얼마나 잤냐면...',
     progressWidth: '100%',
     progressVector: '92%',
-    img: '/zzzi/static/image/10.png',
+    img: '/static/image/10.png',
     button1Text: '6시간도 <br> 못 잔 것 같아.',
     button2Text: '7시간 이상<br>푹 잤다!',
   },
@@ -85,13 +85,26 @@ const questions = [
 // Initialize variables to track user responses and current question index
 let currentIndex = 0;
 let userResponses = [];
+var sdeffect = document.getElementById('sdeffect');
+var audio = document.getElementById('audio');
 
 function startGame() {
      document.getElementById("gameScreen").style.display = "block";
      document.getElementById("beforeGame").style.display = "none";
     var audio = document.getElementById("audio");
-    // audio.play();
-    // audio.volume=0.5;
+    audio.play();
+    audio.volume=0.2;
+}
+
+function sound() {
+  if (audio.duration > 0 && !audio.paused) {
+    audio.pause();
+    sdeffect.pause();
+    soundimg.src = "/static/image/soundoff.svg"
+  } else {
+    audio.play();
+    soundimg.src = "/static/image/soundimg.svg"
+  }
 }
 
 // Function to update the HTML content with the current question
@@ -107,6 +120,15 @@ function updateQuestion() {
     document.getElementById('game-img').src = question.img;
     document.querySelector('#game-button-1').innerHTML  = question.button1Text;
     document.querySelector('#game-button-2').innerHTML  = question.button2Text;
+      
+    // Change the style of the buttons
+    document.querySelector('#game-button-1').style.background = '#2F323B';
+    document.querySelector('#game-button-1').style.color = '#FFF';
+    document.querySelector('#game-button-1').style.fontWeight = '400';
+      
+    document.querySelector('#game-button-2').style.background = '#2F323B';
+    document.querySelector('#game-button-2').style.color = '#FFF';
+    document.querySelector('#game-button-2').style.fontWeight = '400';
    
   } else {
     // All questions answered; proceed to calculate and send data
@@ -117,9 +139,14 @@ function updateQuestion() {
 // Event listener for the first button
 document.querySelectorAll('#game-button-1').forEach((button, index) => {
   button.addEventListener('click', () => {
+    sdeffect.play();
+      
+    // Change the style of the button
+    button.style.background = '#83B0FF';
+    button.style.color = '#202228';
+    button.style.fontWeight = '600';
     // Store the user's response as true (1) for the current question
     userResponses[currentIndex] = true;
-      console.log(userResponses[currentIndex]);
     // Move to the next question
     currentIndex++;
     // Update the HTML content with the next question
@@ -130,9 +157,14 @@ document.querySelectorAll('#game-button-1').forEach((button, index) => {
 // Event listener for the second button
 document.querySelectorAll('#game-button-2').forEach((button, index) => {
   button.addEventListener('click', () => {
+    sdeffect.play();
+    
+     // Change the style of the button
+    button.style.background = '#83B0FF';
+    button.style.color = '#202228';
+    button.style.fontWeight = '600';
     // Store the user's response as false (0) for the current question
     userResponses[currentIndex] = false;
-      console.log(userResponses[currentIndex]);
     // Move to the next question
     currentIndex++;
     // Update the HTML content with the next question
@@ -142,12 +174,18 @@ document.querySelectorAll('#game-button-2').forEach((button, index) => {
 
 
 // Function to send data to the API
-function sendPostRequest(userResponses, mbti, sleep_time, latency_time, deepness, habits) {
+async function sendPostRequest(userResponses, mbti, sleep_time, latency_time, deepness, habits) {
+
+  const a = parseInt(sleep_time);
+  const b = parseInt(latency_time);
+  const c = parseInt(deepness);
+  const d = parseInt(habits);
+    
   const postData = {
     sleeptime_1: userResponses[0],
-    habit_1: userResponses[1],
-    habit_2: userResponses[2],
-    habit_3: userResponses[3],
+    habits_1: userResponses[1],
+    habits_2: userResponses[2],
+    habits_3: userResponses[3],
     latency_1: userResponses[4],
     latency_2: userResponses[5],
     latency_3: userResponses[6],
@@ -155,27 +193,37 @@ function sendPostRequest(userResponses, mbti, sleep_time, latency_time, deepness
     deep_2: userResponses[8],
     sleeptime_2: userResponses[9],
     mbti: mbti,
-    a: sleep_time,
-    b: latency_time,
-    c: deepness,
-    d: habits,
+    a: a,
+    b: b,
+    c: c,
+    d: d,
   };
+    
 
-  fetch('https://survey.miraclenight-server.com/survey', {
-    method: 'POST',
-    headers: {
+  async function fetchSurvey() {
+    const url = 'https://survey.miraclenight-server.com/survey';
+    const headers = new Headers({
       'X-Survey-Name': 'sleep-mbti',
-    },
-    body: JSON.stringify(postData),
-  })
-    .then((response) => {
-      if (response.ok) {
-      } else {
-          console.log("no");
-      }
-    })
-    .catch((error) => { console.log("no2");
     });
+
+    try {
+      const response = await fetch(url, {
+        method: 'POST',
+        mode: 'cors',
+        headers: headers,
+        body: JSON.stringify(postData), // Corrected to use JSON.stringify
+      });
+
+      // Handle the response data if needed
+      const data = await response.json();
+
+    } catch (error) {
+      console.error('Error:', error);
+    }
+  }
+
+  // Call the fetchSurvey function
+  await fetchSurvey();
 }
 
 
@@ -266,42 +314,34 @@ function calculateAndSendData() {
         } 
       }
 }
-    
-    console.log(time_ad);
-    console.log(time_inad);
-    console.log(latency_fast);
-    console.log(latency_slow);
-    console.log(deepness_deep);
-    console.log(deepness_light);
-    console.log(habits_good);
-    console.log(habits_bad);
+
     
     
 if (time_ad >= time_inad) {
-    sleep_time = 'A';
+    sleep_time = 'a';
   } else {
-    sleep_time = 'I';
+    sleep_time = 'i';
       time_ad = time_inad;
   }
 
   if (latency_fast >= latency_slow) {
-    latency_time = 'F';
+    latency_time = 'f';
   } else {
-    latency_time = 'S';
+    latency_time = 's';
       latency_fast = latency_slow;
   }
 
   if (deepness_deep >= deepness_light) {
-    deepness = 'D';
+    deepness = 'd';
   } else {
-    deepness = 'L';
+    deepness = 'l';
       deepness_deep = deepness_light
   }
 
   if (habits_good >= habits_bad) {
-    habits = 'G';
+    habits = 'g';
   } else {
-    habits = 'B';
+    habits = 'b';
       habits_good = habits_bad
   }
 
@@ -309,10 +349,18 @@ if (time_ad >= time_inad) {
   // After calculations, convert variables to MBTI
   const mbti = `${sleep_time}${latency_time}${deepness}${habits}`;
   console.log(mbti);
-
+  const mbti_short = mbti.toLowerCase();
   // Send data to API
   // Implement the sendPostRequest function here
-  sendPostRequest(userResponses, mbti, sleep_time, latency_time, deepness, habits);
+sendPostRequest(userResponses, mbti, time_ad, latency_fast, deepness_deep, habits_good)
+  .then(() => {
+    // Handle success if needed
+  })
+  .catch(error => {
+    // Handle error if needed
+    console.error('Error:', error);
+  });
+
     
   // loading page animation
   document.getElementById("gameScreen").style.display = "none";
@@ -342,64 +390,68 @@ if (time_ad >= time_inad) {
     }, 500); // Adjust the delay as needed (e.g., 500 milliseconds)
   }, ellipsisSpans.length * 500 + 1000); // Adjust the delay based on the number of ellipsis spans
     
-    
-   // Redirect to the appropriate page after a delay
-  setTimeout(() => {
-      console.log("in");
-    URLredirection(mbti, time_ad, latency_fast, deepness_deep, habits_good);
-  }, 3000); // 3000 milliseconds = 3 seconds
+    // Set a 4-second delay
+    setTimeout(() => {
+      // Hide the loading element
+       URLredirection(mbti, time_ad, latency_fast, deepness_deep, habits_good);
+      document.getElementById("loading").style.display = "none";
+      // Show the gameScreen element
+      document.getElementById("beforeGame").style.display = "block";
+      currentIndex = 0;
+    }, 3000); // 4000 milliseconds (4 seconds)
+
 }
 
 // Function to handle redirection based on MBTI
 function URLredirection(mbti, time_ad, latency_fast, deepness_deep, habits_good) {
   switch (mbti) {
-    case 'AFDG':
-      window.location.href = '/zzzi/result/afdg.html?'+time_ad+":"+latency_fast+":"+deepness_deep+":"+habits_good;
+    case 'afdg':
+      window.location.href = '/result/afdg.html?'+time_ad+":"+latency_fast+":"+deepness_deep+":"+habits_good;
       break;
-    case 'AFLG':
-      window.location.href = '/zzzi/result/afdg.html?'+time_ad+":"+latency_fast+":"+deepness_deep+":"+habits_good;
+    case 'aflg':
+      window.location.href = '/result/afdg.html?'+time_ad+":"+latency_fast+":"+deepness_deep+":"+habits_good;
       break;
-    case 'ASDG':
-      window.location.href = '/zzzi/result/asdg.html?'+time_ad+":"+latency_fast+":"+deepness_deep+":"+habits_good;
+    case 'asdg':
+      window.location.href = '/result/asdg.html?'+time_ad+":"+latency_fast+":"+deepness_deep+":"+habits_good;
       break;
-    case 'ASDB':
-      window.location.href = '/zzzi/result/asdb.html?'+time_ad+":"+latency_fast+":"+deepness_deep+":"+habits_good;
+    case 'asdb':
+      window.location.href = '/result/asdb.html?'+time_ad+":"+latency_fast+":"+deepness_deep+":"+habits_good;
       break;
-    case 'AFDB':
-      window.location.href = '/zzzi/result/afdb.html?'+time_ad+":"+latency_fast+":"+deepness_deep+":"+habits_good;
+    case 'afdb':
+      window.location.href = '/result/afdb.html?'+time_ad+":"+latency_fast+":"+deepness_deep+":"+habits_good;
       break;
-    case 'AFLB':
-      window.location.href = '/zzzi/result/afdb.html?'+time_ad+":"+latency_fast+":"+deepness_deep+":"+habits_good;
+    case 'aflb':
+      window.location.href = '/result/afdb.html?'+time_ad+":"+latency_fast+":"+deepness_deep+":"+habits_good;
       break;
-    case 'ASLG':
-      window.location.href = '/zzzi/result/aslg.html?'+time_ad+":"+latency_fast+":"+deepness_deep+":"+habits_good;
+    case 'aslg':
+      window.location.href = '/result/aslg.html?'+time_ad+":"+latency_fast+":"+deepness_deep+":"+habits_good;
       break;
-    case 'ASLB':
-      window.location.href = '/zzzi/result/aslb.html?'+time_ad+":"+latency_fast+":"+deepness_deep+":"+habits_good;
+    case 'aslb':
+      window.location.href = '/result/aslb.html?'+time_ad+":"+latency_fast+":"+deepness_deep+":"+habits_good;
       break;
-    case 'IFDG':
-      window.location.href = '/zzzi/result/ifdg.html?'+time_ad+":"+latency_fast+":"+deepness_deep+":"+habits_good;
+    case 'ifdg':
+      window.location.href = '/result/ifdg.html?'+time_ad+":"+latency_fast+":"+deepness_deep+":"+habits_good;
       break;
-    case 'IFLG':
-      window.location.href = '/zzzi/result/iflg.html?'+time_ad+":"+latency_fast+":"+deepness_deep+":"+habits_good;
+    case 'iflg':
+      window.location.href = '/result/iflg.html?'+time_ad+":"+latency_fast+":"+deepness_deep+":"+habits_good;
       break;
-    case 'ISDG':
-      window.location.href = '/zzzi/result/isdg.html?'+time_ad+":"+latency_fast+":"+deepness_deep+":"+habits_good;
+    case 'isdg':
+      window.location.href = '/result/isdg.html?'+time_ad+":"+latency_fast+":"+deepness_deep+":"+habits_good;
       break;
-    case 'ISDB':
-      window.location.href = '/zzzi/result/isdb.html?'+time_ad+":"+latency_fast+":"+deepness_deep+":"+habits_good;
+    case 'isdb':
+      window.location.href = '/result/isdb.html?'+time_ad+":"+latency_fast+":"+deepness_deep+":"+habits_good;
       break;
-    case 'IFDB':
-      window.location.href = '/zzzi/result/ifdb.html?'+time_ad+":"+latency_fast+":"+deepness_deep+":"+habits_good;
+    case 'ifdb':
+      window.location.href = '/result/ifdb.html?'+time_ad+":"+latency_fast+":"+deepness_deep+":"+habits_good;
       break;
-    case 'IFLB':
-      window.location.href = '/zzzi/result/iflb.html?'+time_ad+":"+latency_fast+":"+deepness_deep+":"+habits_good;
+    case 'iflb':
+      window.location.href = '/result/iflb.html?'+time_ad+":"+latency_fast+":"+deepness_deep+":"+habits_good;
       break;
-    case 'ISLG':
-      window.location.href = '/zzzi/result/islg.html?'+time_ad+":"+latency_fast+":"+deepness_deep+":"+habits_good;
+    case 'islg':
+      window.location.href = '/result/islg.html?'+time_ad+":"+latency_fast+":"+deepness_deep+":"+habits_good;
       break;
-    case 'ISLB':
-      window.location.href = '/zzzi/result/islb.html?'+time_ad+":"+latency_fast+":"+deepness_deep+":"+habits_good;
+    case 'islb':
+      window.location.href = '/result/islb.html?'+time_ad+":"+latency_fast+":"+deepness_deep+":"+habits_good;
       break;
   }
 }

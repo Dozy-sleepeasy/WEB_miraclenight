@@ -10,8 +10,8 @@
     <meta property="og:title" content="미라클나잇">
     <meta property="og:description" content="미라클나잇 쿨쿨이와 함께하는 꿀잠 수면 유형 검사 게임!">
     <meta property="og:url" content="www.miraclenight.app">
-    <meta property="og:image" content="/zzzi/static/images/SleepBTI.jpg">
-    <link rel="shortcut icon" type="image/x-icon" href="/zzzi/static/image/favicon.ico">
+    <meta property="og:image" content="/static/image/SleepBTI.jpg">
+    <link rel="shortcut icon" type="image/x-icon" href="/static/image/favicon.ico">
 
     <title>미라클나잇 쿨쿨이와 함께하는 꿀잠 수면 유형 검사 게임!</title>
 
@@ -29,8 +29,8 @@
         <h1 class="section-1-title">꿀잠 수면 <br> 유형 테스트</h1>
         <img style="width: 80%;" src="static/image/top_zzzi.png"> 
         <div class="section-1-text">
-            <h3>지금까지 <span id="number">n</span>명이 참여했어요!</h3>
-            <img src="static/image/top_line.png">
+            <h3>지금까지 <span id="number"> </span>명이 참여했어요!</h3>
+            <img id="top_line"  src="static/image/top_line.png">
         </div>
         <button onclick="startGame()" class="section-1-button">
             <img src="static/image/button_vector.png"> 
@@ -55,7 +55,7 @@
     <div id="gameScreen">
         <div id="gameIcons">
             <div class="paging"><span id="page-index">1</span> of 10</div>
-            <button id="sound"><img id="soundimg" src="static/image/soundimg.svg"></button>
+            <button id="sound" onclick="sound()"><img id="soundimg" src="static/image/soundimg.svg"></button>
         </div>
         
         <div id="gameProgress">
@@ -95,15 +95,15 @@
         <div class="loading-bottom"><img src="static/image/bottom.png"></div>
     </div>
     
-    <audio id="audio" src="" loop></audio>
-    <audio id="sdeffect" src=""></audio>
+    <audio id="audio" src="static/image/game_1.mp3" loop></audio>
+    <audio id="sdeffect" src="static/image/sound_1.mp3"></audio>
     
     
 </body>
 
 
-<script src="/zzzi/static/js/getData.js"></script>
-<script src="/zzzi/static/js/mbti.js"></script>
+<script src="static/js/getData.js"></script>
+<script src="static/js/mbti.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     
     

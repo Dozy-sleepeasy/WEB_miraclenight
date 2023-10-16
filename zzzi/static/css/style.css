@@ -1,35 +1,35 @@
 @font-face {
   font-family: 'Cafe24Dangdanghae';
-  src: url('/zzzi/static/fonts/Cafe24Dangdanghae-v2.0.ttf') format('truetype');
+  src: url('/static/fonts/Cafe24Dangdanghae-v2.0.ttf') format('truetype');
 }
 
 @font-face {
   font-family: 'Cafe24Danjunghae';
-  src: url('/zzzi/static/fonts/Cafe24Danjunghae-v2.0.ttf') format('truetype');
+  src: url('/static/fonts/Cafe24Danjunghae-v2.0.ttf') format('truetype');
 }
 
 @font-face {
   font-family: 'Cafe24Shiningstar';
-  src: url('/zzzi/static/fonts/Cafe24Shiningstar-v2.0.ttf') format('truetype');
+  src: url('/static/fonts/Cafe24Shiningstar-v2.0.ttf') format('truetype');
 }
 
 @font-face {
   font-family: 'Cafe24Simplehae';
-  src: url('/zzzi/static/fonts/Cafe24Simplehae-v2.0.ttf') format('truetype');
+  src: url('/static/fonts/Cafe24Simplehae-v2.0.ttf') format('truetype');
 }
 
 @font-face {
   font-family: 'Cafe24Supermagic';
-  src: url('/zzzi/static/fonts/Cafe24Supermagic-Bold-v1.0.ttf') format('truetype');
+  src: url('/static/fonts/Cafe24Supermagic-Bold-v1.0.ttf') format('truetype');
 }
 
 @font-face {
   font-family: 'Cafe24Supermagic';
-  src: url('/zzzi/static/fonts/Cafe24Supermagic-Regular-v1.0.ttf') format('truetype');
+  src: url('/static/fonts/Cafe24Supermagic-Regular-v1.0.ttf') format('truetype');
 }
 @font-face {
   font-family: 'Homemade Apple';
-  src: url('/zzzi/static/fonts/HomemadeApple-Regular.ttf') format('truetype');
+  src: url('/static/fonts/HomemadeApple-Regular.ttf') format('truetype');
 }
 @font-face {
     font-family: 'Pretendard';
@@ -55,7 +55,7 @@ article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
 
 body {
     margin: 0;
-    font-family: "Pretendard", sans-serif;
+    font-family: "Cafe24Dangdanghae", sans-serif;
     font-size: 1rem;
     font-weight: 600;
     line-height: 1.5;
@@ -65,7 +65,7 @@ body {
     max-width: 425px;
     margin: 0 auto;
     max-width: 425px;
-    background-image: url('/zzzi/static/image/background_image.png'); /* Set your background image here */
+    background-image: url('/static/image/background_image.png'); /* Set your background image here */
   background-size: cover;
 }
 
@@ -87,6 +87,7 @@ h1,h2,h3,h4,h5,h6 {
     font-weight: 400;
     line-height: 100%; /* 24px */
     letter-spacing: -0.48px;
+    margin: 0 auto;
     margin-top: 16px;
     margin-bottom: 0px;
 }
@@ -139,10 +140,11 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 .section-1 .section-1-text {
-    width: 180px;
+    width: 100%;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 .section-1-button {
@@ -364,14 +366,15 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 #game-img {
-    width: 100%;
+    width: 90%;
 }
 
 #gameBtns {
     margin: 0 auto;
+    padding-bottom: 70px;
 }
 
-.game-button-1 {
+#game-button-1 {
     width: 100%;
     border-radius: 10px;
     background: #2F323B;
@@ -386,15 +389,50 @@ font-weight: 400;
 line-height: normal;
     padding: 14px 14px;
     margin-top: 12px;
+    cursor: pointer;
 }
+
+#game-button-2 {
+    width: 100%;
+    border-radius: 10px;
+    background: #2F323B;
+    backdrop-filter: blur(2px);
+    border: none;
+    color: #FFF;
+text-align: center;
+font-family: Cafe24Supermagic;
+font-size: 24px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+    padding: 14px 14px;
+    margin-top: 12px;
+    cursor: pointer;
+}
+
+#game-button-1:hover {
+    background: #83B0FF;
+    color: #202228;
+    font-weight: 600;
+}
+
+#game-button-2:hover {
+    background: #83B0FF;
+    color: #202228;
+    font-weight: 600;
+}
+
+
 
 #progress-vector {
     width: 40px;
 }
 
 .loading-bottom {
+    width: 100%;
     position: fixed;
-    bottom: -10px;
+    bottom: 0px;
+    max-width: 425px;
 }
 
 .loading-middle {
@@ -841,7 +879,7 @@ swing {
 
 
 .section-5 {
-    background-image: url('/zzzi/static/image/background_image_2.png'); /* Set your background image here */
+    background-image: url('/static/image/background_image_2.png'); /* Set your background image here */
     background-size: cover;
     width: 85%;
     margin: 0 auto;
@@ -1089,3 +1127,7 @@ line-height: 110%; /* 35.2px */
 }
 
 
+
+#top_line {
+    width: 180px;
+}

@@ -10,21 +10,21 @@
     <meta property="og:title" content="미라클나잇">
     <meta property="og:description" content="미라클나잇 쿨쿨이와 함께하는 꿀잠 수면 유형 검사 게임!">
     <meta property="og:url" content="www.miraclenight.app">
-    <meta property="og:image" content="/zzzi/static/image/SleepBTI.jpg">
-    <link rel="shortcut icon" type="image/x-icon" href="/zzzi/static/image/favicon.ico">
+    <meta property="og:image" content="/static/image/meta.png">
+    <link rel="shortcut icon" type="image/x-icon" href="/static/image/favicon.ico">
 
     <title>미라클나잇 쿨쿨이와 함께하는 꿀잠 수면 유형 검사 게임!</title>
 
-    <link rel="stylesheet" href="/zzzi/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/style.css">
 </head>
     
 <body style="background: #202228;" onload="percentages('iflg');">
     <!-- 유형 설명 -->
     <div class="section-3">
         <div class="section-3-top">
-            <img src="/zzzi/static/image/top_layer_2.png">
+            <img src="/static/image/top_layer_2.png">
             <div class="image-container">
-              <img src="/zzzi/static/image/top_rectangle_2.png">
+              <img src="/static/image/top_rectangle_2.png">
               <div class="text-overlay">나의 수면 유형은?</div>
             </div>
         </div>
@@ -32,28 +32,28 @@
         <div class="section-3-middle">
             <h2>문 여는 소리에도 깨요</h2>
             <h1>화들짝! 놀라는 개복치형</h1>
-            <p>전체 테스트 참여자 중 n%가 같은 유형입니다.</p>
-            <div class="section-3-m-img"><img src="/zzzi/static/image/mbti/IFLG.png"></div>
+            <p>전체 테스트 참여자 중 <span id="percentage"></span>%가 같은 유형입니다.</p>
+            <div class="section-3-m-img"><img src="/static/image/mbti/IFLG.png"></div>
         </div>
         
         <div class="section-3-mbti">
-            <img src="/zzzi/static/image/top_line_2.png">
+            <img src="/static/image/top_line_2.png">
                 <p>당신의 수면 MBTI는</p>
                 <div class="mbti-img">
-                    <div class="mbti-img-center"><img src="/zzzi/static/image/i.png"><br>불충분한<br>수면시간</div>
-                    <div class="mbti-img-center"><img src="/zzzi/static/image/f.png"><br>잠 드는<br>속도가 빠름</div>
-                    <div class="mbti-img-center"><img src="/zzzi/static/image/l.png"><br>수면이<br>옅음</div>
-                    <div class="mbti-img-center"><img src="/zzzi/static/image/g.png"><br>좋은<br>수면 습관</div>
+                    <div class="mbti-img-center"><img src="/static/image/i.png"><br>불충분한<br>수면시간</div>
+                    <div class="mbti-img-center"><img src="/static/image/f.png"><br>잠 드는<br>속도가 빠름</div>
+                    <div class="mbti-img-center"><img src="/static/image/l.png"><br>수면이<br>옅음</div>
+                    <div class="mbti-img-center"><img src="/static/image/g.png"><br>좋은<br>수면 습관</div>
                     
                 </div>
-            <img src="/zzzi/static/image/top_line_2.png">
+            <img src="/static/image/top_line_2.png">
                 <a id="toggleLink" href="#">↘ 자세히 보기 ↙</a>
                 <div class="mbti-detail">
                 
                 <!-- 수면 시간 -->
                 <div class="mbti-layer"> 
                     <div class="mbti-layer-1 unselected">
-                        <img src="/zzzi/static/image/a.png">
+                        <img src="/static/image/a.png">
                         <p>Adequate<br>충분함</p>
                     </div>
                     <div class="mbti-layer-2">
@@ -61,7 +61,7 @@
                         <div class="prog"><div class="progs" style="float:right" id="sleeptime"></div></div>
                     </div>
                     <div class="mbti-layer-1 ">
-                        <img src="/zzzi/static/image/i.png">
+                        <img src="/static/image/i.png">
                         <p>Inadequate<br>불충분함</p>
                     </div>
                 </div>
@@ -73,7 +73,7 @@
                 <!-- 잠에 드는 정도 -->
                 <div class="mbti-layer"> 
                     <div class="mbti-layer-1 ">
-                        <img src="/zzzi/static/image/f.png">
+                        <img src="/static/image/f.png">
                         <p>Fast<br>빨리 잠듦</p>
                     </div>
                     <div class="mbti-layer-2">
@@ -81,7 +81,7 @@
                         <div class="prog"><div class="progs"  style="float:left" id="latency"></div></div>
                     </div>
                     <div class="mbti-layer-1 unselected">
-                        <img src="/zzzi/static/image/s.png">
+                        <img src="/static/image/s.png">
                         <p>Slow<br>늦게 잠듦</p>
                     </div>
                 </div>
@@ -93,7 +93,7 @@
                 <!-- 깊은 수면 -->
                 <div class="mbti-layer"> 
                     <div class="mbti-layer-1 unselected">
-                        <img src="/zzzi/static/image/d.png">
+                        <img src="/static/image/d.png">
                         <p>Deep<br>깊게 잠</p>
                     </div>
                     <div class="mbti-layer-2">
@@ -101,7 +101,7 @@
                         <div class="prog"><div class="progs" id="deep" style="float:right"></div></div>
                     </div>
                     <div class="mbti-layer-1 ">
-                        <img src="/zzzi/static/image/l.png">
+                        <img src="/static/image/l.png">
                         <p>Light<br>옅게 잠</p>
                     </div>
                 </div>
@@ -113,7 +113,7 @@
                 <!-- 수면 습관 -->
                 <div class="mbti-layer"> 
                     <div class="mbti-layer-1 ">
-                        <img src="/zzzi/static/image/g.png">
+                        <img src="/static/image/g.png">
                         <p>Good<br>좋음</p>
                     </div>
                     <div class="mbti-layer-2">
@@ -121,7 +121,7 @@
                         <div class="prog"><div class="progs" id="habits" style="float:left"></div></div>
                     </div>
                     <div class="mbti-layer-1 unselected">
-                        <img src="/zzzi/static/image/b.png">
+                        <img src="/static/image/b.png">
                         <p>Bad<br>나쁨</p>
                     </div>
                 </div>
@@ -135,7 +135,7 @@
     <!-- 유형 상세 설명 -->
     <div class="section-4">
         <h2>문 여는 소리에 화들짝! <br>놀라는 당신은 개복치형</h2>
-        <img id="section-4-img" src="/zzzi/static/image/letters/iflg.png">
+        <img id="section-4-img" src="/static/image/letters/iflg.png">
         
         <div class="section-4-quote">
             <p>‘ 방금 무슨 소리 나지 않았어…? ’ <br>
@@ -155,33 +155,33 @@
         </div>
         
         <div class="section-4-partners">
-            <div class="section-4-partners-1"><span class="section-4-partners-2">꿀잠 궁합</span><img src="/zzzi/static/image/partner/AFLG.png"></div>
-            <div class="section-4-partners-1"><span class="section-4-partners-2">선잠 궁합</span><img src="/zzzi/static/image/partner/ASDB.png"></div>
+            <div class="section-4-partners-1"><span class="section-4-partners-2">꿀잠 궁합</span><img src="/static/image/partner/AFLG.png"></div>
+            <div class="section-4-partners-1"><span class="section-4-partners-2">선잠 궁합</span><img src="/static/image/partner/ASDB.png"></div>
         </div>
         
         <div class="section-4-buttons">
             <p>결과만 공유해도 꿀잠 선물이!? (아래 확인) </p>
-            <img id="section-4-img-2" src="/zzzi/static/image/top_line_3.png">
+            <img id="section-4-img-2" src="/static/image/top_line_3.png">
             
                         
                         
             <a id="share-button" class="section-4-button">
-            <img src="/zzzi/static/image/button_vector_2.png"> 
+            <img src="/static/image/button_vector_2.png"> 
             결과 공유하기
-            <img src="/zzzi/static/image/button_vector_2.png"> 
+            <img src="/static/image/button_vector_2.png"> 
             </a>
 
-            <a href="/zzzi/static/image/card/iflg.jpg" download="IFLG_수면유형검사.jpg"  title="IFLG_수면유형검사"  class="section-4-button">
-            <img src="/zzzi/static/image/button_vector_2.png"> 
+            <a href="/static/image/card/iflg.jpg" download="IFLG_수면유형검사.jpg"  title="IFLG_수면유형검사"  class="section-4-button">
+            <img src="/static/image/button_vector_2.png"> 
             유형 카드 다운로드
-            <img src="/zzzi/static/image/button_vector_2.png"> 
+            <img src="/static/image/button_vector_2.png"> 
             </a>
 
             
             <!-- <a href="#" class="section-4-button">
-            <img src="/zzzi/static/image/button_vector_2.png"> 
+            <img src="/static/image/button_vector_2.png"> 
             전체 유형 보기
-            <img src="/zzzi/static/image/button_vector_2.png"> 
+            <img src="/static/image/button_vector_2.png"> 
             </a> -->
         </div>
     
@@ -189,19 +189,19 @@
     
     
     <section class="section-5">
-        <img class="section-5-zzzi" src="/zzzi/static/image/section-5-zzzzi.png">
+        <img class="section-5-zzzi" src="/static/image/section-5-zzzzi.png">
         <p class="section-5-p">쿨쿨이가</p>
         <h2>꿀잠을<br>선물합니다!</h2>
-        <img class="section-5-zzzi-2" src="/zzzi/static/image/section-5-rectangle.png" class="image-below-text">
-        <img class="section-5-zzzi-3" src="/zzzi/static/image/section-5-line.png" class="image-below-text">
+        <img class="section-5-zzzi-2" src="/static/image/section-5-rectangle.png" class="image-below-text">
+        <img class="section-5-zzzi-3" src="/static/image/section-5-line.png" class="image-below-text">
         
         <p class="section-5-p-2" >테스트 결과를 인스타그램 스토리에<br> 공유하면 “꿀잠 세트”를 드려요!</p>
         
         <div class="slider-container">
         <div class="slider">
-            <img id="1" style="display:block;" src="/zzzi/static/image/gift_1.png" alt="Gift 1">
-            <img id="2" src="/zzzi/static/image/gift_2.png" alt="Gift 2">
-            <img id="3" src="/zzzi/static/image/gift_3.png" alt="Gift 3">
+            <img id="1" style="display:block;" src="/static/image/gift_1.png" alt="Gift 1">
+            <img id="2" src="/static/image/gift_2.png" alt="Gift 2">
+            <img id="3" src="/static/image/gift_3.png" alt="Gift 3">
         </div>
         <div class="navigation-dots">
             <span class="dot" onclick="changeImage(0)"></span>
@@ -212,16 +212,16 @@
         
         <div class="section-5-gifts">
             <div class="image-container gifts-5">
-              <img src="/zzzi/static/image/bottom_rectangle.png">
+              <img src="/static/image/bottom_rectangle.png">
               <div class="text-overlay">꿀잠 세트 구성</div>
             </div>
             
             <div class="section-5-gifts-text">
-                수면 안대 <span style="color:#F8B16A">+</span> 무릎 담요 <span style="color:#F8B16A">+</span> 텀블러 <span style="color:#F8B16A">+</span> 클립 펜 <span style="color:#F8B16A">+</span> 미라클나잇 버니 스티커
+                러그 <span style="color:#F8B16A">+</span> 페이퍼사쉐(디퓨저 백) <span style="color:#F8B16A">+</span> <br> 수면 안대 <span style="color:#F8B16A">+</span> 더스트백 <span style="color:#F8B16A">+</span> 꿀잠 스티커
             </div>
             
             <div class="image-container gifts-5 second-gift">
-              <img src="/zzzi/static/image/bottom_rectangle.png">
+              <img src="/static/image/bottom_rectangle.png">
               <div class="text-overlay">이벤트 참여 방법</div>
             </div>
             
@@ -239,14 +239,15 @@
             <li>
              상기 이미지는 연출된 이미지이며, 실제와 다를 수 있습니다.</li>
              <li>이벤트는 10/4 ~ 10/15 진행됩니다.</li>
+             <li>랜덤 추첨을 통해 꿀잠 세트를 보내드립니다.</li>
              <li>발송 안내는 인스타그램 계정으로 연락드립니다.</li>
+             <li>굿즈 발송은 11월 4주차에 진행됩니다.</li>
              <li>@miraclenight_official을 팔로우하고 태그해야 참여 완료됩니다.</li>
              <li>기타 비정상적인 방법을 통해 금전적인 이득을 취하기 위해 이벤트에 참여한 것으로 판단되면, 회사는 해당 사용자에 대한 이벤트 지급을 거부 및 회수하거나 서비스 이용을 제한할 수 있습니다.</li>
             <li>해당 이벤트는 회사의 사정에 따라 사전 고지 없이 변경 또는 중단될 수 있습니다.</li>
             </ul>
             </div>
         </div>
-
     </section>
             
     
@@ -255,32 +256,32 @@
     <div class="section-2-left">
       <h4>팔로우하면 <br> <span style="color:#F8B16A">평생 꿀잠 예약</span></h4>
       <a href="http://bit.ly/44ZJXXD" target="_blank" class="section-2-button">
-        <img src="/zzzi/static/image/instagram_icon.svg"> 인스타그램 바로가기
+        <img src="/static/image/instagram_icon.svg"> 인스타그램 바로가기
       </a>
     </div>
     <div class="section-2-right">
-      <img src="/zzzi/static/image/section-2_zzzi.png">
+      <img src="/static/image/section-2_zzzi.png">
     </div>
     </div>
         
     
     <div class="footer">
         <p>새벽을 바꾸는 기적의 수면</p>
-        <img class="footer-img" src="/zzzi/static/image/miraclenight.png">
+        <img class="footer-img" src="/static/image/miraclenight.png">
         <div class="footer-buttons"></div>
-        <a target="_blank" href="https://onelink.to/dcqnxu"><img class="logo-icon" src="/zzzi/static/image/apple.png"></a>
-        <a target="_blank" href="https://onelink.to/dcqnxu"><img class="logo-icon" src="/zzzi/static/image/google.png"></a> 
+        <a target="_blank" href="https://onelink.to/dcqnxu"><img class="logo-icon" src="/static/image/apple.png"></a>
+        <a target="_blank" href="https://onelink.to/dcqnxu"><img class="logo-icon" src="/static/image/google.png"></a> 
         
     </div>
     
-    <img class="footer-btm-img" src="/zzzi/static/image/bottom_fixed.png">
+    <img class="footer-btm-img" src="/static/image/bottom_fixed.png">
     </section>
     
     
 </body>
     
-<script src="/zzzi/static/js/mbti.js"></script>
-<script src="/zzzi/static/js/getData.js"></script>
+<script src="/static/js/mbti.js"></script>
+<script src="/static/js/getData.js"></script>
 <script src="https://code.jquery.com/jquery-3.4.0.min.js"></script>
     
 <script>
@@ -344,7 +345,7 @@
   if (navigator.share) {
     navigator.share({
       title: '미라클나잇 꿀잠 수면 유형 IFLG',
-      url: 'https://miraclenight.co.kr/zzzi/result/iflg.html'
+      url: 'https://miraclenight.co.kr/result/iflg.html'
     }).then(() => {
       
     })
@@ -355,24 +356,6 @@
 });
 </script> 
     
-<script language = "javascript"> 
-function percentages() {
-var temp = location.href.split("?"); 
-var data = temp[1].split(":"); 
-    console.log(data)
-    
-var sleeptime = document.getElementById("sleeptime");
-sleeptime.style.width = data[0]+"%";
-    
-console.log(data[0])
-var latency = document.getElementById("latency")
-latency.style.width = data[1]+"%";
-var deep = document.getElementById("deep")
-deep.style.width = data[2]+"%"; 
-var habits = document.getElementById("habits")
-habits.style.width = data[3]+"%";
-}  
-    
-</script>
+
     
 </html>
