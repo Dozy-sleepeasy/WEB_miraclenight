@@ -188,6 +188,7 @@ function updateReport() {
     const emotionText = document.getElementById('emotion-text');
     switch (emotion_input) {
         case 'relaxed':
+        case 'easy':
             emotionTitle.innerText = '편안'; // Use innerText here
             emotionImg.src = '/sleepreport/static/icon/relaxed.png';
             emotionText.innerText = '명상과 깊은 숨 쉬기와 같은 이완 기술은 코르티솔과 같은 스트레스 호르몬을 감소시키고 혈압을 낮추며 이완을 촉진하는 데 도움이 됩니다. 이러한 연습은 수면에 들기에 유용한 차분한 정신 상태를 조성합니다. 규칙적인 이완 연습은 체내의 자연적인 수면-각성 주기를 개선하고 회복적인 수면을 촉진할 수 있습니다. 이렇게 편안한 감정은 좋은 신호예요!';
@@ -198,6 +199,7 @@ function updateReport() {
             emotionText.innerText = '만성 피로는 수면에 부정적인 영향을 미칠 수 있습니다. 이를 해소하기 위해 짧은 낮잠 (20~30분)을 취하면 일시적인 피로를 덜 수 있습니다. 또한, 정기적인 신체 활동은 전반적인 에너지 수준과 수면의 질을 향상시킬 수 있습니다. 특히, 운동이 일찍 하루 중에 이루어질 경우 더욱 효과적입니다.';
             break;
         case 'stressed':
+        case 'stress':
             emotionTitle.innerText = '스트레스'; // Use innerText here
             emotionImg.src = '/sleepreport/static/icon/stressed.png';
             emotionText.innerText = '수면 전에 발생하는 스트레스는 수면에 불리할 수 있습니다. 명상, 점진적 근육 이완, 시각화와 같은 스트레스 감소 기술을 연습하면 스트레스 호르몬 수치를 낮출 수 있으며, 더 편안한 정신 상태를 조성하여 휴식에 적합한 밤 잠을 취할 수 있습니다.';
@@ -208,11 +210,13 @@ function updateReport() {
             emotionText.innerText = '불안은 수면 패턴을 방해할 수 있습니다. 불면증 관리에 효과적인 인지행동 치료 (CBT-I)는 불안 관련 수면 장애를 관리하는 데 효과적입니다. 규칙적인 수면 습관을 만들고 깊은 숨 쉬기나 시각화와 같은 이완 기술을 포함한 밤에 불안을 완화하면 수면의 질을 향상시킬 수 있습니다.';
             break;
         case 'excited':
+        case 'awaken':
             emotionTitle.innerText = '각성'; // Use innerText here
             emotionImg.src = '/sleepreport/static/icon/excited.png';
             emotionText.innerText = '수면 전에 강한 각성 상태는 잠에 드는 데 시간이 더 걸릴 수 있습니다. 책을 읽는 등 진정 활동에 참여하면 각성 수준을 낮출 수 있으며, 스트레스 호르몬인 코르티솔의 분비를 줄일 수 있습니다. 자기전에 자극적인 활동을 피하면 코르티솔 분비를 억제하는 데 도움이 됩니다.';
             break;
         case 'depressed':
+        case 'depression':
             emotionTitle.innerText = '우울'; // Use innerText here
             emotionImg.src = '/sleepreport/static/icon/depressed.png';
             emotionText.innerText = '우울증은 수면 장애와 관련이 깊습니다. 낮에 규칙적인 신체 활동을 유지하면 기분과 수면의 질을 개선할 수 있습니다. 운동은 쾌활한 기분을 끌어올리는 엔도르핀을 분비시키기 때문입니다. 또한, 규칙적인 수면 습관을 유지하고 수면 환경을 최적화하면 우울증 증상을 완화하고 수면 질을 향상시킬 수 있습니다.';
@@ -257,6 +261,7 @@ function updateReport() {
                 activityText.textContent = '알코올은 수면의 질을 저하시키고 깨어 있는 상태를 유지할 수 있습니다. 가능하면 수면 전 알코올을 섭취하지 않고, 마실 경우 적당한 양을 유지하세요.';
                 break;
             case 'late meal':
+            case 'latefood':
                 activityTitle.textContent = '야식';
                 activityImg.src = '/sleepreport/static/icon/latemeal.png';
                 activityText.textContent = '늦은 식사는 소화 과정을 방해하고 수면 중에 소화 불편을 초래할 수 있습니다. 수면 2-3 시간 전에 가벼운 식사를 하고, 자기 전에는 과식을 피하도록 노력하세요.';
@@ -319,17 +324,22 @@ function updateReport() {
     
         var wordMapping = {
             "relaxed": "편안",
+            "easy": "편안",
             "tired": "피곤",
             "stressed": "스트레스",
+            "stress": "스트레스",
             "anxious": "불안",
             "excited": "각성",
+            "awaken": "각성",
             "depressed": "우울",
+            "depression": "우울",
             "sad": "슬픔",
             "nervous": "긴장",
             "phone": "핸드폰",
             "nicotine": "니코틴",
             "alcohol": "알코올",
             "late meal": "야식",
+            "latefood": "편안",
             "tv": "TV",
             "coffee": "커피",
             "study": "공부",
