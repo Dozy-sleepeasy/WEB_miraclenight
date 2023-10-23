@@ -365,6 +365,19 @@ h2 {
     margin-right: 25px;
 }
 
+.data-bar-2 {
+    width: 16px;
+    border-radius: 8px 8px 0px 0px;
+    background: #649CFF;
+}
+
+.data-bar-4 {
+    width: 16px;
+    border-radius: 8px 8px 0px 0px;
+    background: #333;
+}
+
+
 .data-bar-3 {    
     width: 16px;
     border-radius: 8px;
@@ -691,4 +704,71 @@ line-height: normal;
 
 circle {
     fill: var(--theme-Dark, #1F2535);
+}
+
+.section-2-insight {
+    display: flex;
+}
+
+.section-2-in-text {
+    width: 57%;
+    text-align: left;
+    color: #FFF;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: Pretendard;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 140%; /* 25.2px */
+    padding-right: 8%;
+}
+
+.section-2-in-graph {
+    width: 30%;
+    display: flex;
+    float: right;
+    justify-content: space-around;
+}
+
+.section-2-in-graph p{
+    color: #808080;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: Pretendard;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%; /* 18px */
+    padding-bottom: 8px;
+    padding-top: 8px;
+}
+
+#in-text-time {
+    color: #649CFF;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: Pretendard;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 140%;
+}
+
+.in-graph-last {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.in-graph-this {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.small-divider {
+    border-bottom: 1px solid #333;
+    width: 60px;
 }
