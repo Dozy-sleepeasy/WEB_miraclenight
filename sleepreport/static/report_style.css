@@ -772,3 +772,11 @@ circle {
     border-bottom: 1px solid #333;
     width: 60px;
 }
+
+#sleep-time-text {
+    font-weight: 500;
+}
+
+#insight {
+    display: none;
+}

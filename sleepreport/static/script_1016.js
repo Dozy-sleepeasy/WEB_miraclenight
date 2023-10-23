@@ -12,10 +12,13 @@ function convertTimeToFormat(timeString) {
     const hours = Math.floor(timeString);
     const minutesDecimal = (timeString - hours) * 60;
     const minutes = Math.round(minutesDecimal);
-    const formattedTime = `${hours}시간 ${minutes}분`;
-    return formattedTime;
+    
+    if (hours === 0) {
+        return `${minutes}분`;
+    } else {
+        return `${hours}시간 ${minutes}분`;
+    }
 }
-
 
 
 function convertTimeTo12HourFormat(originalTime) {
@@ -148,59 +151,63 @@ function updateReport() {
     
 
    document.getElementById('average_sleep_hours').textContent = convertTimeToFormat(average_sleep_hour); document.getElementById('average_sleep_hours2').textContent = convertTimeToFormat(average_sleep_hour);
-   document.getElementById('sleep-time-text').textContent = convertTimeToFormat(average_sleep_hour); document.getElementById('average_sleep_hours2').textContent = convertTimeToFormat(average_sleep_hour);
+document.getElementById('average_sleep_hours2').textContent = convertTimeToFormat(average_sleep_hour);
    document.getElementById('aver_sleep_hours').textContent = average_sleep_hour;
     document.getElementById('prev_sleep_hours').textContent = prev_average_sleep_hour;
     document.getElementById('average_bedtime').textContent = convertTimeTo12HourFormat(average_bedtime);
     document.getElementById('average_waketime').textContent = convertTimeTo12HourFormat(average_waketime);
     document.getElementById('sleep_pattern').textContent = `${sleep_pattern}%`;
     
+    var sleep_time_comparison = Math.abs(prev_average_sleep_hour - average_sleep_hour);
+    document.getElementById('sleep-time-text').textContent = convertTimeToFormat(sleep_time_comparison); 
+    
+    if (prev_average_sleep_hour > 0) {
+        document.getElementById('insight').style.display ="block";
+    }
+    
     // Process sleep hours
     const lastSleepHoursDiv = document.getElementById(`last_sleep_hours`);
     const thisSleepHoursDiv = document.getElementById(`this_sleep_hours`);
-    lastSleepHoursDiv.style.height = `${prev_average_sleep_hour * 18}px`;
-    thisSleepHoursDiv.style.height = `${average_sleep_hour * 18}px`;
+    lastSleepHoursDiv.style.height = `${prev_average_sleep_hour * 9}px`;
+    thisSleepHoursDiv.style.height = `${average_sleep_hour * 9}px`;
     
     const sleepTimeComparison = document.getElementById(`sleep-time-text`);
     const sleepComparison = document.getElementById('sleep-time-text2');
     if (average_sleep_hour > prev_average_sleep_hour) {
         sleepComparison.textContent = ' 늘었어요. 최적의 수면 시간에 가까워지고 있어요. 아주 잘하고 있어요!';
+        sleepTimeComparison.style.color = '#649CFF';
     }
     else if (average_sleep_hour < prev_average_sleep_hour) {
         sleepComparison.textContent = ' 줄었어요. 최적의 수면 시간에서 멀어지고 있어요. 개선이 필요해요!';
-        thisSleepHoursDiv.style.color = '#FFA449';
+        thisSleepHoursDiv.style.background = '#FFA449';
         sleepTimeComparison.style.color = '#FFA449';
     }
     else if (average_sleep_hour = prev_average_sleep_hour && average_sleep_hour > 7) {
         sleepComparison.textContent = '으로 차이가 없어요. 좋은 수면 시간을 유지하세요!';
+        sleepTimeComparison.style.color = '#649CFF';
     }
     else if (average_sleep_hour = prev_average_sleep_hour && average_sleep_hour < 7) {
         sleepComparison.textContent = '으로 차이가 없어요. 더 긴 수면이 필요해요. 수면 시간을 개선해 보세요!';
+        sleepTimeComparison.style.color = '#649CFF';
     }
     
 
     // Update #sleep_rate color and text
     const sleepRate = document.getElementById('sleep_rate');
     const sleepRateText = document.getElementById('sleep_rate_text');
-    const sleepRateSum = document.getElementById('sleep_rate_sum');
-
     
-    if (average_sleep_hour >= 7) {
+    if (average_sleep_hour > 7) {
         sleepRate.style.color = '#649CFF';
         sleepRate.textContent = 'GOOD';
         sleepRateText.textContent = '아주 잘 하고 있어요!';
-        sleepRateSum.textContent = '충분한';
     } else if (average_sleep_hour >= 6) {
         sleepRate.style.color = 'white'; // Reset color
         sleepRate.textContent = 'OKAY'; // Reset text
-        sleepRateText.textContent = '조금만 더 관리가 필요해요!'; 
-        sleepRateSum.textContent = '적당한';
-        // Reset text
+        sleepRateText.textContent = '조금만 더 관리가 필요해요!'; // Reset text
     } else {
         sleepRate.style.color = '#FFA449';
         sleepRate.textContent = 'BAD';
         sleepRateText.textContent = '관리가 필요해요!';
-        sleepRateSum.textContent = '부족한';
     } 
     
     const sleepPattern = document.getElementById('pattern_rate');
@@ -218,6 +225,7 @@ function updateReport() {
         sleepPattern.textContent = 'BAD';
         sleepPatternText.textContent = '관리가 필요해요!';
     }
+    
 
 
     // Update #emotion-img and #emotion-text based on emotion input
