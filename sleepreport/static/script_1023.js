@@ -1,9 +1,11 @@
 function convertTimeToMinutes(timeString) {
+    let totalMinutes = 0;
+
     // Split the time string into hours, minutes, and seconds
     const [hours, minutes, seconds] = timeString.split(':').map(Number);
 
     // Calculate the total minutes since midnight
-    const totalMinutes = hours * 60 + minutes;
+    totalMinutes = hours * 60 + minutes;
 
     return totalMinutes;
 }
@@ -201,95 +203,7 @@ function updateReport() {
         sleepTimeComparison.style.color = '#649CFF';
     }
     
-    
-        
-        // Bedtime
-    if ( convertToNumericTime(average_bedtime) <= 21.0 &&                   
-         convertToNumericTime(average_bedtime) > 6.0 &&
-         convertToNumericTime(prev_average_bedtime) <= 21.0 && convertToNumericTime(prev_average_bedtime) > 6.0 ){
-              average_bedtime = 0;
-              prev_average_bedtime = 0;
-    }
-
-     if (convertToNumericTime(prev_average_bedtime) > 0) {
-        document.getElementById('insight2').style.display ="block";
-    }
-    
-function calculateTimeDifference(prev_time, current_time) {
-  // Split the times into hours and minutes
-  const [prev_hours, prev_minutes] = prev_time.split(':').map(Number);
-  const [current_hours, current_minutes] = current_time.split(':').map(Number);
-
-  // Calculate the time difference in minutes
-  let timeDifference = (current_hours * 60 + current_minutes) - (prev_hours * 60 + prev_minutes);
-
-  // Handle exceptions where the times cross midnight
-  if (timeDifference < -720) {
-    // If the difference is more than 12 hours, adjust it for the opposite case
-    timeDifference += 1440; // 24 hours in minutes
-  } else if (timeDifference > 720) {
-    // If the difference is more than 12 hours in the opposite direction, adjust it
-    timeDifference -= 1440; // 24 hours in minutes
-  }
-
-  // Ensure the time difference is positive
-  timeDifference = Math.abs(timeDifference);
-
-  return timeDifference;
-}
-
-
-const timeDifference = calculateTimeDifference(prev_average_bedtime, average_bedtime);
-console.log(`Time difference is ${timeDifference} minutes.`);
-
-
-
-
-    const bedtimeComparison = document.getElementById('bedtime-text');
-    const bedtimeComparison2 = document.getElementById('bedtime-text2');
-    bedtimeComparison.textContent = timeDifference+'분';
-    
-    if ((convertToNumericTime(average_bedtime) - convertToNumericTime(prev_average_bedtime) + 24) % 24 > 0) {
-        bedtimeComparison2.textContent = ' 늦어졌어요.';
-        bedtimeComparison.style.color = '#FFA449';
-    }
-    else if ((convertToNumericTime(average_bedtime) - convertTimeToMinutes(prev_average_bedtime) + 24) % 24 < 0) {
-        bedtimeComparison2.textContent = ' 빨라졌어요.';
-        bedtimeComparison.style.color = '#649CFF';
-    }
-    
-    // Waketime
-    if ( convertToNumericTime(average_waketime) > 13.0 &&  convertToNumericTime(average_waketime) < 21.0 && 
-        convertToNumericTime(prev_average_waketime) > 13.0&&  convertToNumericTime(prev_average_waketime)< 21.0 ){
-      average_waketime = 0;
-      prev_average_waketime = 0;
-    }
-    
-     if (convertTimeToMinutes(prev_average_waketime) > 0) {
-        document.getElementById('insight3').style.display ="block";
-    }
-    
-    const timeDifference2 = convertTimeToMinutes(average_waketime) - convertTimeToMinutes(prev_average_waketime);
-    
-     // Process waketime
-    const lastWaketimeDiv = document.getElementById(`prev_waketime2`);
-    const nextWaketimeDiv = document.getElementById(`next_waketime2`);
-
-
-    const waketimeComparison = document.getElementById(`waketime-text`);
-    const waketimeComparison2 = document.getElementById('waketime-text2');
-    waketimeComparison.textContent = Math.abs(timeDifference2)+'분';
-    
-    if ((convertToNumericTime(average_waketime) - convertToNumericTime(prev_average_waketime) + 24) % 24 > 0) {
-        waketimeComparison2.textContent = ' 빨라졌어요.';
-        waketimeComparison.style.color = '#649CFF';
-
-    }
-    else if ((convertToNumericTime(average_waketime) - convertToNumericTime(prev_average_waketime) + 24) % 24 < 0) {
-        waketimeComparison2.textContent = ' 늦어졌어요.';
-        waketimeComparison.style.color = '#FFA449';
-
-    }
+ 
 
 
 
@@ -691,7 +605,7 @@ for (let i = 0; i < daysOfWeek.length; i++) {
     } if (activityInput === 'coffee') {
             advice.push("커피를 너무 많이 드세요.");
             advice.push("커피, 차, 탄산음료 등 카페인이 함유된 음료는 전 세계에서 가장 인기 있는 음료 중 하나입니다. 일부 사람들은 카페인으로 인한 에너지 충격을 이용해 주간 졸음을 극복하려는 유혹을 받기도 하지만, 이러한 방법은 지속 가능하지 않으며 장기적인 수면 부족을 유발할 수 있습니다. 이를 방지하려면 카페인 섭취량을 주시하고 카페인이 잠드는 데 방해가 될 수 있는 늦은 시간에는 카페인 섭취를 피하세요.")
-            advice.push("오늘은 오후 2시 이후로 커피를 마시지 않는 건 어떨까요?");
+            advice.push("내일은 오후 2시 이후로 커피를 마시지 말아볼까요?");
     }
     
     if (average_sleep_hours < 5) {
@@ -771,5 +685,100 @@ for (let i = 0; i < daysOfWeek.length; i++) {
     document.getElementById('advice').textContent = advice[0];
     document.getElementById('advice_text').textContent = advice[1];
     document.getElementById('advice_text_2').textContent = advice[2];
+    
+    console.log(convertToNumericTime(prev_average_bedtime));
+           // Bedtime
+    if ( convertToNumericTime(average_bedtime) <= 21.0 &&                   
+         convertToNumericTime(average_bedtime) > 7.0 &&
+         convertToNumericTime(prev_average_bedtime) <= 21.0 && convertToNumericTime(prev_average_bedtime) > 7.0       ){
+              document.getElementById('insight2').style.display ="none";
+    }
+    else if (isNaN(prev_average_bedtime) || prev_average_bedtime == undefined || prev_average_bedtime == "") {
+        console.log("in??");
+        document.getElementById('insight2').style.display ="none";
+    }
+    else {
+        console.log("in?");
+    document.getElementById('insight2').style.display ="block";}
+    
+    
+    function calculateTimeDifference(prev_time, current_time) {
+      // Split the times into hours and minutes
+      const [prev_hours, prev_minutes] = prev_time.split(':').map(Number);
+      const [current_hours, current_minutes] = current_time.split(':').map(Number);
+
+      // Calculate the time difference in minutes
+      let timeDifference = (current_hours * 60 + current_minutes) - (prev_hours * 60 + prev_minutes);
+
+      // Handle exceptions where the times cross midnight
+      if (timeDifference < -720) {
+        // If the difference is more than 12 hours, adjust it for the opposite case
+        timeDifference += 1440; // 24 hours in minutes
+      } else if (timeDifference > 720) {
+        // If the difference is more than 12 hours in the opposite direction, adjust it
+        timeDifference -= 1440; // 24 hours in minutes
+      }
+
+
+
+      return timeDifference;
+    }
+
+
+    const timeDifference = calculateTimeDifference(prev_average_bedtime, average_bedtime);
+
+    const bedtimeComparison = document.getElementById('bedtime-text');
+    const bedtimeComparison2 = document.getElementById('bedtime-text2');
+    bedtimeComparison.textContent = Math.abs(timeDifference)+'분';
+
+    
+    
+    if (timeDifference > 0) {
+        bedtimeComparison2.textContent = ' 늦어졌어요.';
+        bedtimeComparison.style.color = '#FFA449';
+    }
+    else if (timeDifference <= 0) {
+        bedtimeComparison2.textContent = ' 빨라졌어요.';
+        bedtimeComparison.style.color = '#649CFF';
+    }
+    
+    // Waketime
+    if ( convertToNumericTime(average_waketime) > 13.0 &&  
+        convertToNumericTime(average_waketime) < 21.0 && 
+        convertToNumericTime(prev_average_waketime) > 13.0&&  convertToNumericTime(prev_average_waketime)< 21.0 ){
+
+        document.getElementById('insight3').style.display ="none";
+    }
+    else if (isNaN(prev_average_waketime) || prev_average_waketime == undefined || prev_average_waketime == "") {
+        document.getElementById('insight3').style.display ="none";
+    }
+    else {
+
+        document.getElementById('insight3').style.display ="block";
+    }
+    
+    const timeDifference2 = convertTimeToMinutes(average_waketime) - convertTimeToMinutes(prev_average_waketime);
+    
+     // Process waketime
+    const lastWaketimeDiv = document.getElementById(`prev_waketime2`);
+    const nextWaketimeDiv = document.getElementById(`next_waketime2`);
+    console.log(average_waketime);
+    console.log(prev_average_waketime);
+    console.log(timeDifference2);
+
+    const waketimeComparison = document.getElementById(`waketime-text`);
+    const waketimeComparison2 = document.getElementById('waketime-text2');
+    waketimeComparison.textContent = Math.abs(timeDifference2)+'분';
+    
+    if (timeDifference2 < 0) {
+        waketimeComparison2.textContent = ' 빨라졌어요.';
+        waketimeComparison.style.color = '#649CFF';
+
+    }
+    else if (timeDifference2 >= 0) {
+        waketimeComparison2.textContent = ' 늦어졌어요.';
+        waketimeComparison.style.color = '#FFA449';
+
+    }
 
 }
