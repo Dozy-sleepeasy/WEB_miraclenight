@@ -788,3 +788,23 @@ circle {
 #insight2 {
     display: none;
 }
+
+
+
+.section-4-tip-text {
+    padding-left: 10px;
+}
+
+#section-4-img-tip {
+    width: 30px;
+    padding-right: 10px;
+}
+
+.section-4-tip {
+    background: white;
+    border-radius: 10px;
+    padding: 0px 7px;
+    color: #649CFF;
+    font-size: 13px;
+    font-weight: bolder;
+}

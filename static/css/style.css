@@ -75,7 +75,7 @@ h1,h2,h3,h4,h5,h6 {
     width: 85%;
     margin: 0 auto;
     text-align: center;
-    margin-top: 134px;
+    margin-top: 100px;
 }
 
 .top-6 {
@@ -3187,3 +3187,278 @@ line-height: 140%; /* 18.2px */
     font-size: 18px;
     line-height: 130%;
 }
+
+.vote-section {
+    width: 320px;
+    height: 450px;
+    border-radius: 10px;
+    background: var(--Primary, #4876EE);
+    flex: 1; /* Allow both containers to take equal width */
+    box-sizing: border-box;
+    margin-left: 10px;
+}
+
+.vote-subtitle {
+    color: #FFF;
+    font-family: Pretendard;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 100%; /* 16px */
+    margin-bottom: 8px;
+}
+
+.vote-title {
+    color: #FFF;
+    font-family: Pretendard;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 135%; /* 32.4px */
+}
+
+.vote-section-2 {
+    height: 450px;
+    width: 85%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.vote-options {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+input[type="text"] {
+  background: #DAE4FC;
+  outline: none;
+  border: none;
+  border-radius: 8px;
+  height: 140px;
+  padding: 10px;
+  color: black;
+  font-family: Pretendard;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.placeholder {
+  position: absolute;
+  top: 10px; /* Adjust the top value to align the placeholder */
+  left: 10px; /* Adjust the left value to position the placeholder */
+  pointer-events: none;
+  color: var(--g3, #B2B2B2);
+  font-family: Pretendard;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1;
+    padding: 10px 0px 0px 5px;
+}
+
+/* Hide the label when input is focused */
+input[type="text"]:focus + .placeholder {
+  display: none;
+}
+
+.vote-input{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.vote-options button {
+    color: #4876EE;
+    font-family: Pretendard;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 100%; /* 18px */
+}
+
+.vote-p {
+    color: #FFF;
+    font-family: Pretendard;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 90%;
+    margin-bottom: 8px;
+    margin-top: 0px;
+}
+
+.vote-image {
+    width: 25%;
+    display: flex;
+    margin-left: auto; /* Pushes the vote-image to the right */
+    margin-right: 36px;
+}
+.vote-image img {
+    width: 100%;
+}
+
+.button-numbers {
+    float: right;
+    padding-right: 12px;
+    display: none;
+}
+
+.vote-button.animated3 {
+    /* Add animation properties here */
+    animation-name: fillAnimation;
+    animation-duration: 1s;
+    animation-timing-function: ease;
+    animation-fill-mode: forwards; /* Keep the final state of animation */
+}
+
+@keyframes fillAnimation {
+    from {
+        background-size: 0% 100%; /* Start with 100% width */
+    }
+    to {
+        background-size: 100% 100%; /* End with 0% width */
+    }
+}
+
+.vote-button {
+    border-radius: 8px;
+    height: 50px;
+    width: 100%;
+    text-align: left;
+    padding-left: 16px;
+    text-decoration: none;
+    outline: none;
+    text-decoration-line: none;
+    border: none;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(90deg, #fff 100%, var(--A3BAF6, #A3BAF6) 100%);
+    background-size: 200% 100%; /* Initially set background size to 200% */
+    background-position: 100% 0; /* Initially set background position to right */
+    background-repeat: no-repeat;
+    transition: background 1s ease; /* Added transition for background */
+}
+
+
+
+
+.vote-section-top {
+    display: flex;
+    overflow-x: auto; /* Enable horizontal scrolling */
+    padding-right: 30px;
+    padding-left: 20px;
+    margin-bottom: 60px;
+}
+
+.vote-submit {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  
+}
+
+.vote-submit button {
+    border-radius: 8px;
+    background: #2859DA;
+    border: none;
+    padding: 22px 78px;
+    color: var(--white, #FFF);
+    text-align: center;
+    font-family: Pretendard;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 14px; /* 77.778% */
+}
+
+.vote-options {
+  display: flex;
+  flex-direction: column;
+   margin-top: 7%;
+    margin-bottom: 7%;
+}
+
+#myInput {
+  background: #DAE4FC;
+  outline: none;
+  border: none;
+  border-radius: 8px;
+  min-height: 140px; /* Set a minimum height */
+  padding: 15px;
+  color: var(--g3, black);
+  font-family: Pretendard;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1;
+  white-space: pre-wrap; /* Allow line breaks */
+}
+
+
+
+.vote-complete-img {
+    display: none;
+    width: 130px;
+    margin: 0 auto;
+    margin-top: 32px;
+    margin-bottom: 50px;
+}
+
+.vote-complete-img img{
+    width: 100%;
+}
+
+.lab_prepare {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+}
+.lab_prepare img {
+    width: 164px;
+}
+
+.lab_prepare_p {
+    color: #484848;
+text-align: center;
+font-family: Pretendard;
+font-size: 16px;
+font-style: normal;
+font-weight: 500;
+line-height: 135%; /* 21.6px */
+    margin-top: 32px;
+}
+
+.lab_prepare_p1 {
+    color: #484848;
+text-align: center;
+font-family: Pretendard;
+font-size: 36px;
+font-style: normal;
+font-weight: 700;
+line-height: 135%; /* 48.6px */
+    margin-top: 2px;
+}
+
+.lab_prepare_p2 {
+    color: #484848;
+text-align: center;
+font-family: Pretendard;
+font-size: 18px;
+font-style: normal;
+font-weight: 500;
+line-height: 135%; /* 24.3px */
+    margin-top: 18px;
+}
+
+
