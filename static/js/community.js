@@ -52,12 +52,10 @@ function fillBackground(buttonId, percentage) {
 
 function animateGradient(button, targetPercentage) {
     if (button) {
-        console.log("start");
         let currentPercentage = 0;
         const interval = setInterval(() => {
             currentPercentage++;
             button.style.background = `linear-gradient(90deg, #fff ${currentPercentage}%, var(--A3BAF6, #A3BAF6) ${currentPercentage}%)`;
-            console.log(currentPercentage);
             
             if (currentPercentage >= targetPercentage) {
                 clearInterval(interval);
@@ -115,6 +113,68 @@ async function postAnswer(uid, questionId, selectedOption) {
     if (response.ok) {
       console.log('Answer submitted successfully.');
       // You can handle success here (e.g., update UI)
+        const data = await response.json();
+
+        // Handle the response data here
+        console.log(data);
+
+        document.getElementById('voteTitle').textContent = data.response.questionId;
+        document.getElementById('number').textContent = data.response.total_user;
+        document.getElementById('writer').textContent = data.response.writer;
+
+        var optionDiv = document.getElementById('voteOptions');
+        var optionSection = document.getElementById('voteSection');
+        optionDiv.style.display = "block";
+        optionSection.style.display = "flex";
+
+        const options = data.response.examples;
+        const numButtons = options.length;
+        const maxButtons = 4; // Maximum number of buttons you want to show
+        let index = 0;
+
+        for (let i = 0; i < maxButtons; i++) {
+          const buttonId = `btn-${i + 1}`;
+          const buttonTextElement = document.getElementById(`btn-${i + 1}-text`);
+          const buttonNumberElement = document.getElementById(`btn-num-${i + 1}`);
+
+          if (i < numButtons) {
+            // If there's an option, populate it and its count
+            buttonTextElement.textContent = options[i];
+            buttonNumberElement.textContent = ''; // Clear previous count
+            document.getElementById(buttonId).style.display = 'block';
+            index++;
+              console.log(index);
+          } else {
+            // If there's no option, hide the button
+            document.getElementById(buttonId).style.display = 'none';
+          }
+        }
+
+          console.log('You have already voted.');
+          console.log('Answer:', data.response.answer);
+            
+          for (let i = 1; i <= index; i++) {
+            const button = document.getElementById(`btn-${i}`);
+            if (button) {
+              button.disabled = true; // Disable the button
+            }
+          }
+            
+          const answer = document.getElementById(`btn-${data.response.answer}-text`);
+          const newText = document.createElement('span'); // Create a new <span> element
+          newText.id = 'myOption'; // Set the id of the new element (optional)
+          newText.textContent = '✨PICK'; // Set the text content
+          answer.appendChild(newText);
+
+          for (let i = 1; i <= index; i++) {
+          const buttonNumberElement = document.getElementById(`btn-num-${i}`);
+          const example = data.response.vote_result; 
+          const percentage = calculatePercentages(data.response.total_user, example[`example${i}`]);
+          buttonNumberElement.textContent = percentage+'%';
+          buttonNumberElement.style.display = 'block';
+          fillBackground(`btn-${i}`, percentage);
+        }
+
     } else {
       console.error('Failed to submit answer to the API.');
       // You can handle errors here (e.g., show an error message)
@@ -241,15 +301,7 @@ function voteOption(selectedOption) {
 
   // Perform the post request (assuming you have a function postAnswer(uid, questionId, selectedOption))
   postAnswer(uid2, questionId, selectedOption);
- 
-const loadingContainer = document.getElementById('loading-container');
-  loadingContainer.style.display = 'flex';
 
-  // After 1 seconds, hide the loading container and reload the page
-  setTimeout(function () {
-    loadingContainer.style.display = 'none';
-    location.reload();
-  }, 1500); // 1000 milliseconds (1 second)
 }
 
 

@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>미라클나잇 행운의 룰렛</title>
+        <title>행운의 룰렛</title>
         
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,9 +8,11 @@
 
         <link rel="stylesheet" href="r-main.css" type="text/css" />
     </head>
-    <body>
+    <body >
+        
+        <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
         <div class="popup" id="popup">
-            <div id="lottie-container"></div>
+            <lottie-player src="https://lottie.host/0165bb7e-8279-4def-a4f5-49fef32aed50/vHs4CiWkaY.json" background="transparent" speed="1" style="width: 400px; height: 400px" class="lottie"  direction="1" mode="normal" loop  autoplay></lottie-player>
             <h3>축하합니다!🎉</h3>
             <img id="popup-img" src="">
             <p id="popup-p"> 당첨!</p>
@@ -19,16 +21,17 @@
         <div class="whole" id="whole"></div>
         <div class="star"><img src="star.png"></div>
         
+        <h1>마루콜렉트 럭키 룰렛</h1>
+        
         <div align="center" class="center">
-            <h2>미라클나잇</h2>
-            <h1>행운의 룰렛</h1>
-            <br />
+            <div class="miraclenight">
+                <img src="miraclenight.png">
+            </div>
             
-            <table cellpadding="0" cellspacing="0" border="0">
-                <div class="miraclenight"><img src="miraclenight.png"></div>
+            <table cellpadding="0" cellspacing="0" border="0" style="padding-top: 10px;">
                 <tr>
-                    <td width="700" height="800" class="the_wheel" align="center" valign="center">
-                        <canvas id="canvas" width="700" height="818" >
+                    <td width="800" height="900" class="the_wheel" align="center" valign="center">
+                        <canvas id="canvas" width="800" height="900" >
                             <p style="{color: white}" align="center">Sorry, your browser doesn't support canvas. Please try another.</p>
                         </canvas>
                     </td>
@@ -42,30 +45,46 @@
         
                 <script type="text/javascript" src="Winwheel.js"></script>
         <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
-        <script src="lf20_nxsyeqbd.json"></script>
-        <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script> 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.5.9/lottie.min.js"></script>
+        <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
         
         <script>
 
             
             // Create new wheel object specifying the parameters at creation time.
             let theWheel = new Winwheel({
-                'numSegments'  : 10,     // Specify number of segments.
-                'outerRadius'  : 308,   // Set outer radius so wheel fits inside the background.
-                'textFontSize' : 30,    // Set font size as desired.
+                'numSegments'  : 25,     // Specify number of segments.
+                'outerRadius'  : 350,   // Set outer radius so wheel fits inside the background.
+                'textFontSize' : 25,    // Set font size as desired.
                 'segments'     :        // Define segments including colour and text.
                 [
-                    { 'fillStyle': '#000000', 'text': '휴족시간' },
-                    { 'fillStyle': '#1A1A1A', 'text': '펜'},
+                    { 'fillStyle': '#3D3D3D', 'text': '편지 세트'},
+                    { 'fillStyle': '#000000', 'text': '미라클나잇 펜' },
+                    { 'fillStyle': '#1A1A1A', 'text': '휴족시간'},
                     { 'fillStyle': '#3D3D3D', 'text': '디퓨저백'},
+                    { 'fillStyle': '#000000', 'text': '수면 안대'},
+                    { 'fillStyle': '#3D3D3D', 'text': '편지 세트'},
+                    { 'fillStyle': '#1A1A1A', 'text': '촉감실 그립톡' }, //
+                    { 'fillStyle': '#3D3D3D', 'text': '촉감실 키링' }, //
+                    { 'fillStyle': '#000000', 'text': '클로버 책갈피'},
+                    { 'fillStyle': '#1A1A1A', 'text': '온기 도서'}, //
+                    { 'fillStyle': '#000000', 'text': '편지 세트'},
+                    
+                    { 'fillStyle': '#3D3D3D', 'text': '미라클나잇 펜'},
+                    { 'fillStyle': '#000000', 'text': '휴족시간' },
+                    { 'fillStyle': '#1A1A1A', 'text': '디퓨저백'},
+                    { 'fillStyle': '#3D3D3D', 'text': '수면 안대'}, //
+                    { 'fillStyle': '#000000', 'text': '클로버 책갈피'},//
+                    { 'fillStyle': '#1A1A1A', 'text': '편지 세트' },
+                    
+                    { 'fillStyle': '#3D3D3D', 'text': '미라클나잇 펜' },
                     { 'fillStyle': '#000000', 'text': '휴족시간'},
-                    { 'fillStyle': '#1A1A1A', 'text': '펜' },
-                    { 'fillStyle': '#3D3D3D', 'text': '디퓨저백' },
-                    { 'fillStyle': '#000000', 'text': '휴족시간'},
-                    { 'fillStyle': '#1A1A1A', 'text': '펜'}, 
-                    { 'fillStyle': '#000000', 'text': '안대'},
-                    { 'fillStyle': '#3D3D3D', 'text': '펜'}
+                    { 'fillStyle': '#1A1A1A', 'text': '디퓨저백'}, 
+                    { 'fillStyle': '#000000', 'text': '편지 세트'},
+                    
+                    { 'fillStyle': '#3D3D3D', 'text': '미라클나잇 펜'},
+                    { 'fillStyle': '#000000', 'text': '휴족시간' },
+                    { 'fillStyle': '#1A1A1A', 'text': '디퓨저백'},
+                    { 'fillStyle': '#000000', 'text': '편지 세트'},
                 ],
                 'animation' :           // Specify the animation to use.
                 {
@@ -136,56 +155,64 @@
                 var imageElement = document.querySelector('#popup-img');
 
                 
-                if (indicatedSegment.text === '티셔츠') {
-                      imageElement.src = 'tshirts.png';
-                    } else if (indicatedSegment.text === '펜') {
+                if (indicatedSegment.text === '미라클나잇 펜') {
                       imageElement.src = 'pen.png';
                     } 
                     else if (indicatedSegment.text === '디퓨저백') {
-                      imageElement.src = 'diffuser.png';
+                      imageElement.src = 'diffuserbag.png';
                     } 
-                    else if (indicatedSegment.text === '안대') {
-                      imageElement.src = 'eyemask.png';
+                    else if (indicatedSegment.text === '수면 안대') {
+                      imageElement.src = 'sleepmask.png';
                     } 
                     else if (indicatedSegment.text === '휴족시간') {
                       imageElement.src = 'hujok.png';
                     } 
+                    else if (indicatedSegment.text === '편지 세트') {
+                      imageElement.src = 'letter.png';
+                    } 
+                else if (indicatedSegment.text === '촉감실 그립톡') {
+                      imageElement.src = 'grip.png';
+                    } 
+                else if (indicatedSegment.text === '촉감실 키링') {
+                      imageElement.src = 'keyring.png';
+                    } 
+                else if (indicatedSegment.text === '온기 도서') {
+                      imageElement.src = 'book.png';
+                    } 
+            
+                else if (indicatedSegment.text === '클로버 책갈피') {
+                      imageElement.src = 'bookmark.png';
+                    } 
                 
-                
-                var animationContainer = document.getElementById('lottie-container');
 
-                  // Load the Lottie animation
-                  var animation = bodymovin.loadAnimation({
-                    container: animationContainer,
-                    renderer: 'svg',
-                    loop: false,
-                    autoplay: false,
-                    path: 'https://lottie.host/0165bb7e-8279-4def-a4f5-49fef32aed50/vHs4CiWkaY.json'
-                  });
-                
-                  // Play the animation
-                  animation.play();
 
-                
-                var popup = document.getElementById('popup');
-                var layer = document.getElementById('whole');
-                
-                popup.style.visibility = 'visible';
-                popup.style.opacity = '1';
-                layer.style.visibility = 'visible';
-                layer.style.opacity = '1';
+        var popup = document.getElementById('popup');
+        var layer = document.getElementById('whole');
 
-                // Add a click event listener to the document
-                document.addEventListener('click', function(event) {
-                  // Check if the clicked element is inside the popup
-                  var isClickedInsidePopup = popup.contains(event.target);
+        function hidePopupAndReloadPage() {
+          popup.style.visibility = 'hidden';
+          layer.style.visibility = 'hidden';
 
-                  // If the clicked element is not inside the popup, hide the popup
-                  if (!isClickedInsidePopup) {
-                    popup.style.visibility = 'hidden';
-                    layer.style.visibility = 'hidden';
-                  }
-                });
+          // Reload the entire web page
+          location.reload();
+        }
+
+        popup.style.visibility = 'visible';
+        popup.style.opacity = '1';
+        layer.style.visibility = 'visible';
+        layer.style.opacity = '1';
+
+        // Add a click event listener to the document
+        document.addEventListener('click', function(event) {
+          // Check if the clicked element is inside the popup
+          var isClickedInsidePopup = popup.contains(event.target);
+
+          // If the clicked element is not inside the popup, hide the popup and reload the page
+          if (!isClickedInsidePopup) {
+            hidePopupAndReloadPage();
+          }
+        });
+
                 
 
             }
