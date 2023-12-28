@@ -360,6 +360,43 @@ function clearContent() {
   myInput.textContent = '';
 }
 
+const axios = require('axios'); // Make sure you have axios installed: npm install axios
+
+const slackToken = 'YOUR_SLACK_API_TOKEN';
+const channel = 'YOUR_CHANNEL_ID'; // Replace with the ID of the Slack channel you want to send the message to
+
+// Function to send a message to Slack
+async function sendSlackMessage(message) {
+  try {
+    const response = await axios.post(
+      'https://slack.com/api/chat.postMessage',
+      {
+        channel,
+        text: message,
+      },
+      {
+        headers: {
+          'Authorization': `Bearer ${slackToken}`,
+          'Content-Type': 'application/json',
+        },
+      }
+    );
+
+    if (response.data.ok) {
+      console.log('Message sent successfully');
+    } else {
+      console.error('Failed to send message:', response.data.error);
+    }
+  } catch (error) {
+    console.error('Error sending message:', error);
+  }
+}
+
+// Trigger sending a Slack message
+const messageToBeSent = 'This is a message from your JavaScript code!';
+sendSlackMessage(messageToBeSent);
+
+
 
 function sendQuestion(uid, question) {
   // Define the URL for the POST request

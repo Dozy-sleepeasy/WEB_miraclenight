@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Munice">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="미라클나잇 수면연구소">
+    <meta property="og:title" content="미라클나잇 수면연구소">
+    <meta property="og:url" content="www.miraclenight.app">
+
+    <title>일주일 수면 리포트</title>
+
+    <link rel="stylesheet" href="/sleepreport/static/report_style.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Michroma&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js" type="text/javascript"></script>
+    <link rel="shortcut icon" type="image/x-icon" href="/zzzi/static/image/favicon.ico">
+    <script src="/sleepreport/static/jspdf.js"></script>
+    <script src="/sleepreport/static/html2canvas.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.5/jspdf.min.js"></script>
+    
+        <script src="https://d3js.org/d3.v7.min.js"></script>
+    <!-- Include d3-cloud library -->
+    <script src="https://cdn.rawgit.com/jasondavies/d3-cloud/v1.2.5/build/d3.layout.cloud.js"></script>
+    
+    <script src="/sleepreport/static/script_1106.js"></script>
+    <script src="/sleepreport/static/processCSV.js"></script>
+</head>
+<body data-spy="scroll" id="exportBody" onload="updateReport();">
+<!-- Preloader -->
+<div class="spinner-wrapper">
+    <div class="spinner">
+        <div class="bounce1"></div>
+        <div class="bounce2"></div>
+        <div class="bounce3"></div>
+    </div>
+</div>
+<!-- end of preloader -->
+
+<section class="section-1" style="padding-bottom: 100px;">
+    <div class="section-1-logo"><img src="/sleepreport/static/logo.png"></div>
+    <div class="section-1-text" >
+        <div class="section-1-text-left" style="width:100%;">
+        <h1 style="font-size: 40px;margin-bottom: 18px;color:#999;"><span id="username" style="color:white;"></span><span style="color:white;">님!</span> 이번 주는 미라클나잇과 <span id="days" style="color:#649CFF"></span> 동안 꿀잠 자고 일평균 <span id="average_sleep_hours2" style="color:#649CFF"></span>으로 <span id="sleep_rate_sum">좋은</span> 수면을 하셨어요</h1>
+        <p id="dateRange">11월 6일 (월) ~ 11월 12일 (일)</p>
+        </div>
+    </div>
+    <div class="section-1-text-right-2">
+        <img src="/sleepreport/static/zzzi_1.png">
+    </div>
+</section>
+    
+<div class="divdier" style="margin-top: 20px;"></div>
+    
+<section class="section-2">
+    <h2>수면 시간</h2>
+    <div class="section-2-box">
+        <div class="section-2-box-1">
+            <span id="section-2-box-span">일 평균 수면 시간</span>
+            <p id="average_sleep_hours">5시간 52분</p></div>
+        <div class="section-2-box-2">
+            <span id="section-2-box-span">수면 평가</span>
+            <p id="sleep_rate">GOOD</p></div>
+    </div>
+    <div id="insight">
+    <h3>주간 인사이트</h3>
+    <div class="section-2-insight">
+        <div class="section-2-in-text">저번 주 대비 평균 수면 시간이 <span id="sleep-time-text">53분</span> <span id="sleep-time-text2">늘었어요. 최적의 수면 시간에 가까워지고 있어요. 아주 잘하고 있어요!</span> </div>
+        <div class="section-2-in-graph">
+            <div class="in-graph-last">
+                <p><span id="prev_sleep_hours">5.2</span> hr</p>
+                <div id="last_sleep_hours" class="data-bar-4" style=""></div>
+                <div class="small-divider"></div>
+                <p>저번 주</p>
+            </div>
+            <div class="in-graph-this">
+                <p><span id="aver_sleep_hours">5.2</span> hr</p>
+                <div id="this_sleep_hours" class="data-bar-2" style=""></div>
+                <div class="small-divider"></div>
+                <p>이번 주</p>
+            </div>
+        </div>
+    </div></div>
+    
+    <h3>일별 수면 시간</h3>
+
+    <div class="section-2-graph">
+        <div class="y-axis">
+            <div>12hr</div>
+            <div>10hr</div>
+            <div>8hr</div>
+            <div>6hr</div>
+            <div>4hr</div>
+            <div>2hr</div>
+            <div>0hr</div>
+        </div>
+        <div class="graph">
+            <div id="mon_sleep_hours" class="data-bar" style="margin-left: 25px;"></div>
+            <div id="tue_sleep_hours" class="data-bar" style=""></div>
+            <div id="wed_sleep_hours" class="data-bar" style=""></div>
+            <div id="thu_sleep_hours" class="data-bar" style=""></div>
+            <div id="fri_sleep_hours" class="data-bar" style=""></div>
+            <div id="sat_sleep_hours" class="data-bar" style=""></div>
+            <div id="sun_sleep_hours" class="data-bar" style=""></div>
+        </div>
+    </div>
+    
+    <div class="x-axis">
+        <div>월</div>
+        <div>화</div>
+        <div>수</div>
+        <div>목</div>
+        <div>금</div>
+        <div>토</div>
+        <div>일</div>
+    </div>
+    
+    <p class="graph-info">* 정확한 분석을 위해 낮잠(1시간 이내/낮 시간 기상 등) 데이터는 제외했어요.</p>
+    <div class="section-3-text" style="padding-top: 0px;">
+    <p id="sleep_rate_text">아주 잘하고 있어요!</p>
+    <p id="section-3-p">일반적으로 일상 생활을 잘 유지하기 위하여 하루 6~8시간 정도의 수면을 취하는 것이 좋습니다. 이보다 수면이 부족하게 되면 피로가 쏟아지면서 집중력이 떨어지고 운동 능력이 저하되기도 합니다. 또한, 수면시간을 줄일수록 비만이 생길 위험이 높아진다는 연구도 있습니다. </p>
+    </div>
+
+</section>
+    
+<div class="divdier"></div>
+    
+<section class="section-3">
+    <h2>수면 패턴</h2>
+    <div class="section-3-box">
+        <div style="display: flex;">
+        <div class="section-3-box-1">
+            <span id="section-3-box-span">평균 취침 시간</span>
+            <p id="average_bedtime">오후 11:40</p></div>
+        <div class="section-3-box-2">
+            <span id="section-3-box-span">수면 패턴 일정도</span>
+            <p id="sleep_pattern">80%</p></div>
+        </div>
+        
+        <div style="display: flex;margin-top:32px;">
+        <div class="section-3-box-1">
+            <span id="section-3-box-span">평균 기상 시간</span>
+            <p id="average_waketime">오전 07:22</p></div>
+        <div class="section-3-box-2">
+            <span id="section-3-box-span">평가</span>
+            <p id="pattern_rate">GOOD</p></div>
+        </div>
+    </div>
+    
+    <h3>주간 인사이트</h3>
+    <div id="insight2">
+    <div class="section-2-insight">
+        <div class="section-2-in-text" style="width:100%;padding-right: 0px;">저번 주 대비 취침 시간이 <span id="bedtime-text"></span> <span id="bedtime-text2"></span> <br> (저번 주 평균 취침 시간: <span id="prev_bedtime"></span>) </div>
+        
+        
+    </div>
+    </div>
+    
+    <div id="insight3" style="margin-top: 20px;">
+    <div class="section-2-insight">
+        <div class="section-2-in-text" style="width:100%;padding-right: 0px;">저번 주 대비 기상 시간이 <span id="waketime-text"></span> <span id="waketime-text2"></span> <br> (저번 주 평균 기상 시간: <span id="prev_waketime"></span>) </div>
+    </div>
+    </div>
+    
+    
+     <h3>일일 수면 패턴</h3>
+    <div class="section-3-graph">
+        <div class="y-axis-3">
+            <div>12:00</div>
+            <div>11:00</div>
+            <div>10:00</div>
+            <div>09:00</div>
+            <div>08:00</div>
+            <div>07:00</div>
+            <div>06:00</div>
+            <div>05:00</div>
+            <div>04:00</div>
+            <div>03:00</div>
+            <div>02:00</div>
+            <div>01:00</div>
+            <div>24:00</div>
+            <div>23:00</div>
+            <div>22:00</div>
+            <div>21:00</div>
+        </div>
+        <div class="graph-3">
+            <div id="mon_waketime" class="data-bar-3" style="margin-left: 30px;margin-top: 4px;"></div>
+            <div id="tue_waketime" class="data-bar-3" style=""></div>
+            <div id="wed_waketime" class="data-bar-3" style=""></div>
+            <div id="thu_waketime" class="data-bar-3" style=""></div>
+            <div id="fri_waketime" class="data-bar-3" style=""></div>
+            <div id="sat_waketime" class="data-bar-3" style=""></div>
+            <div id="sun_waketime" class="data-bar-3" style=""></div>
+        
+        </div>
+    </div>
+    
+    <div class="x-axis-3">
+        <div>월</div>
+        <div>화</div>
+        <div>수</div>
+        <div>목</div>
+        <div>금</div>
+        <div>토</div>
+        <div>일</div>
+    </div>
+    
+    <p class="graph-info">* 정확한 분석을 위해 낮잠(1시간 이내/낮 시간 기상 등) 데이터는 제외했어요.</p>
+    
+        <div class="section-3-text" style="margin-top: 65px;">
+    <p id="pattern_rate_text">아주 잘하고 있어요!</p>
+    <p id="section-3-p">우리의 생체 리듬, 특히 생체 시계와 일관된 수면 패턴을 유지함으로써 최적화됩니다. 규칙적인 수면 스케줄은 생체 리듬을 조절하고 일상 생활을 조율하는 데 도움을 줍니다. 이는 수면을 자연스럽게 깊고 효과적으로 만들어 줍니다.</p>
+    </div>
+    
+</section>
+    
+<div class="divdier"></div>
+    
+<section class="section-4">
+    <h2>일상 키워드</h2>
+    <svg id="word-cloud" width="350" height="350" ></svg>
+    
+    <div class="section-4-1">
+        <span>가장 많이 느낀 감정</span>
+        <img id="emotion-img" src="/sleepreport/static/icon/stressed.png">
+        <h3 id="emotion-title">스트레스</h3>
+    </div>
+    
+    <p id="emotion-text">우리의 생체 리듬, 특히 생체 시계와 일관된 수면 패턴을 유지함으로써 최적화됩니다. 규칙적인 수면 스케줄은 생체 리듬을 조절하고 일상 생활을 조율하는 데 도움을 줍니다. 이는 수면을 자연스럽게 깊고 효과적으로 만들어 줍니다.</p>
+    
+    <p>
+        <span style="display: flex;padding-bottom: 10px;align-items: center;">
+            <span class="section-4-tip"> 쿨쿨이의 TIP</span> 
+            <span id="emotion-text2" class="section-4-tip-text"> 스트레스 해소하는 꿀팁</span>  
+        </span>
+        <span id="emotion-text3"></span>
+    </p>
+    
+    <div class="section-4-1" style="margin-top: 56px;">
+        <span>가장 자주한 활동</span>
+        <img id="activity-img" src="/sleepreport/static/icon/coffee.png">
+        <h3 id="activity-title">커피</h3>
+    </div>
+    
+    <p id="activity-text">카페인은 수면 시작을 지연시킬 수 있습니다. 수면에 들기 전에 커피를 섭취하면 잠자리에 들기까지 더 많은 시간이 필요할 수 있습니다.</p>
+    
+    <p>
+        <span style="display: flex;padding-bottom: 10px;align-items: center;">
+            <span class="section-4-tip"> 쿨쿨이의 TIP</span> 
+            <span id="activity-text2" class="section-4-tip-text"> 스트레스 해소하는 꿀팁</span>  
+        </span>
+        <span id="activity-text3"></span>
+    </p>
+    
+</section>
+    
+<div class="divdier"></div>
+    
+<section class="section-5">
+    <h2><span id="username3">레드릭</span>님, 요즘 <br> <span id="advice">취침 시간이 너무 늦어요.</span></h2>
+    <img src="/sleepreport/static/zzzi_6.png">
+    <p><span id="advice_text">과학적으로 잠에 들기 가장 좋은 시간은 10시입니다. 우리 몸의 자연적 일주기 리듬 때문인데, 일주기 리듬이란 몸이 해가 뜨고 지는 것을 따라 하는 현상을 뜻합니다. 보통 10시부터 2시 사이에 성장호르몬이 봄비 되는데 성장호르몬은 아이들에게만 필요한 게 아닙니다. 피부 대사를 활성화해 미인 호르몬이라는 별명도 있는 성장호르몬은 지방 분해를 도와 다이어트 효과도 주고 낮에 들어온 단기 기억을 장기 기억으로 저장시키기도 해서 공부 호르몬이라고도 불립니다. 취침 시간을 조금 앞당겨 보는 건 어떨까요?</span><br><br><span id="advice_text_2">ㅎㅎ</span></p>
+</section>
+    
+<section class="section-6">
+    <p class="rating">★★★★★</p>
+    <h3>미라클나잇 어떠신가요?<br>
+        앱스토어 리뷰를 남겨주세요!</h3>
+    <p class="section-6-text">카톡으로 인증하면 스타벅스 기프티콘을 보내드려요!</p>
+    <div class="section-6-review">
+    <a href="https://onelink.to/cbgnkb" class="review" target="_blank">리뷰 남기러 가기</a>
+    <img src="/sleepreport/static/zzzi_3.png">
+    </div>
+</section>
+    
+<section class="section-7">
+        <p>새벽을 바꾸는 기적의 수면</p>
+        <img class="footer-img" src="/sleepreport/static/miraclenight.png">
+        <div class="footer-buttons"></div>
+        <p> Munice Inc. All rights reserved.</p>
+</section>
+</body>
+    <script>
+    
+    </script>
+</html>   
