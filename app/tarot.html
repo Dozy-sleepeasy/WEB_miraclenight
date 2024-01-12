@@ -1,0 +1,231 @@
+
+    
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Munice">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="미라클나잇">
+    <meta property="og:title" content="미라클나잇">
+    <meta property="og:description" content="기적의 수면, 미라클나잇">
+    <meta property="og:url" content="www.miraclenight.app">
+
+    <title>미라클나잇 2024 꿀잠 부적</title>
+
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Michroma&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="shortcut icon" type="image/x-icon" href="/static/images/small_icon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js" type="text/javascript"></script>
+
+    <style>
+        .hiding{display: none;}
+    </style>
+
+        
+    <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script> 
+
+    
+</head>
+<body data-spy="scroll" onload="getTarot();" class="tarot-body" style="background-color:#1B1E29;">
+<div id="loading-container">
+  <div id="loading-spinner"></div>
+</div>
+    
+<div id="tarotPopupContainer" class="tarot-popup">
+    <div class="tarot-popup-content">
+        <span class="close" id="closePopupBtn">&times;</span>
+        <h2 class="tarot-h2">새해에 1회 수면을 해야 <br>부적 뽑기가 가능해요</h2>
+        <img src="/static/images/tarot/modal_image.png">
+        <span class="tarot-error-button" id="closePopupBtn2">꿀잠자러 가기</span>
+    </div>
+</div>
+
+<div class="total tarot-whole">
+    
+    <dotlottie-player src="https://lottie.host/9a8a01c8-3e8f-4d8b-934e-3b0dca87d3ac/qDlUn8j1aI.json" background="transparent" speed="1" style="width: 100%; height: 300px;position: absolute;transform: scaleX(-1);" loop autoplay></dotlottie-player>
+    
+<section class="tarot-top">
+    <h1 class="tarot-h1" data-aos="fade-up" data-aos-duration="1000">2024 <br> 꿀잠 부적</h1>
+    <h3 class="tarot-h3">1.8 - 1.14</h3>
+</section>
+    
+<section class="tarot-section">
+    <p class="tarot-p">새해 소원 다 이루어지는</p>
+    <p class="tarot-p2">올해 꿀잠 부적을 뽑아보세요</p>
+    
+    <!-- First Card (Static) -->
+    <div class="cards" id="before" data-aos="zoom-in" data-aos-duration="1000">
+        <div class="card-inner">
+            <div class="card-front">
+                <img src="/static/images/tarot/tarot_back.png" alt="Card Back">
+            </div>
+            <div class="card-back">
+                <img src="/static/images/tarot/tarot_1.png" alt="Card Front" id="afterTarot">
+            </div>
+        </div>
+    </div>
+    
+    <!-- Second Card (Flipping on Load) -->
+    <div class="cards flip-on-load" onclick="flipCard(this)" id="after" data-aos="zoom-in" data-aos-duration="1000">
+        <div class="card-inner">
+            <div class="card-back">
+                <img src="" alt="After Tarot" id="afterTarot2">
+            </div>
+            <div class="card-front">
+                <img src="/static/images/tarot/tarot_back.png" alt="Card Back">
+            </div>
+        </div>
+    </div>
+
+    
+</section>
+    
+<section class="tarot-button-section" id="buttonSection">
+    <div class="tarot-cards-buttons">
+        
+        <a href="/static/images/tarot/tarot_1.png" download="꿀잠부적.jpg"  title="2024 미라클나잇 꿀잠부적" style="background:#2859DA; color: white;" id="cardSave"><img src="/static/images/tarot/save.png">&nbsp;이미지 저장</a>
+        
+        <a id="share-button">이벤트 공유하기</a>
+        
+    
+    </div>
+ </section> 
+    
+<section class="tarot-text-section" id="textSection">
+    <div class="tarot-cards-buttons">
+        <p style="margin:0;color: #DADADA;
+font-family: Pretendard;
+font-size: 16px;
+font-style: normal;
+font-weight: 600;
+line-height: 150%;
+letter-spacing: -0.5px;">위 타로를 눌러서 뒤집으세요!</p>
+    </div>
+    
+ </section> 
+    
+<section class="tarot-present">
+    <div class="tarot-present-top">
+        <img src="/static/images/tarot/background_top3.png">
+    </div>
+    
+    <div class="tarot-present-text">
+        <p class="tarot-p3" data-aos="zoom-in" data-aos-duration="1000">꿀잠 부적 선물</p>
+        <p class="tarot-p4">내 꿀잠 부적을 인스타그램 스토리에 <br>
+인증하면 추첨을 통해 <span style="color:#779CFF;">10분</span>께 <br>
+새해 선물 세트를 보내드려요!</p>
+    </div>
+    
+    <div class="tarot-present-img">
+        <img class="present-img-animation" src="/static/images/tarot/tarot_present.png">
+    </div>
+</section>
+    
+<section style="width: 100%;background-color: #1B1E29;padding-top: 84px;padding-bottom: 120px;">
+
+    <p class="tarot-p5">인증 이벤트 참여 방법</p>
+    
+    <p class="tarot-p6">
+    <span class="tarot-steps">STEP 1</span> &nbsp;내 꿀잠 부적을 확인하고 <br>
+    <span class="tarot-steps">STEP 2</span> &nbsp;인스타그램 스토리에 부적 공유 <br>
+    <span class="tarot-steps">STEP 3</span> &nbsp;이때 @miraclenight_official 태그 필수 
+    </p>
+    
+    <div class="tarot-event-button">
+    <a href="https://www.instagram.com/miraclenight_official" target="_blank">인스타그램 바로가기</a>
+    </div>
+    
+</section>
+
+
+
+</div>
+
+<script src="/static/js/card.js"></script>
+
+    
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+    AOS.init();
+</script>
+
+    
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+    // Find the second card with the "flip-on-load" class
+    var secondCard = document.querySelector('.flip-on-load');
+    
+    // Trigger the flip effect
+    flipCard(secondCard);
+});
+
+</script>
+    
+    <script type="text/javascript" charset="utf-8">
+            
+  const shareButton = document.getElementById("share-button");
+   var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+    if (/windows phone/i.test(userAgent)) {
+        console.log("Windows Phone");
+        
+          shareButton.addEventListener('click', event => {
+      console.log("in");
+  if (navigator.share) {
+    navigator.share({
+      title: '미라클나잇 2024 꿀잠 부적',
+      url: 'https://miraclenight.app/'
+    }).then(() => {
+      
+    })
+    .catch(console.error);
+  } else {
+    // fallback
+  }
+});
+    }
+
+    if (/android/i.test(userAgent)) {
+        console.log("Android");
+        
+        shareButton.addEventListener('click', event => {
+    if (window.AndroidShare) {
+        window.AndroidShare.share('미라클나잇 2024 꿀잠 부적', 'https://www.miraclenight.app/ko/home');
+    } else {
+        // Fallback code or alert message
+    }
+});
+    }
+
+    // iOS detection from: http://stackoverflow.com/a/9039885/177710
+    if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+        console.log("iOS");
+        
+          shareButton.addEventListener('click', event => {
+      console.log("in");
+  if (navigator.share) {
+    navigator.share({
+      title: '미라클나잇 2024 꿀잠 부적',
+      url: 'https://miraclenight.app/'
+    }).then(() => {
+      
+    })
+    .catch(console.error);
+  } else {
+    // fallback
+  }
+});
+    }
+
+
+</script> 
+
+</body>

@@ -28,6 +28,10 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: "KyoboHandwriting2022khn";
+    src: url('/static/images/tarot/KyoboHandwriting2022khn.ttf') format('truetype');
+}
 
 
 html {
@@ -3511,4 +3515,534 @@ display: none;
     color: white;
     font-weight: normal;
     font-size: 14px;
+}
+
+.tarot-section {
+    
+    background-image: url('/static/images/tarot/background_top2.png');
+    background-size: contain; /* Adjust this property as needed */
+    background-repeat: no-repeat; /* Adjust this property as needed */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(16,30,64);
+}
+
+.cards {
+    width: 80%;
+    height: 370px;
+    perspective: 1000px;
+    cursor: pointer;
+    margin-top: 30px;
+    animation: rotateCard 5s infinite ease-in-out;
+}
+
+@keyframes rotateCard {
+  0%, 100% {
+    transform: rotateY(0deg) rotateX(0deg) rotateZ(0deg);
+  }
+  25% {
+    transform: rotateY(16deg) rotateX(8deg) rotateZ(0deg); /* Added Z rotation */
+  }
+  65% {
+    transform: rotateY(17deg) rotateX(-7deg) rotateZ(0deg); /* Added Z rotation */
+  }
+}
+
+
+
+.card-inner {
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.5s;
+}
+
+.cards:hover .card-inner {
+/*    transform: rotateY(180deg);*/
+}
+
+.card-front,
+.card-back {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    backface-visibility: hidden;
+}
+
+.card-front {
+    transform: rotateY(0deg);
+    transform-style: preserve-3d;
+}
+
+.card-back {
+    transform: rotateY(180deg);
+}
+
+.card-back img{
+    width: 100%;
+}
+
+
+/* Disable pointer events for frontside */
+.card.frontside {
+    pointer-events: none;
+}
+
+
+#after {
+    display: none;
+}
+
+#before {
+    display: none;
+}
+
+.tarot-top {
+    background-image: url('/static/images/tarot/background_top.png');
+    background-size: cover; /* Adjust this property as needed */
+    background-repeat: no-repeat; /* Adjust this property as needed */
+}
+
+.tarot-whole {
+/*
+    background: rgb(14,27,60);
+    background: rgb(14,27,60);
+background: linear-gradient(180deg, rgba(14,27,60,1) 0%, rgba(14,27,60,1) 67%, rgba(57,84,156,1) 100%);
+*/
+}
+
+.tarot-h1 {
+    color: var(--FFFFFF, #FFF);
+    text-align: center;
+    font-family: Chosun Centennial;
+    font-size: 66.886px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 135%; /* 90.296px */
+    padding-top: 80px;
+}
+
+.tarot-h3 {
+    color: #DDD;
+    font-family: KyoboHandwriting2022khn;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 160%; /* 32px */
+    margin-top: 20px;
+    text-align: center;
+    padding-bottom: 34px;
+}
+
+.tarot-p {
+    padding-top: 222px;
+    color: #FFF;
+    text-align: center;
+    font-family: Pretendard;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 150%; /* 24px */
+    letter-spacing: -0.5px;
+    margin-bottom: 0px;
+}
+
+.tarot-p2 {
+    color: #FFF;
+text-align: center;
+font-family: Pretendard;
+font-size: 26px;
+font-style: normal;
+font-weight: 700;
+line-height: 150%; /* 39px */
+letter-spacing: -0.78px;
+    margin-top: 4px;
+    margin-bottom: 0px;
+}
+
+.card-front img {
+    width: 100%;
+}
+
+.card-back img {
+    width: 100%;
+}
+
+.tarot-body {
+}
+
+.tarot-cards-buttons {
+    padding-top: 120px;
+    width: 80%;
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 20px;
+    text-align: center;
+    align-items: center;
+    align-content: center;
+}
+
+@media only screen and (max-width: 376px) {
+    .tarot-cards-buttons {
+        padding-top: 70px; /* Increased padding-top for smaller screens */
+    }
+}
+
+.tarot-cards-buttons img {
+    width: 16px;
+}
+
+.tarot-cards-buttons a {
+    width: 46%;
+    height: 50px;
+    border: none;
+    border-radius: 10.006px;
+    background: #CCDBEA;
+    box-shadow: 0px 0px 8.338px 0px rgba(0, 0, 0, 0.25);
+    outline: none;
+    text-decoration: none;
+    
+    color: #000;
+    text-align: center;
+    font-family: Pretendard;
+    font-size: 15.008px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 11.673px; /* 77.778% */
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#card-save {
+    background: #2859DA;
+    color: #FFF;
+    text-align: center;
+    font-family: Pretendard;
+    font-size: 15.008px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 11.673px; /* 77.778% */
+}
+
+.tarot-present-top {
+    width: 100%;
+}
+
+.tarot-present-top img {
+    width: 100%;
+}
+
+.tarot-present {
+    background-color: #1B1E29;
+}
+
+.tarot-present-text {
+    text-align: center;
+}
+
+.tarot-p4 {
+    color: var(--FFFFFF, #FFF);
+    text-align: center;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: Pretendard;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 28px; /* 175% */
+    margin: 0;
+}
+
+.tarot-p3 {
+    color: var(--FFFFFF, #FFF);
+    text-align: center;
+    font-family: Pretendard;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 150%; /* 59.062px */
+    margin: 0;
+    margin-bottom: 10px;
+}
+
+.tarot-present-img {
+    width: 100%;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.tarot-present-img img{
+    width: 100%;
+}
+
+.tarot-present-img-text {
+    color: var(--g5, #808080);
+text-align: center;
+font-feature-settings: 'clig' off, 'liga' off;
+font-family: Pretendard;
+font-size: 13px;
+font-style: normal;
+font-weight: 400;
+line-height: 135%; /* 17.55px */
+}
+
+.tarot-p5 {
+    width: 90%;
+    margin: 0 auto;
+    color: #FFF;
+    
+font-family: Pretendard;
+font-size: 24px;
+font-style: normal;
+font-weight: 700;
+line-height: 150%; /* 36px */
+    padding: 15px 0 15px 0;
+    border-top: 2px solid #8D8E94;
+    border-bottom: 2px solid #8D8E94;
+}
+
+.tarot-steps {
+    color: #7CA0FF;
+    font-family: Pretendard;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+
+
+    border-radius: 18.904px;
+    border: 1px solid #6B8FF1;
+    padding: 2px 5px;
+}
+
+.tarot-p6 {
+    width: 90%;
+    margin: 0 auto;
+    color: #FFF;
+    font-family: Pretendard;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 210%; /* 19.2px */
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+
+.tarot-event-button a {
+
+    text-align: center;
+    color: var(--white, #FFF);
+    
+    font-family: Pretendard;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 14px; /* 77.778% */
+    text-decoration: none;
+    
+    display: flex;
+    justify-content: center;
+    
+}
+
+.tarot-event-button {    
+    margin: 0 auto;
+    width: 90%;
+    border-radius: 12px;
+    background: #2859DA;
+    padding: 22px 0px;
+    border: none;
+    
+    display: flex;
+    flex-direction: column;
+}
+
+.present-img-animation {
+   animation: zoomInOut 2s infinite ease-in-out;
+}
+
+@keyframes zoomInOut {
+  0%, 100% {
+    transform: scale(0.9);
+  }
+  50% {
+    transform: scale(0.92);
+  }
+}
+
+}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  position: relative;
+  background-color: #fefefe;
+  margin: 10% auto;
+  padding: 20px;
+  border-radius: 10px;
+  width: 80%;
+  max-width: 600px; /* Could be responsive to screen size */
+}
+
+/* The Close Button */
+.close {
+  color: var(--g2, #CCC);
+  float: right;
+  font-size: 20px;
+  font-weight: lighter;
+}
+
+.close:hover,
+.close:focus {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-header {
+  padding: 2px 16px;
+  background-color: #5c7cfa;
+  color: white;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.modal-body {
+  padding: 2px 16px;
+  text-align: center;
+}
+
+.card-container {
+  display: flex;
+  justify-content: space-around;
+  padding: 20px;
+}
+
+.cardy {
+  width: 100px;
+  height: 150px;
+  background-size: cover;
+  display: inline-block;
+  /* Replace with your own images */
+  background-image: url('/static/images/tarot/modal_back.png');
+}
+
+.modal-button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+/* Additional styling can be added for the modal header text and other elements as needed. */
+
+
+.tarot-button-section {
+    display: flex;flex-direction: column;justify-content: center;align-items: center;background: rgb(16,29,64);
+background: linear-gradient(180deg, rgba(16,29,64,1) 0%, rgba(57,84,155,1) 100%);
+display: none;
+}
+
+.tarot-text-section {
+    display: flex;flex-direction: column;justify-content: center;align-items: center;background: rgb(16,29,64);
+background: linear-gradient(180deg, rgba(16,29,64,1) 0%, rgba(57,84,155,1) 100%);
+    display: none;
+
+}
+
+.tarot-popup {
+    /* Styling for the pop-up container */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 99;
+    display: none;
+}
+
+.tarot-popup-content {
+    width: 300px;
+    height: 400px;
+    background-image: url(/static/images/tarot/modal_back.png);
+    background-size: contain;
+    
+    border-radius: 5px;
+
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    text-align: center;
+    z-index: 999;
+}
+
+.tarot-popup-content img {
+    width: 75%;
+    height: auto;
+    margin-top: 10px;
+    margin-bottom: -7px;
+}
+
+/* Styling for the close button */
+.close {
+    position: absolute;
+    top: -10px;
+    right: 0px;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.tarot-h2 {
+    color: var(--FFFFFF, #FFF);
+text-align: center;
+font-family: Pretendard;
+font-size: 26px;
+font-style: normal;
+font-weight: 700;
+line-height: 130%; /* 33.8px */
+    padding-top: 191px;
+    
+}
+
+.tarot-error-button {
+    display: flex;
+    width: 300px;
+    padding: 22px 0px;
+    justify-content: center;
+    align-items: flex-start;
+    border-radius: 0px 0px 12px 12px;
+    background: #FFF;
+    border: none;
+    outline: none;
+
+    color: #0F1B3C;
+    text-align: center;
+    font-family: Pretendard;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 14px; /* 77.778% */
 }
